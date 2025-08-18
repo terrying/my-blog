@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="highRisk" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#cc0000;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="mediumRisk" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffaa00;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff8800;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="lowRisk" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#44ff44;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00cc00;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="1200" height="800" fill="#f8f9fa"/>
+  
+  <!-- 标题 -->
+  <text x="600" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#2c3e50">
+    API 分类分级矩阵 - 业务场景版
+  </text>
+  
+  <!-- 坐标轴标签 -->
+  <text x="50" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2c3e50" transform="rotate(-90, 50, 420)">
+    敏感程度
+  </text>
+  <text x="600" y="750" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2c3e50">
+    业务重要性
+  </text>
+  
+  <!-- 敏感程度刻度 -->
+  <text x="120" y="680" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#666">低敏感</text>
+  <text x="120" y="580" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#666">中敏感</text>
+  <text x="120" y="480" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#666">高敏感</text>
+  
+  <!-- 业务重要性刻度 -->
+  <text x="200" y="720" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#666">低重要性</text>
+  <text x="400" y="720" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#666">中重要性</text>
+  <text x="600" y="720" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#666">高重要性</text>
+  
+  <!-- 网格线 -->
+  <g stroke="#e0e0e0" stroke-width="1">
+    <line x1="200" y1="200" x2="200" y2="600"/>
+    <line x1="400" y1="200" x2="400" y2="600"/>
+    <line x1="600" y1="200" x2="600" y2="600"/>
+    <line x1="800" y1="200" x2="800" y2="600"/>
+    <line x1="1000" y1="200" x2="1000" y2="600"/>
+    <line x1="200" y1="200" x2="1000" y2="200"/>
+    <line x1="200" y1="300" x2="1000" y2="300"/>
+    <line x1="200" y1="400" x2="1000" y2="400"/>
+    <line x1="200" y1="500" x2="1000" y2="500"/>
+    <line x1="200" y1="600" x2="1000" y2="600"/>
+  </g>
+  
+  <!-- 风险区域 - 根据矩阵重新调整 -->
+  <!-- 高风险区域 (高敏感 + 高重要性) -->
+  <rect x="600" y="200" width="400" height="200" fill="url(#highRisk)" opacity="0.8" filter="url(#shadow)"/>
+  <text x="800" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">
+    5级 - 高风险
+  </text>
+  <text x="800" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+    全链路严格防护
+  </text>
+  
+  <!-- 中风险区域 -->
+  <!-- 高敏感 + 中重要性 -->
+  <rect x="400" y="200" width="200" height="200" fill="url(#mediumRisk)" opacity="0.8" filter="url(#shadow)"/>
+  <text x="500" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+    4级
+  </text>
+  <text x="500" y="315" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+    基础安全控制
+  </text>
+  
+  <!-- 中敏感 + 高重要性 -->
+  <rect x="600" y="400" width="400" height="100" fill="url(#mediumRisk)" opacity="0.8" filter="url(#shadow)"/>
+  <text x="800" y="450" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+    3级
+  </text>
+  <text x="800" y="465" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+    基础安全控制
+  </text>
+  
+  <!-- 低风险区域 -->
+  <!-- 高敏感 + 低重要性 -->
+  <rect x="200" y="200" width="200" height="200" fill="url(#lowRisk)" opacity="0.8" filter="url(#shadow)"/>
+  <text x="300" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+    2级
+  </text>
+  <text x="300" y="315" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+    轻量化防护
+  </text>
+  
+  <!-- 中敏感 + 低重要性 -->
+  <rect x="200" y="400" width="200" height="100" fill="url(#lowRisk)" opacity="0.8" filter="url(#shadow)"/>
+  
+  <!-- 低敏感区域 (所有重要性级别) -->
+  <rect x="200" y="500" width="800" height="100" fill="url(#lowRisk)" opacity="0.8" filter="url(#shadow)"/>
+  <text x="600" y="550" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+    1级
+  </text>
+  <text x="600" y="565" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+    轻量化防护
+  </text>
+  
+  <!-- 示例API标注 - 根据风险等级重新调整位置 -->
+  <!-- 5级示例 - 高敏感 + 高重要性 -->
+  <circle cx="750" cy="250" r="8" fill="white" stroke="#333" stroke-width="2"/>
+  <text x="760" y="255" font-family="Arial, sans-serif" font-size="10" fill="#333">转账接口</text>
+  
+  <circle cx="850" cy="280" r="8" fill="white" stroke="#333" stroke-width="2"/>
+  <text x="860" y="285" font-family="Arial, sans-serif" font-size="10" fill="#333">贷款审批</text>
+  
+  <circle cx="900" cy="320" r="8" fill="white" stroke="#333" stroke-width="2"/>
+  <text x="910" y="325" font-family="Arial, sans-serif" font-size="10" fill="#333">支付接口</text>
+  
+  <circle cx="950" cy="280" r="8" fill="white" stroke="#333" stroke-width="2"/>
+  <text x="960" y="285" font-family="Arial, sans-serif" font-size="10" fill="#333">用户删除</text>
+  
+  <!-- 4级示例 - 高敏感 + 中重要性 -->
+  <circle cx="500" cy="250" r="8" fill="white" stroke="#333" stroke-width="2"/>
+  <text x="510" y="255" font-family="Arial, sans-serif" font-size="10" fill="#333">订单查询</text>
+  
+  <circle cx="450" cy="320" r="8" fill="white" stroke="#333" stroke-width="2"/>
+  <text x="460" y="325" font-family="Arial, sans-serif" font-size="10" fill="#333">库存管理</text>
+  
+  <circle cx="550" cy="280" r="8" fill="white" stroke="#333" stroke-width="2"/>
+  <text x="560" y="285" font-family="Arial, sans-serif" font-size="10" fill="#333">用户信息</text>
+  
+  <!-- 3级示例 - 中敏感 + 高重要性 -->
+  <circle cx="700" cy="420" r="8" fill="white" stroke="#333" stroke-width="2"/>
+  <text x="710" y="425" font-family="Arial, sans-serif" font-size="10" fill="#333">商品详情</text>
+  
+  <circle cx="750" cy="440" r="8" fill="white" stroke="#333" stroke-width="2"/>
+  <text x="760" y="445" font-family="Arial, sans-serif" font-size="10" fill="#333">评论查询</text>
+  
+  <circle cx="800" cy="430" r="8" fill="white" stroke="#333" stroke-width="2"/>
+  <text x="810" y="435" font-family="Arial, sans-serif" font-size="10" fill="#333">优惠券查询</text>
+  
+  <circle cx="650" cy="440" r="8" fill="white" stroke="#333" stroke-width="2"/>
+  <text x="660" y="445" font-family="Arial, sans-serif" font-size="10" fill="#333">地址修改</text>
+  
+  <!-- 2级示例 - 高敏感 + 低重要性 -->
+  <circle cx="300" cy="250" r="8" fill="white" stroke="#333" stroke-width="2"/>
+  <text x="310" y="255" font-family="Arial, sans-serif" font-size="10" fill="#333">帮助中心</text>
+  
+  <circle cx="250" cy="350" r="8" fill="white" stroke="#333" stroke-width="2"/>
+  <text x="260" y="355" font-family="Arial, sans-serif" font-size="10" fill="#333">公开信息</text>
+  
+  <circle cx="350" cy="300" r="8" fill="white" stroke="#333" stroke-width="2"/>
+  <text x="360" y="305" font-family="Arial, sans-serif" font-size="10" fill="#333">公告查询</text>
+  
+  <!-- 1级示例 - 低敏感区域 -->
+  <circle cx="500" cy="550" r="8" fill="white" stroke="#333" stroke-width="2"/>
+  <text x="510" y="555" font-family="Arial, sans-serif" font-size="10" fill="#333">商品列表</text>
+  
+  <circle cx="600" cy="540" r="8" fill="white" stroke="#333" stroke-width="2"/>
+  <text x="610" y="545" font-family="Arial, sans-serif" font-size="10" fill="#333">搜索接口</text>
+  
+  <circle cx="800" cy="530" r="8" fill="white" stroke="#333" stroke-width="2"/>
+  <text x="810" y="535" font-family="Arial, sans-serif" font-size="10" fill="#333">静态资源</text>
+  
+  <circle cx="900" cy="550" r="8" fill="white" stroke="#333" stroke-width="2"/>
+  <text x="910" y="555" font-family="Arial, sans-serif" font-size="10" fill="#333">图片服务</text>
+  
+  <!-- 图例 -->
+  <rect x="50" y="50" width="15" height="15" fill="url(#highRisk)"/>
+  <text x="75" y="62" font-family="Arial, sans-serif" font-size="12" fill="#333">高风险 (5级)</text>
+  
+  <rect x="50" y="75" width="15" height="15" fill="url(#mediumRisk)"/>
+  <text x="75" y="87" font-family="Arial, sans-serif" font-size="12" fill="#333">中风险 (3-4级)</text>
+  
+  <rect x="50" y="100" width="15" height="15" fill="url(#lowRisk)"/>
+  <text x="75" y="112" font-family="Arial, sans-serif" font-size="12" fill="#333">低风险 (1-2级)</text>
+  
+  <!-- 业务场景说明 -->
+  <text x="50" y="140" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">业务场景说明：</text>
+  <text x="50" y="160" font-family="Arial, sans-serif" font-size="11" fill="#666">• 银行：转账、贷款审批、支付接口（5级）</text>
+  <text x="50" y="175" font-family="Arial, sans-serif" font-size="11" fill="#666">• 电商：订单查询、库存管理、用户信息（4级）</text>
+  <text x="50" y="190" font-family="Arial, sans-serif" font-size="11" fill="#666">• 通用：商品详情、评论查询、搜索接口（1-3级）</text>
+  
+  <!-- 防护措施说明 -->
+  <text x="50" y="220" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">防护措施说明：</text>
+  <text x="50" y="240" font-family="Arial, sans-serif" font-size="11" fill="#666">• 5级：多因素认证、操作日志审计、实时行为监控、数据脱敏</text>
+  <text x="50" y="255" font-family="Arial, sans-serif" font-size="11" fill="#666">• 3-4级：令牌认证、参数校验、频率限制</text>
+  <text x="50" y="270" font-family="Arial, sans-serif" font-size="11" fill="#666">• 1-2级：基础访问控制、异常流量监控</text>
+</svg> 

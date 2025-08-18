@@ -1,0 +1,70 @@
+<mxfile host="app.diagrams.net" modified="2025-08-03T08:00:00.000Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36" etag="abc123" version="21.6.5">
+  <diagram id="diagram1" name="API资产识别自动化工具链">
+    <mxgraph model="{'pageFormat':1,'pageWidth':1169,'pageHeight':827,'background':'#ffffff','grid':1,'gridSize':10,'guides':1,'tooltips':1,'connect':1,'arrows':1,'fold':1,'page':1,'math':0,'shadow':0}">
+      <root>
+        <mxcell id="0" />
+        <mxcell id="1" parent="0" />
+        
+        <!-- 标题 -->
+        <mxcell id="title" value="API资产识别自动化工具链" style="text;html=1;align=center;verticalAlign=middle;fontSize=16;fontWeight=bold;" parent="1" vertex="1">
+          <mxgeometry x="300" y="30" width="500" height="40" as="geometry" />
+        </mxcell>
+        
+        <!-- 数据采集层 -->
+        <mxcell id="layer1" value="1. 数据采集层" style="shape=rectangle;fillColor=#4285f4;strokeColor=#333333;fontColor=white;align=center;verticalAlign=middle;fontWeight=bold;" parent="1" vertex="1">
+          <mxgeometry x="100" y="100" width="200" height="60" as="geometry" />
+        </mxcell>
+        <mxcell id="layer1_1" value="• 定时扫描代码仓库、文档平台&#10;• 实时捕获网关/服务器流量" style="shape=rectangle;fillColor=#e8f0fe;strokeColor=#4285f4;" parent="1" vertex="1">
+          <mxgeometry x="100" y="180" width="200" height="80" as="geometry" />
+        </mxcell>
+        <mxcell id="edge1" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="layer1" target="layer1_1" edge="1">
+          <mxgeometry relative="1" as="geometry" />
+        </mxcell>
+        
+        <!-- 数据处理层 -->
+        <mxcell id="layer2" value="2. 数据处理层" style="shape=rectangle;fillColor=#ea4335;strokeColor=#333333;fontColor=white;align=center;verticalAlign=middle;fontWeight=bold;" parent="1" vertex="1">
+          <mxgeometry x="400" y="100" width="200" height="60" as="geometry" />
+        </mxcell>
+        <mxcell id="layer2_1" value="• 格式标准化（统一为OpenAPI规范）&#10;• 去重与合并（按路径+方法唯一标识）" style="shape=rectangle;fillColor=#fce8e6;strokeColor=#ea4335;" parent="1" vertex="1">
+          <mxgeometry x="400" y="180" width="200" height="80" as="geometry" />
+        </mxcell>
+        <mxcell id="edge2" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="layer2" target="layer2_1" edge="1">
+          <mxgeometry relative="1" as="geometry" />
+        </mxcell>
+        
+        <!-- 资产库层 -->
+        <mxcell id="layer3" value="3. 资产库层" style="shape=rectangle;fillColor=#fbbc05;strokeColor=#333333;fontColor=white;align=center;verticalAlign=middle;fontWeight=bold;" parent="1" vertex="1">
+          <mxgeometry x="700" y="100" width="200" height="60" as="geometry" />
+        </mxcell>
+        <mxcell id="layer3_1" value="• Elasticsearch存储资产数据&#10;• 自动标记异常接口（影子/僵尸API）" style="shape=rectangle;fillColor=#fef7e0;strokeColor=#fbbc05;" parent="1" vertex="1">
+          <mxgeometry x="700" y="180" width="200" height="80" as="geometry" />
+        </mxcell>
+        <mxcell id="edge3" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="layer3" target="layer3_1" edge="1">
+          <mxgeometry relative="1" as="geometry" />
+        </mxcell>
+        
+        <!-- 可视化层 -->
+        <mxcell id="layer4" value="4. 可视化层" style="shape=rectangle;fillColor=#34a853;strokeColor=#333333;fontColor=white;align=center;verticalAlign=middle;fontWeight=bold;" parent="1" vertex="1">
+          <mxgeometry x="400" y="300" width="200" height="60" as="geometry" />
+        </mxcell>
+        <mxcell id="layer4_1" value="• Grafana绘制资产分布地图&#10;• 异常情况自动告警（企业微信/邮件）" style="shape=rectangle;fillColor=#e6f4ea;strokeColor=#34a853;" parent="1" vertex="1">
+          <mxgeometry x="400" y="380" width="200" height="80" as="geometry" />
+        </mxcell>
+        <mxcell id="edge4" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="layer4" target="layer4_1" edge="1">
+          <mxgeometry relative="1" as="geometry" />
+        </mxcell>
+        
+        <!-- 流程连接 -->
+        <mxcell id="flow1" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;endArrow=classic;" parent="1" source="layer1_1" target="layer2_1" edge="1">
+          <mxgeometry relative="1" as="geometry" />
+        </mxcell>
+        <mxcell id="flow2" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;endArrow=classic;" parent="1" source="layer2_1" target="layer3_1" edge="1">
+          <mxgeometry relative="1" as="geometry" />
+        </mxcell>
+        <mxcell id="flow3" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;endArrow=classic;" parent="1" source="layer3_1" target="layer4_1" edge="1">
+          <mxgeometry relative="1" as="geometry" />
+        </mxcell>
+      </root>
+    </mxgraph>
+  </diagram>
+</mxfile>

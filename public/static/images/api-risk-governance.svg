@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="vulnerabilityGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#cc0000;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="malwareGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff8800;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff6600;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="ddosGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffaa00;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff8800;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="authGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4444ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0000cc;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="3" dy="3" stdDeviation="4" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="1200" height="800" fill="#f8f9fa"/>
+  
+  <!-- 标题 -->
+  <text x="600" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#2c3e50">
+    API 风险治理框架 - 业务场景版
+  </text>
+  
+  <!-- 中心圆 -->
+  <circle cx="600" cy="400" r="80" fill="#2c3e50" filter="url(#shadow)"/>
+  <text x="600" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+    API 风险
+  </text>
+  <text x="600" y="410" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+    治理中心
+  </text>
+  
+  <!-- 漏洞利用威胁 -->
+  <circle cx="200" cy="200" r="60" fill="url(#vulnerabilityGradient)" filter="url(#shadow)"/>
+  <text x="200" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+    漏洞利用
+  </text>
+  <text x="200" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+    SQL注入/XSS
+  </text>
+  
+  <!-- 连接线 -->
+  <line x1="260" y1="200" x2="520" y2="400" stroke="#666" stroke-width="3" stroke-dasharray="5,5"/>
+  
+  <!-- 漏洞利用措施 -->
+  <rect x="50" y="300" width="300" height="120" fill="white" stroke="#ddd" stroke-width="2" filter="url(#shadow)"/>
+  <text x="200" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#d32f2f">
+    防护措施
+  </text>
+  <text x="60" y="340" font-family="Arial, sans-serif" font-size="11" fill="#333">• 静态代码扫描</text>
+  <text x="60" y="355" font-family="Arial, sans-serif" font-size="11" fill="#333">• 动态安全测试</text>
+  <text x="60" y="370" font-family="Arial, sans-serif" font-size="11" fill="#333">• 输入参数校验</text>
+  <text x="60" y="385" font-family="Arial, sans-serif" font-size="11" fill="#333">• WAF 防护</text>
+  <text x="60" y="400" font-family="Arial, sans-serif" font-size="11" fill="#333">• 24小时修复周期</text>
+  
+  <!-- 恶意代码威胁 -->
+  <circle cx="1000" cy="200" r="60" fill="url(#malwareGradient)" filter="url(#shadow)"/>
+  <text x="1000" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+    恶意代码
+  </text>
+  <text x="1000" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+    文件上传攻击
+  </text>
+  
+  <!-- 连接线 -->
+  <line x1="940" y1="200" x2="680" y2="400" stroke="#666" stroke-width="3" stroke-dasharray="5,5"/>
+  
+  <!-- 恶意代码措施 -->
+  <rect x="850" y="300" width="300" height="120" fill="white" stroke="#ddd" stroke-width="2" filter="url(#shadow)"/>
+  <text x="1000" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ff6600">
+    防护措施
+  </text>
+  <text x="860" y="340" font-family="Arial, sans-serif" font-size="11" fill="#333">• 文件类型白名单</text>
+  <text x="860" y="355" font-family="Arial, sans-serif" font-size="11" fill="#333">• 病毒扫描引擎</text>
+  <text x="860" y="370" font-family="Arial, sans-serif" font-size="11" fill="#333">• 存储隔离</text>
+  <text x="860" y="385" font-family="Arial, sans-serif" font-size="11" fill="#333">• 禁止执行权限</text>
+  <text x="860" y="400" font-family="Arial, sans-serif" font-size="11" fill="#333">• 实时内容检测</text>
+  
+  <!-- DDoS威胁 -->
+  <circle cx="200" cy="600" r="60" fill="url(#ddosGradient)" filter="url(#shadow)"/>
+  <text x="200" y="595" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+    恶意请求
+  </text>
+  <text x="200" y="610" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+    DDoS/爬虫
+  </text>
+  
+  <!-- 连接线 -->
+  <line x1="260" y1="600" x2="520" y2="480" stroke="#666" stroke-width="3" stroke-dasharray="5,5"/>
+  
+  <!-- DDoS措施 -->
+  <rect x="50" y="480" width="300" height="120" fill="white" stroke="#ddd" stroke-width="2" filter="url(#shadow)"/>
+  <text x="200" y="500" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ff8800">
+    防护措施
+  </text>
+  <text x="60" y="520" font-family="Arial, sans-serif" font-size="11" fill="#333">• QPS 限制</text>
+  <text x="60" y="535" font-family="Arial, sans-serif" font-size="11" fill="#333">• AI 行为分析</text>
+  <text x="60" y="550" font-family="Arial, sans-serif" font-size="11" fill="#333">• 高防 IP</text>
+  <text x="60" y="565" font-family="Arial, sans-serif" font-size="11" fill="#333">• 流量清洗</text>
+  <text x="60" y="580" font-family="Arial, sans-serif" font-size="11" fill="#333">• 异常模式拦截</text>
+  
+  <!-- 恶意用户威胁 -->
+  <circle cx="1000" cy="600" r="60" fill="url(#authGradient)" filter="url(#shadow)"/>
+  <text x="1000" y="595" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+    恶意用户
+  </text>
+  <text x="1000" y="610" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+    身份伪造
+  </text>
+  
+  <!-- 连接线 -->
+  <line x1="940" y1="600" x2="680" y2="480" stroke="#666" stroke-width="3" stroke-dasharray="5,5"/>
+  
+  <!-- 恶意用户措施 -->
+  <rect x="850" y="480" width="300" height="120" fill="white" stroke="#ddd" stroke-width="2" filter="url(#shadow)"/>
+  <text x="1000" y="500" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#0000cc">
+    防护措施
+  </text>
+  <text x="860" y="520" font-family="Arial, sans-serif" font-size="11" fill="#333">• 多因素认证</text>
+  <text x="860" y="535" font-family="Arial, sans-serif" font-size="11" fill="#333">• 权限最小化</text>
+  <text x="860" y="550" font-family="Arial, sans-serif" font-size="11" fill="#333">• 操作审计</text>
+  <text x="860" y="565" font-family="Arial, sans-serif" font-size="11" fill="#333">• 实名验证</text>
+  <text x="860" y="580" font-family="Arial, sans-serif" font-size="11" fill="#333">• 行为异常检测</text>
+  
+  <!-- 风险等级标识 -->
+  <circle cx="600" cy="700" r="40" fill="#2c3e50" filter="url(#shadow)"/>
+  <text x="600" y="695" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">
+    风险等级
+  </text>
+  <text x="600" y="710" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+    1-5级
+  </text>
+  
+  <!-- 风险等级说明 -->
+  <rect x="50" y="680" width="400" height="100" fill="white" stroke="#ddd" stroke-width="1" filter="url(#shadow)"/>
+  <text x="250" y="700" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">
+    业务场景风险等级
+  </text>
+  <text x="60" y="720" font-family="Arial, sans-serif" font-size="11" fill="#333">• 5级：银行转账、贷款审批、支付接口</text>
+  <text x="60" y="735" font-family="Arial, sans-serif" font-size="11" fill="#333">• 4级：订单管理、库存控制、用户信息</text>
+  <text x="60" y="750" font-family="Arial, sans-serif" font-size="11" fill="#333">• 3级：商品详情、评论查询、地址管理</text>
+  <text x="60" y="765" font-family="Arial, sans-serif" font-size="11" fill="#333">• 1-2级：商品列表、搜索接口、静态资源</text>
+  
+  <!-- 治理效果指标 -->
+  <rect x="750" y="680" width="400" height="100" fill="white" stroke="#ddd" stroke-width="1" filter="url(#shadow)"/>
+  <text x="950" y="700" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">
+    治理效果指标
+  </text>
+  <text x="760" y="720" font-family="Arial, sans-serif" font-size="11" fill="#333">• 漏洞修复时间：敏感API ≤ 24小时</text>
+  <text x="760" y="735" font-family="Arial, sans-serif" font-size="11" fill="#333">• 异常检测率：≥ 95%</text>
+  <text x="760" y="750" font-family="Arial, sans-serif" font-size="11" fill="#333">• 误报率：≤ 5%</text>
+  <text x="760" y="765" font-family="Arial, sans-serif" font-size="11" fill="#333">• 安全事件响应：≤ 30分钟</text>
+  
+  <!-- 箭头指示 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+  </defs>
+  
+  <!-- 添加箭头到连接线 -->
+  <line x1="260" y1="200" x2="520" y2="400" stroke="#666" stroke-width="3" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+  <line x1="940" y1="200" x2="680" y2="400" stroke="#666" stroke-width="3" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+  <line x1="260" y1="600" x2="520" y2="480" stroke="#666" stroke-width="3" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+  <line x1="940" y1="600" x2="680" y2="480" stroke="#666" stroke-width="3" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+</svg> 
