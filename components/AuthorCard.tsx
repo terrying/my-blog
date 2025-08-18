@@ -4,7 +4,7 @@ import Link from '@/components/Link'
 
 export default function AuthorCard() {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-6">
+    <div className="mb-6 rounded-lg bg-white p-6 shadow-md dark:bg-gray-800">
       <div className="flex flex-col items-center text-center">
         <div className="mb-4">
           <Image
@@ -15,17 +15,17 @@ export default function AuthorCard() {
             className="rounded-full border-2 border-gray-200 dark:border-gray-600"
           />
         </div>
-        <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+        <h3 className="mb-2 text-xl font-bold text-gray-900 dark:text-gray-100">
           {siteMetadata.author}
         </h3>
-        <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 leading-relaxed">
+        <p className="mb-4 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
           记录与分享安全建设过程中的思考与实践。
         </p>
         <div className="flex space-x-3">
           {siteMetadata.github && (
             <Link
               href={siteMetadata.github}
-              className="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
+              className="text-gray-500 transition-colors hover:text-gray-700 dark:hover:text-gray-300"
             >
               <span className="sr-only">GitHub</span>
               <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
@@ -40,7 +40,7 @@ export default function AuthorCard() {
           {siteMetadata.email && (
             <Link
               href={`mailto:${siteMetadata.email}`}
-              className="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
+              className="text-gray-500 transition-colors hover:text-gray-700 dark:hover:text-gray-300"
             >
               <span className="sr-only">Email</span>
               <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -56,7 +56,7 @@ export default function AuthorCard() {
           {siteMetadata.x && (
             <Link
               href={siteMetadata.x}
-              className="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
+              className="text-gray-500 transition-colors hover:text-gray-700 dark:hover:text-gray-300"
             >
               <span className="sr-only">Twitter</span>
               <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">

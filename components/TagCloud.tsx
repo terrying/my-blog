@@ -29,10 +29,20 @@ export default function TagCloud() {
   }
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-6">
-      <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-4 flex items-center">
-        <svg className="h-5 w-5 mr-2 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+    <div className="mb-6 rounded-lg bg-white p-6 shadow-md dark:bg-gray-800">
+      <h3 className="mb-4 flex items-center text-lg font-bold text-gray-900 dark:text-gray-100">
+        <svg
+          className="mr-2 h-5 w-5 text-purple-500"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"
+          />
         </svg>
         热门标签
       </h3>
@@ -41,7 +51,7 @@ export default function TagCloud() {
           <Link
             key={tag}
             href={`/tags/${slug(tag)}`}
-            className={`inline-block px-3 py-1 rounded-full border border-gray-200 dark:border-gray-600 hover:border-transparent transition-all duration-200 ${getTagColor(index)} hover:shadow-md transform hover:scale-105`}
+            className={`inline-block rounded-full border border-gray-200 px-3 py-1 transition-all duration-200 hover:border-transparent dark:border-gray-600 ${getTagColor(index)} transform hover:scale-105 hover:shadow-md`}
             style={{ fontSize: `${getTagSize(tagCounts[tag])}rem` }}
           >
             #{tag}
@@ -49,13 +59,18 @@ export default function TagCloud() {
           </Link>
         ))}
       </div>
-      <div className="mt-4 pt-3 border-t border-gray-100 dark:border-gray-700">
+      <div className="mt-4 border-t border-gray-100 pt-3 dark:border-gray-700">
         <Link
           href="/tags"
-          className="text-sm text-purple-600 hover:text-purple-700 dark:text-purple-400 dark:hover:text-purple-300 font-medium flex items-center group"
+          className="group flex items-center text-sm font-medium text-purple-600 hover:text-purple-700 dark:text-purple-400 dark:hover:text-purple-300"
         >
           查看所有标签
-          <svg className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg
+            className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
         </Link>

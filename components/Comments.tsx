@@ -15,9 +15,9 @@ export default function Comments({ slug }: { slug: string }) {
       {loadComments ? (
         <CommentsComponent commentsConfig={siteMetadata.comments} slug={slug} />
       ) : (
-        <button 
+        <button
           onClick={() => setLoadComments(true)}
-          className="w-full py-3 px-4 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium transition-colors"
+          className="bg-primary-600 hover:bg-primary-700 w-full rounded-lg px-4 py-3 font-medium text-white transition-colors"
         >
           加载评论
         </button>

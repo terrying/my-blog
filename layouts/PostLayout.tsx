@@ -36,7 +36,7 @@ interface LayoutProps {
 export default function PostLayout({ content, authorDetails, next, prev, children }: LayoutProps) {
   const { filePath, path, slug, date, title, tags, toc } = content
   const basePath = path.split('/')[0]
-  
+
   // 获取所有文章用于相关文章推荐
   const allPosts = allCoreContent(sortPosts(allBlogs))
 
@@ -44,29 +44,35 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
     <>
       <ScrollTopAndComment />
       {/* 使用全屏宽度的12列网格布局 */}
-      <div className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 xl:gap-8 max-w-screen-2xl mx-auto">
+      <div className="relative right-1/2 left-1/2 -mr-[50vw] -ml-[50vw] w-screen px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto grid max-w-screen-2xl grid-cols-1 gap-6 lg:grid-cols-12 xl:gap-8">
           {/* 左侧空白 - 1.5份 */}
-          <div className="hidden lg:block lg:col-span-2"></div>
-          
+          <div className="hidden lg:col-span-2 lg:block"></div>
+
           {/* 主要内容区域 - 7份 */}
           <div className="lg:col-span-7">
             <article>
               {/* 文章头部 */}
               <header className="mb-8">
-                <div className="text-center space-y-4">
+                <div className="space-y-4 text-center">
                   <div>
-                    <time 
+                    <time
                       dateTime={date}
                       className="text-base font-medium text-gray-500 dark:text-gray-400"
                     >
-                      {new Date(date).toLocaleDateString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\//g, '-')}
+                      {new Date(date)
+                        .toLocaleDateString('zh-CN', {
+                          year: 'numeric',
+                          month: '2-digit',
+                          day: '2-digit',
+                        })
+                        .replace(/\//g, '-')}
                     </time>
                   </div>
                   <div>
                     <PageTitle>{title}</PageTitle>
                   </div>
-                  
+
                   {/* 标签 */}
                   {tags && (
                     <div className="flex flex-wrap justify-center gap-2 pt-2">
@@ -79,24 +85,24 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               </header>
 
               {/* 文章内容 */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-4 lg:p-6 mb-6">
-                <div className="prose max-w-none dark:prose-invert prose-p:my-3 prose-li:my-1 prose-ul:my-2 prose-ol:my-2">
+              <div className="mb-6 rounded-xl bg-white p-4 shadow-sm lg:p-6 dark:bg-gray-800">
+                <div className="prose dark:prose-invert prose-p:my-3 prose-li:my-1 prose-ul:my-2 prose-ol:my-2 max-w-none">
                   {children}
                 </div>
               </div>
 
               {/* 文章底部信息 */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-4 mb-6">
+              <div className="mb-6 rounded-xl bg-white p-4 shadow-sm dark:bg-gray-800">
                 <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-gray-600 dark:text-gray-400">
-                  <Link 
-                    href={discussUrl(path)} 
+                  <Link
+                    href={discussUrl(path)}
                     rel="nofollow"
                     className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
                   >
                     在 Twitter 上讨论
                   </Link>
                   <span>•</span>
-                  <Link 
+                  <Link
                     href={editUrl(filePath)}
                     className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
                   >
@@ -107,7 +113,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
 
               {/* 评论区域 */}
               {siteMetadata.comments && (
-                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-4 mb-6">
+                <div className="mb-6 rounded-xl bg-white p-4 shadow-sm dark:bg-gray-800">
                   <div id="comment">
                     <Comments slug={slug} />
                   </div>
@@ -116,16 +122,16 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
 
               {/* 上一篇/下一篇导航 */}
               {(next || prev) && (
-                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-4 mb-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="mb-6 rounded-xl bg-white p-4 shadow-sm dark:bg-gray-800">
+                  <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                     {prev && prev.path && (
                       <div className="text-left">
-                        <div className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-2">
+                        <div className="mb-2 text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
                           上一篇文章
                         </div>
-                        <Link 
+                        <Link
                           href={`/${prev.path}`}
-                          className="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 font-medium line-clamp-2"
+                          className="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 line-clamp-2 font-medium"
                         >
                           {prev.title}
                         </Link>
@@ -133,12 +139,12 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                     )}
                     {next && next.path && (
                       <div className="text-left md:text-right">
-                        <div className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-2">
+                        <div className="mb-2 text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
                           下一篇文章
                         </div>
-                        <Link 
+                        <Link
                           href={`/${next.path}`}
-                          className="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 font-medium line-clamp-2"
+                          className="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 line-clamp-2 font-medium"
                         >
                           {next.title}
                         </Link>
@@ -152,11 +158,21 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               <div className="text-center">
                 <Link
                   href={`/${basePath}`}
-                  className="inline-flex items-center text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 font-medium group"
+                  className="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 group inline-flex items-center font-medium"
                   aria-label="Back to the blog"
                 >
-                  <svg className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  <svg
+                    className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15 19l-7-7 7-7"
+                    />
                   </svg>
                   返回博客列表
                 </Link>
@@ -169,13 +185,9 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
             <div className="sticky top-8 space-y-6">
               {/* 文章目录 */}
               <TOC toc={toc} />
-              
+
               {/* 相关文章推荐 */}
-              <RelatedPosts 
-                currentSlug={slug}
-                currentTags={tags || []}
-                allPosts={allPosts}
-              />
+              <RelatedPosts currentSlug={slug} currentTags={tags || []} allPosts={allPosts} />
             </div>
           </div>
         </div>

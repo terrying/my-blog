@@ -36,16 +36,24 @@ export default function TOC({ toc }: TOCProps) {
 
   if (!toc || toc.length === 0) {
     return (
-      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6">
-        <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-4 flex items-center">
-          <svg className="h-5 w-5 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+      <div className="rounded-xl bg-white p-6 shadow-sm dark:bg-gray-800">
+        <h3 className="mb-4 flex items-center text-lg font-bold text-gray-900 dark:text-gray-100">
+          <svg
+            className="mr-2 h-5 w-5 text-gray-500"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4 6h16M4 10h16M4 14h16M4 18h16"
+            />
           </svg>
           文章目录
         </h3>
-        <div className="text-sm text-gray-500 dark:text-gray-400">
-          此文章暂无目录
-        </div>
+        <div className="text-sm text-gray-500 dark:text-gray-400">此文章暂无目录</div>
       </div>
     )
   }
@@ -61,10 +69,20 @@ export default function TOC({ toc }: TOCProps) {
   }
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6">
-      <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-4 flex items-center">
-        <svg className="h-5 w-5 mr-2 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+    <div className="rounded-xl bg-white p-6 shadow-sm dark:bg-gray-800">
+      <h3 className="mb-4 flex items-center text-lg font-bold text-gray-900 dark:text-gray-100">
+        <svg
+          className="mr-2 h-5 w-5 text-blue-500"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M4 6h16M4 10h16M4 14h16M4 18h16"
+          />
         </svg>
         文章目录
       </h3>
@@ -75,20 +93,16 @@ export default function TOC({ toc }: TOCProps) {
             <button
               key={index}
               onClick={() => handleClick(item.url)}
-              className={`
-                block w-full text-left text-sm py-1.5 px-2 rounded transition-colors
-                ${isActive 
-                  ? 'text-primary-600 bg-primary-50 dark:text-primary-400 dark:bg-primary-900/20 font-medium' 
-                  : 'text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-gray-700/50'
-                }
-              `}
+              className={`block w-full rounded px-2 py-1.5 text-left text-sm transition-colors ${
+                isActive
+                  ? 'text-primary-600 bg-primary-50 dark:text-primary-400 dark:bg-primary-900/20 font-medium'
+                  : 'hover:text-primary-600 dark:hover:text-primary-400 text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700/50'
+              } `}
               style={{
                 paddingLeft: `${0.5 + (item.depth - 1) * 0.75}rem`,
               }}
             >
-              <span className="line-clamp-2 leading-snug">
-                {item.value}
-              </span>
+              <span className="line-clamp-2 leading-snug">{item.value}</span>
             </button>
           )
         })}

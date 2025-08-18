@@ -19,9 +19,7 @@ export default function Footer() {
           <div>{` • `}</div>
           <Link href="/">{siteMetadata.title}</Link>
         </div>
-        <div className="mb-8 text-sm text-gray-500 dark:text-gray-400">
-
-        </div>
+        <div className="mb-8 text-sm text-gray-500 dark:text-gray-400"></div>
       </div>
     </footer>
   )
