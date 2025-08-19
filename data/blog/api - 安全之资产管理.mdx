@@ -97,3 +97,34 @@ summary: 在企业安全实践中，我们经常发现引发安全事件的API�
 > 这些收益的本质，是把“看不见的风险”转化为“可管理的工作项”，再用统一口径和流程把它们持续压下去。
 
 **API资产识别与管理不是一次性的项目，而是一个持续演进的过程。** 只有建立起完善的管理机制，企业才能在享受API带来的业务价值的同时，有效控制安全风险，真正实现"安全赋能业务"的目标。
+
+### API资产数据表结构
+
+| 字段名              | 描述                                                         | 示例数据                        |
+|---------------------|--------------------------------------------------------------|--------------------------------|
+| **API标识**         |                                                              |                                |
+| `api_id`            | API的唯一标识符                                              | ID、UUID                          |
+| `service_name`      | API所属的服务名称                                            | 用户服务                        |
+| `method`            | HTTP方法（例如：GET, POST）                                  | GET、POST                            |
+| `path_template`     | API路径模板，包含动态段的占位符                              | `/api/v1/users/{uid}`                    |
+| `domain`         | 记录域名字段信息                                                | www.xxx.com           |
+| **所有权和责任**    |                                                              |                                |
+| `owner`             | 负责该API的人员或团队                                        | 开发团队A                       |
+| `last_modified`     | 最后修改的时间戳                                             | 2025-02-01T12:00:00Z           |
+| `documentation_link`| API文档的链接                                                | http://example.com/docs/api    |
+| **安全和合规**      |                                                              |                                |
+| `auth_required`     | 是否需要认证的布尔值                                          | true                           |
+| `api_type`         | API类别，是ToC，还是ToB，还是内部服务等                       | ToC                         |
+| `data_tags`       | 记录API相关的字段，如是否渗透测试、接入DAST、WAF、PII                     | 已接DAST，已渗透测试，已接入WAF                            |
+| `PII_tags`           | 记录敏感字段标记，比如请求报文、响应报文的敏感字段                 | req:phone, res:ID，res:username                         |
+| `risk_level`        | 基于数据敏感性和业务影响的风险等级（1-5级）                  | 4                              |
+| `usage_logs`        | 日志或监控数据的链接                                          | http://example.com/logs        |
+| **版本控制**        |                                                              |                                |
+| `git_repository`    | API对应的Git仓库URL                                           | http://github.com/example/repo |
+| `branch`            | 当前使用的分支名称                                            | main                           |
+| `commit_id`         | 最新的提交ID                                                  | abcdef123456                   |
+| **请求和响应示例**  |                                                              |                                |
+| `request_example`   | API请求的示例（包括请求头和请求体）                           | GET /users/123 HTTP/1.1        |
+| `response_example`  | API响应的示例（包括响应头和响应体）                           | 200 OK                         |
+
+
