@@ -76,16 +76,22 @@ jobs:
             COMMIT_MSG="🤖 更新 Nuclei POC 分析内容 - $(date +'%Y-%m-%d')"
           fi
           
-          git commit -m "$COMMIT_MSG
-
-🔍 Nuclei POC 自动分析结果
-- 分析时间范围: 最近 ${{ github.event.inputs.hours || '24' }} 小时
-- 数据来源: ProjectDiscovery/nuclei-templates
-- 自动化生成，包含漏洞分析和安全建议
-
-🤖 Generated with [Claude Code](https://claude.ai/code)
-
-Co-Authored-By: Claude <noreply@anthropic.com>"
+          # 创建完整的提交消息
+          cat > commit_message.txt << EOF
+          $COMMIT_MSG
+          
+          🔍 Nuclei POC 自动分析结果
+          - 分析时间范围: 最近 ${{ github.event.inputs.hours || '24' }} 小时
+          - 数据来源: ProjectDiscovery/nuclei-templates
+          - 自动化生成，包含漏洞分析和安全建议
+          
+          🤖 Generated with [Claude Code](https://claude.ai/code)
+          
+          Co-Authored-By: Claude <noreply@anthropic.com>
+          EOF
+          
+          git commit -F commit_message.txt
+          rm commit_message.txt
           
           git push
           echo "✅ 已推送新的分析报告"
@@ -101,36 +107,38 @@ Co-Authored-By: Claude <noreply@anthropic.com>"
           git checkout -b "$BRANCH_NAME"
           git push origin "$BRANCH_NAME"
           
+          # 创建 PR 描述文件
+          cat > pr_body.txt << 'EOF'
+          ## 🔍 Nuclei POC 分析汇总
+
+          本 PR 包含本周的 Nuclei POC 自动分析结果。
+
+          ### 📋 内容概览
+          - 🤖 自动分析最新的 Nuclei 模板更新
+          - 🔍 漏洞影响范围和危害程度评估  
+          - 🛡️ 安全防护建议和扫描指令
+          - 📊 风险等级分类和统计信息
+
+          ### ✅ 审查要点
+          - [ ] 检查漏洞描述的准确性
+          - [ ] 验证风险等级评估
+          - [ ] 确认安全建议的合理性
+          - [ ] 检查扫描命令的正确性
+
+          ### 🔧 技术细节
+          - 数据来源: [ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)
+          - 分析脚本: `scripts/nuclei-poc-analyzer.js`
+
+          🤖 Generated with [Claude Code](https://claude.ai/code)
+          EOF
+          
           gh pr create \
             --title "📊 Nuclei POC 周度分析汇总 - $(date +'%Y-%m-%d')" \
-            --body "$(cat <<'EOF'
-## 🔍 Nuclei POC 分析汇总
-
-本 PR 包含本周的 Nuclei POC 自动分析结果。
-
-### 📋 内容概览
-- 🤖 自动分析最新的 Nuclei 模板更新
-- 🔍 漏洞影响范围和危害程度评估  
-- 🛡️ 安全防护建议和扫描指令
-- 📊 风险等级分类和统计信息
-
-### ✅ 审查要点
-- [ ] 检查漏洞描述的准确性
-- [ ] 验证风险等级评估
-- [ ] 确认安全建议的合理性
-- [ ] 检查扫描命令的正确性
-
-### 🔧 技术细节
-- 数据来源: [ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)
-- 分析脚本: `scripts/nuclei-poc-analyzer.js`
-- 生成时间: $(date)
-
-🤖 Generated with [Claude Code](https://claude.ai/code)
-EOF
-)" \
+            --body-file pr_body.txt \
             --head "$BRANCH_NAME" \
             --base main
             
+          rm pr_body.txt
           echo "✅ 已创建 PR 用于人工审查"
 
   # 健康检查任务
