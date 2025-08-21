@@ -39,8 +39,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ANALYSIS_HOURS: ${{ github.event.inputs.hours || '24' }}
+          MAX_TEMPLATES: 30  # 限制最大分析模板数量
         run: |
           echo "🔍 开始 Nuclei POC 分析..."
+          echo "📊 配置: 分析时间=${ANALYSIS_HOURS}小时, 最大模板数=${MAX_TEMPLATES}"
           node scripts/nuclei-poc-analyzer.js
           
       - name: Check for new content

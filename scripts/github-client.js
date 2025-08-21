@@ -160,29 +160,47 @@ class GitHubClient {
    */
   async batchGetTemplateContents(templatePaths) {
     const results = [];
-    const batchSize = 5; // 限制并发请求数
+    const batchSize = 3; // 减少并发请求数
+    const delayBetweenBatches = 2000; // 增加批次间延迟
+    
+    console.log(`📦 将分 ${Math.ceil(templatePaths.length / batchSize)} 批次处理 ${templatePaths.length} 个模板`);
     
     for (let i = 0; i < templatePaths.length; i += batchSize) {
       const batch = templatePaths.slice(i, i + batchSize);
+      const batchNum = Math.floor(i / batchSize) + 1;
+      const totalBatches = Math.ceil(templatePaths.length / batchSize);
+      
+      console.log(`📥 处理第 ${batchNum}/${totalBatches} 批次: ${batch.length} 个模板`);
+      
       const promises = batch.map(async (path) => {
         try {
           const content = await this.getFileContent(path);
           return content ? { path, content } : null;
         } catch (error) {
-          console.error(`批量获取失败 ${path}:`, error);
+          console.error(`获取失败 ${path}:`, error.response?.status || error.message);
           return null;
         }
       });
 
       const batchResults = await Promise.all(promises);
+      const successCount = batchResults.filter(r => r !== null).length;
+      console.log(`✅ 第 ${batchNum} 批次完成: ${successCount}/${batch.length} 成功`);
+      
       results.push(...batchResults.filter(r => r !== null));
       
-      // 添加延迟避免 API 限制
+      // 检查 API 限制
       if (i + batchSize < templatePaths.length) {
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        const rateLimit = await this.checkRateLimit();
+        if (rateLimit && rateLimit.rate.remaining < 100) {
+          console.log(`⚠️  API 剩余额度较低 (${rateLimit.rate.remaining})，增加延迟`);
+          await new Promise(resolve => setTimeout(resolve, delayBetweenBatches * 2));
+        } else {
+          await new Promise(resolve => setTimeout(resolve, delayBetweenBatches));
+        }
       }
     }
 
+    console.log(`✅ 批量下载完成: ${results.length}/${templatePaths.length} 成功`);
     return results;
   }
 

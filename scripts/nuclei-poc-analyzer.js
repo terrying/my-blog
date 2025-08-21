@@ -78,16 +78,66 @@ class NucleiPOCAnalyzer {
   }
 
   /**
+   * 智能过滤高价值模板
+   */
+  filterHighValueTemplates(templates) {
+    const priorities = {
+      'cves/': 10,           // CVE 漏洞最高优先级
+      'vulnerabilities/': 8,  // 通用漏洞高优先级
+      'exposures/': 6,       // 信息泄露中等优先级
+      'misconfiguration/': 4, // 配置错误较低优先级
+      'technologies/': 2,     // 技术识别最低优先级
+      'panels/': 3,          // 面板检测较低优先级
+    };
+
+    return templates
+      .map(template => {
+        // 计算优先级分数
+        let score = 1; // 基础分数
+        
+        for (const [path, priority] of Object.entries(priorities)) {
+          if (template.filename.includes(path)) {
+            score = priority;
+            break;
+          }
+        }
+        
+        // 新增模板比修改模板优先级更高
+        if (template.status === 'added') score += 2;
+        
+        // 最近提交的优先级更高
+        const commitDate = new Date(template.commit.date);
+        const hoursOld = (Date.now() - commitDate.getTime()) / (1000 * 60 * 60);
+        if (hoursOld < 6) score += 1; // 6小时内的更新加分
+        
+        return { ...template, priorityScore: score };
+      })
+      .sort((a, b) => b.priorityScore - a.priorityScore);
+  }
+
+  /**
    * 批量分析模板变更
    */
   async analyzeTemplateChanges(templateChanges) {
     const analyzedTemplates = [];
     
     // 处理新增和修改的模板
-    const templatestoAnalyze = [
+    let templatestoAnalyze = [
       ...templateChanges.newTemplates,
       ...templateChanges.modifiedTemplates
     ];
+
+    console.log(`📊 发现 ${templatestoAnalyze.length} 个模板变更`);
+
+    // 智能过滤高价值模板
+    templatestoAnalyze = this.filterHighValueTemplates(templatestoAnalyze);
+    
+    // 限制分析数量以节省 API 配额
+    const maxTemplates = process.env.MAX_TEMPLATES ? parseInt(process.env.MAX_TEMPLATES) : 50;
+    if (templatestoAnalyze.length > maxTemplates) {
+      console.log(`🎯 智能筛选前 ${maxTemplates} 个高价值模板进行分析`);
+      templatestoAnalyze = templatestoAnalyze.slice(0, maxTemplates);
+    }
 
     console.log(`📥 开始下载和分析 ${templatestoAnalyze.length} 个模板...`);
 
@@ -373,6 +423,30 @@ class NucleiPOCAnalyzer {
   }
 
   /**
+   * 生成统计摘要
+   */
+  generateAnalysisSummary(totalTemplates, analyzedTemplates, templateChanges) {
+    const summary = {
+      total: totalTemplates,
+      analyzed: analyzedTemplates.length,
+      skipped: totalTemplates - analyzedTemplates.length,
+      highRisk: analyzedTemplates.filter(t => t.riskLevel.score >= 4).length,
+      categories: this.groupByCategory(analyzedTemplates),
+      severities: this.groupBySeverity(analyzedTemplates)
+    };
+
+    console.log('\n📊 分析摘要:');
+    console.log(`   总发现: ${summary.total} 个模板变更`);
+    console.log(`   已分析: ${summary.analyzed} 个`);
+    console.log(`   跳过: ${summary.skipped} 个 (优先级较低)`);
+    console.log(`   高风险: ${summary.highRisk} 个`);
+    console.log(`   类别分布: ${JSON.stringify(summary.categories)}`);
+    console.log(`   严重程度: ${JSON.stringify(summary.severities)}`);
+
+    return summary;
+  }
+
+  /**
    * 按严重程度分组
    */
   groupBySeverity(templates) {
@@ -424,24 +498,32 @@ class NucleiPOCAnalyzer {
    * 格式化为 MDX 文件
    */
   formatReportAsMDX(report) {
-    const { date, summary, templates, recommendations } = report;
+    const { date, summary, templates, recommendations, templateChanges } = report;
+    
+    const totalChanges = templateChanges?.summary?.totalChanges || summary.totalNew;
+    const analyzedCount = summary.totalNew;
+    const skippedCount = totalChanges - analyzedCount;
     
     return `---
-title: 'Nuclei POC 日报 - ${date}'
+title: 'Nuclei POC 精选分析 - ${date}'
 date: '${date}'
 tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
 draft: false
-summary: '今日 Nuclei 模板库新增 ${summary.totalNew} 个 POC，包含 ${summary.highRiskCount} 个高风险漏洞'
+summary: '从 ${totalChanges} 个模板更新中精选分析 ${analyzedCount} 个高价值 POC，发现 ${summary.highRiskCount} 个高风险漏洞'
 authors: ['default']
 ---
 
-# Nuclei POC 日报 - ${date}
+# Nuclei POC 精选分析 - ${date}
 
-## 📊 今日概况
+## 📊 智能筛选概况
 
-- **新增模板**: ${summary.totalNew} 个
+- **发现变更**: ${totalChanges} 个模板更新
+- **精选分析**: ${analyzedCount} 个高价值 POC  
+- **智能跳过**: ${skippedCount} 个低优先级模板
 - **高风险漏洞**: ${summary.highRiskCount} 个
 - **主要类别**: ${Object.entries(summary.byCategory).map(([k,v]) => `${k}(${v})`).join(', ')}
+
+> 💡 **智能筛选说明**: 系统自动优先分析 CVE 漏洞、高危漏洞和新增模板，跳过低价值的技术识别类模板，确保高效利用 API 资源。
 
 ### 严重程度分布
 
@@ -529,12 +611,16 @@ async function main() {
     }
     
     // 分析模板变更
+    const totalTemplates = templateChanges.summary.totalChanges;
     const analyzedTemplates = await analyzer.analyzeTemplateChanges(templateChanges);
     
     if (analyzedTemplates.length === 0) {
       console.log('📭 没有成功分析的模板，跳过生成报告');
       return;
     }
+    
+    // 生成统计摘要
+    const summary = analyzer.generateAnalysisSummary(totalTemplates, analyzedTemplates, templateChanges);
     
     // 生成报告
     const report = await analyzer.generateDailyReport(analyzedTemplates, templateChanges);
@@ -545,21 +631,8 @@ async function main() {
     const filePath = path.join(__dirname, '../data/blog', fileName);
     
     fs.writeFileSync(filePath, report, 'utf8');
-    console.log(`✅ Nuclei POC 报告已生成: ${fileName}`);
-    console.log(`📝 共分析 ${analyzedTemplates.length} 个模板`);
-    
-    // 输出统计信息
-    const stats = {
-      totalAnalyzed: analyzedTemplates.length,
-      bySeverity: analyzer.groupBySeverity(analyzedTemplates),
-      byCategory: analyzer.groupByCategory(analyzedTemplates),
-      highRisk: analyzedTemplates.filter(t => t.riskLevel.score >= 4).length
-    };
-    
-    console.log('📊 分析统计:');
-    console.log(`   - 高风险: ${stats.highRisk} 个`);
-    console.log(`   - 严重程度分布: ${JSON.stringify(stats.bySeverity)}`);
-    console.log(`   - 类别分布: ${JSON.stringify(stats.byCategory)}`);
+    console.log(`\n✅ Nuclei POC 报告已生成: ${fileName}`);
+    console.log(`📄 报告包含 ${analyzedTemplates.length} 个高价值模板分析`);
     
   } catch (error) {
     console.error('❌ 分析失败:', error);
