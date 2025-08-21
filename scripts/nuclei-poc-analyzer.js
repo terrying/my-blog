@@ -181,18 +181,36 @@ class NucleiPOCAnalyzer {
   }
 
   /**
+   * 清理文本中的特殊字符，使其适合 MDX
+   */
+  sanitizeForMDX(text) {
+    if (!text) return text;
+    
+    return text
+      .replace(/</g, '&lt;')           // < 符号
+      .replace(/>/g, '&gt;')           // > 符号
+      .replace(/=/g, '&#x3D;')         // = 符号
+      .replace(/\{/g, '&#x7B;')        // { 符号
+      .replace(/\}/g, '&#x7D;')        // } 符号
+      .replace(/\[/g, '&#x5B;')        // [ 符号
+      .replace(/\]/g, '&#x5D;')        // ] 符号
+      .replace(/"/g, '&quot;')         // " 符号
+      .replace(/'/g, '&#x27;');        // ' 符号
+  }
+
+  /**
    * 提取模板基本信息
    */
   extractTemplateInfo(info) {
     return {
-      name: info.name || '未命名漏洞',
+      name: this.sanitizeForMDX(info.name) || '未命名漏洞',
       author: Array.isArray(info.author) ? info.author.join(', ') : (info.author || '未知'),
       severity: info.severity || 'info',
-      description: info.description || '暂无描述',
+      description: this.sanitizeForMDX(info.description) || '暂无描述',
       reference: Array.isArray(info.reference) ? info.reference : (info.reference ? [info.reference] : []),
       tags: this.normalizeTags(info.tags),
       classification: info.classification || {},
-      remediation: info.remediation || ''
+      remediation: this.sanitizeForMDX(info.remediation) || ''
     };
   }
 
@@ -495,6 +513,15 @@ class NucleiPOCAnalyzer {
   }
 
   /**
+   * 安全地格式化模板名称用于 MDX 表格
+   */
+  formatTemplateNameForTable(name) {
+    return this.sanitizeForMDX(name)
+      .replace(/\|/g, '&#x7C;')  // 管道符号，会破坏表格
+      .substring(0, 50);         // 限制长度避免表格过宽
+  }
+
+  /**
    * 格式化为 MDX 文件
    */
   formatReportAsMDX(report) {
@@ -543,14 +570,14 @@ ${templates.filter(t => t.riskLevel.score >= 4).map(template => `
 - **影响资产**: ${template.assetScope.assetTypes.join(', ') || '未知'}
 - **预估影响**: ${template.assetScope.estimatedAffectedAssets}
 
-**描述**: ${template.info.description}
+**描述**: ${this.sanitizeForMDX(template.info.description)}
 
 **攻击向量**: ${template.assetScope.attackVectors.join(', ')}
 
 ${template.info.classification?.['cve-id'] ? `**CVE编号**: ${template.info.classification['cve-id']}` : ''}
 
 ${template.info.reference?.length > 0 ? `**参考链接**: 
-${template.info.reference.map(ref => `- [${ref}](${ref})`).join('\n')}` : ''}
+${template.info.reference.map(ref => `- [参考资料](${ref})`).join('\n')}` : ''}
 
 ---
 `).join('\n')}
@@ -560,7 +587,7 @@ ${template.info.reference.map(ref => `- [${ref}](${ref})`).join('\n')}` : ''}
 | 模板名称 | 严重程度 | 类别 | 影响资产 | 风险评分 |
 |---------|---------|------|---------|---------|
 ${templates.map(template => 
-`| ${template.info.name} | ${this.severityLevels[template.info.severity]?.emoji} ${template.info.severity} | ${template.category.type} | ${template.assetScope.assetTypes.slice(0,2).join(', ') || '通用'} | ${template.riskLevel.score}/5 |`
+`| ${this.formatTemplateNameForTable(template.info.name)} | ${this.severityLevels[template.info.severity]?.emoji} ${template.info.severity} | ${template.category.type} | ${template.assetScope.assetTypes.slice(0,2).join(', ') || '通用'} | ${template.riskLevel.score}/5 |`
 ).join('\n')}
 
 ## 🛡️ 安全建议
