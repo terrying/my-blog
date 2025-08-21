@@ -1,0 +1,157 @@
+name: Nuclei POC Daily Analysis
+
+on:
+  schedule:
+    # 每天北京时间 09:00 (01:00 UTC) 运行
+    - cron: '0 1 * * *'
+  workflow_dispatch: # 手动触发
+    inputs:
+      hours:
+        description: '分析最近多少小时的更新 (默认24)'
+        required: false
+        default: '24'
+        type: string
+
+jobs:
+  nuclei-analysis:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+      pull-requests: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'yarn'
+          
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+        
+      - name: Run Nuclei POC Analysis
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ANALYSIS_HOURS: ${{ github.event.inputs.hours || '24' }}
+        run: |
+          echo "🔍 开始 Nuclei POC 分析..."
+          node scripts/nuclei-poc-analyzer.js
+          
+      - name: Check for new content
+        id: check_content
+        run: |
+          git add .
+          if ! git diff --cached --quiet; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "✅ 发现新的分析内容"
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT  
+            echo "📭 没有新的分析内容"
+          fi
+          
+      - name: Build site to validate content
+        if: steps.check_content.outputs.has_changes == 'true'
+        run: |
+          echo "🔨 构建网站验证内容..."
+          yarn build
+          
+      - name: Commit and push changes
+        if: steps.check_content.outputs.has_changes == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+          # 获取新增的文件名
+          NEW_FILES=$(git diff --cached --name-only --diff-filter=A | grep '\.mdx$' | head -1)
+          
+          if [ -n "$NEW_FILES" ]; then
+            COMMIT_MSG="🤖 新增 Nuclei POC 分析报告 - $(date +'%Y-%m-%d')"
+          else
+            COMMIT_MSG="🤖 更新 Nuclei POC 分析内容 - $(date +'%Y-%m-%d')"
+          fi
+          
+          git commit -m "$COMMIT_MSG
+
+🔍 Nuclei POC 自动分析结果
+- 分析时间范围: 最近 ${{ github.event.inputs.hours || '24' }} 小时
+- 数据来源: ProjectDiscovery/nuclei-templates
+- 自动化生成，包含漏洞分析和安全建议
+
+🤖 Generated with [Claude Code](https://claude.ai/code)
+
+Co-Authored-By: Claude <noreply@anthropic.com>"
+          
+          git push
+          echo "✅ 已推送新的分析报告"
+          
+      - name: Create PR for manual review (weekly)
+        if: steps.check_content.outputs.has_changes == 'true' && github.event.schedule == '0 1 * * 1'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # 每周一创建 PR 用于人工审查
+          BRANCH_NAME="nuclei-analysis-$(date +'%Y-%m-%d')"
+          
+          git checkout -b "$BRANCH_NAME"
+          git push origin "$BRANCH_NAME"
+          
+          gh pr create \
+            --title "📊 Nuclei POC 周度分析汇总 - $(date +'%Y-%m-%d')" \
+            --body "$(cat <<'EOF'
+## 🔍 Nuclei POC 分析汇总
+
+本 PR 包含本周的 Nuclei POC 自动分析结果。
+
+### 📋 内容概览
+- 🤖 自动分析最新的 Nuclei 模板更新
+- 🔍 漏洞影响范围和危害程度评估  
+- 🛡️ 安全防护建议和扫描指令
+- 📊 风险等级分类和统计信息
+
+### ✅ 审查要点
+- [ ] 检查漏洞描述的准确性
+- [ ] 验证风险等级评估
+- [ ] 确认安全建议的合理性
+- [ ] 检查扫描命令的正确性
+
+### 🔧 技术细节
+- 数据来源: [ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)
+- 分析脚本: `scripts/nuclei-poc-analyzer.js`
+- 生成时间: $(date)
+
+🤖 Generated with [Claude Code](https://claude.ai/code)
+EOF
+)" \
+            --head "$BRANCH_NAME" \
+            --base main
+            
+          echo "✅ 已创建 PR 用于人工审查"
+
+  # 健康检查任务
+  health-check:
+    runs-on: ubuntu-latest
+    needs: nuclei-analysis
+    if: always()
+    
+    steps:
+      - name: Notify if analysis failed
+        if: needs.nuclei-analysis.result == 'failure'
+        run: |
+          echo "❌ Nuclei POC 分析失败"
+          echo "请检查以下可能的原因:"
+          echo "1. GitHub API 速率限制"
+          echo "2. Nuclei 模板仓库访问问题"  
+          echo "3. YAML 解析错误"
+          echo "4. 网络连接问题"
+          
+      - name: Analysis completed successfully
+        if: needs.nuclei-analysis.result == 'success'
+        run: |
+          echo "✅ Nuclei POC 分析完成"
+          echo "📊 新的安全情报已添加到博客"

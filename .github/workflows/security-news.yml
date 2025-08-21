@@ -1,0 +1,50 @@
+name: Auto Security News Collection
+
+on:
+  schedule:
+    # 每周五 09:00 UTC (17:00 北京时间) 生成周报
+    - cron: '0 9 * * 5'
+  workflow_dispatch: # 手动触发
+
+jobs:
+  collect-security-news:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'yarn'
+          
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+        
+      - name: Collect security news
+        env:
+          NVDAPI_KEY: ${{ secrets.NVDAPI_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/security-news-collector.js
+        
+      - name: Build and check for new content
+        run: |
+          yarn build
+          git add .
+          
+      - name: Commit and push if changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+          if [[ -n $(git diff --cached --exit-code) ]]; then
+            git commit -m "🤖 自动更新安全资讯 $(date +'%Y-%m-%d')"
+            git push
+            echo "New security news published!"
+          else
+            echo "No new security news to publish"
+          fi
