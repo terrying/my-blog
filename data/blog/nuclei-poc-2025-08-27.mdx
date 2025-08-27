@@ -1,0 +1,278 @@
+---
+title: 'Nuclei POC 精选分析 - 2025-08-27'
+date: '2025-08-27'
+tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
+draft: false
+summary: '从 430 个模板更新中精选分析 30 个高价值 POC，发现 8 个高风险漏洞'
+authors: ['default']
+---
+
+# Nuclei POC 精选分析 - 2025-08-27
+
+## 📊 智能筛选概况
+
+- **发现变更**: 430 个模板更新
+- **精选分析**: 30 个高价值 POC  
+- **智能跳过**: 400 个低优先级模板
+- **高风险漏洞**: 8 个
+- **主要类别**: CVE漏洞(12), 其他(12), 信息泄露(2), 配置错误(4)
+
+> 💡 **智能筛选说明**: 系统自动优先分析 CVE 漏洞、高危漏洞和新增模板，跳过低价值的技术识别类模板，确保高效利用 API 资源。
+
+### 严重程度分布
+
+- 🔴 **严重**: 6 个
+- 🟠 **高危**: 2 个
+- 🟡 **中危**: 12 个
+- 🔵 **低危**: 4 个
+- ⚪ **信息**: 6 个
+
+## 🔍 重点漏洞分析
+
+
+### Microsoft SharePoint Server - Remote Code Execution (ToolShell)
+
+- **漏洞ID**: `CVE-2025-53770`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Deserialization of untrusted data in on-premises Microsoft SharePoint Server allows an unauthorized attacker to execute code over a network. Microsoft is aware that an exploit for CVE-2025-53770 exists in the wild. Microsoft is preparing and fully testing a comprehensive update to address this vulnerability. In the meantime, please make sure that the mitigation provided in this CVE documentation is in place so that you are protected from exploitation.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-53770
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-53770)
+- [参考资料](https://msrc.microsoft.com/blog/2025/07/customer-guidance-for-sharepoint-vulnerability-cve-2025-53770/)
+- [参考资料](https://x.com/codewhitesec/status/1944743478350557232)
+- [参考资料](https://github.com/rapid7/metasploit-framework/pull/20409)
+
+---
+
+
+### GeoServer and GeoTools - Remote Code Execution
+
+- **漏洞ID**: `CVE-2024-36404`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: GeoTools is an open source Java library that provides tools for geospatial data. Prior to versions 31.2, 30.4, and 29.6, Remote Code Execution (RCE) is possible if an application uses certain GeoTools functionality to evaluate XPath expressions supplied by user input. Versions 31.2, 30.4, and 29.6 contain a fix for this issue. As a workaround, GeoTools can operate with reduced functionality by removing the `gt-complex` jar from one&#x27;s application. As an example of the impact, application schema `datastore` would not function without the ability to use XPath expressions to query complex content. Alternatively, one may utilize a drop-in replacement GeoTools jar from SourceForge for versions 31.1, 30.3, 30.2, 29.2, 28.2, 27.5, 27.4, 26.7, 26.4, 25.2, and 24.0. These jars are for download only and are not available from maven central, intended to quickly provide a fix to affected applications.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2024-36404
+
+**参考链接**: 
+- [参考资料](https://nsfocusglobal.com/remote-code-execution-vulnerability-between-geoserver-and-geotools-cve-2024-36401-cve-2024-36404-notification/)
+- [参考资料](https://geoserver.org/vulnerability/2024/09/12/cve-2024-36401.html)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2024-36404)
+
+---
+
+
+### GeoServer WFS - XXE Processing Vulnerability
+
+- **漏洞ID**: `CVE-2025-30220`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: GeoServer Web Feature Service (WFS) is vulnerable to an XML External Entity (XXE) processing attack due to improper handling of XML input. This vulnerability allows attackers to perform Out-of-Band (OOB) data exfiltration and Server-Side Request Forgery (SSRF) by exploiting the GeoTools library.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-30220
+
+**参考链接**: 
+- [参考资料](https://github.com/geoserver/geoserver/security/advisories/GHSA-jj54-8f66-c5pc)
+- [参考资料](https://docs.geoserver.org/latest/en/user/production/config.html#production-config-external-entities)
+- [参考资料](https://github.com/geonetwork/core-geonetwork/pull/8757)
+- [参考资料](https://github.com/geonetwork/core-geonetwork/pull/8803)
+- [参考资料](https://github.com/geonetwork/core-geonetwork/pull/8812)
+- [参考资料](https://geoserver.org/vulnerability/2025/06/10/cve-disclosure.html)
+
+---
+
+
+### Microsoft SharePoint Server - Remote Code Execution (ToolShell)
+
+- **漏洞ID**: `CVE-2025-53770`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Deserialization of untrusted data in on-premises Microsoft SharePoint Server allows an unauthorized attacker to execute code over a network. Microsoft is aware that an exploit for CVE-2025-53770 exists in the wild. Microsoft is preparing and fully testing a comprehensive update to address this vulnerability. In the meantime, please make sure that the mitigation provided in this CVE documentation is in place so that you are protected from exploitation.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-53770
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-53770)
+- [参考资料](https://msrc.microsoft.com/blog/2025/07/customer-guidance-for-sharepoint-vulnerability-cve-2025-53770/)
+- [参考资料](https://x.com/codewhitesec/status/1944743478350557232)
+- [参考资料](https://github.com/rapid7/metasploit-framework/pull/20409)
+
+---
+
+
+### GeoServer and GeoTools - Remote Code Execution
+
+- **漏洞ID**: `CVE-2024-36404`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: GeoTools is an open source Java library that provides tools for geospatial data. Prior to versions 31.2, 30.4, and 29.6, Remote Code Execution (RCE) is possible if an application uses certain GeoTools functionality to evaluate XPath expressions supplied by user input. Versions 31.2, 30.4, and 29.6 contain a fix for this issue. As a workaround, GeoTools can operate with reduced functionality by removing the `gt-complex` jar from one&#x27;s application. As an example of the impact, application schema `datastore` would not function without the ability to use XPath expressions to query complex content. Alternatively, one may utilize a drop-in replacement GeoTools jar from SourceForge for versions 31.1, 30.3, 30.2, 29.2, 28.2, 27.5, 27.4, 26.7, 26.4, 25.2, and 24.0. These jars are for download only and are not available from maven central, intended to quickly provide a fix to affected applications.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2024-36404
+
+**参考链接**: 
+- [参考资料](https://nsfocusglobal.com/remote-code-execution-vulnerability-between-geoserver-and-geotools-cve-2024-36401-cve-2024-36404-notification/)
+- [参考资料](https://geoserver.org/vulnerability/2024/09/12/cve-2024-36401.html)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2024-36404)
+
+---
+
+
+### GeoServer WFS - XXE Processing Vulnerability
+
+- **漏洞ID**: `CVE-2025-30220`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: GeoServer Web Feature Service (WFS) is vulnerable to an XML External Entity (XXE) processing attack due to improper handling of XML input. This vulnerability allows attackers to perform Out-of-Band (OOB) data exfiltration and Server-Side Request Forgery (SSRF) by exploiting the GeoTools library.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-30220
+
+**参考链接**: 
+- [参考资料](https://github.com/geoserver/geoserver/security/advisories/GHSA-jj54-8f66-c5pc)
+- [参考资料](https://docs.geoserver.org/latest/en/user/production/config.html#production-config-external-entities)
+- [参考资料](https://github.com/geonetwork/core-geonetwork/pull/8757)
+- [参考资料](https://github.com/geonetwork/core-geonetwork/pull/8803)
+- [参考资料](https://github.com/geonetwork/core-geonetwork/pull/8812)
+- [参考资料](https://geoserver.org/vulnerability/2025/06/10/cve-disclosure.html)
+
+---
+
+
+### YonBIP - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-yonbip-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: There is an arbitrary file reading vulnerability in yonbiplogin, the advanced version of YonBIP
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/wy876/POC/blob/main/%E7%94%A8%E5%8F%8BOA/%E7%94%A8%E5%8F%8BYonBIP%E9%AB%98%E7%BA%A7%E7%89%88yonbiplogin%E5%AD%98%E5%9C%A8%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E6%BC%8F%E6%B4%9E.md)
+
+---
+
+
+### YonBIP - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-yonbip-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: There is an arbitrary file reading vulnerability in yonbiplogin, the advanced version of YonBIP
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/wy876/POC/blob/main/%E7%94%A8%E5%8F%8BOA/%E7%94%A8%E5%8F%8BYonBIP%E9%AB%98%E7%BA%A7%E7%89%88yonbiplogin%E5%AD%98%E5%9C%A8%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E6%BC%8F%E6%B4%9E.md)
+
+---
+
+
+## 📋 完整模板列表
+
+| 模板名称 | 严重程度 | 类别 | 影响资产 | 风险评分 |
+|---------|---------|------|---------|---------|
+| Microsoft SharePoint Server - Remote Code Executio | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| GeoServer and GeoTools - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| GeoServer WFS - XXE Processing Vulnerability | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Microsoft SharePoint Server - Remote Code Executio | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| GeoServer and GeoTools - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| GeoServer WFS - XXE Processing Vulnerability | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| YonBIP - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| YonBIP - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| Vite Development Server - Path Traversal | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| Vite Development Server - Path Traversal | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| Puppeteer Renderer  - Directory Traversal | 🟡 medium | CVE漏洞 | 通用 | 3/5 |
+| Parse Server - GraphQL Schema Information Disclosu | 🟡 medium | CVE漏洞 | 通用 | 3/5 |
+| Puppeteer Renderer  - Directory Traversal | 🟡 medium | CVE漏洞 | 通用 | 3/5 |
+| Parse Server - GraphQL Schema Information Disclosu | 🟡 medium | CVE漏洞 | 通用 | 3/5 |
+| Senayan Library Management System v8.3.1 (Akasia)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| Senayan Library Management System v9.5.2 (Bulian)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| Senayan Library Management System v8.3.1 (Akasia)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| Senayan Library Management System v9.5.2 (Bulian)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| SQL Server - Dump Files | 🟡 medium | 信息泄露 | 通用 | 3/5 |
+| SQL Server - Dump Files | 🟡 medium | 信息泄露 | 通用 | 3/5 |
+| Manage Cabinet Register - Exposed | 🔵 low | 配置错误 | 通用 | 2/5 |
+| UniGUI Server Monitor Panel - Exposure | 🔵 low | 配置错误 | 通用 | 2/5 |
+| Manage Cabinet Register - Exposed | 🔵 low | 配置错误 | 通用 | 2/5 |
+| UniGUI Server Monitor Panel - Exposure | 🔵 low | 配置错误 | 通用 | 2/5 |
+| Ackee Panel - Detect | ⚪ info | 其他 | 管理面板 | 1/5 |
+| Adfinity Login Panel - Detect | ⚪ info | 其他 | 管理面板 | 1/5 |
+| Akuiteo Login Panel - Detect | ⚪ info | 其他 | 管理面板 | 1/5 |
+| Amprion Grid Loss Login Panel - Detect | ⚪ info | 其他 | 管理面板 | 1/5 |
+| Apigee Login Panel - Detect | ⚪ info | 其他 | 管理面板 | 1/5 |
+| Blue Yonder Panel - Detect | ⚪ info | 其他 | 管理面板 | 1/5 |
+
+## 🛡️ 安全建议
+
+🚨 发现高风险漏洞，建议立即扫描相关资产
+🔍 关注新发布的 CVE 漏洞，及时更新补丁
+⚡ 检测到远程代码执行漏洞，优先处理
+
+## 🔧 扫描建议
+
+建议使用以下 Nuclei 命令进行扫描：
+
+```bash
+# 扫描高危漏洞
+nuclei -t http/cves/2025/CVE-2025-53770.yaml -t http/cves/2024/CVE-2024-36404.yaml -t http/cves/2025/CVE-2025-30220.yaml -t http/cves/2025/CVE-2025-53770.yaml -t http/cves/2024/CVE-2024-36404.yaml -t http/cves/2025/CVE-2025-30220.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -u target-url
+
+# 扫描所有今日新增模板  
+nuclei -t http/cves/2025/CVE-2025-53770.yaml -t http/cves/2024/CVE-2024-36404.yaml -t http/cves/2025/CVE-2025-30220.yaml -t http/cves/2025/CVE-2025-53770.yaml -t http/cves/2024/CVE-2024-36404.yaml -t http/cves/2025/CVE-2025-30220.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -t http/cves/2025/CVE-2025-31125.yaml -t http/cves/2025/CVE-2025-31125.yaml -t http/cves/2024/CVE-2024-36527.yaml -t http/cves/2025/CVE-2025-53364.yaml -t http/cves/2024/CVE-2024-36527.yaml -t http/cves/2025/CVE-2025-53364.yaml -t http/vulnerabilities/other/slims-8-akasia-xss.yaml -t http/vulnerabilities/other/slims-9-xss-index.yaml -t http/vulnerabilities/other/slims-8-akasia-xss.yaml -t http/vulnerabilities/other/slims-9-xss-index.yaml -t http/exposures/backups/sql-server-dump.yaml -t http/exposures/backups/sql-server-dump.yaml -t http/misconfiguration/manage-cabinet-register.yaml -t http/misconfiguration/unigui-server-monitor-exposure.yaml -t http/misconfiguration/manage-cabinet-register.yaml -t http/misconfiguration/unigui-server-monitor-exposure.yaml -t http/exposed-panels/ackee-panel.yaml -t http/exposed-panels/adfinity-panel.yaml -t http/exposed-panels/akuiteo-panel.yaml -t http/exposed-panels/amprion-gridloss-panel.yaml -t http/exposed-panels/apigee-panel.yaml -t http/exposed-panels/blue-yonder-panel.yaml -u target-url
+```
+
+---
+
+*本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)*
+
+*扫描建议仅供参考，请在授权环境下进行安全测试*
