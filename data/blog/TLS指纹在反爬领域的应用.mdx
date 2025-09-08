@@ -4,6 +4,7 @@ date: '2025-07-20'
 tags: ['API 安全', 'TLS 指纹', '反爬']
 draft: false
 summary: 理解 JA3/TLS 指纹在反爬中的作用、局限与落地策略（白名单 + 熔断 + 自动更新）。
+images: ['/static/images/tls fp.jpeg']
 ---
 
 在反爬领域，TLS 指纹常被用来刻画客户端在 TLS ClientHello 中暴露的能力组合，从而区分真实浏览器与脚本/库。本文用实战视角说明它的工作原理、局限与落地策略。
