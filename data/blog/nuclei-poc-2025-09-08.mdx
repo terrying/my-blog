@@ -1,0 +1,401 @@
+---
+title: 'Nuclei POC 精选分析 - 2025-09-08'
+date: '2025-09-08'
+tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
+draft: false
+summary: '从 300 个模板更新中精选分析 30 个高价值 POC，发现 13 个高风险漏洞'
+authors: ['default']
+---
+
+# Nuclei POC 精选分析 - 2025-09-08
+
+## 📊 智能筛选概况
+
+- **发现变更**: 300 个模板更新
+- **精选分析**: 30 个高价值 POC  
+- **智能跳过**: 270 个低优先级模板
+- **高风险漏洞**: 13 个
+- **主要类别**: CVE漏洞(30)
+
+> 💡 **智能筛选说明**: 系统自动优先分析 CVE 漏洞、高危漏洞和新增模板，跳过低价值的技术识别类模板，确保高效利用 API 资源。
+
+### 严重程度分布
+
+- 🔴 **严重**: 6 个
+- 🟠 **高危**: 7 个
+- 🟡 **中危**: 16 个
+- 🔵 **低危**: 1 个
+
+## 🔍 重点漏洞分析
+
+
+### Uptime-Kuma - Local File Inclusion (LFI)
+
+- **漏洞ID**: `CVE-2024-56331`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Uptime Kuma has an Improper URL Handling vulnerability that can be exploited through the &quot;real-browser&quot; feature.
+By providing a URL using the file:/// protocol (e.g., file:///etc/passwd), an attacker can obtain a screenshot
+of local sensitive files, because the user input is not validated by the server.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2024-56331
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2024-56331)
+- [参考资料](https://github.com/griisemine/CVE-2024-56331)
+
+---
+
+
+### GitHub Enterprise - SAML Authentication Bypass
+
+- **漏洞ID**: `CVE-2024-9487`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: An improper verification of cryptographic signature vulnerability was identified in GitHub Enterprise Server that allowed SAML SSO authentication to be bypassed resulting in unauthorized provisioning of users and access to the instance. Exploitation required the encrypted assertions feature to be enabled, and the attacker would require direct network access as well as a signed SAML response or metadata document. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.15 and was fixed in versions 3.11.16, 3.12.10, 3.13.5, and 3.14.2. This vulnerability was reported via the GitHub Bug Bounty program.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://projectdiscovery.io/blog/github-enterprise-saml-authentication-bypass)
+- [参考资料](https://github.com/advisories/GHSA-g83h-4727-5rpv)
+
+---
+
+
+### Ivanti Connect Secure - Stack-based Buffer Overflow
+
+- **漏洞ID**: `CVE-2025-22457`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Ivanti Connect Secure before version 22.7R2.6, Ivanti Policy Secure before version 22.7R1.4,
+and Ivanti ZTA Gateways before version 22.8R2.2 contain a stack-based buffer overflow caused by
+improper input handling, allowing remote attackers to execute arbitrary code without authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-22457
+
+**参考链接**: 
+- [参考资料](https://labs.watchtowr.com/is-the-sofistication-in-the-room-with-us-x-forwarded-for-and-ivanti-connect-secure-cve-2025-22457)
+- [参考资料](https://www.cvedetails.com/cve/CVE-2025-22457)
+- [参考资料](https://github.com/securekomodo/CVE-2025-22457)
+
+---
+
+
+### Allegra - Authentication Bypass via Predictable Password Reset Token
+
+- **漏洞ID**: `CVE-2025-6216`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Allegra calculateTokenExpDate Password Recovery Authentication Bypass Vulnerability. This vulnerability allows remote attackers to bypass authentication on affected installations of Allegra. Authentication is not required to exploit this vulnerability. The specific flaw exists within the password recovery mechanism. The issue results from reliance upon a predictable value when generating a password reset token. An attacker can leverage this vulnerability to bypass authentication on the application.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-6216
+
+**参考链接**: 
+- [参考资料](https://www.zerodayinitiative.com/advisories/ZDI-25-410/)
+- [参考资料](https://alltena.com/en/resources/release-notes/release-notes-for-release-8-1-4-and-release-7-5-2)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-6216)
+
+---
+
+
+### Horde Groupware Unauthenticated Admin Access
+
+- **漏洞ID**: `CVE-2005-3344`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Horde Groupware contains an administrative account with a blank password, which allows remote attackers to gain access.
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2005-3344
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2005-3344)
+- [参考资料](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-3344)
+- [参考资料](http://www.debian.org/security/2005/dsa-884)
+- [参考资料](http://www.networkscanning.com/Horde-Default-Admin-Password-Vulnerability-VSS_20171.html)
+- [参考资料](https://exchange.xforce.ibmcloud.com/vulnerabilities/24576)
+
+---
+
+
+### Joomla! Image Browser 0.1.5 rc2 - Local File Inclusion
+
+- **漏洞ID**: `CVE-2008-4668`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: Joomla 站点
+- **预估影响**: 数千个
+
+**描述**: Joomla! Image Browser 0.1.5 rc2 is susceptible to local file inclusion via com_imagebrowser which could allow remote attackers to include and execute arbitrary local files via a .. (dot dot) in the folder parameter to index.php.
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2008-4668
+
+**参考链接**: 
+- [参考资料](https://www.exploit-db.com/exploits/6618)
+- [参考资料](http://securityreason.com/securityalert/4464)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2008-4668)
+- [参考资料](https://exchange.xforce.ibmcloud.com/vulnerabilities/45490)
+- [参考资料](https://github.com/ARPSyndicate/kenzer-templates)
+
+---
+
+
+### Apache Tomcat WebSocket Frame Payload Length Validation Denial of Service
+
+- **漏洞ID**: `CVE-2020-13935`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Apache Tomcat versions 10.0.0-M1 to 10.0.0-M6, 9.0.0.M1 to 9.0.36, 8.5.0 to 8.5.56, and 7.0.27 to 7.0.104 contain a vulnerability in the WebSocket module where the payload length of WebSocket frames is not correctly validated. This can lead to an infinite loop when processing frames with invalid payload lengths. Attackers can exploit this flaw by sending multiple malicious requests, resulting in a denial of service (DoS) on the affected Tomcat instance.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2020-13935
+
+**参考链接**: 
+- [参考资料](http://lists.opensuse.org/opensuse-security-announce/2020-07/msg00084.html)
+- [参考资料](http://lists.opensuse.org/opensuse-security-announce/2020-07/msg00088.html)
+- [参考资料](http://packetstormsecurity.com/files/161213/WordPress-5.0.0-Remote-Code-Execution.html)
+- [参考资料](https://kc.mcafee.com/corporate/index?page=content&id=SB10332)
+- [参考资料](https://lists.apache.org/thread.html/r4e5d3c09f4dd2923191e972408b40fb8b42dbff0bc7904d44b651e50%40%3Cusers.tomcat.apache.org%3E)
+- [参考资料](https://security.netapp.com/advisory/ntap-20200724-0003/)
+- [参考资料](https://github.com/RedTeamPentesting/CVE-2020-13935)
+
+---
+
+
+### glibc&#x27;s syslog - Local Privilege Escalation
+
+- **漏洞ID**: `CVE-2023-6246`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: A heap-based buffer overflow was found in the __vsyslog_internal function of the glibc library. This function is called by the syslog and vsyslog functions. This issue occurs when the openlog function was not called, or called with the ident argument set to NULL, and the program name (the basename of argv&#x5B;0&#x5D;) is bigger than 1024 bytes, resulting in an application crash or local privilege escalation. This issue affects glibc 2.36 and newer.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2023-6246
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2023-6246)
+- [参考资料](https://www.qualys.com/2024/01/30/cve-2023-6246/syslog.txt)
+- [参考资料](https://access.redhat.com/security/cve/CVE-2023-6246)
+- [参考资料](https://bugzilla.redhat.com/show_bug.cgi?id=2249053)
+- [参考资料](https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/D2FIH77VHY3KCRROCXOT6L27WMZXSJ2G/)
+
+---
+
+
+### PHP - LFR to Remote Code Execution
+
+- **漏洞ID**: `CVE-2024-2961`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: PHP Local File Read vulnerability leading to Remote Code Execution
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2024-2961
+
+**参考链接**: 
+- [参考资料](https://github.com/vulhub/vulhub/tree/master/php/CVE-2024-2961)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2024-2961)
+
+---
+
+
+### HTTP API DOM - XSS on JSONP callback
+
+- **漏洞ID**: `CVE-2024-29882`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: SRS is a simple, high-efficiency, real-time video server. SRS&#x27;s `/api/v1/vhosts/vid-&lt;id&gt;?callback&#x3D;&lt;payload&gt;` endpoint didn&#x27;t filter the callback function name which led to injecting malicious javascript payloads and executing XSS ( Cross-Site Scripting). This vulnerability is fixed in 5.0.210 and 6.0.121.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2024-29882
+
+**参考链接**: 
+- [参考资料](https://github.com/ossrs/srs/commit/244ce7bc013a0b805274a65132a2980680ba6b9d)
+- [参考资料](https://github.com/ossrs/srs/security/advisories/GHSA-gv9r-qcjc-5hj7)
+
+---
+
+
+### Polyfill Supply Chain Attack Malicious Code Execution
+
+- **漏洞ID**: `CVE-2024-38526`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: pdoc provides API Documentation for Python Projects. Documentation generated with `pdoc --math` linked to JavaScript files from polyfill.io
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2024-38526
+
+**参考链接**: 
+- [参考资料](https://sansec.io/research/polyfill-supply-chain-attack)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2024-38526)
+- [参考资料](https://x.com/triblondon/status/1761852117579427975)
+- [参考资料](https://github.com/mitmproxy/pdoc/pull/703)
+- [参考资料](https://github.com/mitmproxy/pdoc/security/advisories/GHSA-5vgj-ggm4-fg62)
+
+---
+
+
+### Squirrelmail &lt;&#x3D;1.4.6 - Local File Inclusion
+
+- **漏洞ID**: `CVE-2006-2842`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: SquirrelMail 1.4.6 and earlier versions are susceptible to a PHP local file inclusion vulnerability in functions/plugin.php if register_globals is enabled and magic_quotes_gpc is disabled. This allows remote attackers to execute arbitrary PHP code via a URL in the plugins array parameter.
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2006-2842
+
+**参考链接**: 
+- [参考资料](https://www.exploit-db.com/exploits/27948)
+- [参考资料](http://squirrelmail.cvs.sourceforge.net/squirrelmail/squirrelmail/functions/global.php?r1=1.27.2.16&r2=1.27.2.17&view=patch&pathrev=SM-1_4-STABLE)
+- [参考资料](http://www.squirrelmail.org/security/issue/2006-06-01)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2006-2842)
+- [参考资料](ftp://patches.sgi.com/support/free/security/advisories/20060703-01-U.asc)
+
+---
+
+
+### WordPress Sniplets 1.1.2 - Local File Inclusion
+
+- **漏洞ID**: `CVE-2008-1059`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: PHP remote file inclusion vulnerability in modules/syntax_highlight.php in the Sniplets 1.1.2 and 1.2.2 plugin for WordPress allows remote attackers to execute arbitrary PHP code via a URL in the libpath parameter.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2008-1059
+
+**参考链接**: 
+- [参考资料](https://www.exploit-db.com/exploits/5194)
+- [参考资料](https://wpscan.com/vulnerability/d0278ebe-e6ae-4f7c-bcad-ba318573f881)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2008-1059)
+- [参考资料](http://securityreason.com/securityalert/3706)
+- [参考资料](https://exchange.xforce.ibmcloud.com/vulnerabilities/40829)
+
+---
+
+
+## 📋 完整模板列表
+
+| 模板名称 | 严重程度 | 类别 | 影响资产 | 风险评分 |
+|---------|---------|------|---------|---------|
+| Uptime-Kuma - Local File Inclusion (LFI) | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| GitHub Enterprise - SAML Authentication Bypass | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Ivanti Connect Secure - Stack-based Buffer Overflo | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Allegra - Authentication Bypass via Predictable Pa | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Horde Groupware Unauthenticated Admin Access | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Joomla! Image Browser 0.1.5 rc2 - Local File Inclu | 🔴 critical | CVE漏洞 | Joomla 站点 | 5/5 |
+| Apache Tomcat WebSocket Frame Payload Length Valid | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
+| glibc&#x27;s syslog - Local Privilege Escalation | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
+| PHP - LFR to Remote Code Execution | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
+| HTTP API DOM - XSS on JSONP callback | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
+| Polyfill Supply Chain Attack Malicious Code Execut | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
+| Squirrelmail &lt;&#x3D;1.4.6 - Local File Inclusio | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
+| WordPress Sniplets 1.1.2 - Local File Inclusion | 🟠 high | CVE漏洞 | WordPress 站点 | 4.5/5 |
+| Backdrop CMS - Cross-Site Scripting | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| Swagger UI &gt;&#x3D;3.14.1 &lt; 3.38.0 - DOM Base | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| Microsoft FrontPage Extensions - Information Discl | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| SquirrelMail 1.4.x - Folder Name Cross-Site Script | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| Open Bulletin Board (OpenBB) v1.0.6 - Open Redirec | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| Lotus Domino R5 and R6 WebMail - Information Discl | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| Cofax &lt;&#x3D;2.0RC3 - Cross-Site Scripting | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| Cherokee HTTPD &lt;&#x3D;0.5 - Cross-Site Scriptin | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| Jira Rainbow.Zen - Cross-Site Scripting | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| Joomla! RSfiles &lt;&#x3D;1.0.2 - Local File Inclu | 🟡 medium | CVE漏洞 | Joomla 站点 | 3.5/5 |
+| OpenSymphony XWork/Apache Struts2 - Remote Code Ex | 🟡 medium | CVE漏洞 | Apache 服务器 | 3.5/5 |
+| phpPgAdmin &lt;&#x3D;4.1.1 - Cross-Site Scripting | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| WordPress Sniplets &lt;&#x3D;1.2.2 - Cross-Site Sc | 🟡 medium | CVE漏洞 | WordPress 站点 | 3.5/5 |
+| AppServ Open Project &lt;&#x3D;2.5.10 - Cross-Site | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| Joomla! &lt;&#x3D;2.0.0 RC2 - Local File Inclusion | 🟡 medium | CVE漏洞 | Joomla 站点 | 3.5/5 |
+| phpPgAdmin &lt;&#x3D;4.2.1 - Local File Inclusion | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| Jakarta Tomcat 3.1 and 3.0 - Exposure | 🔵 low | CVE漏洞 | 通用 | 2/5 |
+
+## 🛡️ 安全建议
+
+🚨 发现高风险漏洞，建议立即扫描相关资产
+🔍 关注新发布的 CVE 漏洞，及时更新补丁
+⚡ 检测到远程代码执行漏洞，优先处理
+
+## 🔧 扫描建议
+
+建议使用以下 Nuclei 命令进行扫描：
+
+```bash
+# 扫描高危漏洞
+nuclei -t code/cves/2024/CVE-2024-56331.yaml -t code/cves/2024/CVE-2024-9487.yaml -t code/cves/2025/CVE-2025-22457.yaml -t code/cves/2025/CVE-2025-6216.yaml -t http/cves/2005/CVE-2005-3344.yaml -t http/cves/2008/CVE-2008-4668.yaml -t code/cves/2020/CVE-2020-13935.yaml -t code/cves/2023/CVE-2023-6246.yaml -t dast/cves/2024/CVE-2024-2961.yaml -t headless/cves/2024/CVE-2024-29882.yaml -t headless/cves/2024/CVE-2024-38526.yaml -t http/cves/2006/CVE-2006-2842.yaml -t http/cves/2008/CVE-2008-1059.yaml -u target-url
+
+# 扫描所有今日新增模板  
+nuclei -t code/cves/2024/CVE-2024-56331.yaml -t code/cves/2024/CVE-2024-9487.yaml -t code/cves/2025/CVE-2025-22457.yaml -t code/cves/2025/CVE-2025-6216.yaml -t http/cves/2005/CVE-2005-3344.yaml -t http/cves/2008/CVE-2008-4668.yaml -t code/cves/2020/CVE-2020-13935.yaml -t code/cves/2023/CVE-2023-6246.yaml -t dast/cves/2024/CVE-2024-2961.yaml -t headless/cves/2024/CVE-2024-29882.yaml -t headless/cves/2024/CVE-2024-38526.yaml -t http/cves/2006/CVE-2006-2842.yaml -t http/cves/2008/CVE-2008-1059.yaml -t headless/cves/2025/CVE-2025-25062.yaml -t headless/cves/2025/CVE-2025-8191.yaml -t http/cves/2000/CVE-2000-0114.yaml -t http/cves/2004/CVE-2004-0519.yaml -t http/cves/2004/CVE-2004-1965.yaml -t http/cves/2005/CVE-2005-2428.yaml -t http/cves/2005/CVE-2005-4385.yaml -t http/cves/2006/CVE-2006-1681.yaml -t http/cves/2007/CVE-2007-0885.yaml -t http/cves/2007/CVE-2007-4504.yaml -t http/cves/2007/CVE-2007-4556.yaml -t http/cves/2007/CVE-2007-5728.yaml -t http/cves/2008/CVE-2008-1061.yaml -t http/cves/2008/CVE-2008-2398.yaml -t http/cves/2008/CVE-2008-4764.yaml -t http/cves/2008/CVE-2008-5587.yaml -t http/cves/2000/CVE-2000-0760.yaml -u target-url
+```
+
+---
+
+*本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)*
+
+*扫描建议仅供参考，请在授权环境下进行安全测试*
