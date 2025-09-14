@@ -179,11 +179,11 @@ export default function ListLayoutWithTags({
 
                         {/* 第二行：左侧图片，右侧内容 */}
                         <div className="flex gap-4">
-                          {/* 左侧封面图片 - 正方形 */}
+                          {/* 左侧封面图片 - 16:9 比例 */}
                           <div className="flex-shrink-0">
                             <Link
                               href={`/${path}`}
-                              className="group relative block h-24 w-24 lg:h-32 lg:w-32"
+                              className="group relative block h-20 w-36 lg:h-24 lg:w-44"
                             >
                               {images && images[0] ? (
                                 <img

@@ -65,18 +65,18 @@ export default function Home({ posts }) {
 
                           {/* 第二行：左侧图片，右侧内容 */}
                           <div className="flex gap-4">
-                            {/* 左侧封面图片 - 正方形 */}
+                            {/* 左侧封面图片 - 16:9 比例 */}
                             <div className="flex-shrink-0">
                               <Link
                                 href={`/blog/${slug}`}
-                                className="group relative block h-24 w-24 lg:h-32 lg:w-32"
+                                className="group relative block h-20 w-36 lg:h-24 lg:w-44"
                               >
                                 {images && images[0] ? (
                                   <Image
                                     src={images[0]}
                                     alt={title}
-                                    width={128}
-                                    height={128}
+                                    width={176}
+                                    height={96}
                                     className="h-full w-full rounded-lg object-cover transition-transform duration-300 group-hover:scale-105"
                                   />
                                 ) : (
