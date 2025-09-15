@@ -8,6 +8,7 @@ import type { Blog } from 'contentlayer/generated'
 import Link from '@/components/Link'
 import Tag from '@/components/Tag'
 import Image from '@/components/Image'
+import ViewCounter from '@/components/ViewCounter'
 import siteMetadata from '@/data/siteMetadata'
 import tagData from 'app/tag-data.json'
 
@@ -160,7 +161,7 @@ export default function ListLayoutWithTags({
 
             <ul className="space-y-6">
               {displayPosts.map((post, index) => {
-                const { path, date, title, summary, tags, images } = post
+                const { path, date, title, summary, tags, images, slug } = post
                 return (
                   <li key={path}>
                     <article className="rounded-xl bg-white p-6 shadow-sm transition-shadow duration-300 hover:shadow-lg dark:bg-gray-800">
@@ -253,7 +254,7 @@ export default function ListLayoutWithTags({
                               {summary}
                             </div>
 
-                            {/* 阅读更多 */}
+                            {/* 阅读更多和统计信息 */}
                             <div className="flex items-center justify-between pt-2">
                               <Link
                                 href={`/${path}`}
@@ -275,8 +276,9 @@ export default function ListLayoutWithTags({
                                   />
                                 </svg>
                               </Link>
-                              <div className="text-xs text-gray-400 dark:text-gray-500">
-                                约 {Math.ceil((summary?.length || 0) / 5)} 分钟阅读
+                              <div className="flex items-center gap-3 text-xs text-gray-400 dark:text-gray-500">
+                                <ViewCounter slug={slug} className="text-xs" />
+                                <span>约 {Math.ceil((summary?.length || 0) / 5)} 分钟阅读</span>
                               </div>
                             </div>
                           </div>

@@ -9,6 +9,7 @@ import Image from '@/components/Image'
 import Tag from '@/components/Tag'
 import TOC from '@/components/TOC'
 import RelatedPosts from '@/components/RelatedPosts'
+import ViewCounter from '@/components/ViewCounter'
 import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
@@ -73,14 +74,21 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                     <PageTitle>{title}</PageTitle>
                   </div>
 
-                  {/* 标签 */}
-                  {tags && (
-                    <div className="flex flex-wrap justify-center gap-2 pt-2">
-                      {tags.map((tag) => (
-                        <Tag key={tag} text={tag} />
-                      ))}
+                  {/* 标签和阅读次数 */}
+                  <div className="space-y-3">
+                    {tags && (
+                      <div className="flex flex-wrap justify-center gap-2">
+                        {tags.map((tag) => (
+                          <Tag key={tag} text={tag} />
+                        ))}
+                      </div>
+                    )}
+
+                    {/* 阅读次数统计 */}
+                    <div className="flex justify-center">
+                      <ViewCounter slug={slug} trackView={true} className="text-sm" />
                     </div>
-                  )}
+                  </div>
                 </div>
               </header>
 

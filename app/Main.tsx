@@ -10,6 +10,7 @@ import RecentPosts from '@/components/RecentPosts'
 import TagCloud from '@/components/TagCloud'
 import BlogStats from '@/components/BlogStats'
 import FriendLinks from '@/components/FriendLinks'
+import ViewCounter from '@/components/ViewCounter'
 
 const MAX_DISPLAY = 5
 
@@ -142,7 +143,7 @@ export default function Home({ posts }) {
                                 {summary}
                               </div>
 
-                              {/* 阅读更多 */}
+                              {/* 阅读更多和统计信息 */}
                               <div className="flex items-center justify-between pt-2">
                                 <Link
                                   href={`/blog/${slug}`}
@@ -164,8 +165,9 @@ export default function Home({ posts }) {
                                     />
                                   </svg>
                                 </Link>
-                                <div className="text-xs text-gray-400 dark:text-gray-500">
-                                  约 {Math.ceil((summary?.length || 0) / 5)} 分钟阅读
+                                <div className="flex items-center gap-3 text-xs text-gray-400 dark:text-gray-500">
+                                  <ViewCounter slug={slug} className="text-xs" />
+                                  <span>约 {Math.ceil((summary?.length || 0) / 5)} 分钟阅读</span>
                                 </div>
                               </div>
                             </div>
