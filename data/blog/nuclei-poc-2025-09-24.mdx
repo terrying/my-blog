@@ -1,0 +1,764 @@
+---
+title: 'Nuclei POC 精选分析 - 2025-09-24'
+date: '2025-09-24'
+tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
+draft: false
+summary: '从 1231 个模板更新中精选分析 30 个高价值 POC，发现 29 个高风险漏洞'
+authors: ['default']
+category: 'security-intel'
+---
+
+# Nuclei POC 精选分析 - 2025-09-24
+
+## 📊 智能筛选概况
+
+- **发现变更**: 1231 个模板更新
+- **精选分析**: 30 个高价值 POC  
+- **智能跳过**: 1201 个低优先级模板
+- **高风险漏洞**: 29 个
+- **主要类别**: CVE漏洞(30)
+
+> 💡 **智能筛选说明**: 系统自动优先分析 CVE 漏洞、高危漏洞和新增模板，跳过低价值的技术识别类模板，确保高效利用 API 资源。
+
+### 严重程度分布
+
+- 🔴 **严重**: 19 个
+- 🟡 **中危**: 2 个
+- 🟠 **高危**: 9 个
+
+## 🔍 重点漏洞分析
+
+
+### 10Web Booster &lt; 2.24.18 - Unauthenticated Arbitrary Option Deletion
+
+- **漏洞ID**: `CVE-2023-5559`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: The 10Web Booster WordPress plugin before 2.24.18 does not validate the option name given to some AJAX actions, allowing unauthenticated users to delete arbitrary options from the database, leading to denial of service.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2023-5559
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/eba46f7d-e4db-400c-8032-015f21087bbf/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2023-5559)
+
+---
+
+
+### DELMIA Apriso - Command Injection
+
+- **漏洞ID**: `CVE-2025-6204`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: An Improper Control of Generation of Code (code injection / file upload → RCE) vulnerability affecting DELMIA Apriso (Release 2020 → Release 2025). When an authenticated user can upload files and the upload handler fails to canonicalize filenames or enforce storage restrictions, an attacker may place executable artifacts into web-served locations (via path traversal or insufficient normalization) and achieve remote code execution under the webserver context.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-6204
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-6204)
+- [参考资料](https://www.3ds.com/trust-center/security/security-advisories/cve-2025-6204)
+- [参考资料](https://projectdiscovery.io/blog/remote-code-execution-in-delmia-apriso)
+
+---
+
+
+### Zimbra Collaboration - Unrestricted File Upload
+
+- **漏洞ID**: `CVE-2022-41352`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: An issue was discovered in Zimbra Collaboration (ZCS) 8.8.15 and 9.0. An attacker can upload arbitrary files through amavis via a cpio loophole (extraction to /opt/zimbra/jetty/webapps/zimbra/public) that can lead to incorrect access to any other user accounts. Zimbra recommends pax over cpio. Also, pax is in the prerequisites of Zimbra on Ubuntu; however, pax is no longer part of a default Red Hat installation after RHEL 6 (or CentOS 6). Once pax is installed, amavis automatically prefers it over cpio.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2022-41352
+
+**参考链接**: 
+- [参考资料](https://www.secpod.com/blog/unpatched-rce-bug-in-zimbra-collaboration-suite-exploited-in-wild/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2022-41352)
+
+---
+
+
+### Zimbra Collaboration - Unrestricted File Upload
+
+- **漏洞ID**: `CVE-2022-41352`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: An issue was discovered in Zimbra Collaboration (ZCS) 8.8.15 and 9.0. An attacker can upload arbitrary files through amavis via a cpio loophole (extraction to /opt/zimbra/jetty/webapps/zimbra/public) that can lead to incorrect access to any other user accounts. Zimbra recommends pax over cpio. Also, pax is in the prerequisites of Zimbra on Ubuntu; however, pax is no longer part of a default Red Hat installation after RHEL 6 (or CentOS 6). Once pax is installed, amavis automatically prefers it over cpio.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2022-41352
+
+**参考链接**: 
+- [参考资料](https://www.secpod.com/blog/unpatched-rce-bug-in-zimbra-collaboration-suite-exploited-in-wild/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2022-41352)
+
+---
+
+
+### WordPress tagDiv Composer &lt; 3.5 - Authentication Bypass
+
+- **漏洞ID**: `CVE-2022-3477`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: The tagDiv Composer WordPress plugin before 3.5, required by the Newspaper WordPress theme before 12.1 and Newsmag WordPress theme before 5.2.2, does not properly implement the Facebook login feature, allowing unauthenticated attackers to login as any user by just knowing their email address
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2022-3477
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/993a95d2-6fce-48de-ae17-06ce2db829ef)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2022-3477)
+
+---
+
+
+### Fortinet SSL-VPN - Heap-Based Buffer Overflow
+
+- **漏洞ID**: `CVE-2022-42475`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: A heap-based buffer overflow vulnerability &#x5B;CWE-122&#x5D; in FortiOS SSL-VPN (versions 7.2.0 through 7.2.2, 7.0.0 through 7.0.8, 6.4.0 through 6.4.10, 6.2.0 through 6.2.11, 6.0.15 and earlier) and FortiProxy SSL-VPN (versions 7.2.0 through 7.2.1, 7.0.7 and earlier) may allow a remote unauthenticated attacker to execute arbitrary code or commands via specifically crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2022-42475
+
+**参考链接**: 
+- [参考资料](https://github.com/0xhaggis/CVE-2022-42475)
+- [参考资料](https://fortiguard.com/psirt/FG-IR-22-398)
+- [参考资料](https://labs.watchtowr.com/fortinet-no-more-funny-titles-cve-2022-42475/)
+- [参考资料](https://bishopfox.com/blog/exploit-cve-2022-42475)
+- [参考资料](https://github.com/3yujw7njai/CVE-2022-42475-RCE-POC)
+
+---
+
+
+### Ivanti Connect Secure - Stack-based Buffer Overflow
+
+- **漏洞ID**: `CVE-2025-22457`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Ivanti Connect Secure before version 22.7R2.6, Ivanti Policy Secure before version 22.7R1.4,
+and Ivanti ZTA Gateways before version 22.8R2.2 contain a stack-based buffer overflow caused by
+improper input handling, allowing remote attackers to execute arbitrary code without authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-22457
+
+**参考链接**: 
+- [参考资料](https://labs.watchtowr.com/is-the-sofistication-in-the-room-with-us-x-forwarded-for-and-ivanti-connect-secure-cve-2025-22457)
+- [参考资料](https://www.cvedetails.com/cve/CVE-2025-22457)
+- [参考资料](https://github.com/securekomodo/CVE-2025-22457)
+
+---
+
+
+### CrushFTP - Authentication Bypass Race Condition
+
+- **漏洞ID**: `CVE-2025-54309`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: CrushFTP 10 before 10.8.5 and 11 before 11.3.4_23, when the DMZ proxy feature is not used, mishandles AS2 validation and consequently allows remote attackers to obtain admin access via HTTPS, as exploited in the wild in July 2025.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-54309
+
+**参考链接**: 
+- [参考资料](https://github.com/watchtowrlabs/watchTowr-vs-CrushFTP-Authentication-Bypass-CVE-2025-54309/blob/main/watchTowr-vs-CrushFTP-CVE-2025-54309.py)
+- [参考资料](https://labs.watchtowr.com/the-one-where-we-just-steal-the-vulnerabilities-crushftp-cve-2025-54309/)
+
+---
+
+
+### Allegra - Authentication Bypass via Predictable Password Reset Token
+
+- **漏洞ID**: `CVE-2025-6216`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Allegra calculateTokenExpDate Password Recovery Authentication Bypass Vulnerability. This vulnerability allows remote attackers to bypass authentication on affected installations of Allegra. Authentication is not required to exploit this vulnerability. The specific flaw exists within the password recovery mechanism. The issue results from reliance upon a predictable value when generating a password reset token. An attacker can leverage this vulnerability to bypass authentication on the application.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-6216
+
+**参考链接**: 
+- [参考资料](https://www.zerodayinitiative.com/advisories/ZDI-25-410/)
+- [参考资料](https://alltena.com/en/resources/release-notes/release-notes-for-release-8-1-4-and-release-7-5-2)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-6216)
+
+---
+
+
+### Memos &lt; 0.25.0 - Stored Cross-Site Scripting
+
+- **漏洞ID**: `CVE-2025-50738`
+- **严重程度**: 🟡 MEDIUM
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: An authenticated attacker can upload a specially crafted SVG file containing JavaScript code to Memos versions prior to 0.25.0, leading to a stored cross-site scripting (XSS) vulnerability.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/usememos/memos/issues/4707)
+- [参考资料](https://github.com/advisories/GHSA-hfcf-79gh-f3jc)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-50738)
+
+---
+
+
+### 10Web Booster &lt; 2.24.18 - Unauthenticated Arbitrary Option Deletion
+
+- **漏洞ID**: `CVE-2023-5559`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: The 10Web Booster WordPress plugin before 2.24.18 does not validate the option name given to some AJAX actions, allowing unauthenticated users to delete arbitrary options from the database, leading to denial of service.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2023-5559
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/eba46f7d-e4db-400c-8032-015f21087bbf/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2023-5559)
+
+---
+
+
+### DELMIA Apriso - Command Injection
+
+- **漏洞ID**: `CVE-2025-6204`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: An Improper Control of Generation of Code (code injection / file upload → RCE) vulnerability affecting DELMIA Apriso (Release 2020 → Release 2025). When an authenticated user can upload files and the upload handler fails to canonicalize filenames or enforce storage restrictions, an attacker may place executable artifacts into web-served locations (via path traversal or insufficient normalization) and achieve remote code execution under the webserver context.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-6204
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-6204)
+- [参考资料](https://www.3ds.com/trust-center/security/security-advisories/cve-2025-6204)
+- [参考资料](https://projectdiscovery.io/blog/remote-code-execution-in-delmia-apriso)
+
+---
+
+
+### Zimbra Collaboration - Unrestricted File Upload
+
+- **漏洞ID**: `CVE-2022-41352`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: An issue was discovered in Zimbra Collaboration (ZCS) 8.8.15 and 9.0. An attacker can upload arbitrary files through amavis via a cpio loophole (extraction to /opt/zimbra/jetty/webapps/zimbra/public) that can lead to incorrect access to any other user accounts. Zimbra recommends pax over cpio. Also, pax is in the prerequisites of Zimbra on Ubuntu; however, pax is no longer part of a default Red Hat installation after RHEL 6 (or CentOS 6). Once pax is installed, amavis automatically prefers it over cpio.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2022-41352
+
+**参考链接**: 
+- [参考资料](https://www.secpod.com/blog/unpatched-rce-bug-in-zimbra-collaboration-suite-exploited-in-wild/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2022-41352)
+
+---
+
+
+### Zimbra Collaboration - Unrestricted File Upload
+
+- **漏洞ID**: `CVE-2022-41352`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: An issue was discovered in Zimbra Collaboration (ZCS) 8.8.15 and 9.0. An attacker can upload arbitrary files through amavis via a cpio loophole (extraction to /opt/zimbra/jetty/webapps/zimbra/public) that can lead to incorrect access to any other user accounts. Zimbra recommends pax over cpio. Also, pax is in the prerequisites of Zimbra on Ubuntu; however, pax is no longer part of a default Red Hat installation after RHEL 6 (or CentOS 6). Once pax is installed, amavis automatically prefers it over cpio.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2022-41352
+
+**参考链接**: 
+- [参考资料](https://www.secpod.com/blog/unpatched-rce-bug-in-zimbra-collaboration-suite-exploited-in-wild/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2022-41352)
+
+---
+
+
+### WordPress tagDiv Composer &lt; 3.5 - Authentication Bypass
+
+- **漏洞ID**: `CVE-2022-3477`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: The tagDiv Composer WordPress plugin before 3.5, required by the Newspaper WordPress theme before 12.1 and Newsmag WordPress theme before 5.2.2, does not properly implement the Facebook login feature, allowing unauthenticated attackers to login as any user by just knowing their email address
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2022-3477
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/993a95d2-6fce-48de-ae17-06ce2db829ef)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2022-3477)
+
+---
+
+
+### WordPress tagDiv Composer &lt; 3.5 - Authentication Bypass
+
+- **漏洞ID**: `CVE-2022-3477`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: The tagDiv Composer WordPress plugin before 3.5, required by the Newspaper WordPress theme before 12.1 and Newsmag WordPress theme before 5.2.2, does not properly implement the Facebook login feature, allowing unauthenticated attackers to login as any user by just knowing their email address
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2022-3477
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/993a95d2-6fce-48de-ae17-06ce2db829ef)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2022-3477)
+
+---
+
+
+### Jenkins CLI - Java Deserialization
+
+- **漏洞ID**: `CVE-2017-1000353`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: Jenkins CI/CD
+- **预估影响**: 数十万个
+
+**描述**: Jenkins versions 2.56 and earlier as well as 2.46.1 LTS and earlier are vulnerable to an unauthenticated remote code execution. An unauthenticated remote code execution vulnerability allowed attackers to transfer a serialized Java `SignedObject` object to the Jenkins CLI, that would be deserialized using a new `ObjectInputStream`, bypassing the existing blacklist-based protection mechanism. We&#x27;re fixing this issue by adding `SignedObject` to the blacklist. We&#x27;re also backporting the new HTTP CLI protocol from Jenkins 2.54 to LTS 2.46.2, and deprecating the remoting-based (i.e. Java serialization) CLI protocol, disabling it by default.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2017-1000353
+
+**参考链接**: 
+- [参考资料](http://packetstormsecurity.com/files/159266/Jenkins-2.56-CLI-Deserialization-Code-Execution.html)
+- [参考资料](https://www.exploit-db.com/exploits/41965/)
+- [参考资料](https://github.com/vulhub/vulhub/tree/master/jenkins/CVE-2017-1000353)
+
+---
+
+
+### Microsoft SharePoint - Remote Code Execution
+
+- **漏洞ID**: `CVE-2019-0604`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Microsoft SharePoint contains a remote code execution caused by failure to check the source markup of an application package, letting remote attackers execute arbitrary code, exploit requires sending malicious application package.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2019-0604
+
+**参考链接**: 
+- [参考资料](https://github.com/Gh0st0ne/weaponized-0604)
+- [参考资料](https://msrc.microsoft.com/update-guide/en-US/advisory/CVE-2019-0604)
+- [参考资料](https://nvd.nist.gov/vuln/detail/cve-2019-0604)
+
+---
+
+
+### Microsoft .NET Framework - Remote Code Execution
+
+- **漏洞ID**: `CVE-2020-0646`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: A remote code execution vulnerability exists when the Microsoft .NET Framework fails to validate input properly, aka &#x27;.NET Framework Remote Code Execution Injection Vulnerability&#x27;.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2020-0646
+
+**参考链接**: 
+- [参考资料](https://www.cve.org/CVERecord?id=CVE-2020-0646)
+- [参考资料](https://msrc.microsoft.com/update-guide/en-US/advisory/CVE-2020-0646)
+- [参考资料](http://packetstormsecurity.com/files/156930/SharePoint-Workflows-XOML-Injection.html)
+
+---
+
+
+### OwnCloud - WebDAV API Authentication Bypass
+
+- **漏洞ID**: `CVE-2023-49105`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: An issue was discovered in ownCloud owncloud/core before 10.13.1. An attacker can access, modify, or delete any file without authentication if the username of a victim is known, and the victim has no signing-key configured. This occurs because pre-signed URLs can be accepted even when no signing-key is configured for the owner of the files. The earliest affected version is 10.6.0.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2023-49105
+
+**参考链接**: 
+- [参考资料](https://owncloud.com/security-advisories/webdav-api-authentication-bypass-using-pre-signed-urls/)
+- [参考资料](https://github.com/0xfed/ownedcloud)
+- [参考资料](https://owncloud.org/security)
+- [参考资料](https://github.com/ambionics/owncloud-exploits)
+- [参考资料](https://github.com/nomi-sec/PoC-in-GitHub)
+
+---
+
+
+### DELMIA Apriso - Broken Access Control
+
+- **漏洞ID**: `CVE-2025-6205`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: DELMIA Apriso Release 2020 through Release 2025 contains a broken access control vulnerability caused by missing authorization, letting attackers gain privileged access to the application, exploit requires no special conditions.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-6205
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-6205)
+- [参考资料](https://www.3ds.com/trust-center/security/security-advisories/cve-2025-6205)
+- [参考资料](https://projectdiscovery.io/blog/remote-code-execution-in-delmia-apriso)
+
+---
+
+
+### DELMIA Apriso - Broken Access Control
+
+- **漏洞ID**: `CVE-2025-6205`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: DELMIA Apriso Release 2020 through Release 2025 contains a broken access control vulnerability caused by missing authorization, letting attackers gain privileged access to the application, exploit requires no special conditions.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-6205
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-6205)
+- [参考资料](https://www.3ds.com/trust-center/security/security-advisories/cve-2025-6205)
+- [参考资料](https://projectdiscovery.io/blog/remote-code-execution-in-delmia-apriso)
+
+---
+
+
+### Sudo &lt;&#x3D; 1.8.27 - Security Bypass
+
+- **漏洞ID**: `CVE-2019-14287`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: In Sudo before 1.8.28, an attacker with access to a Runas ALL sudoer account can bypass certain policy blacklists and session PAM modules, and can cause incorrect logging, by invoking sudo with a crafted user ID. For example, this allows bypass of !root configuration, and USER&#x3D; logging, for a &quot;sudo -u \#$((0xffffffff))&quot; command.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2019-14287
+
+**参考链接**: 
+- [参考资料](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14287)
+- [参考资料](https://www.exploit-db.com/exploits/47502)
+- [参考资料](http://lists.opensuse.org/opensuse-security-announce/2019-10/msg00042.html)
+- [参考资料](http://lists.opensuse.org/opensuse-security-announce/2019-10/msg00047.html)
+- [参考资料](http://packetstormsecurity.com/files/154853/Slackware-Security-Advisory-sudo-Updates.html)
+
+---
+
+
+### Apache Tomcat WebSocket Frame Payload Length Validation Denial of Service
+
+- **漏洞ID**: `CVE-2020-13935`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Apache Tomcat versions 10.0.0-M1 to 10.0.0-M6, 9.0.0.M1 to 9.0.36, 8.5.0 to 8.5.56, and 7.0.27 to 7.0.104 contain a vulnerability in the WebSocket module where the payload length of WebSocket frames is not correctly validated. This can lead to an infinite loop when processing frames with invalid payload lengths. Attackers can exploit this flaw by sending multiple malicious requests, resulting in a denial of service (DoS) on the affected Tomcat instance.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2020-13935
+
+**参考链接**: 
+- [参考资料](http://lists.opensuse.org/opensuse-security-announce/2020-07/msg00084.html)
+- [参考资料](http://lists.opensuse.org/opensuse-security-announce/2020-07/msg00088.html)
+- [参考资料](http://packetstormsecurity.com/files/161213/WordPress-5.0.0-Remote-Code-Execution.html)
+- [参考资料](https://kc.mcafee.com/corporate/index?page=content&id=SB10332)
+- [参考资料](https://lists.apache.org/thread.html/r4e5d3c09f4dd2923191e972408b40fb8b42dbff0bc7904d44b651e50%40%3Cusers.tomcat.apache.org%3E)
+- [参考资料](https://security.netapp.com/advisory/ntap-20200724-0003/)
+- [参考资料](https://github.com/RedTeamPentesting/CVE-2020-13935)
+
+---
+
+
+### Sudo Baron Samedit - Local Privilege Escalation
+
+- **漏洞ID**: `CVE-2021-3156`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Sudo before 1.9.5p2 contains an off-by-one error that can result in a heap-based buffer overflow, which allows privilege escalation to root via &quot;sudoedit -s&quot; and a command-line argument that ends with a single backslash character.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2021-3156
+
+**参考链接**: 
+- [参考资料](https://medium.com/mii-cybersec/privilege-escalation-cve-2021-3156-new-sudo-vulnerability-4f9e84a9f435)
+- [参考资料](https://blog.qualys.com/vulnerabilities-threat-research/2021/01/26/cve-2021-3156-heap-based-buffer-overflow-in-sudo-baron-samedit)
+- [参考资料](https://infosecwriteups.com/baron-samedit-cve-2021-3156-tryhackme-76d7dedc3cff)
+- [参考资料](http://packetstormsecurity.com/files/161160/Sudo-Heap-Based-Buffer-Overflow.html)
+- [参考资料](http://packetstormsecurity.com/files/176932/glibc-syslog-Heap-Based-Buffer-Overflow.html)
+
+---
+
+
+### GameOver(lay) - Local Privilege Escalation in Ubuntu Kernel
+
+- **漏洞ID**: `CVE-2023-2640`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: A local privilege escalation vulnerability has been discovered in the OverlayFS module of the Ubuntu kernel. This vulnerability could allow an attacker with local access to escalate their privileges, potentially gaining root-like access to the system.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2023-2640
+
+**参考链接**: 
+- [参考资料](http://packetstormsecurity.com/files/174577/Kernel-Live-Patch-Security-Notice-LSN-0097-1.html)
+- [参考资料](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-2640)
+- [参考资料](https://www.wiz.io/blog/ubuntu-overlayfs-vulnerability)
+- [参考资料](https://ubuntu.com/security/notices/USN-6250-1)
+- [参考资料](https://lists.ubuntu.com/archives/kernel-team/2023-July/140923.html)
+
+---
+
+
+### Looney Tunables Linux - Local Privilege Escalation
+
+- **漏洞ID**: `CVE-2023-4911`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: A buffer overflow was discovered in the GNU C Library&#x27;s dynamic loader ld.so while processing the GLIBC_TUNABLES environment variable. This issue could allow a local attacker to use maliciously crafted GLIBC_TUNABLES environment variables when launching binaries with SUID permission to execute code with elevated privileges.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2023-4911
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2023-4911)
+- [参考资料](https://www.qualys.com/2023/10/03/cve-2023-4911/looney-tunables-local-privilege-escalation-glibc-ld-so.txt)
+- [参考资料](https://www.youtube.com/watch?v=1iV-CD9Apn8)
+- [参考资料](http://www.openwall.com/lists/oss-security/2023/10/05/1)
+- [参考资料](http://www.openwall.com/lists/oss-security/2023/10/13/11)
+
+---
+
+
+### glibc&#x27;s syslog - Local Privilege Escalation
+
+- **漏洞ID**: `CVE-2023-6246`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: A heap-based buffer overflow was found in the __vsyslog_internal function of the glibc library. This function is called by the syslog and vsyslog functions. This issue occurs when the openlog function was not called, or called with the ident argument set to NULL, and the program name (the basename of argv&#x5B;0&#x5D;) is bigger than 1024 bytes, resulting in an application crash or local privilege escalation. This issue affects glibc 2.36 and newer.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2023-6246
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2023-6246)
+- [参考资料](https://www.qualys.com/2024/01/30/cve-2023-6246/syslog.txt)
+- [参考资料](https://access.redhat.com/security/cve/CVE-2023-6246)
+- [参考资料](https://bugzilla.redhat.com/show_bug.cgi?id=2249053)
+- [参考资料](https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/D2FIH77VHY3KCRROCXOT6L27WMZXSJ2G/)
+
+---
+
+
+### OpenSSL Heartbleed Vulnerability
+
+- **漏洞ID**: `CVE-2014-0160`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: The Heartbleed bug allows anyone on the Internet to read the memory of the systems protected by the vulnerable versions of the OpenSSL software. This compromises the secret keys used to identify the service providers and to encrypt the traffic, the names and passwords of the users, and the actual content. This allows attackers to eavesdrop on communications, steal data directly from the services and users, and impersonate services and users.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/vulhub/vulhub/tree/master/openssl/CVE-2014-0160)
+
+---
+
+
+## 📋 完整模板列表
+
+| 模板名称 | 严重程度 | 类别 | 影响资产 | 风险评分 |
+|---------|---------|------|---------|---------|
+| 10Web Booster &lt; 2.24.18 - Unauthenticated Arbit | 🔴 critical | CVE漏洞 | WordPress 站点 | 5/5 |
+| DELMIA Apriso - Command Injection | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Zimbra Collaboration - Unrestricted File Upload | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Zimbra Collaboration - Unrestricted File Upload | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| WordPress tagDiv Composer &lt; 3.5 - Authenticatio | 🔴 critical | CVE漏洞 | WordPress 站点 | 5/5 |
+| Fortinet SSL-VPN - Heap-Based Buffer Overflow | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Ivanti Connect Secure - Stack-based Buffer Overflo | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| CrushFTP - Authentication Bypass Race Condition | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Allegra - Authentication Bypass via Predictable Pa | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Memos &lt; 0.25.0 - Stored Cross-Site Scripting | 🟡 medium | CVE漏洞 | 通用 | 5/5 |
+| 10Web Booster &lt; 2.24.18 - Unauthenticated Arbit | 🔴 critical | CVE漏洞 | WordPress 站点 | 5/5 |
+| DELMIA Apriso - Command Injection | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Zimbra Collaboration - Unrestricted File Upload | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Zimbra Collaboration - Unrestricted File Upload | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| WordPress tagDiv Composer &lt; 3.5 - Authenticatio | 🔴 critical | CVE漏洞 | WordPress 站点 | 5/5 |
+| WordPress tagDiv Composer &lt; 3.5 - Authenticatio | 🔴 critical | CVE漏洞 | WordPress 站点 | 5/5 |
+| Jenkins CLI - Java Deserialization | 🔴 critical | CVE漏洞 | Jenkins CI/CD | 5/5 |
+| Microsoft SharePoint - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Microsoft .NET Framework - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| OwnCloud - WebDAV API Authentication Bypass | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| DELMIA Apriso - Broken Access Control | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
+| DELMIA Apriso - Broken Access Control | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
+| Sudo &lt;&#x3D; 1.8.27 - Security Bypass | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
+| Apache Tomcat WebSocket Frame Payload Length Valid | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
+| Sudo Baron Samedit - Local Privilege Escalation | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
+| GameOver(lay) - Local Privilege Escalation in Ubun | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
+| Looney Tunables Linux - Local Privilege Escalation | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
+| glibc&#x27;s syslog - Local Privilege Escalation | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
+| OpenSSL Heartbleed Vulnerability | 🟠 high | CVE漏洞 | 通用 | 4/5 |
+| Swagger UI &gt;&#x3D;3.14.1 &lt; 3.38.0 - DOM Base | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+
+## 🛡️ 安全建议
+
+🚨 发现高风险漏洞，建议立即扫描相关资产
+🔍 关注新发布的 CVE 漏洞，及时更新补丁
+⚡ 检测到远程代码执行漏洞，优先处理
+
+## 🔧 扫描建议
+
+建议使用以下 Nuclei 命令进行扫描：
+
+```bash
+# 扫描高危漏洞
+nuclei -t http/cves/2023/CVE-2023-5559.yaml -t http/cves/2025/CVE-2025-6204.yaml -t passive/cves/2022/CVE-2022-41352.yaml -t passive/cves/2022/CVE-2022-41352.yaml -t http/cves/2022/CVE-2022-3477.yaml -t code/cves/2022/CVE-2022-42475.yaml -t code/cves/2025/CVE-2025-22457.yaml -t code/cves/2025/CVE-2025-54309.yaml -t code/cves/2025/CVE-2025-6216.yaml -t headless/cves/2025/CVE-2025-50738.yaml -t http/cves/2023/CVE-2023-5559.yaml -t http/cves/2025/CVE-2025-6204.yaml -t passive/cves/2022/CVE-2022-41352.yaml -t passive/cves/2022/CVE-2022-41352.yaml -t http/cves/2022/CVE-2022-3477.yaml -t http/cves/2022/CVE-2022-3477.yaml -t code/cves/2017/CVE-2017-1000353.yaml -t code/cves/2019/CVE-2019-0604.yaml -t code/cves/2020/CVE-2020-0646.yaml -t code/cves/2023/CVE-2023-49105.yaml -t http/cves/2025/CVE-2025-6205.yaml -t http/cves/2025/CVE-2025-6205.yaml -t code/cves/2019/CVE-2019-14287.yaml -t code/cves/2020/CVE-2020-13935.yaml -t code/cves/2021/CVE-2021-3156.yaml -t code/cves/2023/CVE-2023-2640.yaml -t code/cves/2023/CVE-2023-4911.yaml -t code/cves/2023/CVE-2023-6246.yaml -t code/cves/2014/CVE-2014-0160.yaml -u target-url
+
+# 扫描所有今日新增模板  
+nuclei -t http/cves/2023/CVE-2023-5559.yaml -t http/cves/2025/CVE-2025-6204.yaml -t passive/cves/2022/CVE-2022-41352.yaml -t passive/cves/2022/CVE-2022-41352.yaml -t http/cves/2022/CVE-2022-3477.yaml -t code/cves/2022/CVE-2022-42475.yaml -t code/cves/2025/CVE-2025-22457.yaml -t code/cves/2025/CVE-2025-54309.yaml -t code/cves/2025/CVE-2025-6216.yaml -t headless/cves/2025/CVE-2025-50738.yaml -t http/cves/2023/CVE-2023-5559.yaml -t http/cves/2025/CVE-2025-6204.yaml -t passive/cves/2022/CVE-2022-41352.yaml -t passive/cves/2022/CVE-2022-41352.yaml -t http/cves/2022/CVE-2022-3477.yaml -t http/cves/2022/CVE-2022-3477.yaml -t code/cves/2017/CVE-2017-1000353.yaml -t code/cves/2019/CVE-2019-0604.yaml -t code/cves/2020/CVE-2020-0646.yaml -t code/cves/2023/CVE-2023-49105.yaml -t http/cves/2025/CVE-2025-6205.yaml -t http/cves/2025/CVE-2025-6205.yaml -t code/cves/2019/CVE-2019-14287.yaml -t code/cves/2020/CVE-2020-13935.yaml -t code/cves/2021/CVE-2021-3156.yaml -t code/cves/2023/CVE-2023-2640.yaml -t code/cves/2023/CVE-2023-4911.yaml -t code/cves/2023/CVE-2023-6246.yaml -t code/cves/2014/CVE-2014-0160.yaml -t headless/cves/2025/CVE-2025-8191.yaml -u target-url
+```
+
+---
+
+*本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)*
+
+*扫描建议仅供参考，请在授权环境下进行安全测试*
