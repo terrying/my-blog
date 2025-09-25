@@ -1,0 +1,458 @@
+---
+title: 'Nuclei POC 精选分析 - 2025-09-25'
+date: '2025-09-25'
+tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
+draft: false
+summary: '从 847 个模板更新中精选分析 30 个高价值 POC，发现 17 个高风险漏洞'
+authors: ['default']
+category: 'security-intel'
+---
+
+# Nuclei POC 精选分析 - 2025-09-25
+
+## 📊 智能筛选概况
+
+- **发现变更**: 847 个模板更新
+- **精选分析**: 30 个高价值 POC  
+- **智能跳过**: 817 个低优先级模板
+- **高风险漏洞**: 17 个
+- **主要类别**: CVE漏洞(13), 其他(12), 信息泄露(4), 配置错误(1)
+
+> 💡 **智能筛选说明**: 系统自动优先分析 CVE 漏洞、高危漏洞和新增模板，跳过低价值的技术识别类模板，确保高效利用 API 资源。
+
+### 严重程度分布
+
+- 🔴 **严重**: 12 个
+- 🟠 **高危**: 5 个
+- 🟡 **中危**: 12 个
+- 🔵 **低危**: 1 个
+
+## 🔍 重点漏洞分析
+
+
+### GoAnywhere - Authentication Bypass
+
+- **漏洞ID**: `CVE-2025-10035`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Fortra GoAnywhere MFT contains an insecure deserialization vulnerability in the License Servlet caused by deserializing attacker-controlled objects with a valid forged license response signature, letting attackers perform command injection, exploit requires valid forged license signature.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://labs.watchtowr.com/is-this-bad-this-feels-bad-goanywhere-cve-2025-10035/)
+- [参考资料](https://attackerkb.com/topics/LbA9ANjcdz/cve-2025-10035/rapid7-analysis)
+- [参考资料](https://www.fortra.com/security/advisories/product-security/fi-2025-011)
+
+---
+
+
+### Better Search Replace &lt; 1.4.5 - PHP Object Injection
+
+- **漏洞ID**: `CVE-2023-6933`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: The Better Search Replace plugin for WordPress is vulnerable to PHP Object Injection in all versions up to, and including, 1.4.4 via deserialization of untrusted input. This makes it possible for unauthenticated attackers to inject a PHP Object. No POP chain is present in the vulnerable plugin. If a POP chain is present via an additional plugin or theme installed on the target system, it could allow the attacker to delete arbitrary files, retrieve sensitive data, or execute code.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2023-6933
+
+**参考链接**: 
+- [参考资料](https://posimyth.ticksy.com/ticket/2713734/)
+- [参考资料](https://www.wordfence.com/blog/2021/03/critical-0-day-in-the-plus-addons-for-elementor-allows-site-takeover/)
+
+---
+
+
+### Better Search Replace &lt; 1.4.5 - PHP Object Injection
+
+- **漏洞ID**: `CVE-2023-6933`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: The Better Search Replace plugin for WordPress is vulnerable to PHP Object Injection in all versions up to, and including, 1.4.4 via deserialization of untrusted input. This makes it possible for unauthenticated attackers to inject a PHP Object. No POP chain is present in the vulnerable plugin. If a POP chain is present via an additional plugin or theme installed on the target system, it could allow the attacker to delete arbitrary files, retrieve sensitive data, or execute code.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2023-6933
+
+**参考链接**: 
+- [参考资料](https://posimyth.ticksy.com/ticket/2713734/)
+- [参考资料](https://www.wordfence.com/blog/2021/03/critical-0-day-in-the-plus-addons-for-elementor-allows-site-takeover/)
+
+---
+
+
+### Teleport - Authentication Bypass
+
+- **漏洞ID**: `CVE-2025-49825`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Teleport versions prior to 17.5.2 are vulnerable to a remote authentication bypass vulnerability. This issue allows attackers to gain unauthorized access to affected systems.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-49825
+
+**参考链接**: 
+- [参考资料](https://github.com/gravitational/teleport/security/advisories/GHSA-8cqv-pj7f-pwpc)
+
+---
+
+
+### ListingPro &lt; 2.6.1 - Arbitrary Plugin Installation/Activation/Deactivation
+
+- **漏洞ID**: `CVE-2020-36719`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: The ListingPro - WordPress Directory & Listing Theme for WordPress is vulnerable to Arbitrary Plugin Installation, Activation and Deactivation in versions before 2.6.1. This is due to a missing capability check on the lp_cc_addons_actions function. This makes it possible for unauthenticated attackers to arbitrarily install, activate and deactivate any plugin.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2020-36719
+
+**参考链接**: 
+- [参考资料](https://blog.nintechnet.com/wordpress-listingpro-theme-fixed-a-critical-vulnerability/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2020-36719)
+
+---
+
+
+### The Plus Addons for Elementor Page Builder &lt; 4.1.7 - Authentication Bypass
+
+- **漏洞ID**: `CVE-2021-24175`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: The Plus Addons for Elementor plugin (before version 4.1.7) allowed attackers to bypass authentication, gain admin access, and create accounts with elevated roles, even when registration was disabled and the Login widget was inactive.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2021-24175
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/c311feef-7041-4c21-9525-132b9bd32f89/)
+- [参考资料](https://www.wordfence.com/blog/2021/03/critical-0-day-in-the-plus-addons-for-elementor-allows-site-takeover/)
+
+---
+
+
+### Better Search Replace &lt; 1.4.5 - PHP Object Injection
+
+- **漏洞ID**: `CVE-2023-6933`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: The Better Search Replace plugin for WordPress is vulnerable to PHP Object Injection in all versions up to, and including, 1.4.4 via deserialization of untrusted input. This makes it possible for unauthenticated attackers to inject a PHP Object. No POP chain is present in the vulnerable plugin. If a POP chain is present via an additional plugin or theme installed on the target system, it could allow the attacker to delete arbitrary files, retrieve sensitive data, or execute code.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2023-6933
+
+**参考链接**: 
+- [参考资料](https://posimyth.ticksy.com/ticket/2713734/)
+- [参考资料](https://www.wordfence.com/blog/2021/03/critical-0-day-in-the-plus-addons-for-elementor-allows-site-takeover/)
+
+---
+
+
+### Better Search Replace &lt; 1.4.5 - PHP Object Injection
+
+- **漏洞ID**: `CVE-2023-6933`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: The Better Search Replace plugin for WordPress is vulnerable to PHP Object Injection in all versions up to, and including, 1.4.4 via deserialization of untrusted input. This makes it possible for unauthenticated attackers to inject a PHP Object. No POP chain is present in the vulnerable plugin. If a POP chain is present via an additional plugin or theme installed on the target system, it could allow the attacker to delete arbitrary files, retrieve sensitive data, or execute code.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2023-6933
+
+**参考链接**: 
+- [参考资料](https://posimyth.ticksy.com/ticket/2713734/)
+- [参考资料](https://www.wordfence.com/blog/2021/03/critical-0-day-in-the-plus-addons-for-elementor-allows-site-takeover/)
+
+---
+
+
+### ListingPro &lt; 2.6.1 - Arbitrary Plugin Installation/Activation/Deactivation
+
+- **漏洞ID**: `CVE-2020-36719`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: The ListingPro - WordPress Directory & Listing Theme for WordPress is vulnerable to Arbitrary Plugin Installation, Activation and Deactivation in versions before 2.6.1. This is due to a missing capability check on the lp_cc_addons_actions function. This makes it possible for unauthenticated attackers to arbitrarily install, activate and deactivate any plugin.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2020-36719
+
+**参考链接**: 
+- [参考资料](https://blog.nintechnet.com/wordpress-listingpro-theme-fixed-a-critical-vulnerability/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2020-36719)
+
+---
+
+
+### Teleport - Authentication Bypass
+
+- **漏洞ID**: `CVE-2025-49825`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Teleport versions prior to 17.5.2 are vulnerable to a remote authentication bypass vulnerability. This issue allows attackers to gain unauthorized access to affected systems.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-49825
+
+**参考链接**: 
+- [参考资料](https://github.com/gravitational/teleport/security/advisories/GHSA-8cqv-pj7f-pwpc)
+
+---
+
+
+### ListingPro &lt; 2.6.1 - Arbitrary Plugin Installation/Activation/Deactivation
+
+- **漏洞ID**: `CVE-2020-36719`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: The ListingPro - WordPress Directory & Listing Theme for WordPress is vulnerable to Arbitrary Plugin Installation, Activation and Deactivation in versions before 2.6.1. This is due to a missing capability check on the lp_cc_addons_actions function. This makes it possible for unauthenticated attackers to arbitrarily install, activate and deactivate any plugin.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2020-36719
+
+**参考链接**: 
+- [参考资料](https://blog.nintechnet.com/wordpress-listingpro-theme-fixed-a-critical-vulnerability/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2020-36719)
+
+---
+
+
+### The Plus Addons for Elementor Page Builder &lt; 4.1.7 - Authentication Bypass
+
+- **漏洞ID**: `CVE-2021-24175`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: The Plus Addons for Elementor plugin (before version 4.1.7) allowed attackers to bypass authentication, gain admin access, and create accounts with elevated roles, even when registration was disabled and the Login widget was inactive.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2021-24175
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/c311feef-7041-4c21-9525-132b9bd32f89/)
+- [参考资料](https://www.wordfence.com/blog/2021/03/critical-0-day-in-the-plus-addons-for-elementor-allows-site-takeover/)
+
+---
+
+
+### ListingPro &lt; 2.6.1 - Sensitive Data Disclosure
+
+- **漏洞ID**: `CVE-2020-36723`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: The ListingPro - WordPress Directory & Listing Theme for WordPress is vulnerable to Sensitive Data Exposure in versions before 2.6.1 via the ~/listingpro-plugin/functions.php file. This makes it possible for unauthenticated attackers to extract sensitive data including usernames, full names, email addresses, phone numbers, physical addresses and user post counts.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2020-36723
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/096e6e16-c14d-42da-8ba3-c271db3385a4/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2020-36723)
+
+---
+
+
+### YonBIP - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-yonbip-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: There is an arbitrary file reading vulnerability in yonbiplogin, the advanced version of YonBIP
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/wy876/POC/blob/main/%E7%94%A8%E5%8F%8BOA/%E7%94%A8%E5%8F%8BYonBIP%E9%AB%98%E7%BA%A7%E7%89%88yonbiplogin%E5%AD%98%E5%9C%A8%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E6%BC%8F%E6%B4%9E.md)
+
+---
+
+
+### YonBIP - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-yonbip-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: There is an arbitrary file reading vulnerability in yonbiplogin, the advanced version of YonBIP
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/wy876/POC/blob/main/%E7%94%A8%E5%8F%8BOA/%E7%94%A8%E5%8F%8BYonBIP%E9%AB%98%E7%BA%A7%E7%89%88yonbiplogin%E5%AD%98%E5%9C%A8%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E6%BC%8F%E6%B4%9E.md)
+
+---
+
+
+### YonBIP - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-yonbip-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: There is an arbitrary file reading vulnerability in yonbiplogin, the advanced version of YonBIP
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/wy876/POC/blob/main/%E7%94%A8%E5%8F%8BOA/%E7%94%A8%E5%8F%8BYonBIP%E9%AB%98%E7%BA%A7%E7%89%88yonbiplogin%E5%AD%98%E5%9C%A8%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E6%BC%8F%E6%B4%9E.md)
+
+---
+
+
+### YonBIP - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-yonbip-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: There is an arbitrary file reading vulnerability in yonbiplogin, the advanced version of YonBIP
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/wy876/POC/blob/main/%E7%94%A8%E5%8F%8BOA/%E7%94%A8%E5%8F%8BYonBIP%E9%AB%98%E7%BA%A7%E7%89%88yonbiplogin%E5%AD%98%E5%9C%A8%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E6%BC%8F%E6%B4%9E.md)
+
+---
+
+
+## 📋 完整模板列表
+
+| 模板名称 | 严重程度 | 类别 | 影响资产 | 风险评分 |
+|---------|---------|------|---------|---------|
+| GoAnywhere - Authentication Bypass | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Better Search Replace &lt; 1.4.5 - PHP Object Inje | 🔴 critical | CVE漏洞 | WordPress 站点 | 5/5 |
+| Better Search Replace &lt; 1.4.5 - PHP Object Inje | 🔴 critical | CVE漏洞 | WordPress 站点 | 5/5 |
+| Teleport - Authentication Bypass | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| ListingPro &lt; 2.6.1 - Arbitrary Plugin Installat | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| The Plus Addons for Elementor Page Builder &lt; 4. | 🔴 critical | CVE漏洞 | WordPress 站点 | 5/5 |
+| Better Search Replace &lt; 1.4.5 - PHP Object Inje | 🔴 critical | CVE漏洞 | WordPress 站点 | 5/5 |
+| Better Search Replace &lt; 1.4.5 - PHP Object Inje | 🔴 critical | CVE漏洞 | WordPress 站点 | 5/5 |
+| ListingPro &lt; 2.6.1 - Arbitrary Plugin Installat | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Teleport - Authentication Bypass | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| ListingPro &lt; 2.6.1 - Arbitrary Plugin Installat | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| The Plus Addons for Elementor Page Builder &lt; 4. | 🔴 critical | CVE漏洞 | WordPress 站点 | 5/5 |
+| ListingPro &lt; 2.6.1 - Sensitive Data Disclosure | 🟠 high | CVE漏洞 | WordPress 站点 | 4.5/5 |
+| YonBIP - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| YonBIP - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| YonBIP - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| YonBIP - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| Senayan Library Management System v8.3.1 (Akasia)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| Senayan Library Management System v9.5.2 (Bulian)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| Senayan Library Management System v8.3.1 (Akasia)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| Senayan Library Management System v9.5.2 (Bulian)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| Senayan Library Management System v8.3.1 (Akasia)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| Senayan Library Management System v9.5.2 (Bulian)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| Senayan Library Management System v8.3.1 (Akasia)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| Senayan Library Management System v9.5.2 (Bulian)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| SQL Server - Dump Files | 🟡 medium | 信息泄露 | 通用 | 3/5 |
+| SQL Server - Dump Files | 🟡 medium | 信息泄露 | 通用 | 3/5 |
+| SQL Server - Dump Files | 🟡 medium | 信息泄露 | 通用 | 3/5 |
+| SQL Server - Dump Files | 🟡 medium | 信息泄露 | 通用 | 3/5 |
+| Manage Cabinet Register - Exposed | 🔵 low | 配置错误 | 通用 | 2/5 |
+
+## 🛡️ 安全建议
+
+🚨 发现高风险漏洞，建议立即扫描相关资产
+🔍 关注新发布的 CVE 漏洞，及时更新补丁
+
+## 🔧 扫描建议
+
+建议使用以下 Nuclei 命令进行扫描：
+
+```bash
+# 扫描高危漏洞
+nuclei -t http/cves/2025/CVE-2025-10035.yaml -t http/cves/2023/CVE-2023-6933.yaml -t http/cves/2023/CVE-2023-6933.yaml -t http/cves/2025/CVE-2025-49825.yaml -t http/cves/2020/CVE-2020-36719.yaml -t http/cves/2021/CVE-2021-24175.yaml -t http/cves/2023/CVE-2023-6933.yaml -t http/cves/2023/CVE-2023-6933.yaml -t http/cves/2020/CVE-2020-36719.yaml -t http/cves/2025/CVE-2025-49825.yaml -t http/cves/2020/CVE-2020-36719.yaml -t http/cves/2021/CVE-2021-24175.yaml -t http/cves/2020/CVE-2020-36723.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -u target-url
+
+# 扫描所有今日新增模板  
+nuclei -t http/cves/2025/CVE-2025-10035.yaml -t http/cves/2023/CVE-2023-6933.yaml -t http/cves/2023/CVE-2023-6933.yaml -t http/cves/2025/CVE-2025-49825.yaml -t http/cves/2020/CVE-2020-36719.yaml -t http/cves/2021/CVE-2021-24175.yaml -t http/cves/2023/CVE-2023-6933.yaml -t http/cves/2023/CVE-2023-6933.yaml -t http/cves/2020/CVE-2020-36719.yaml -t http/cves/2025/CVE-2025-49825.yaml -t http/cves/2020/CVE-2020-36719.yaml -t http/cves/2021/CVE-2021-24175.yaml -t http/cves/2020/CVE-2020-36723.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -t http/vulnerabilities/other/slims-8-akasia-xss.yaml -t http/vulnerabilities/other/slims-9-xss-index.yaml -t http/vulnerabilities/other/slims-8-akasia-xss.yaml -t http/vulnerabilities/other/slims-9-xss-index.yaml -t http/vulnerabilities/other/slims-8-akasia-xss.yaml -t http/vulnerabilities/other/slims-9-xss-index.yaml -t http/vulnerabilities/other/slims-8-akasia-xss.yaml -t http/vulnerabilities/other/slims-9-xss-index.yaml -t http/exposures/backups/sql-server-dump.yaml -t http/exposures/backups/sql-server-dump.yaml -t http/exposures/backups/sql-server-dump.yaml -t http/exposures/backups/sql-server-dump.yaml -t http/misconfiguration/manage-cabinet-register.yaml -u target-url
+```
+
+---
+
+*本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)*
+
+*扫描建议仅供参考，请在授权环境下进行安全测试*
