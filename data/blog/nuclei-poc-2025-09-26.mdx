@@ -1,0 +1,487 @@
+---
+title: 'Nuclei POC 精选分析 - 2025-09-26'
+date: '2025-09-26'
+tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
+draft: false
+summary: '从 1477 个模板更新中精选分析 30 个高价值 POC，发现 17 个高风险漏洞'
+authors: ['default']
+category: 'security-intel'
+---
+
+# Nuclei POC 精选分析 - 2025-09-26
+
+## 📊 智能筛选概况
+
+- **发现变更**: 1477 个模板更新
+- **精选分析**: 30 个高价值 POC  
+- **智能跳过**: 1447 个低优先级模板
+- **高风险漏洞**: 17 个
+- **主要类别**: CVE漏洞(30)
+
+> 💡 **智能筛选说明**: 系统自动优先分析 CVE 漏洞、高危漏洞和新增模板，跳过低价值的技术识别类模板，确保高效利用 API 资源。
+
+### 严重程度分布
+
+- 🔴 **严重**: 15 个
+- 🟠 **高危**: 2 个
+- 🟡 **中危**: 13 个
+
+## 🔍 重点漏洞分析
+
+
+### NotificationX Dropshipping &lt; 4.4 - SQL Injection
+
+- **漏洞ID**: `CVE-2022-3481`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: The plugin does not properly sanitise and escape a parameter before using it in a SQL statement via a REST endpoint available to unauthenticated users, leading to a SQL injection
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2018-25031
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/c5e395f8-257e-49eb-afbd-9c1e26045373)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2022-3481)
+
+---
+
+
+### wpDiscuz &lt;&#x3D; 5.3.5 - SQL Injection
+
+- **漏洞ID**: `CVE-2020-13640`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: A SQL injection issue in the gVectors wpDiscuz plugin 5.3.5 and earlier for WordPress allows remote attackers to execute arbitrary SQL commands via the order parameter of a wpdLoadMoreComments request.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2020-13640
+
+**参考链接**: 
+- [参考资料](https://github.com/asterite3/CVE-2020-13640)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2020-13640)
+
+---
+
+
+### NotificationX Dropshipping &lt; 4.4 - SQL Injection
+
+- **漏洞ID**: `CVE-2022-3481`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: The plugin does not properly sanitise and escape a parameter before using it in a SQL statement via a REST endpoint available to unauthenticated users, leading to a SQL injection
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2018-25031
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/c5e395f8-257e-49eb-afbd-9c1e26045373)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2022-3481)
+
+---
+
+
+### Next.js Middleware Authorization Bypass
+
+- **漏洞ID**: `CVE-2025-29927-HEADLESS`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: A critical vulnerability in Next.js middleware allows attackers to bypass authorization checks by manipulating the x-middleware-subrequest header. This flaw affects Next.js versions prior to 14.2.25 and 15.2.3, potentially granting unauthorized access to sensitive resources.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-29927
+
+**参考链接**: 
+- [参考资料](https://github.com/advisories/GHSA-f82v-jwr5-mffw)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-29927)
+- [参考资料](https://www.tenable.com/cve/CVE-2025-29927)
+
+---
+
+
+### Alerta &lt; 8.1.0 - Authentication Bypass
+
+- **漏洞ID**: `CVE-2020-26214`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Alerta prior to version 8.1.0 is prone to authentication bypass when using LDAP as an authorization provider and the LDAP server accepts Unauthenticated Bind requests.
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2020-26214
+
+**参考链接**: 
+- [参考资料](https://github.com/advisories/GHSA-5hmm-x8q8-w5jh)
+- [参考资料](https://tools.ietf.org/html/rfc4513#section-5.1.2)
+- [参考资料](https://pypi.org/project/alerta-server/8.1.0/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2020-26214)
+- [参考资料](https://github.com/alerta/alerta/commit/2bfa31779a4c9df2fa68fa4d0c5c909698c5ef65)
+
+---
+
+
+### Pega Infinity - Authentication Bypass
+
+- **漏洞ID**: `CVE-2021-27651`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Pega Infinity versions 8.2.1 through 8.5.2 contain an authentication bypass vulnerability because the password reset functionality for local accounts can be used to bypass local authentication checks.
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2021-27651
+
+**参考链接**: 
+- [参考资料](https://github.com/samwcyo/CVE-2021-27651-PoC/blob/main/RCE.md)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2021-27651)
+- [参考资料](https://collaborate.pega.com/discussion/pega-security-advisory-a21-hotfix-matrix)
+- [参考资料](https://github.com/nomi-sec/PoC-in-GitHub)
+- [参考资料](https://github.com/orangmuda/CVE-2021-27651)
+
+---
+
+
+### Apache StreamPipes &lt;&#x3D; 0.93.0 - Use of Cryptographically Weak PRNG in Recovery Token Generation
+
+- **漏洞ID**: `CVE-2024-29868`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: Apache 服务器
+- **预估影响**: 数百万台
+
+**描述**: Apache StreamPipes from version 0.69.0 through 0.93.0 uses a cryptographically weak Pseudo-Random Number Generator (PRNG) in the recovery token generation mechanism. Given a valid token it&#x27;s possible to predict all past and future generated tokens.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2024-29868
+
+**参考链接**: 
+- [参考资料](https://labs.yarix.com/2024/06/cve-2024-29868)
+- [参考资料](https://www.cve.org/CVERecord?id=CVE-2024-29868)
+- [参考资料](https://lists.apache.org/thread/g7t7zctvq2fysrw1x17flnc12592nhx7)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2024-29868)
+
+---
+
+
+### MCP Inspector &lt; 0.14.0 UnauthenticatedRemote Code Execution
+
+- **漏洞ID**: `CVE-2025-49596`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: The MCP inspector is a developer tool for testing and debugging MCP servers. Versions of MCP Inspector below 0.14.1 are vulnerable to remote code execution due to lack of authentication between the Inspector client and proxy, allowing unauthenticated requests to launch MCP commands over stdio.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-49596)
+- [参考资料](https://github.com/modelcontextprotocol/inspector)
+- [参考资料](https://github.com/modelcontextprotocol/inspector/commit/50df0e1ec488f3983740b4d28d2a968f12eb8979)
+- [参考资料](https://github.com/modelcontextprotocol/inspector/security/advisories/GHSA-7f8r-222p-6f5g)
+- [参考资料](https://www.oligo.security/blog/critical-rce-vulnerability-in-anthropic-mcp-inspector-cve-2025-49596)
+
+---
+
+
+### Next.js Middleware Authorization Bypass
+
+- **漏洞ID**: `CVE-2025-29927-HEADLESS`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: A critical vulnerability in Next.js middleware allows attackers to bypass authorization checks by manipulating the x-middleware-subrequest header. This flaw affects Next.js versions prior to 14.2.25 and 15.2.3, potentially granting unauthorized access to sensitive resources.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-29927
+
+**参考链接**: 
+- [参考资料](https://github.com/advisories/GHSA-f82v-jwr5-mffw)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-29927)
+- [参考资料](https://www.tenable.com/cve/CVE-2025-29927)
+
+---
+
+
+### Alerta &lt; 8.1.0 - Authentication Bypass
+
+- **漏洞ID**: `CVE-2020-26214`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Alerta prior to version 8.1.0 is prone to authentication bypass when using LDAP as an authorization provider and the LDAP server accepts Unauthenticated Bind requests.
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2020-26214
+
+**参考链接**: 
+- [参考资料](https://github.com/advisories/GHSA-5hmm-x8q8-w5jh)
+- [参考资料](https://tools.ietf.org/html/rfc4513#section-5.1.2)
+- [参考资料](https://pypi.org/project/alerta-server/8.1.0/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2020-26214)
+- [参考资料](https://github.com/alerta/alerta/commit/2bfa31779a4c9df2fa68fa4d0c5c909698c5ef65)
+
+---
+
+
+### Pega Infinity - Authentication Bypass
+
+- **漏洞ID**: `CVE-2021-27651`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Pega Infinity versions 8.2.1 through 8.5.2 contain an authentication bypass vulnerability because the password reset functionality for local accounts can be used to bypass local authentication checks.
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2021-27651
+
+**参考链接**: 
+- [参考资料](https://github.com/samwcyo/CVE-2021-27651-PoC/blob/main/RCE.md)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2021-27651)
+- [参考资料](https://collaborate.pega.com/discussion/pega-security-advisory-a21-hotfix-matrix)
+- [参考资料](https://github.com/nomi-sec/PoC-in-GitHub)
+- [参考资料](https://github.com/orangmuda/CVE-2021-27651)
+
+---
+
+
+### Apache StreamPipes &lt;&#x3D; 0.93.0 - Use of Cryptographically Weak PRNG in Recovery Token Generation
+
+- **漏洞ID**: `CVE-2024-29868`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: Apache 服务器
+- **预估影响**: 数百万台
+
+**描述**: Apache StreamPipes from version 0.69.0 through 0.93.0 uses a cryptographically weak Pseudo-Random Number Generator (PRNG) in the recovery token generation mechanism. Given a valid token it&#x27;s possible to predict all past and future generated tokens.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2024-29868
+
+**参考链接**: 
+- [参考资料](https://labs.yarix.com/2024/06/cve-2024-29868)
+- [参考资料](https://www.cve.org/CVERecord?id=CVE-2024-29868)
+- [参考资料](https://lists.apache.org/thread/g7t7zctvq2fysrw1x17flnc12592nhx7)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2024-29868)
+
+---
+
+
+### MCP Inspector &lt; 0.14.0 UnauthenticatedRemote Code Execution
+
+- **漏洞ID**: `CVE-2025-49596`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: The MCP inspector is a developer tool for testing and debugging MCP servers. Versions of MCP Inspector below 0.14.1 are vulnerable to remote code execution due to lack of authentication between the Inspector client and proxy, allowing unauthenticated requests to launch MCP commands over stdio.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-49596)
+- [参考资料](https://github.com/modelcontextprotocol/inspector)
+- [参考资料](https://github.com/modelcontextprotocol/inspector/commit/50df0e1ec488f3983740b4d28d2a968f12eb8979)
+- [参考资料](https://github.com/modelcontextprotocol/inspector/security/advisories/GHSA-7f8r-222p-6f5g)
+- [参考资料](https://www.oligo.security/blog/critical-rce-vulnerability-in-anthropic-mcp-inspector-cve-2025-49596)
+
+---
+
+
+### NotificationX Dropshipping &lt; 4.4 - SQL Injection
+
+- **漏洞ID**: `CVE-2022-3481`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: The plugin does not properly sanitise and escape a parameter before using it in a SQL statement via a REST endpoint available to unauthenticated users, leading to a SQL injection
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2018-25031
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/c5e395f8-257e-49eb-afbd-9c1e26045373)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2022-3481)
+
+---
+
+
+### NotificationX Dropshipping &lt; 4.4 - SQL Injection
+
+- **漏洞ID**: `CVE-2022-3481`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: The plugin does not properly sanitise and escape a parameter before using it in a SQL statement via a REST endpoint available to unauthenticated users, leading to a SQL injection
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2018-25031
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/c5e395f8-257e-49eb-afbd-9c1e26045373)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2022-3481)
+
+---
+
+
+### EyesOfNetwork 5.1-5.3 - SQL Injection/Remote Code Execution
+
+- **漏洞ID**: `CVE-2020-8654`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: EyesOfNetwork 5.1 to 5.3 contains SQL injection and remote code execution vulnerabilities. An attacker can possibly obtain sensitive information from a database, modify data, and execute unauthorized administrative operations in the context of the affected site. See also CVE-2020-8655, CVE-2020-8656, CVE-2020-8657, and CVE-2020-9465.
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2020-8654
+
+**参考链接**: 
+- [参考资料](https://github.com/h4knet/eonrce)
+- [参考资料](https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/linux/http/eyesofnetwork_autodiscovery_rce.rb)
+- [参考资料](https://github.com/EyesOfNetworkCommunity/eonweb/issues/50)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2020-8654)
+- [参考资料](https://github.com/ARPSyndicate/cvemon)
+
+---
+
+
+### EyesOfNetwork 5.1-5.3 - SQL Injection/Remote Code Execution
+
+- **漏洞ID**: `CVE-2020-8654`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: EyesOfNetwork 5.1 to 5.3 contains SQL injection and remote code execution vulnerabilities. An attacker can possibly obtain sensitive information from a database, modify data, and execute unauthorized administrative operations in the context of the affected site. See also CVE-2020-8655, CVE-2020-8656, CVE-2020-8657, and CVE-2020-9465.
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2020-8654
+
+**参考链接**: 
+- [参考资料](https://github.com/h4knet/eonrce)
+- [参考资料](https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/linux/http/eyesofnetwork_autodiscovery_rce.rb)
+- [参考资料](https://github.com/EyesOfNetworkCommunity/eonweb/issues/50)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2020-8654)
+- [参考资料](https://github.com/ARPSyndicate/cvemon)
+
+---
+
+
+## 📋 完整模板列表
+
+| 模板名称 | 严重程度 | 类别 | 影响资产 | 风险评分 |
+|---------|---------|------|---------|---------|
+| NotificationX Dropshipping &lt; 4.4 - SQL Injectio | 🔴 critical | CVE漏洞 | WordPress 站点 | 5/5 |
+| wpDiscuz &lt;&#x3D; 5.3.5 - SQL Injection | 🔴 critical | CVE漏洞 | WordPress 站点 | 5/5 |
+| NotificationX Dropshipping &lt; 4.4 - SQL Injectio | 🔴 critical | CVE漏洞 | WordPress 站点 | 5/5 |
+| Next.js Middleware Authorization Bypass | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Alerta &lt; 8.1.0 - Authentication Bypass | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Pega Infinity - Authentication Bypass | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Apache StreamPipes &lt;&#x3D; 0.93.0 - Use of Cryp | 🔴 critical | CVE漏洞 | Apache 服务器 | 5/5 |
+| MCP Inspector &lt; 0.14.0 UnauthenticatedRemote Co | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Next.js Middleware Authorization Bypass | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Alerta &lt; 8.1.0 - Authentication Bypass | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Pega Infinity - Authentication Bypass | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Apache StreamPipes &lt;&#x3D; 0.93.0 - Use of Cryp | 🔴 critical | CVE漏洞 | Apache 服务器 | 5/5 |
+| MCP Inspector &lt; 0.14.0 UnauthenticatedRemote Co | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| NotificationX Dropshipping &lt; 4.4 - SQL Injectio | 🔴 critical | CVE漏洞 | WordPress 站点 | 5/5 |
+| NotificationX Dropshipping &lt; 4.4 - SQL Injectio | 🔴 critical | CVE漏洞 | WordPress 站点 | 5/5 |
+| EyesOfNetwork 5.1-5.3 - SQL Injection/Remote Code  | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
+| EyesOfNetwork 5.1-5.3 - SQL Injection/Remote Code  | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
+| WordPress Elementor Website Builder &lt;3.1.4 - Cr | 🟡 medium | CVE漏洞 | WordPress 站点 | 3.5/5 |
+| karma-runner DOM-based Cross-Site Scripting | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| ManageEngine ADSelfService Plus &lt;6121 - Stored  | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| WordPress Elementor Website Builder &lt;&#x3D; 3.5 | 🟡 medium | CVE漏洞 | WordPress 站点 | 3.5/5 |
+| Event Monster &lt;&#x3D; 1.4.3 - Information Expos | 🟡 medium | CVE漏洞 | WordPress 站点 | 3.5/5 |
+| WordPress Elementor Website Builder &lt;3.1.4 - Cr | 🟡 medium | CVE漏洞 | WordPress 站点 | 3.5/5 |
+| karma-runner DOM-based Cross-Site Scripting | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| ManageEngine ADSelfService Plus &lt;6121 - Stored  | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| WordPress Elementor Website Builder &lt;&#x3D; 3.5 | 🟡 medium | CVE漏洞 | WordPress 站点 | 3.5/5 |
+| Event Monster &lt;&#x3D; 1.4.3 - Information Expos | 🟡 medium | CVE漏洞 | WordPress 站点 | 3.5/5 |
+| mooSocial 3.1.8 - External Service Interaction | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| mooSocial 3.1.8 - External Service Interaction | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| mooSocial 3.1.8 - External Service Interaction | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+
+## 🛡️ 安全建议
+
+🚨 发现高风险漏洞，建议立即扫描相关资产
+🔍 关注新发布的 CVE 漏洞，及时更新补丁
+⚡ 检测到远程代码执行漏洞，优先处理
+
+## 🔧 扫描建议
+
+建议使用以下 Nuclei 命令进行扫描：
+
+```bash
+# 扫描高危漏洞
+nuclei -t http/cves/2022/CVE-2022-3481.yaml -t http/cves/2020/CVE-2020-13640.yaml -t http/cves/2022/CVE-2022-3481.yaml -t headless/cves/2025/CVE-2025-29927-HEADLESS.yaml -t http/cves/2020/CVE-2020-26214.yaml -t http/cves/2021/CVE-2021-27651.yaml -t http/cves/2024/CVE-2024-29868.yaml -t http/cves/2025/CVE-2025-49596.yaml -t headless/cves/2025/CVE-2025-29927-HEADLESS.yaml -t http/cves/2020/CVE-2020-26214.yaml -t http/cves/2021/CVE-2021-27651.yaml -t http/cves/2024/CVE-2024-29868.yaml -t http/cves/2025/CVE-2025-49596.yaml -t http/cves/2022/CVE-2022-3481.yaml -t http/cves/2022/CVE-2022-3481.yaml -t http/cves/2020/CVE-2020-8654.yaml -t http/cves/2020/CVE-2020-8654.yaml -u target-url
+
+# 扫描所有今日新增模板  
+nuclei -t http/cves/2022/CVE-2022-3481.yaml -t http/cves/2020/CVE-2020-13640.yaml -t http/cves/2022/CVE-2022-3481.yaml -t headless/cves/2025/CVE-2025-29927-HEADLESS.yaml -t http/cves/2020/CVE-2020-26214.yaml -t http/cves/2021/CVE-2021-27651.yaml -t http/cves/2024/CVE-2024-29868.yaml -t http/cves/2025/CVE-2025-49596.yaml -t headless/cves/2025/CVE-2025-29927-HEADLESS.yaml -t http/cves/2020/CVE-2020-26214.yaml -t http/cves/2021/CVE-2021-27651.yaml -t http/cves/2024/CVE-2024-29868.yaml -t http/cves/2025/CVE-2025-49596.yaml -t http/cves/2022/CVE-2022-3481.yaml -t http/cves/2022/CVE-2022-3481.yaml -t http/cves/2020/CVE-2020-8654.yaml -t http/cves/2020/CVE-2020-8654.yaml -t http/cves/2021/CVE-2021-24891.yaml -t http/cves/2022/CVE-2022-0437.yaml -t http/cves/2022/CVE-2022-24681.yaml -t http/cves/2022/CVE-2022-29455.yaml -t http/cves/2024/CVE-2024-11396.yaml -t http/cves/2021/CVE-2021-24891.yaml -t http/cves/2022/CVE-2022-0437.yaml -t http/cves/2022/CVE-2022-24681.yaml -t http/cves/2022/CVE-2022-29455.yaml -t http/cves/2024/CVE-2024-11396.yaml -t http/cves/2023/CVE-2023-43323.yaml -t http/cves/2023/CVE-2023-43323.yaml -t http/cves/2023/CVE-2023-43323.yaml -u target-url
+```
+
+---
+
+*本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)*
+
+*扫描建议仅供参考，请在授权环境下进行安全测试*
