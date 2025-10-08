@@ -1,0 +1,304 @@
+---
+title: 'Nuclei POC 精选分析 - 2025-10-08'
+date: '2025-10-08'
+tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
+draft: false
+summary: '从 1257 个模板更新中精选分析 28 个高价值 POC，发现 10 个高风险漏洞'
+authors: ['default']
+category: 'security-intel'
+---
+
+# Nuclei POC 精选分析 - 2025-10-08
+
+## 📊 智能筛选概况
+
+- **发现变更**: 1257 个模板更新
+- **精选分析**: 28 个高价值 POC  
+- **智能跳过**: 1229 个低优先级模板
+- **高风险漏洞**: 10 个
+- **主要类别**: CVE漏洞(4), 其他(18), 信息泄露(6)
+
+> 💡 **智能筛选说明**: 系统自动优先分析 CVE 漏洞、高危漏洞和新增模板，跳过低价值的技术识别类模板，确保高效利用 API 资源。
+
+### 严重程度分布
+
+- 🔴 **严重**: 2 个
+- 🟠 **高危**: 8 个
+- 🟡 **中危**: 18 个
+
+## 🔍 重点漏洞分析
+
+
+### Total Donations Plugin for WordPress &lt; 2.0.6 - Arbitrary Options Update
+
+- **漏洞ID**: `CVE-2019-6703`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: Incorrect access control in migla_ajax_functions.php in the Calmar Webmedia Total Donations plugin through 2.0.5 for WordPress allows unauthenticated attackers to update arbitrary WordPress option values, leading to site takeover. These attackers can send requests to wp-admin/admin-ajax.php to call the miglaA_update_me action to change arbitrary options on affected sites. This can be used to enable new user registration and set the default role for new users to Administrator.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2019-6703
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/6e6342b0-82ca-4f5f-8b59-92ec3bdf1d02/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2019-6703)
+
+---
+
+
+### Total Donations Plugin for WordPress &lt; 2.0.6 - Arbitrary Options Update
+
+- **漏洞ID**: `CVE-2019-6703`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: Incorrect access control in migla_ajax_functions.php in the Calmar Webmedia Total Donations plugin through 2.0.5 for WordPress allows unauthenticated attackers to update arbitrary WordPress option values, leading to site takeover. These attackers can send requests to wp-admin/admin-ajax.php to call the miglaA_update_me action to change arbitrary options on affected sites. This can be used to enable new user registration and set the default role for new users to Administrator.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2019-6703
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/6e6342b0-82ca-4f5f-8b59-92ec3bdf1d02/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2019-6703)
+
+---
+
+
+### Abandoned Cart Lite for WooCommerce &lt; 5.2.0 - Cross-Site Scripting
+
+- **漏洞ID**: `CVE-2019-25152`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: The Abandoned Cart Lite for WooCommerce and Abandoned Cart Pro for WooCommerce plugins for WordPress are vulnerable to Stored Cross-Site Scripting via multiple parameters in versions up to, and including, 5.1.3 and 7.12.0 respectively, due to insufficient input sanitization and output escaping.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2019-25152
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/915420b1-f476-481e-9b11-b736a7cfdda7/)
+- [参考资料](https://wpscan.com/vulnerability/9229)
+- [参考资料](https://www.wordfence.com/threat-intel/vulnerabilities/id/a9cc5c6d-4396-4ebf-8788-f01dd9e9cfbc?source=cve)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2019-25152)
+
+---
+
+
+### Abandoned Cart Lite for WooCommerce &lt; 5.2.0 - Cross-Site Scripting
+
+- **漏洞ID**: `CVE-2019-25152`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: The Abandoned Cart Lite for WooCommerce and Abandoned Cart Pro for WooCommerce plugins for WordPress are vulnerable to Stored Cross-Site Scripting via multiple parameters in versions up to, and including, 5.1.3 and 7.12.0 respectively, due to insufficient input sanitization and output escaping.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2019-25152
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/915420b1-f476-481e-9b11-b736a7cfdda7/)
+- [参考资料](https://wpscan.com/vulnerability/9229)
+- [参考资料](https://www.wordfence.com/threat-intel/vulnerabilities/id/a9cc5c6d-4396-4ebf-8788-f01dd9e9cfbc?source=cve)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2019-25152)
+
+---
+
+
+### YonBIP - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-yonbip-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: There is an arbitrary file reading vulnerability in yonbiplogin, the advanced version of YonBIP
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/wy876/POC/blob/main/%E7%94%A8%E5%8F%8BOA/%E7%94%A8%E5%8F%8BYonBIP%E9%AB%98%E7%BA%A7%E7%89%88yonbiplogin%E5%AD%98%E5%9C%A8%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E6%BC%8F%E6%B4%9E.md)
+
+---
+
+
+### YonBIP - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-yonbip-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: There is an arbitrary file reading vulnerability in yonbiplogin, the advanced version of YonBIP
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/wy876/POC/blob/main/%E7%94%A8%E5%8F%8BOA/%E7%94%A8%E5%8F%8BYonBIP%E9%AB%98%E7%BA%A7%E7%89%88yonbiplogin%E5%AD%98%E5%9C%A8%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E6%BC%8F%E6%B4%9E.md)
+
+---
+
+
+### YonBIP - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-yonbip-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: There is an arbitrary file reading vulnerability in yonbiplogin, the advanced version of YonBIP
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/wy876/POC/blob/main/%E7%94%A8%E5%8F%8BOA/%E7%94%A8%E5%8F%8BYonBIP%E9%AB%98%E7%BA%A7%E7%89%88yonbiplogin%E5%AD%98%E5%9C%A8%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E6%BC%8F%E6%B4%9E.md)
+
+---
+
+
+### YonBIP - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-yonbip-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: There is an arbitrary file reading vulnerability in yonbiplogin, the advanced version of YonBIP
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/wy876/POC/blob/main/%E7%94%A8%E5%8F%8BOA/%E7%94%A8%E5%8F%8BYonBIP%E9%AB%98%E7%BA%A7%E7%89%88yonbiplogin%E5%AD%98%E5%9C%A8%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E6%BC%8F%E6%B4%9E.md)
+
+---
+
+
+### YonBIP - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-yonbip-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: There is an arbitrary file reading vulnerability in yonbiplogin, the advanced version of YonBIP
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/wy876/POC/blob/main/%E7%94%A8%E5%8F%8BOA/%E7%94%A8%E5%8F%8BYonBIP%E9%AB%98%E7%BA%A7%E7%89%88yonbiplogin%E5%AD%98%E5%9C%A8%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E6%BC%8F%E6%B4%9E.md)
+
+---
+
+
+### YonBIP - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-yonbip-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: There is an arbitrary file reading vulnerability in yonbiplogin, the advanced version of YonBIP
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/wy876/POC/blob/main/%E7%94%A8%E5%8F%8BOA/%E7%94%A8%E5%8F%8BYonBIP%E9%AB%98%E7%BA%A7%E7%89%88yonbiplogin%E5%AD%98%E5%9C%A8%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E6%BC%8F%E6%B4%9E.md)
+
+---
+
+
+## 📋 完整模板列表
+
+| 模板名称 | 严重程度 | 类别 | 影响资产 | 风险评分 |
+|---------|---------|------|---------|---------|
+| Total Donations Plugin for WordPress &lt; 2.0.6 -  | 🔴 critical | CVE漏洞 | WordPress 站点 | 5/5 |
+| Total Donations Plugin for WordPress &lt; 2.0.6 -  | 🔴 critical | CVE漏洞 | WordPress 站点 | 5/5 |
+| Abandoned Cart Lite for WooCommerce &lt; 5.2.0 - C | 🟠 high | CVE漏洞 | WordPress 站点 | 4.5/5 |
+| Abandoned Cart Lite for WooCommerce &lt; 5.2.0 - C | 🟠 high | CVE漏洞 | WordPress 站点 | 4.5/5 |
+| YonBIP - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| YonBIP - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| YonBIP - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| YonBIP - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| YonBIP - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| YonBIP - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| Senayan Library Management System v8.3.1 (Akasia)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| Senayan Library Management System v9.5.2 (Bulian)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| Senayan Library Management System v8.3.1 (Akasia)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| Senayan Library Management System v9.5.2 (Bulian)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| Senayan Library Management System v8.3.1 (Akasia)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| Senayan Library Management System v9.5.2 (Bulian)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| Senayan Library Management System v8.3.1 (Akasia)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| Senayan Library Management System v9.5.2 (Bulian)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| Senayan Library Management System v8.3.1 (Akasia)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| Senayan Library Management System v9.5.2 (Bulian)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| Senayan Library Management System v8.3.1 (Akasia)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| Senayan Library Management System v9.5.2 (Bulian)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| SQL Server - Dump Files | 🟡 medium | 信息泄露 | 通用 | 3/5 |
+| SQL Server - Dump Files | 🟡 medium | 信息泄露 | 通用 | 3/5 |
+| SQL Server - Dump Files | 🟡 medium | 信息泄露 | 通用 | 3/5 |
+| SQL Server - Dump Files | 🟡 medium | 信息泄露 | 通用 | 3/5 |
+| SQL Server - Dump Files | 🟡 medium | 信息泄露 | 通用 | 3/5 |
+| SQL Server - Dump Files | 🟡 medium | 信息泄露 | 通用 | 3/5 |
+
+## 🛡️ 安全建议
+
+🚨 发现高风险漏洞，建议立即扫描相关资产
+🔍 关注新发布的 CVE 漏洞，及时更新补丁
+
+## 🔧 扫描建议
+
+建议使用以下 Nuclei 命令进行扫描：
+
+```bash
+# 扫描高危漏洞
+nuclei -t http/cves/2019/CVE-2019-6703.yaml -t http/cves/2019/CVE-2019-6703.yaml -t http/cves/2019/CVE-2019-25152.yaml -t http/cves/2019/CVE-2019-25152.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -u target-url
+
+# 扫描所有今日新增模板  
+nuclei -t http/cves/2019/CVE-2019-6703.yaml -t http/cves/2019/CVE-2019-6703.yaml -t http/cves/2019/CVE-2019-25152.yaml -t http/cves/2019/CVE-2019-25152.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -t http/vulnerabilities/other/slims-8-akasia-xss.yaml -t http/vulnerabilities/other/slims-9-xss-index.yaml -t http/vulnerabilities/other/slims-8-akasia-xss.yaml -t http/vulnerabilities/other/slims-9-xss-index.yaml -t http/vulnerabilities/other/slims-8-akasia-xss.yaml -t http/vulnerabilities/other/slims-9-xss-index.yaml -t http/vulnerabilities/other/slims-8-akasia-xss.yaml -t http/vulnerabilities/other/slims-9-xss-index.yaml -t http/vulnerabilities/other/slims-8-akasia-xss.yaml -t http/vulnerabilities/other/slims-9-xss-index.yaml -t http/vulnerabilities/other/slims-8-akasia-xss.yaml -t http/vulnerabilities/other/slims-9-xss-index.yaml -t http/exposures/backups/sql-server-dump.yaml -t http/exposures/backups/sql-server-dump.yaml -t http/exposures/backups/sql-server-dump.yaml -t http/exposures/backups/sql-server-dump.yaml -t http/exposures/backups/sql-server-dump.yaml -t http/exposures/backups/sql-server-dump.yaml -u target-url
+```
+
+---
+
+*本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)*
+
+*扫描建议仅供参考，请在授权环境下进行安全测试*
