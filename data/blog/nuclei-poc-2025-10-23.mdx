@@ -1,0 +1,458 @@
+---
+title: 'Nuclei POC 精选分析 - 2025-10-23'
+date: '2025-10-23'
+tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
+draft: false
+summary: '从 1281 个模板更新中精选分析 30 个高价值 POC，发现 17 个高风险漏洞'
+authors: ['default']
+category: 'security-intel'
+---
+
+# Nuclei POC 精选分析 - 2025-10-23
+
+## 📊 智能筛选概况
+
+- **发现变更**: 1281 个模板更新
+- **精选分析**: 30 个高价值 POC  
+- **智能跳过**: 1251 个低优先级模板
+- **高风险漏洞**: 17 个
+- **主要类别**: CVE漏洞(11), 其他(19)
+
+> 💡 **智能筛选说明**: 系统自动优先分析 CVE 漏洞、高危漏洞和新增模板，跳过低价值的技术识别类模板，确保高效利用 API 资源。
+
+### 严重程度分布
+
+- 🔴 **严重**: 3 个
+- 🟠 **高危**: 14 个
+- 🟡 **中危**: 13 个
+
+## 🔍 重点漏洞分析
+
+
+### ThemeREX Addons - Remote Code Execution
+
+- **漏洞ID**: `CVE-2020-10257`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: ThemeREX Addons plugin before 2020-03-09 for WordPress contains an access control vulnerability in the /trx_addons/v2/get/sc_layout REST API endpoint, allowing any users to execute PHP functions because includes/plugin.rest-api.php calls trx_addons_rest_get_sc_layout with an unsafe sc parameter, letting attackers execute arbitrary PHP functions, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2020-10257
+
+**参考链接**: 
+- [参考资料](https://www.wordfence.com/blog/2020/03/zero-day-vulnerability-in-themerex-addons-now-patched/)
+- [参考资料](https://wpscan.com/vulnerability/4ed4e60e-5bbb-4010-a7fe-40eadd8dee64/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2020-10257)
+
+---
+
+
+### ThemeREX Addons - Remote Code Execution
+
+- **漏洞ID**: `CVE-2020-10257`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: ThemeREX Addons plugin before 2020-03-09 for WordPress contains an access control vulnerability in the /trx_addons/v2/get/sc_layout REST API endpoint, allowing any users to execute PHP functions because includes/plugin.rest-api.php calls trx_addons_rest_get_sc_layout with an unsafe sc parameter, letting attackers execute arbitrary PHP functions, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2020-10257
+
+**参考链接**: 
+- [参考资料](https://www.wordfence.com/blog/2020/03/zero-day-vulnerability-in-themerex-addons-now-patched/)
+- [参考资料](https://wpscan.com/vulnerability/4ed4e60e-5bbb-4010-a7fe-40eadd8dee64/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2020-10257)
+
+---
+
+
+### ThemeREX Addons - Remote Code Execution
+
+- **漏洞ID**: `CVE-2020-10257`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: ThemeREX Addons plugin before 2020-03-09 for WordPress contains an access control vulnerability in the /trx_addons/v2/get/sc_layout REST API endpoint, allowing any users to execute PHP functions because includes/plugin.rest-api.php calls trx_addons_rest_get_sc_layout with an unsafe sc parameter, letting attackers execute arbitrary PHP functions, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2020-10257
+
+**参考链接**: 
+- [参考资料](https://www.wordfence.com/blog/2020/03/zero-day-vulnerability-in-themerex-addons-now-patched/)
+- [参考资料](https://wpscan.com/vulnerability/4ed4e60e-5bbb-4010-a7fe-40eadd8dee64/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2020-10257)
+
+---
+
+
+### Veritas Backup Exec - Broken Authentication
+
+- **漏洞ID**: `CVE-2021-27877`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: An issue was discovered in Veritas Backup Exec before 21.2. It supports multiple authentication schemes- SHA authentication is one of these. This authentication scheme is no longer used in current versions of the product, but hadn&#x27;t yet been disabled. An attacker could remotely exploit this scheme to gain unauthorized access to an Agent and execute privileged commands.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2021-27877
+
+**参考链接**: 
+- [参考资料](https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/multi/veritas/beagent_sha_auth_rce.rb)
+
+---
+
+
+### Veritas Backup Exec - Broken Authentication
+
+- **漏洞ID**: `CVE-2021-27877`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: An issue was discovered in Veritas Backup Exec before 21.2. It supports multiple authentication schemes- SHA authentication is one of these. This authentication scheme is no longer used in current versions of the product, but hadn&#x27;t yet been disabled. An attacker could remotely exploit this scheme to gain unauthorized access to an Agent and execute privileged commands.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2021-27877
+
+**参考链接**: 
+- [参考资料](https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/multi/veritas/beagent_sha_auth_rce.rb)
+
+---
+
+
+### Veritas Backup Exec - Broken Authentication
+
+- **漏洞ID**: `CVE-2021-27877`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: An issue was discovered in Veritas Backup Exec before 21.2. It supports multiple authentication schemes- SHA authentication is one of these. This authentication scheme is no longer used in current versions of the product, but hadn&#x27;t yet been disabled. An attacker could remotely exploit this scheme to gain unauthorized access to an Agent and execute privileged commands.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2021-27877
+
+**参考链接**: 
+- [参考资料](https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/multi/veritas/beagent_sha_auth_rce.rb)
+
+---
+
+
+### Veritas Backup Exec - Broken Authentication
+
+- **漏洞ID**: `CVE-2021-27877`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: An issue was discovered in Veritas Backup Exec before 21.2. It supports multiple authentication schemes- SHA authentication is one of these. This authentication scheme is no longer used in current versions of the product, but hadn&#x27;t yet been disabled. An attacker could remotely exploit this scheme to gain unauthorized access to an Agent and execute privileged commands.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2021-27877
+
+**参考链接**: 
+- [参考资料](https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/multi/veritas/beagent_sha_auth_rce.rb)
+
+---
+
+
+### WordPress FluentForms &lt;&#x3D; 5.1.16 - Broken Access Control
+
+- **漏洞ID**: `CVE-2024-2782`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: The Contact Form Plugin by Fluent Forms for Quiz, Survey, and Drag & Drop WP Form Builder plugin for WordPress is vulnerable to unauthorized modification of data due to a missing capability check on the /wp-json/fluentform/v1/global-settings REST API endpoint in all versions up to, and including, 5.1.16. This makes it possible for unauthenticated attackers to modify all of the plugin&#x27;s settings.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2024-2782
+
+**参考链接**: 
+- [参考资料](https://github.com/whale93/CVE-2024-2782-PoC)
+- [参考资料](https://wpscan.com/vulnerability/075faf77-2787-4da7-bbfd-ea3c14993cc6/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2024-2782)
+- [参考资料](https://www.wordfence.com/threat-intel/vulnerabilities/id/0814e7b3-404a-4db5-b564-46c9086ec048?source=cve)
+
+---
+
+
+### WordPress FluentForms &lt;&#x3D; 5.1.16 - Broken Access Control
+
+- **漏洞ID**: `CVE-2024-2782`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: The Contact Form Plugin by Fluent Forms for Quiz, Survey, and Drag & Drop WP Form Builder plugin for WordPress is vulnerable to unauthorized modification of data due to a missing capability check on the /wp-json/fluentform/v1/global-settings REST API endpoint in all versions up to, and including, 5.1.16. This makes it possible for unauthenticated attackers to modify all of the plugin&#x27;s settings.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2024-2782
+
+**参考链接**: 
+- [参考资料](https://github.com/whale93/CVE-2024-2782-PoC)
+- [参考资料](https://wpscan.com/vulnerability/075faf77-2787-4da7-bbfd-ea3c14993cc6/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2024-2782)
+- [参考资料](https://www.wordfence.com/threat-intel/vulnerabilities/id/0814e7b3-404a-4db5-b564-46c9086ec048?source=cve)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### YonBIP - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-yonbip-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: There is an arbitrary file reading vulnerability in yonbiplogin, the advanced version of YonBIP
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/wy876/POC/blob/main/%E7%94%A8%E5%8F%8BOA/%E7%94%A8%E5%8F%8BYonBIP%E9%AB%98%E7%BA%A7%E7%89%88yonbiplogin%E5%AD%98%E5%9C%A8%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E6%BC%8F%E6%B4%9E.md)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### YonBIP - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-yonbip-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: There is an arbitrary file reading vulnerability in yonbiplogin, the advanced version of YonBIP
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/wy876/POC/blob/main/%E7%94%A8%E5%8F%8BOA/%E7%94%A8%E5%8F%8BYonBIP%E9%AB%98%E7%BA%A7%E7%89%88yonbiplogin%E5%AD%98%E5%9C%A8%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E6%BC%8F%E6%B4%9E.md)
+
+---
+
+
+### YonBIP - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-yonbip-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: There is an arbitrary file reading vulnerability in yonbiplogin, the advanced version of YonBIP
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/wy876/POC/blob/main/%E7%94%A8%E5%8F%8BOA/%E7%94%A8%E5%8F%8BYonBIP%E9%AB%98%E7%BA%A7%E7%89%88yonbiplogin%E5%AD%98%E5%9C%A8%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E6%BC%8F%E6%B4%9E.md)
+
+---
+
+
+### YonBIP - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-yonbip-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: There is an arbitrary file reading vulnerability in yonbiplogin, the advanced version of YonBIP
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/wy876/POC/blob/main/%E7%94%A8%E5%8F%8BOA/%E7%94%A8%E5%8F%8BYonBIP%E9%AB%98%E7%BA%A7%E7%89%88yonbiplogin%E5%AD%98%E5%9C%A8%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E6%BC%8F%E6%B4%9E.md)
+
+---
+
+
+### YonBIP - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-yonbip-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: There is an arbitrary file reading vulnerability in yonbiplogin, the advanced version of YonBIP
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/wy876/POC/blob/main/%E7%94%A8%E5%8F%8BOA/%E7%94%A8%E5%8F%8BYonBIP%E9%AB%98%E7%BA%A7%E7%89%88yonbiplogin%E5%AD%98%E5%9C%A8%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E6%BC%8F%E6%B4%9E.md)
+
+---
+
+
+## 📋 完整模板列表
+
+| 模板名称 | 严重程度 | 类别 | 影响资产 | 风险评分 |
+|---------|---------|------|---------|---------|
+| ThemeREX Addons - Remote Code Execution | 🔴 critical | CVE漏洞 | WordPress 站点 | 5/5 |
+| ThemeREX Addons - Remote Code Execution | 🔴 critical | CVE漏洞 | WordPress 站点 | 5/5 |
+| ThemeREX Addons - Remote Code Execution | 🔴 critical | CVE漏洞 | WordPress 站点 | 5/5 |
+| Veritas Backup Exec - Broken Authentication | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
+| Veritas Backup Exec - Broken Authentication | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
+| Veritas Backup Exec - Broken Authentication | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
+| Veritas Backup Exec - Broken Authentication | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
+| WordPress FluentForms &lt;&#x3D; 5.1.16 - Broken A | 🟠 high | CVE漏洞 | WordPress 站点 | 4.5/5 |
+| WordPress FluentForms &lt;&#x3D; 5.1.16 - Broken A | 🟠 high | CVE漏洞 | WordPress 站点 | 4.5/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| YonBIP - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| YonBIP - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| YonBIP - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| YonBIP - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| YonBIP - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| Dify - User Enumeration via &quot;Account not foun | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| Dify - User Enumeration via &quot;Account not foun | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| Senayan Library Management System v8.3.1 (Akasia)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| Senayan Library Management System v9.5.2 (Bulian)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| Senayan Library Management System v8.3.1 (Akasia)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| Senayan Library Management System v9.5.2 (Bulian)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| Senayan Library Management System v8.3.1 (Akasia)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| Senayan Library Management System v9.5.2 (Bulian)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| Senayan Library Management System v8.3.1 (Akasia)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| Senayan Library Management System v9.5.2 (Bulian)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| Senayan Library Management System v8.3.1 (Akasia)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| Senayan Library Management System v9.5.2 (Bulian)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| Senayan Library Management System v8.3.1 (Akasia)  | 🟡 medium | 其他 | 通用 | 3/5 |
+
+## 🛡️ 安全建议
+
+🚨 发现高风险漏洞，建议立即扫描相关资产
+🔍 关注新发布的 CVE 漏洞，及时更新补丁
+⚡ 检测到远程代码执行漏洞，优先处理
+
+## 🔧 扫描建议
+
+建议使用以下 Nuclei 命令进行扫描：
+
+```bash
+# 扫描高危漏洞
+nuclei -t http/cves/2020/CVE-2020-10257.yaml -t http/cves/2020/CVE-2020-10257.yaml -t http/cves/2020/CVE-2020-10257.yaml -t network/cves/2021/CVE-2021-27877.yaml -t network/cves/2021/CVE-2021-27877.yaml -t network/cves/2021/CVE-2021-27877.yaml -t network/cves/2021/CVE-2021-27877.yaml -t http/cves/2024/CVE-2024-2782.yaml -t http/cves/2024/CVE-2024-2782.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -u target-url
+
+# 扫描所有今日新增模板  
+nuclei -t http/cves/2020/CVE-2020-10257.yaml -t http/cves/2020/CVE-2020-10257.yaml -t http/cves/2020/CVE-2020-10257.yaml -t network/cves/2021/CVE-2021-27877.yaml -t network/cves/2021/CVE-2021-27877.yaml -t network/cves/2021/CVE-2021-27877.yaml -t network/cves/2021/CVE-2021-27877.yaml -t http/cves/2024/CVE-2024-2782.yaml -t http/cves/2024/CVE-2024-2782.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -t http/cves/2025/CVE-2025-11750.yaml -t http/cves/2025/CVE-2025-11750.yaml -t http/vulnerabilities/other/slims-8-akasia-xss.yaml -t http/vulnerabilities/other/slims-9-xss-index.yaml -t http/vulnerabilities/other/slims-8-akasia-xss.yaml -t http/vulnerabilities/other/slims-9-xss-index.yaml -t http/vulnerabilities/other/slims-8-akasia-xss.yaml -t http/vulnerabilities/other/slims-9-xss-index.yaml -t http/vulnerabilities/other/slims-8-akasia-xss.yaml -t http/vulnerabilities/other/slims-9-xss-index.yaml -t http/vulnerabilities/other/slims-8-akasia-xss.yaml -t http/vulnerabilities/other/slims-9-xss-index.yaml -t http/vulnerabilities/other/slims-8-akasia-xss.yaml -u target-url
+```
+
+---
+
+*本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)*
+
+*扫描建议仅供参考，请在授权环境下进行安全测试*
