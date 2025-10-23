@@ -1,4 +1,5 @@
 /** @type {import("pliny/config").PlinyConfig } */
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://t3rry1ng.com'
 const siteMetadata = {
   title: 'T3rry \'的多元世界',
   author: 'T3rry',
@@ -6,7 +7,7 @@ const siteMetadata = {
   description: 'T3rry 的多元世界',
   language: 'zh-cn',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
+  siteUrl,
   siteRepo: 'https://github.com/terrying/my-blog',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
