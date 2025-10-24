@@ -1,0 +1,584 @@
+---
+title: 'Nuclei POC 精选分析 - 2025-10-24'
+date: '2025-10-24'
+tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
+draft: false
+summary: '从 1071 个模板更新中精选分析 30 个高价值 POC，发现 22 个高风险漏洞'
+authors: ['default']
+category: 'security-intel'
+---
+
+# Nuclei POC 精选分析 - 2025-10-24
+
+## 📊 智能筛选概况
+
+- **发现变更**: 1071 个模板更新
+- **精选分析**: 30 个高价值 POC  
+- **智能跳过**: 1041 个低优先级模板
+- **高风险漏洞**: 22 个
+- **主要类别**: CVE漏洞(16), 其他(14)
+
+> 💡 **智能筛选说明**: 系统自动优先分析 CVE 漏洞、高危漏洞和新增模板，跳过低价值的技术识别类模板，确保高效利用 API 资源。
+
+### 严重程度分布
+
+- 🔴 **严重**: 13 个
+- 🟠 **高危**: 9 个
+- 🟡 **中危**: 8 个
+
+## 🔍 重点漏洞分析
+
+
+### Zoho ManageEngine OpManager &lt; 12.5.329 - Remote Code Execution
+
+- **漏洞ID**: `CVE-2021-3287`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Zoho ManageEngine OpManager before 12.5.329 contains a remote code execution caused by a general bypass in the deserialization class, letting unauthenticated attackers execute arbitrary code, exploit requires no authentication
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2021-3287
+
+**参考链接**: 
+- [参考资料](http://packetstormsecurity.com/files/164231/ManageEngine-OpManager-SumPDU-Java-Deserialization.html)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2021-3287)
+
+---
+
+
+### Adobe Commerce (Magento) - Remote Code Execution
+
+- **漏洞ID**: `CVE-2022-24086`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Adobe Commerce versions 2.4.3-p1 (and earlier) and 2.3.7-p2 (and earlier) are affected by an improper input validation vulnerability during the checkout process. Exploitation of this issue does not require user interaction and could result in arbitrary code execution.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2022-24086
+
+**参考链接**: 
+- [参考资料](https://helpx.adobe.com/security/products/magento/apsb22-12.html)
+- [参考资料](https://vovohelo.medium.com/reversing-a-magento-rce-cve-2022-24086-e991ead4d8af)
+- [参考资料](https://labs.watchtowr.com/adobe-commerce-magento-rce-cve-2022-24086/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2022-24086)
+
+---
+
+
+### IBM Data Risk Manager - Hardcoded Credentials
+
+- **漏洞ID**: `CVE-2020-4429`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: IBM Data Risk Manager 2.0.1, 2.0.2, 2.0.3, 2.0.4, 2.0.5, and 2.0.6 contains a default password for an IDRM administrative account. A remote attacker could exploit this vulnerability to login and execute arbitrary code on the system with root privileges. IBM X-Force ID- 180534.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2020-4429
+
+**参考链接**: 
+- [参考资料](https://exchange.xforce.ibmcloud.com/vulnerabilities/180534)
+- [参考资料](https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/linux/ssh/ibm_drm_a3user.rb)
+- [参考资料](https://www.ibm.com/support/pages/security-bulletin-vulnerabilities-exist-ibm-data-risk-manager-cve-2020-4427-cve-2020-4428-cve-2020-4429-and-cve-2020-4430)
+
+---
+
+
+### Teleport - Authentication Bypass
+
+- **漏洞ID**: `CVE-2025-49825`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Teleport versions prior to 17.5.2 are vulnerable to a remote authentication bypass vulnerability. This issue allows attackers to gain unauthorized access to affected systems.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-49825
+
+**参考链接**: 
+- [参考资料](https://github.com/gravitational/teleport/security/advisories/GHSA-8cqv-pj7f-pwpc)
+
+---
+
+
+### Teleport - Authentication Bypass
+
+- **漏洞ID**: `CVE-2025-49825`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Teleport versions prior to 17.5.2 are vulnerable to a remote authentication bypass vulnerability. This issue allows attackers to gain unauthorized access to affected systems.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-49825
+
+**参考链接**: 
+- [参考资料](https://github.com/gravitational/teleport/security/advisories/GHSA-8cqv-pj7f-pwpc)
+
+---
+
+
+### Zoho ManageEngine OpManager &lt; 12.5.329 - Remote Code Execution
+
+- **漏洞ID**: `CVE-2021-3287`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Zoho ManageEngine OpManager before 12.5.329 contains a remote code execution caused by a general bypass in the deserialization class, letting unauthenticated attackers execute arbitrary code, exploit requires no authentication
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2021-3287
+
+**参考链接**: 
+- [参考资料](http://packetstormsecurity.com/files/164231/ManageEngine-OpManager-SumPDU-Java-Deserialization.html)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2021-3287)
+
+---
+
+
+### Adobe Commerce (Magento) - Remote Code Execution
+
+- **漏洞ID**: `CVE-2022-24086`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Adobe Commerce versions 2.4.3-p1 (and earlier) and 2.3.7-p2 (and earlier) are affected by an improper input validation vulnerability during the checkout process. Exploitation of this issue does not require user interaction and could result in arbitrary code execution.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2022-24086
+
+**参考链接**: 
+- [参考资料](https://helpx.adobe.com/security/products/magento/apsb22-12.html)
+- [参考资料](https://vovohelo.medium.com/reversing-a-magento-rce-cve-2022-24086-e991ead4d8af)
+- [参考资料](https://labs.watchtowr.com/adobe-commerce-magento-rce-cve-2022-24086/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2022-24086)
+
+---
+
+
+### Zoho ManageEngine OpManager &lt; 12.5.329 - Remote Code Execution
+
+- **漏洞ID**: `CVE-2021-3287`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Zoho ManageEngine OpManager before 12.5.329 contains a remote code execution caused by a general bypass in the deserialization class, letting unauthenticated attackers execute arbitrary code, exploit requires no authentication
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2021-3287
+
+**参考链接**: 
+- [参考资料](http://packetstormsecurity.com/files/164231/ManageEngine-OpManager-SumPDU-Java-Deserialization.html)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2021-3287)
+
+---
+
+
+### IBM Data Risk Manager - Hardcoded Credentials
+
+- **漏洞ID**: `CVE-2020-4429`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: IBM Data Risk Manager 2.0.1, 2.0.2, 2.0.3, 2.0.4, 2.0.5, and 2.0.6 contains a default password for an IDRM administrative account. A remote attacker could exploit this vulnerability to login and execute arbitrary code on the system with root privileges. IBM X-Force ID- 180534.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2020-4429
+
+**参考链接**: 
+- [参考资料](https://exchange.xforce.ibmcloud.com/vulnerabilities/180534)
+- [参考资料](https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/linux/ssh/ibm_drm_a3user.rb)
+- [参考资料](https://www.ibm.com/support/pages/security-bulletin-vulnerabilities-exist-ibm-data-risk-manager-cve-2020-4427-cve-2020-4428-cve-2020-4429-and-cve-2020-4430)
+
+---
+
+
+### Citrix NetScaler ADC and NetScaler Gateway - Remote Code Execution
+
+- **漏洞ID**: `CVE-2023-3519`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: critical unauthenticated remote code execution (RCE) vulnerability affecting Citrix ADC (NetScaler ADC) and Citrix Gateway appliances configured as a Gateway (VPN virtual server, ICA Proxy, CVPN, RDP Proxy) or AAA virtual server. Exploitation can lead to arbitrary code execution.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2023-3519
+
+**参考链接**: 
+- [参考资料](https://github.com/assetnote/exploits/blob/main/citrix/CVE-2023-3519/README.md)
+- [参考资料](https://support.citrix.com/support-home/kbsearch/article?articleNumber=CTX561482)
+- [参考资料](https://www.assetnote.io/resources/research/analysis-of-cve-2023-3519-in-citrix-adc-and-netscaler-gateway)
+
+---
+
+
+### Citrix NetScaler ADC and NetScaler Gateway - Remote Code Execution
+
+- **漏洞ID**: `CVE-2023-3519`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: critical unauthenticated remote code execution (RCE) vulnerability affecting Citrix ADC (NetScaler ADC) and Citrix Gateway appliances configured as a Gateway (VPN virtual server, ICA Proxy, CVPN, RDP Proxy) or AAA virtual server. Exploitation can lead to arbitrary code execution.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2023-3519
+
+**参考链接**: 
+- [参考资料](https://github.com/assetnote/exploits/blob/main/citrix/CVE-2023-3519/README.md)
+- [参考资料](https://support.citrix.com/support-home/kbsearch/article?articleNumber=CTX561482)
+- [参考资料](https://www.assetnote.io/resources/research/analysis-of-cve-2023-3519-in-citrix-adc-and-netscaler-gateway)
+
+---
+
+
+### Citrix NetScaler ADC and NetScaler Gateway - Remote Code Execution
+
+- **漏洞ID**: `CVE-2023-3519`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: critical unauthenticated remote code execution (RCE) vulnerability affecting Citrix ADC (NetScaler ADC) and Citrix Gateway appliances configured as a Gateway (VPN virtual server, ICA Proxy, CVPN, RDP Proxy) or AAA virtual server. Exploitation can lead to arbitrary code execution.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2023-3519
+
+**参考链接**: 
+- [参考资料](https://github.com/assetnote/exploits/blob/main/citrix/CVE-2023-3519/README.md)
+- [参考资料](https://support.citrix.com/support-home/kbsearch/article?articleNumber=CTX561482)
+- [参考资料](https://www.assetnote.io/resources/research/analysis-of-cve-2023-3519-in-citrix-adc-and-netscaler-gateway)
+
+---
+
+
+### Citrix NetScaler ADC and NetScaler Gateway - Remote Code Execution
+
+- **漏洞ID**: `CVE-2023-3519`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: critical unauthenticated remote code execution (RCE) vulnerability affecting Citrix ADC (NetScaler ADC) and Citrix Gateway appliances configured as a Gateway (VPN virtual server, ICA Proxy, CVPN, RDP Proxy) or AAA virtual server. Exploitation can lead to arbitrary code execution.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2023-3519
+
+**参考链接**: 
+- [参考资料](https://github.com/assetnote/exploits/blob/main/citrix/CVE-2023-3519/README.md)
+- [参考资料](https://support.citrix.com/support-home/kbsearch/article?articleNumber=CTX561482)
+- [参考资料](https://www.assetnote.io/resources/research/analysis-of-cve-2023-3519-in-citrix-adc-and-netscaler-gateway)
+
+---
+
+
+### Apache Struts2 S2-057 - Remote Code Execution
+
+- **漏洞ID**: `CVE-2018-11776`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: Apache 服务器
+- **预估影响**: 数百万台
+
+**描述**: Apache Struts versions 2.3 to 2.3.34 and 2.5 to 2.5.16 suffer from possible remote code execution when alwaysSelectFullNamespace is true (either by user or a plugin like Convention Plugin) and then: results are used with no namespace and in same time, its upper package have no or wildcard namespace and similar to results, same possibility when using url tag which doesn&#x27;&#x27;t have value and action set and in same time, its upper package have no or wildcard namespace.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2018-11776
+
+**参考链接**: 
+- [参考资料](https://github.com/jas502n/St2-057)
+- [参考资料](https://cwiki.apache.org/confluence/display/WW/S2-057)
+- [参考资料](https://security.netapp.com/advisory/ntap-20180822-0001/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2018-11776)
+- [参考资料](http://packetstormsecurity.com/files/172830/Apache-Struts-Remote-Code-Execution.html)
+
+---
+
+
+### Apache Struts2 S2-057 - Remote Code Execution
+
+- **漏洞ID**: `CVE-2018-11776`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: Apache 服务器
+- **预估影响**: 数百万台
+
+**描述**: Apache Struts versions 2.3 to 2.3.34 and 2.5 to 2.5.16 suffer from possible remote code execution when alwaysSelectFullNamespace is true (either by user or a plugin like Convention Plugin) and then: results are used with no namespace and in same time, its upper package have no or wildcard namespace and similar to results, same possibility when using url tag which doesn&#x27;&#x27;t have value and action set and in same time, its upper package have no or wildcard namespace.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2018-11776
+
+**参考链接**: 
+- [参考资料](https://github.com/jas502n/St2-057)
+- [参考资料](https://cwiki.apache.org/confluence/display/WW/S2-057)
+- [参考资料](https://security.netapp.com/advisory/ntap-20180822-0001/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2018-11776)
+- [参考资料](http://packetstormsecurity.com/files/172830/Apache-Struts-Remote-Code-Execution.html)
+
+---
+
+
+### Apache Struts2 S2-057 - Remote Code Execution
+
+- **漏洞ID**: `CVE-2018-11776`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: Apache 服务器
+- **预估影响**: 数百万台
+
+**描述**: Apache Struts versions 2.3 to 2.3.34 and 2.5 to 2.5.16 suffer from possible remote code execution when alwaysSelectFullNamespace is true (either by user or a plugin like Convention Plugin) and then: results are used with no namespace and in same time, its upper package have no or wildcard namespace and similar to results, same possibility when using url tag which doesn&#x27;&#x27;t have value and action set and in same time, its upper package have no or wildcard namespace.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2018-11776
+
+**参考链接**: 
+- [参考资料](https://github.com/jas502n/St2-057)
+- [参考资料](https://cwiki.apache.org/confluence/display/WW/S2-057)
+- [参考资料](https://security.netapp.com/advisory/ntap-20180822-0001/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2018-11776)
+- [参考资料](http://packetstormsecurity.com/files/172830/Apache-Struts-Remote-Code-Execution.html)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### YonBIP - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-yonbip-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: There is an arbitrary file reading vulnerability in yonbiplogin, the advanced version of YonBIP
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/wy876/POC/blob/main/%E7%94%A8%E5%8F%8BOA/%E7%94%A8%E5%8F%8BYonBIP%E9%AB%98%E7%BA%A7%E7%89%88yonbiplogin%E5%AD%98%E5%9C%A8%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E6%BC%8F%E6%B4%9E.md)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### YonBIP - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-yonbip-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: There is an arbitrary file reading vulnerability in yonbiplogin, the advanced version of YonBIP
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/wy876/POC/blob/main/%E7%94%A8%E5%8F%8BOA/%E7%94%A8%E5%8F%8BYonBIP%E9%AB%98%E7%BA%A7%E7%89%88yonbiplogin%E5%AD%98%E5%9C%A8%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E6%BC%8F%E6%B4%9E.md)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### YonBIP - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-yonbip-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: There is an arbitrary file reading vulnerability in yonbiplogin, the advanced version of YonBIP
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/wy876/POC/blob/main/%E7%94%A8%E5%8F%8BOA/%E7%94%A8%E5%8F%8BYonBIP%E9%AB%98%E7%BA%A7%E7%89%88yonbiplogin%E5%AD%98%E5%9C%A8%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E6%BC%8F%E6%B4%9E.md)
+
+---
+
+
+## 📋 完整模板列表
+
+| 模板名称 | 严重程度 | 类别 | 影响资产 | 风险评分 |
+|---------|---------|------|---------|---------|
+| Zoho ManageEngine OpManager &lt; 12.5.329 - Remote | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Adobe Commerce (Magento) - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| IBM Data Risk Manager - Hardcoded Credentials | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Teleport - Authentication Bypass | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Teleport - Authentication Bypass | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Zoho ManageEngine OpManager &lt; 12.5.329 - Remote | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Adobe Commerce (Magento) - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Zoho ManageEngine OpManager &lt; 12.5.329 - Remote | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| IBM Data Risk Manager - Hardcoded Credentials | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Citrix NetScaler ADC and NetScaler Gateway - Remot | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Citrix NetScaler ADC and NetScaler Gateway - Remot | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Citrix NetScaler ADC and NetScaler Gateway - Remot | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Citrix NetScaler ADC and NetScaler Gateway - Remot | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Apache Struts2 S2-057 - Remote Code Execution | 🟠 high | CVE漏洞 | Apache 服务器 | 4.5/5 |
+| Apache Struts2 S2-057 - Remote Code Execution | 🟠 high | CVE漏洞 | Apache 服务器 | 4.5/5 |
+| Apache Struts2 S2-057 - Remote Code Execution | 🟠 high | CVE漏洞 | Apache 服务器 | 4.5/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| YonBIP - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| YonBIP - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| YonBIP - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| Senayan Library Management System v8.3.1 (Akasia)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| Senayan Library Management System v9.5.2 (Bulian)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| Senayan Library Management System v8.3.1 (Akasia)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| Senayan Library Management System v9.5.2 (Bulian)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| Senayan Library Management System v8.3.1 (Akasia)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| Senayan Library Management System v9.5.2 (Bulian)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| Senayan Library Management System v8.3.1 (Akasia)  | 🟡 medium | 其他 | 通用 | 3/5 |
+| Senayan Library Management System v9.5.2 (Bulian)  | 🟡 medium | 其他 | 通用 | 3/5 |
+
+## 🛡️ 安全建议
+
+🚨 发现高风险漏洞，建议立即扫描相关资产
+🔍 关注新发布的 CVE 漏洞，及时更新补丁
+⚡ 检测到远程代码执行漏洞，优先处理
+
+## 🔧 扫描建议
+
+建议使用以下 Nuclei 命令进行扫描：
+
+```bash
+# 扫描高危漏洞
+nuclei -t http/cves/2021/CVE-2021-3287.yaml -t http/cves/2022/CVE-2022-24086.yaml -t javascript/cves/2020/CVE-2020-4429.yaml -t http/cves/2025/CVE-2025-49825.yaml -t http/cves/2025/CVE-2025-49825.yaml -t http/cves/2021/CVE-2021-3287.yaml -t http/cves/2022/CVE-2022-24086.yaml -t http/cves/2021/CVE-2021-3287.yaml -t javascript/cves/2020/CVE-2020-4429.yaml -t http/cves/2023/CVE-2023-3519.yaml -t http/cves/2023/CVE-2023-3519.yaml -t http/cves/2023/CVE-2023-3519.yaml -t http/cves/2023/CVE-2023-3519.yaml -t http/cves/2018/CVE-2018-11776.yaml -t http/cves/2018/CVE-2018-11776.yaml -t http/cves/2018/CVE-2018-11776.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -u target-url
+
+# 扫描所有今日新增模板  
+nuclei -t http/cves/2021/CVE-2021-3287.yaml -t http/cves/2022/CVE-2022-24086.yaml -t javascript/cves/2020/CVE-2020-4429.yaml -t http/cves/2025/CVE-2025-49825.yaml -t http/cves/2025/CVE-2025-49825.yaml -t http/cves/2021/CVE-2021-3287.yaml -t http/cves/2022/CVE-2022-24086.yaml -t http/cves/2021/CVE-2021-3287.yaml -t javascript/cves/2020/CVE-2020-4429.yaml -t http/cves/2023/CVE-2023-3519.yaml -t http/cves/2023/CVE-2023-3519.yaml -t http/cves/2023/CVE-2023-3519.yaml -t http/cves/2023/CVE-2023-3519.yaml -t http/cves/2018/CVE-2018-11776.yaml -t http/cves/2018/CVE-2018-11776.yaml -t http/cves/2018/CVE-2018-11776.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-yonbip-lfi.yaml -t http/vulnerabilities/other/slims-8-akasia-xss.yaml -t http/vulnerabilities/other/slims-9-xss-index.yaml -t http/vulnerabilities/other/slims-8-akasia-xss.yaml -t http/vulnerabilities/other/slims-9-xss-index.yaml -t http/vulnerabilities/other/slims-8-akasia-xss.yaml -t http/vulnerabilities/other/slims-9-xss-index.yaml -t http/vulnerabilities/other/slims-8-akasia-xss.yaml -t http/vulnerabilities/other/slims-9-xss-index.yaml -u target-url
+```
+
+---
+
+*本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)*
+
+*扫描建议仅供参考，请在授权环境下进行安全测试*
