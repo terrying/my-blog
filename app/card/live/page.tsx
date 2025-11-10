@@ -9,15 +9,18 @@ function decodeBase64(input?: string | null): string {
   try { return Buffer.from(input, 'base64').toString('utf-8') } catch { return '' }
 }
 
-export default function LiveCardPage({
+export default async function LiveCardPage({
   searchParams,
 }: {
-  searchParams: { html?: string; css?: string; width?: string; height?: string }
+  searchParams: Promise<{ html?: string; css?: string; width?: string; height?: string }>
 }) {
-  const html = decodeBase64(searchParams?.html)
-  const css = decodeBase64(searchParams?.css)
-  const width = Number(searchParams?.width || CARD_WIDTH)
-  const height = Number(searchParams?.height || CARD_HEIGHT)
+  // Next.js 15 may pass searchParams as a Promise for streaming compatibility
+  // Support both Promise and plain object
+  const sp = typeof searchParams?.then === 'function' ? (await searchParams) : (searchParams as any)
+  const html = decodeBase64(sp?.html)
+  const css = decodeBase64(sp?.css)
+  const width = Number(sp?.width || CARD_WIDTH)
+  const height = Number(sp?.height || CARD_HEIGHT)
 
   return (
     <div
