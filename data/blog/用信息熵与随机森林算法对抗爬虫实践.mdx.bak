@@ -1,0 +1,125 @@
+---
+title: 用信息熵与随机森林算法对抗爬虫实践
+date: '2025-10-20'
+tags: ['应用安全', '安全方案', 'SDLC', '接口设计']
+draft: false
+summary: 从目标定义、方案设计到落地执行，详解 API 接口 “混合加密 + 重放防护” 安全方案，附可复用流程、避坑指南与渗透测试清单，助力企业低成本提升接口安全水位。
+images: ['/static/images/mitm-1.jpeg']
+---
+
+## 电话号码熵与遍历风险计算说明（公式版）
+
+本文档概述 `ac_batch_strategy.py` 中与电话号码列表分析相关的主要指标与判定公式。公式中的对数默认以 2 为底（log₂）。
+
+### 1. 记号与预处理
+- **输入样本**：一组电话号码（字符串）。
+- **标准化**：只保留数字字符，得到 `normalized`。
+- **最长公共前缀（LCP）去除**：若启用 `strip_common_prefix=True`，从每个号码去掉与样本共享的最长公共前缀，得到 `focused`。尾部位置分析与后缀分析使用 `focused`，其余使用 `normalized`。
+- **样本规模**：`N = len(normalized)`。
+
+### 2. 信息熵与最小熵
+- **香农熵（Shannon entropy）**：\( H(X) = -\sum_i p_i \log_2 p_i \)。
+- **最小熵（Min-entropy）**：\( H_{\min}(X) = -\log_2(\max_i p_i) \)。
+
+### 3. 尾部 K 位位置熵（tail_k）
+对 `focused` 的每个号码取最后 \(k=\text{tail\_k}\) 位，按位构成列（右对齐）。第 \(j\) 列（从右往左，第 1..k 位）的熵为 \(H_j\)。
+
+- 按位熵列表：`per_pos_bits = [H_1, ..., H_k]`
+- 平均尾部位置熵：\( \text{last\_k\_avg\_bits} = \frac{1}{k} \sum_{j=1}^k H_j \)
+- 归一化：数字字母表大小为 10，故单列最大熵为 \(\log_2 10\)。
+  \[
+  \text{last\_k\_avg\_norm} = \frac{\text{last\_k\_avg\_bits}}{\log_2 10}
+  \]
+
+### 4. 长度分布熵（length entropy）
+设长度随机变量 \(L\) 的分布由 `normalized` 的各号码长度诱导：
+- \( H_{\text{length}} = H(L) \)
+- 归一化分母：\( D = \min\{ N, \max(1, |\{\text{unique lengths}\}|) \} \)。
+  - 若 \( D \le 1 \)，归一化值定义为 0；否则
+  \[
+  \text{length\_norm} = \frac{H_{\text{length}}}{\log_2 D}
+  \]
+
+### 5. 前缀 M 位熵（prefix_m）
+对 `normalized` 的每个号码取前 \(m=\text{prefix\_m}\) 位（若长度不足则取全串），统计前缀分布：
+- \( H_{\text{prefix}} = H(\text{prefix of length } m) \)
+- 理论上界：\( H_{\max} = \min\{ m\log_2 10, \log_2(\max(1,N)) \} \)
+- 归一化：\( \text{prefix\_norm} = H_{\text{prefix}} / H_{\max} \)
+
+### 6. 唯一性熵（整串作为符号）
+将完整号码当作离散符号，统计分布：
+- \( H_{\text{values}} = H(\text{full number}) \)
+- 归一化：\( \text{values\_norm} = H_{\text{values}} / \log_2(\max(1,N)) \)
+
+### 7. 后缀 K 位最小熵（tail_k）
+对 `focused` 的每个号码取后 \(k\) 位作为后缀字符串，统计分布：
+- \( H^{(\text{suffix-}k)}_{\min} = -\log_2(\max\, p(\text{suffix}_k)) \)
+
+### 8. 基础综合分数（score，非风控判定）
+用于总体变异性参考：
+\[
+\text{score} = 0.5\,\text{last\_k\_avg\_norm} + 0.2\,\text{values\_norm} + 0.2\,\text{prefix\_norm} + 0.1\,\text{length\_norm}
+\]
+
+> 提示：`score` 与风险判定 `traversal_risk` 相互独立；`score` 不参与风控阈值比较。
+
+### 9. 遍历检测用前缀分布（traversal_prefix_k）
+对 `normalized` 的每个号码取前 \(k=\text{traversal\_prefix\_k}\) 位作为“遍历前缀”，统计分布：
+- \( H_{\text{trav-prefix}} = H(\text{prefix of length } k) \)
+- 上界：\( H^{\max}_{\text{trav-prefix}} = \min\{ k\log_2 10, \log_2(\max(1,N)) \} \)
+- 归一化：\( \text{trav\_prefix\_norm} = H_{\text{trav-prefix}} / H^{\max}_{\text{trav-prefix}} \)
+- 主导前缀占比：\( \text{dominant\_prefix\_ratio} = \max_c \frac{\text{count}(c)}{\sum_c \text{count}(c)} \)
+
+### 10. 相邻差值序列（deltas）
+将 `normalized` 转为整数并升序：\( x_1 \le x_2 \le \cdots \le x_N \)，定义相邻差值：\( \Delta_i = x_{i+1} - x_i \)，\( i=1..N-1 \)。
+
+- 差值分布熵：\( H_{\Delta} = H(\Delta) \)
+- 归一化：若 \( T = N-1 \) 为差值数量，\( \text{delta\_entropy\_norm} = H_{\Delta} / \log_2(\max(1,T)) \)
+- 最小熵：\( H^{(\Delta)}_{\min} = -\log_2(\max\, p(\Delta)) \)
+- 最常见固定差值占比：\( \text{const\_delta\_ratio} = \max_d \frac{\text{count}(d)}{T} \)
+- 小步长比例：\( \text{p\_delta\_le\_10} = \frac{\sum_{0<d\le 10} \text{count}(d)}{T} \)，单位步长比例：\( \text{p\_delta\_eq\_1} = \frac{\text{count}(1)}{T} \)
+- 最长恒定差值连续段长度：`longest_const_run`（基于 \(\Delta\) 的最长相同值片段长度）
+
+### 11. 遍历风险分解与加权
+将遍历相关信号映射为“越大越危险”的组件：
+\[
+\begin{aligned}
+\text{comp\_prefix\_concentration} &= 1 - \text{trav\_prefix\_norm} \\
+\text{comp\_dominant\_prefix} &= \text{dominant\_prefix\_ratio} \\
+\text{comp\_delta\_low\_entropy} &= 1 - \text{delta\_entropy\_norm} \\
+\text{comp\_constant\_delta} &= \text{const\_delta\_ratio} \\
+\text{comp\_small\_steps} &= \text{p\_delta\_le\_10} \\
+\text{comp\_run} &= \min\left(1, \frac{\text{longest\_const\_run}}{20}\right)
+\end{aligned}
+\]
+
+加权求和得到遍历风险：
+\[
+\begin{aligned}
+\text{traversal\_risk} &= 0.20\,\text{comp\_prefix\_concentration}
+ + 0.20\,\text{comp\_dominant\_prefix}
+ + 0.25\,\text{comp\_delta\_low\_entropy} \\
+&\quad + 0.20\,\text{comp\_constant\_delta}
+ + 0.10\,\text{comp\_small\_steps}
+ + 0.05\,\text{comp\_run}
+\end{aligned}
+\]
+
+> 仅 `traversal_prefix_k` 会影响前两项（前缀相关），其余四项由差值序列决定；`tail_k` 与 `prefix_m` 不会影响 `traversal_risk`。
+
+### 12. 判定阈值
+- 默认阈值：\( \text{threshold} = 0.55 \)
+- 判定：\( \text{flag} = [\, \text{traversal\_risk} \ge \text{threshold} \,] \)
+
+### 13. 参数与影响范围
+- **tail_k**：影响尾部按位熵与后缀最小熵，以及 `score`；不影响 `traversal_risk`。
+- **prefix_m**：影响基础前缀熵与 `score`；不影响 `traversal_risk`。
+- **traversal_prefix_k**：影响遍历前缀分布相关项（`trav_prefix_norm`、`dominant_prefix_ratio`），进而影响 `traversal_risk`。
+- **threshold**：仅用于对 `traversal_risk` 做二分类判定。
+
+### 14. 实用建议
+- 若关心整体多样性，用 `score` 观察；
+- 若关心是否出现“序列扫描/遍历”模式，用 `traversal_risk` 与其组件诊断；
+- 可通过 `tune_parameters` 基于标注数据调整 `traversal_prefix_k` 与阈值，以最大化 F1/准确率等。
+
+

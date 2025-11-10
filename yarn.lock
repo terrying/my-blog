@@ -2909,7 +2909,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mdx-js/mdx@npm:^3.0.0":
+"@mdx-js/mdx@npm:^3.0.0, @mdx-js/mdx@npm:^3.1.1":
   version: 3.1.1
   resolution: "@mdx-js/mdx@npm:3.1.1"
   dependencies:
@@ -3001,6 +3001,7 @@ __metadata:
 "@next/swc-darwin-arm64@npm:15.2.4":
   version: 15.2.4
   resolution: "@next/swc-darwin-arm64@npm:15.2.4"
+  checksum: c832c7990b571fdea155406a5798ca12bbc9714cb09cb8a479ef7a85cd884fa59d5a55ad1552606e67e75736bea8613722ea64d5ea72b6ac603f86eecccc15aa
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
@@ -8419,6 +8420,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"html-to-image@npm:^1.11.13":
+  version: 1.11.13
+  resolution: "html-to-image@npm:1.11.13"
+  checksum: 18da77cf6c1e7f821f320dc6941642ee292df136f38c548ecb77aa04718b979df63ba4ea56e53d1939b9dbe8e23ca10c44b55319a885bfe7f5f5023c1b5698fe
+  languageName: node
+  linkType: hard
+
 "html-url-attributes@npm:^3.0.0":
   version: 3.0.1
   resolution: "html-url-attributes@npm:3.0.1"
@@ -12265,7 +12273,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"remark-gfm@npm:^4.0.0":
+"remark-gfm@npm:^4.0.1":
   version: 4.0.1
   resolution: "remark-gfm@npm:4.0.1"
   dependencies:
@@ -13260,7 +13268,9 @@ __metadata:
     "@eslint/eslintrc": ^3.2.0
     "@eslint/js": ^9.16.0
     "@headlessui/react": 2.2.0
+    "@mdx-js/mdx": ^3.1.1
     "@next/bundle-analyzer": 15.2.4
+    "@next/swc-darwin-arm64": 15.2.4
     "@svgr/webpack": ^8.0.1
     "@tailwindcss/forms": ^0.5.9
     "@tailwindcss/postcss": ^4.0.5
@@ -13284,6 +13294,7 @@ __metadata:
     globals: ^15.12.0
     gray-matter: ^4.0.2
     hast-util-from-html-isomorphic: ^2.0.0
+    html-to-image: ^1.11.13
     husky: ^9.0.0
     image-size: 2.0.1
     js-yaml: ^4.1.0
@@ -13309,7 +13320,7 @@ __metadata:
     rehype-prism-plus: ^2.0.0
     rehype-slug: ^6.0.0
     remark: ^15.0.0
-    remark-gfm: ^4.0.0
+    remark-gfm: ^4.0.1
     remark-github-blockquote-alert: ^1.2.1
     remark-math: ^6.0.0
     tailwindcss: ^4.0.5
