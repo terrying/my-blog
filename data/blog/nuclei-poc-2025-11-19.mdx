@@ -1,0 +1,446 @@
+---
+title: 'Nuclei POC 精选分析 - 2025-11-19'
+date: '2025-11-19'
+tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
+draft: false
+summary: '从 47 个模板更新中精选分析 30 个高价值 POC，发现 16 个高风险漏洞'
+authors: ['default']
+category: 'security-intel'
+---
+
+# Nuclei POC 精选分析 - 2025-11-19
+
+## 📊 智能筛选概况
+
+- **发现变更**: 47 个模板更新
+- **精选分析**: 30 个高价值 POC  
+- **智能跳过**: 17 个低优先级模板
+- **高风险漏洞**: 16 个
+- **主要类别**: CVE漏洞(9), 其他(13), 信息泄露(3), 技术识别(5)
+
+> 💡 **智能筛选说明**: 系统自动优先分析 CVE 漏洞、高危漏洞和新增模板，跳过低价值的技术识别类模板，确保高效利用 API 资源。
+
+### 严重程度分布
+
+- 🔴 **严重**: 5 个
+- 🟠 **高危**: 11 个
+- 🔵 **低危**: 2 个
+- ⚪ **信息**: 12 个
+
+## 🔍 重点漏洞分析
+
+
+### Eclipse BIRT Viewer - Remote Code Execution
+
+- **漏洞ID**: `CVE-2021-34427`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Eclipse BIRT versions 4.8.0 and earlier contain a JSP injection caused by query parameters, letting remote attackers create and access malicious JSP files in the viewer directory, exploit requires sending crafted query parameters.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2021-34427
+
+**参考链接**: 
+- [参考资料](https://bugs.eclipse.org/bugs/show_bug.cgi?id=538142)
+- [参考资料](https://sec-consult.com/vulnerability-lab/advisory/remote-code-execution-bypass-eclipse-business-intelligence-reporting-birt/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2021-34427)
+
+---
+
+
+### Eclipse BIRT Viewer - Remote Code Execution
+
+- **漏洞ID**: `CVE-2021-34427`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Eclipse BIRT versions 4.8.0 and earlier contain a JSP injection caused by query parameters, letting remote attackers create and access malicious JSP files in the viewer directory, exploit requires sending crafted query parameters.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2021-34427
+
+**参考链接**: 
+- [参考资料](https://bugs.eclipse.org/bugs/show_bug.cgi?id=538142)
+- [参考资料](https://sec-consult.com/vulnerability-lab/advisory/remote-code-execution-bypass-eclipse-business-intelligence-reporting-birt/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2021-34427)
+
+---
+
+
+### Emby &lt; 4.5.0 - Server Server-Side Request Forgery
+
+- **漏洞ID**: `CVE-2020-26948`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Emby Server before 4.5.0 allows server-side request forgery (SSRF) via the Items/RemoteSearch/Image ImageURL parameter.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2020-26948
+
+**参考链接**: 
+- [参考资料](https://github.com/btnz-k/emby_ssrf)
+- [参考资料](https://github.com/btnz-k/emby_ssrf/blob/master/emby_scan.rb)
+- [参考资料](https://github.com/ARPSyndicate/kenzer-templates)
+- [参考资料](https://github.com/Live-Hack-CVE/CVE-2020-26948)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2020-26948)
+
+---
+
+
+### Emby &lt; 4.5.0 - Server Server-Side Request Forgery
+
+- **漏洞ID**: `CVE-2020-26948`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Emby Server before 4.5.0 allows server-side request forgery (SSRF) via the Items/RemoteSearch/Image ImageURL parameter.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2020-26948
+
+**参考链接**: 
+- [参考资料](https://github.com/btnz-k/emby_ssrf)
+- [参考资料](https://github.com/btnz-k/emby_ssrf/blob/master/emby_scan.rb)
+- [参考资料](https://github.com/ARPSyndicate/kenzer-templates)
+- [参考资料](https://github.com/Live-Hack-CVE/CVE-2020-26948)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2020-26948)
+
+---
+
+
+### Emby &lt; 4.5.0 - Server Server-Side Request Forgery
+
+- **漏洞ID**: `CVE-2020-26948`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Emby Server before 4.5.0 allows server-side request forgery (SSRF) via the Items/RemoteSearch/Image ImageURL parameter.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2020-26948
+
+**参考链接**: 
+- [参考资料](https://github.com/btnz-k/emby_ssrf)
+- [参考资料](https://github.com/btnz-k/emby_ssrf/blob/master/emby_scan.rb)
+- [参考资料](https://github.com/ARPSyndicate/kenzer-templates)
+- [参考资料](https://github.com/Live-Hack-CVE/CVE-2020-26948)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2020-26948)
+
+---
+
+
+### N-central - XML External Entities Injection
+
+- **漏洞ID**: `CVE-2025-11700`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: N-central versions &lt; 2025.4 are vulnerable to an XML External Entities injection leading to information disclosure.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-11700)
+- [参考资料](https://github.com/horizon3ai/n-able_n-central_xxe_file_read/blob/main/ncentral_xxe_file_read.py)
+
+---
+
+
+### N-central - XML External Entities Injection
+
+- **漏洞ID**: `CVE-2025-11700`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: N-central versions &lt; 2025.4 are vulnerable to an XML External Entities injection leading to information disclosure.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-11700)
+- [参考资料](https://github.com/horizon3ai/n-able_n-central_xxe_file_read/blob/main/ncentral_xxe_file_read.py)
+
+---
+
+
+### N-central - XML External Entities Injection
+
+- **漏洞ID**: `CVE-2025-11700`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: N-central versions &lt; 2025.4 are vulnerable to an XML External Entities injection leading to information disclosure.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-11700)
+- [参考资料](https://github.com/horizon3ai/n-able_n-central_xxe_file_read/blob/main/ncentral_xxe_file_read.py)
+
+---
+
+
+### N-central - XML External Entities Injection
+
+- **漏洞ID**: `CVE-2025-11700`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: N-central versions &lt; 2025.4 are vulnerable to an XML External Entities injection leading to information disclosure.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-11700)
+- [参考资料](https://github.com/horizon3ai/n-able_n-central_xxe_file_read/blob/main/ncentral_xxe_file_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+## 📋 完整模板列表
+
+| 模板名称 | 严重程度 | 类别 | 影响资产 | 风险评分 |
+|---------|---------|------|---------|---------|
+| Eclipse BIRT Viewer - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Eclipse BIRT Viewer - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Emby &lt; 4.5.0 - Server Server-Side Request Forge | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Emby &lt; 4.5.0 - Server Server-Side Request Forge | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Emby &lt; 4.5.0 - Server Server-Side Request Forge | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| N-central - XML External Entities Injection | 🟠 high | CVE漏洞 | 通用 | 4/5 |
+| N-central - XML External Entities Injection | 🟠 high | CVE漏洞 | 通用 | 4/5 |
+| N-central - XML External Entities Injection | 🟠 high | CVE漏洞 | 通用 | 4/5 |
+| N-central - XML External Entities Injection | 🟠 high | CVE漏洞 | 通用 | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| Unauthenticated Java Message Broker - Detect | 🔵 low | 其他 | 通用 | 2/5 |
+| Unauthenticated Java Message Broker - Detect | 🔵 low | 其他 | 通用 | 2/5 |
+| Public Swagger API - Detect | ⚪ info | 信息泄露 | 通用 | 1/5 |
+| Public Swagger API - Detect | ⚪ info | 信息泄露 | 通用 | 1/5 |
+| Public Swagger API - Detect | ⚪ info | 信息泄露 | 通用 | 1/5 |
+| Odoo - Detect | ⚪ info | 技术识别 | 通用 | 1/5 |
+| MochiWeb - Detect | ⚪ info | 技术识别 | 通用 | 1/5 |
+| MochiWeb - Detect | ⚪ info | 技术识别 | 通用 | 1/5 |
+| ASP.NET Framework Exceptions | ⚪ info | 其他 | 通用 | 1/5 |
+| Node.js Framework Exceptions | ⚪ info | 其他 | 通用 | 1/5 |
+| ASP.NET Framework Exceptions | ⚪ info | 其他 | 通用 | 1/5 |
+| Node.js Framework Exceptions | ⚪ info | 其他 | 通用 | 1/5 |
+| Odoo - Detect | ⚪ info | 技术识别 | 通用 | 1/5 |
+| Odoo - Detect | ⚪ info | 技术识别 | 通用 | 1/5 |
+
+## 🛡️ 安全建议
+
+🚨 发现高风险漏洞，建议立即扫描相关资产
+🔍 关注新发布的 CVE 漏洞，及时更新补丁
+⚡ 检测到远程代码执行漏洞，优先处理
+
+## 🔧 扫描建议
+
+建议使用以下 Nuclei 命令进行扫描：
+
+```bash
+# 扫描高危漏洞
+nuclei -t http/cves/2021/CVE-2021-34427.yaml -t http/cves/2021/CVE-2021-34427.yaml -t http/cves/2020/CVE-2020-26948.yaml -t http/cves/2020/CVE-2020-26948.yaml -t http/cves/2020/CVE-2020-26948.yaml -t http/cves/2025/CVE-2025-11700.yaml -t http/cves/2025/CVE-2025-11700.yaml -t http/cves/2025/CVE-2025-11700.yaml -t http/cves/2025/CVE-2025-11700.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -u target-url
+
+# 扫描所有今日新增模板  
+nuclei -t http/cves/2021/CVE-2021-34427.yaml -t http/cves/2021/CVE-2021-34427.yaml -t http/cves/2020/CVE-2020-26948.yaml -t http/cves/2020/CVE-2020-26948.yaml -t http/cves/2020/CVE-2020-26948.yaml -t http/cves/2025/CVE-2025-11700.yaml -t http/cves/2025/CVE-2025-11700.yaml -t http/cves/2025/CVE-2025-11700.yaml -t http/cves/2025/CVE-2025-11700.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t network/detection/unauth-java-message-broker-detect.yaml -t network/detection/unauth-java-message-broker-detect.yaml -t http/exposures/apis/swagger-api.yaml -t http/exposures/apis/swagger-api.yaml -t http/exposures/apis/swagger-api.yaml -t http/technologies/odoo-detect.yaml -t http/technologies/mochiweb-detect.yaml -t http/technologies/mochiweb-detect.yaml -t file/logs/aspnet-framework-exceptions.yaml -t file/logs/nodejs-framework-exceptions.yaml -t file/logs/aspnet-framework-exceptions.yaml -t file/logs/nodejs-framework-exceptions.yaml -t http/technologies/odoo-detect.yaml -t http/technologies/odoo-detect.yaml -u target-url
+```
+
+---
+
+*本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)*
+
+*扫描建议仅供参考，请在授权环境下进行安全测试*
