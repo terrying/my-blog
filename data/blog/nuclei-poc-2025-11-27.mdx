@@ -1,0 +1,325 @@
+---
+title: 'Nuclei POC 精选分析 - 2025-11-27'
+date: '2025-11-27'
+tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
+draft: false
+summary: '从 51 个模板更新中精选分析 30 个高价值 POC，发现 11 个高风险漏洞'
+authors: ['default']
+category: 'security-intel'
+---
+
+# Nuclei POC 精选分析 - 2025-11-27
+
+## 📊 智能筛选概况
+
+- **发现变更**: 51 个模板更新
+- **精选分析**: 30 个高价值 POC  
+- **智能跳过**: 21 个低优先级模板
+- **高风险漏洞**: 11 个
+- **主要类别**: CVE漏洞(2), 其他(20), 配置错误(4), 技术识别(4)
+
+> 💡 **智能筛选说明**: 系统自动优先分析 CVE 漏洞、高危漏洞和新增模板，跳过低价值的技术识别类模板，确保高效利用 API 资源。
+
+### 严重程度分布
+
+- 🔴 **严重**: 4 个
+- 🟠 **高危**: 7 个
+- 🟡 **中危**: 2 个
+- 🔵 **低危**: 7 个
+- ⚪ **信息**: 10 个
+
+## 🔍 重点漏洞分析
+
+
+### Employee Records System 1.0 - Unauthenticated File Upload RCE
+
+- **漏洞ID**: `CVE-2021-4462`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Employee Records System version 1.0 contains an unrestricted file upload vulnerability in uploadID.php that allows remote unauthenticated attackers to upload arbitrary PHP files and achieve remote code execution.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://www.exploit-db.com/exploits/49596)
+- [参考资料](https://www.sourcecodester.com/php/11393/employee-records-system.html)
+
+---
+
+
+### Employee Records System 1.0 - Unauthenticated File Upload RCE
+
+- **漏洞ID**: `CVE-2021-4462`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Employee Records System version 1.0 contains an unrestricted file upload vulnerability in uploadID.php that allows remote unauthenticated attackers to upload arbitrary PHP files and achieve remote code execution.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://www.exploit-db.com/exploits/49596)
+- [参考资料](https://www.sourcecodester.com/php/11393/employee-records-system.html)
+
+---
+
+
+### Error based SQL Injection
+
+- **漏洞ID**: `sqli-error-based`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Direct SQL Command Injection is a technique where an attacker creates or alters existing SQL commands to expose hidden data,
+or to override valuable ones, or even to execute dangerous system level commands on the database host.
+This is accomplished by the application taking user input and combining it with static parameters to build an SQL query .
+
+
+**攻击向量**: 网络扫描
+
+
+
+
+
+---
+
+
+### Error based SQL Injection
+
+- **漏洞ID**: `sqli-error-based`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Direct SQL Command Injection is a technique where an attacker creates or alters existing SQL commands to expose hidden data,
+or to override valuable ones, or even to execute dangerous system level commands on the database host.
+This is accomplished by the application taking user input and combining it with static parameters to build an SQL query .
+
+
+**攻击向量**: 网络扫描
+
+
+
+
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+## 📋 完整模板列表
+
+| 模板名称 | 严重程度 | 类别 | 影响资产 | 风险评分 |
+|---------|---------|------|---------|---------|
+| Employee Records System 1.0 - Unauthenticated File | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Employee Records System 1.0 - Unauthenticated File | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Error based SQL Injection | 🔴 critical | 其他 | 通用 | 5/5 |
+| Error based SQL Injection | 🔴 critical | 其他 | 通用 | 5/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| Content-Security-Policy Bypass - jQuery CDN | 🟡 medium | 其他 | 通用 | 3/5 |
+| Content-Security-Policy Bypass - jQuery CDN | 🟡 medium | 其他 | 通用 | 3/5 |
+| functions.php Full Path Disclosure | 🔵 low | 其他 | WordPress 站点 | 2/5 |
+| functions.php Full Path Disclosure | 🔵 low | 其他 | WordPress 站点 | 2/5 |
+| Microsoft SharePoint - Site Pages Disclosure | 🔵 low | 配置错误 | 通用 | 2/5 |
+| Nginx Status Page - 403 Bypass | 🔵 low | 配置错误 | Nginx 服务器 | 2/5 |
+| Microsoft SharePoint - Site Pages Disclosure | 🔵 low | 配置错误 | 通用 | 2/5 |
+| Nginx Status Page - 403 Bypass | 🔵 low | 配置错误 | Nginx 服务器 | 2/5 |
+| Unauthenticated Java Message Broker - Detect | 🔵 low | 其他 | 通用 | 2/5 |
+| Flower - Detect | ⚪ info | 技术识别 | 通用 | 1/5 |
+| Flower - Detect | ⚪ info | 技术识别 | 通用 | 1/5 |
+| Flower - Detect | ⚪ info | 技术识别 | 通用 | 1/5 |
+| ASP.NET Framework Exceptions | ⚪ info | 其他 | 通用 | 1/5 |
+| Node.js Framework Exceptions | ⚪ info | 其他 | 通用 | 1/5 |
+| Exposed Cryptocurrency Wallet Address | ⚪ info | 其他 | 通用 | 1/5 |
+| Flower - Detect | ⚪ info | 技术识别 | 通用 | 1/5 |
+| ASP.NET Framework Exceptions | ⚪ info | 其他 | 通用 | 1/5 |
+| Node.js Framework Exceptions | ⚪ info | 其他 | 通用 | 1/5 |
+| Exposed Cryptocurrency Wallet Address | ⚪ info | 其他 | 通用 | 1/5 |
+
+## 🛡️ 安全建议
+
+🚨 发现高风险漏洞，建议立即扫描相关资产
+⚡ 检测到远程代码执行漏洞，优先处理
+
+## 🔧 扫描建议
+
+建议使用以下 Nuclei 命令进行扫描：
+
+```bash
+# 扫描高危漏洞
+nuclei -t http/cves/2021/CVE-2021-4462.yaml -t http/cves/2021/CVE-2021-4462.yaml -t dast/vulnerabilities/sqli/sqli-error-based.yaml -t dast/vulnerabilities/sqli/sqli-error-based.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -u target-url
+
+# 扫描所有今日新增模板  
+nuclei -t http/cves/2021/CVE-2021-4462.yaml -t http/cves/2021/CVE-2021-4462.yaml -t dast/vulnerabilities/sqli/sqli-error-based.yaml -t dast/vulnerabilities/sqli/sqli-error-based.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t dast/vulnerabilities/xss/csp-bypass/jquery-cdn-csp-bypass.yaml -t dast/vulnerabilities/xss/csp-bypass/jquery-cdn-csp-bypass.yaml -t http/vulnerabilities/wp-functions-php-disclosure.yaml -t http/vulnerabilities/wp-functions-php-disclosure.yaml -t http/misconfiguration/microsoft/sharepoint-sitepages-disclosure.yaml -t http/misconfiguration/nginx/nginx-status-403-bypass.yaml -t http/misconfiguration/microsoft/sharepoint-sitepages-disclosure.yaml -t http/misconfiguration/nginx/nginx-status-403-bypass.yaml -t network/detection/unauth-java-message-broker-detect.yaml -t http/technologies/flower-detect.yaml -t http/technologies/flower-detect.yaml -t http/technologies/flower-detect.yaml -t file/logs/aspnet-framework-exceptions.yaml -t file/logs/nodejs-framework-exceptions.yaml -t http/miscellaneous/crypto-address-detect.yaml -t http/technologies/flower-detect.yaml -t file/logs/aspnet-framework-exceptions.yaml -t file/logs/nodejs-framework-exceptions.yaml -t http/miscellaneous/crypto-address-detect.yaml -u target-url
+```
+
+---
+
+*本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)*
+
+*扫描建议仅供参考，请在授权环境下进行安全测试*
