@@ -9,6 +9,8 @@ images: ['/static/images/anti-bot-random-forest.jpg']
 
 ## 前言：看不见的对手
 
+> 11-28更新：浏览新闻发现 WhatsApp 存在同样的安全问题，导致 35 亿个账户数据泄露。信息来自 SBA 文章：《[Researchers discover security vulnerability in WhatsApp](https://www.sba-research.org/2025/11/19/researchers-discover-major-security-flaw-in-whatsapp/)》。
+
 在做应用安全防御时，我们经常会遇到一种棘手的情况：对手不再是傻乎乎的脚本小子，而是经过精心伪装的高级爬虫。它们的 IP 是干净的，设备指纹看起来也是正常的，甚至请求频率都控制在人类操作的范围内。面对这种“隐形”的流量，传统的封 IP 或封设备 ID 往往显得力不从心——要么封不住，要么误伤一片。
 
 今天我想分享一个真实的对抗案例，聊聊在常规手段失效后，我是如何利用 **信息熵（Information Entropy）** 结合 **随机森林（Random Forest）** 算法，从数据规律的层面揪出这批“内鬼”的。
