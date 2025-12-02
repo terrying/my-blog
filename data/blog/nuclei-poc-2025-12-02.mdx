@@ -1,0 +1,445 @@
+---
+title: 'Nuclei POC 精选分析 - 2025-12-02'
+date: '2025-12-02'
+tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
+draft: false
+summary: '从 45 个模板更新中精选分析 30 个高价值 POC，发现 16 个高风险漏洞'
+authors: ['default']
+category: 'security-intel'
+---
+
+# Nuclei POC 精选分析 - 2025-12-02
+
+## 📊 智能筛选概况
+
+- **发现变更**: 45 个模板更新
+- **精选分析**: 30 个高价值 POC  
+- **智能跳过**: 15 个低优先级模板
+- **高风险漏洞**: 16 个
+- **主要类别**: CVE漏洞(11), 其他(18), 信息泄露(1)
+
+> 💡 **智能筛选说明**: 系统自动优先分析 CVE 漏洞、高危漏洞和新增模板，跳过低价值的技术识别类模板，确保高效利用 API 资源。
+
+### 严重程度分布
+
+- 🔴 **严重**: 9 个
+- 🟠 **高危**: 7 个
+- 🟡 **中危**: 1 个
+- 🔵 **低危**: 5 个
+- ⚪ **信息**: 8 个
+
+## 🔍 重点漏洞分析
+
+
+### ShortCode Addons - Unauthenticated Options Update
+
+- **漏洞ID**: `CVE-2022-34487`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: WordPress plugin Shortcode Addons &lt;&#x3D; 3.0.2 contains an unauthenticated arbitrary option update caused by insufficient access controls in the plugin, letting attackers modify options without authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2022-34487
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/c8dd91d5-fdc4-4852-9823-6d0047b214fe/)
+- [参考资料](https://patchstack.com/database/vulnerability/shortcode-addons/wordpress-shortcode-addons-plugin-3-0-3-unauthenticated-arbitrary-option-update-vulnerability)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2022-34487)
+
+---
+
+
+### SolarWinds Serv-U FTP - Remote Code Execution
+
+- **漏洞ID**: `CVE-2021-35211`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: SolarWinds Serv-U Managed File Transfer and Serv-U Secure FTP for Windows before 15.2.3 HF2 contain a remote memory escape caused remote code execution vulnerability, letting attackers gain privileged access, exploit requires remote attacker to send crafted memory operations.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/BishopFox/CVE-2021-35211)
+- [参考资料](https://www.rapid7.com/db/vulnerabilities/solarwinds-serv-u-cve-2021-35211/)
+- [参考资料](https://www.microsoft.com/en-us/security/blog/2021/07/13/microsoft-discovers-threat-actor-targeting-solarwinds-serv-u-software-with-0-day-exploit/)
+
+---
+
+
+### SolarWinds Serv-U FTP - Remote Code Execution
+
+- **漏洞ID**: `CVE-2021-35211`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: SolarWinds Serv-U Managed File Transfer and Serv-U Secure FTP for Windows before 15.2.3 HF2 contain a remote memory escape caused remote code execution vulnerability, letting attackers gain privileged access, exploit requires remote attacker to send crafted memory operations.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/BishopFox/CVE-2021-35211)
+- [参考资料](https://www.rapid7.com/db/vulnerabilities/solarwinds-serv-u-cve-2021-35211/)
+- [参考资料](https://www.microsoft.com/en-us/security/blog/2021/07/13/microsoft-discovers-threat-actor-targeting-solarwinds-serv-u-software-with-0-day-exploit/)
+
+---
+
+
+### ShortCode Addons - Unauthenticated Options Update
+
+- **漏洞ID**: `CVE-2022-34487`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: WordPress plugin Shortcode Addons &lt;&#x3D; 3.0.2 contains an unauthenticated arbitrary option update caused by insufficient access controls in the plugin, letting attackers modify options without authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2022-34487
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/c8dd91d5-fdc4-4852-9823-6d0047b214fe/)
+- [参考资料](https://patchstack.com/database/vulnerability/shortcode-addons/wordpress-shortcode-addons-plugin-3-0-3-unauthenticated-arbitrary-option-update-vulnerability)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2022-34487)
+
+---
+
+
+### ShortCode Addons - Unauthenticated Options Update
+
+- **漏洞ID**: `CVE-2022-34487`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: WordPress plugin Shortcode Addons &lt;&#x3D; 3.0.2 contains an unauthenticated arbitrary option update caused by insufficient access controls in the plugin, letting attackers modify options without authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2022-34487
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/c8dd91d5-fdc4-4852-9823-6d0047b214fe/)
+- [参考资料](https://patchstack.com/database/vulnerability/shortcode-addons/wordpress-shortcode-addons-plugin-3-0-3-unauthenticated-arbitrary-option-update-vulnerability)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2022-34487)
+
+---
+
+
+### PrestaShop AP Pagebuilder &lt;&#x3D; 2.4.4 - SQL Injection
+
+- **漏洞ID**: `CVE-2022-22897`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: A SQL injection vulnerability in the product_all_one_img and image_product parameters of the ApolloTheme AP PageBuilder component through 2.4.4 for PrestaShop allows unauthenticated attackers to exfiltrate database data.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2022-22897
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2022-22897)
+- [参考资料](https://packetstormsecurity.com/files/cve/CVE-2022-22897)
+- [参考资料](https://security.friendsofpresta.org/modules/2023/01/05/appagebuilder.html)
+
+---
+
+
+### PrestaShop AdvancedPopupCreator - SQL Injection
+
+- **漏洞ID**: `CVE-2023-27032`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: In the module “Advanced Popup Creator” (advancedpopupcreator) from Idnovate for PrestaShop, a guest can perform SQL injection in affected versions.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2023-27032
+
+**参考链接**: 
+- [参考资料](https://security.friendsofpresta.org/modules/2023/04/11/advancedpopupcreator.html)
+- [参考资料](https://addons.prestashop.com/en/pop-up/23773-popup-on-entry-exit-popup-add-product-and-newsletter.html)
+
+---
+
+
+### PrestaShop xipblog - SQL Injection
+
+- **漏洞ID**: `CVE-2023-27847`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: In the blog module (xipblog), an anonymous user can perform SQL injection. Even though the module has been patched in version 2.0.1, the version number was not incremented at the time.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2023-27847
+
+**参考链接**: 
+- [参考资料](https://security.friendsofpresta.org/modules/2023/03/23/xipblog.html)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2023-27847)
+
+---
+
+
+### PrestaShop leocustomajax 1.0 & 1.0.0 - SQL Injection
+
+- **漏洞ID**: `CVE-2023-30150`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: PrestaShop leocustomajax 1.0 and 1.0.0 are vulnerable to SQL Injection via modules/leocustomajax/leoajax.php.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2023-30150
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2023-30150)
+- [参考资料](https://security.friendsofpresta.org/module/2023/06/06/leocustomajax.html)
+- [参考资料](https://www.tenable.com/cve/CVE-2023-30150)
+- [参考资料](https://friends-of-presta.github.io/security-advisories/module/2023/06/06/leocustomajax.html)
+
+---
+
+
+### Prestashop Blockwishlist 2.1.0 SQL Injection
+
+- **漏洞ID**: `CVE-2022-31101`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Prestashop Blockwishlist module version 2.1.0 suffers from a remote authenticated SQL injection vulnerability.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2022-31101
+
+**参考链接**: 
+- [参考资料](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-31101)
+- [参考资料](https://github.com/PrestaShop/blockwishlist/security/advisories/GHSA-2jx3-5j9v-prpp)
+- [参考资料](https://packetstormsecurity.com/files/168003/Prestashop-Blockwishlist-2.1.0-SQL-Injection.html)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+## 📋 完整模板列表
+
+| 模板名称 | 严重程度 | 类别 | 影响资产 | 风险评分 |
+|---------|---------|------|---------|---------|
+| ShortCode Addons - Unauthenticated Options Update | 🔴 critical | CVE漏洞 | WordPress 站点 | 5/5 |
+| SolarWinds Serv-U FTP - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| SolarWinds Serv-U FTP - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| ShortCode Addons - Unauthenticated Options Update | 🔴 critical | CVE漏洞 | WordPress 站点 | 5/5 |
+| ShortCode Addons - Unauthenticated Options Update | 🔴 critical | CVE漏洞 | WordPress 站点 | 5/5 |
+| PrestaShop AP Pagebuilder &lt;&#x3D; 2.4.4 - SQL I | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| PrestaShop AdvancedPopupCreator - SQL Injection | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| PrestaShop xipblog - SQL Injection | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| PrestaShop leocustomajax 1.0 & 1.0.0 - SQL Injecti | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Prestashop Blockwishlist 2.1.0 SQL Injection | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| PrestaShop - Information Disclosure | 🟡 medium | CVE漏洞 | 通用 | 3/5 |
+| functions.php Full Path Disclosure | 🔵 low | 其他 | WordPress 站点 | 2/5 |
+| functions.php Full Path Disclosure | 🔵 low | 其他 | WordPress 站点 | 2/5 |
+| functions.php Full Path Disclosure | 🔵 low | 其他 | WordPress 站点 | 2/5 |
+| PHPinfo Page - Detect | 🔵 low | 信息泄露 | 通用 | 2/5 |
+| Unauthenticated Java Message Broker - Detect | 🔵 low | 其他 | 通用 | 2/5 |
+| Ship Manager DNV - Panel | ⚪ info | 其他 | 管理面板 | 1/5 |
+| Ship Manager DNV - Panel | ⚪ info | 其他 | 管理面板 | 1/5 |
+| Ship Manager DNV - Panel | ⚪ info | 其他 | 管理面板 | 1/5 |
+| Deprecated Feature-Policy Header - Detection | ⚪ info | 其他 | 通用 | 1/5 |
+| Prestashop Admin Login Panel - Detect | ⚪ info | 其他 | 管理面板 | 1/5 |
+| ASP.NET Framework Exceptions | ⚪ info | 其他 | 通用 | 1/5 |
+| Node.js Framework Exceptions | ⚪ info | 其他 | 通用 | 1/5 |
+| ASP.NET Framework Exceptions | ⚪ info | 其他 | 通用 | 1/5 |
+
+## 🛡️ 安全建议
+
+🚨 发现高风险漏洞，建议立即扫描相关资产
+🔍 关注新发布的 CVE 漏洞，及时更新补丁
+
+## 🔧 扫描建议
+
+建议使用以下 Nuclei 命令进行扫描：
+
+```bash
+# 扫描高危漏洞
+nuclei -t http/cves/2022/CVE-2022-34487.yaml -t javascript/cves/2021/CVE-2021-35211.yaml -t javascript/cves/2021/CVE-2021-35211.yaml -t http/cves/2022/CVE-2022-34487.yaml -t http/cves/2022/CVE-2022-34487.yaml -t http/cves/2022/CVE-2022-22897.yaml -t http/cves/2023/CVE-2023-27032.yaml -t http/cves/2023/CVE-2023-27847.yaml -t http/cves/2023/CVE-2023-30150.yaml -t http/cves/2022/CVE-2022-31101.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -u target-url
+
+# 扫描所有今日新增模板  
+nuclei -t http/cves/2022/CVE-2022-34487.yaml -t javascript/cves/2021/CVE-2021-35211.yaml -t javascript/cves/2021/CVE-2021-35211.yaml -t http/cves/2022/CVE-2022-34487.yaml -t http/cves/2022/CVE-2022-34487.yaml -t http/cves/2022/CVE-2022-22897.yaml -t http/cves/2023/CVE-2023-27032.yaml -t http/cves/2023/CVE-2023-27847.yaml -t http/cves/2023/CVE-2023-30150.yaml -t http/cves/2022/CVE-2022-31101.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/cves/2025/CVE-2025-51586.yaml -t http/vulnerabilities/wp-functions-php-disclosure.yaml -t http/vulnerabilities/wp-functions-php-disclosure.yaml -t http/vulnerabilities/wp-functions-php-disclosure.yaml -t http/exposures/configs/phpinfo-files.yaml -t network/detection/unauth-java-message-broker-detect.yaml -t http/exposed-panels/ship-manager-dnv-panel.yaml -t http/exposed-panels/ship-manager-dnv-panel.yaml -t http/exposed-panels/ship-manager-dnv-panel.yaml -t http/miscellaneous/deprecated-feature-policy.yaml -t http/exposed-panels/prestashop-admin-panel.yaml -t file/logs/aspnet-framework-exceptions.yaml -t file/logs/nodejs-framework-exceptions.yaml -t file/logs/aspnet-framework-exceptions.yaml -u target-url
+```
+
+---
+
+*本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)*
+
+*扫描建议仅供参考，请在授权环境下进行安全测试*
