@@ -1,0 +1,863 @@
+---
+title: 'Nuclei POC 精选分析 - 2025-12-05'
+date: '2025-12-05'
+tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
+draft: false
+summary: '从 54 个模板更新中精选分析 30 个高价值 POC，发现 30 个高风险漏洞'
+authors: ['default']
+category: 'security-intel'
+---
+
+# Nuclei POC 精选分析 - 2025-12-05
+
+## 📊 智能筛选概况
+
+- **发现变更**: 54 个模板更新
+- **精选分析**: 30 个高价值 POC  
+- **智能跳过**: 24 个低优先级模板
+- **高风险漏洞**: 30 个
+- **主要类别**: CVE漏洞(27), 其他(3)
+
+> 💡 **智能筛选说明**: 系统自动优先分析 CVE 漏洞、高危漏洞和新增模板，跳过低价值的技术识别类模板，确保高效利用 API 资源。
+
+### 严重程度分布
+
+- 🔴 **严重**: 21 个
+- 🟠 **高危**: 9 个
+
+## 🔍 重点漏洞分析
+
+
+### React Server Components - Remote Code Execution
+
+- **漏洞ID**: `CVE-2025-55182`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: React Server Components 19.0.0, 19.1.0, 19.1.1, and 19.2.0 including react-server-dom-parcel,
+react-server-dom-turbopack, and react-server-dom-webpack contain a remote code execution caused
+by unsafe deserialization of payloads from HTTP requests to Server Function endpoints, letting
+unauthenticated attackers execute arbitrary code remotely, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/assetnote/react2shell-scanner)
+- [参考资料](https://gist.github.com/maple3142/48bc9393f45e068cf8c90ab865c0f5f3)
+- [参考资料](https://www.facebook.com/security/advisories/cve-2025-55182)
+- [参考资料](http://www.openwall.com/lists/oss-security/2025/12/03/4)
+- [参考资料](https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components)
+- [参考资料](https://github.com/vercel/next.js/security/advisories/GHSA-9qr9-h5gf-34mp)
+- [参考资料](https://vercel.com/changelog/cve-2025-55182)
+
+---
+
+
+### WordPress Keydatas ≤ 2.5.2 - Arbitrary File Upload
+
+- **漏洞ID**: `CVE-2024-6220`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: The Keydatas plugin for WordPress (known in Chinese as &quot;简数采集器&quot;) is vulnerable to unrestricted file uploads due to missing file-type validation in the keydatas_downloadImages function in all versions up to and including 2.5.2. An unauthenticated attacker can upload arbitrary files to the server — potentially leading to remote code execution, site takeover, or other severe compromise.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2024-6220
+
+**参考链接**: 
+- [参考资料](https://www.wordfence.com/threat-intel/vulnerabilities/wordpress-plugins/keydatas/keydatas-252-unauthenticated-arbitrary-file-upload)
+- [参考资料](https://github.com/advisories/GHSA-29rm-j4cx-hmc5)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2024-6220)
+
+---
+
+
+### WordPress Keydatas ≤ 2.5.2 - Arbitrary File Upload
+
+- **漏洞ID**: `CVE-2024-6220`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: The Keydatas plugin for WordPress (known in Chinese as &quot;简数采集器&quot;) is vulnerable to unrestricted file uploads due to missing file-type validation in the keydatas_downloadImages function in all versions up to and including 2.5.2. An unauthenticated attacker can upload arbitrary files to the server — potentially leading to remote code execution, site takeover, or other severe compromise.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2024-6220
+
+**参考链接**: 
+- [参考资料](https://www.wordfence.com/threat-intel/vulnerabilities/wordpress-plugins/keydatas/keydatas-252-unauthenticated-arbitrary-file-upload)
+- [参考资料](https://github.com/advisories/GHSA-29rm-j4cx-hmc5)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2024-6220)
+
+---
+
+
+### React Server Components - Remote Code Execution
+
+- **漏洞ID**: `CVE-2025-55182`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: React Server Components 19.0.0, 19.1.0, 19.1.1, and 19.2.0 including react-server-dom-parcel,
+react-server-dom-turbopack, and react-server-dom-webpack contain a remote code execution caused
+by unsafe deserialization of payloads from HTTP requests to Server Function endpoints, letting
+unauthenticated attackers execute arbitrary code remotely, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/assetnote/react2shell-scanner)
+- [参考资料](https://gist.github.com/maple3142/48bc9393f45e068cf8c90ab865c0f5f3)
+- [参考资料](https://www.facebook.com/security/advisories/cve-2025-55182)
+- [参考资料](http://www.openwall.com/lists/oss-security/2025/12/03/4)
+- [参考资料](https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components)
+- [参考资料](https://github.com/vercel/next.js/security/advisories/GHSA-9qr9-h5gf-34mp)
+- [参考资料](https://vercel.com/changelog/cve-2025-55182)
+
+---
+
+
+### React Server Components - Remote Code Execution
+
+- **漏洞ID**: `CVE-2025-55182`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: React Server Components 19.0.0, 19.1.0, 19.1.1, and 19.2.0 including react-server-dom-parcel,
+react-server-dom-turbopack, and react-server-dom-webpack contain a remote code execution caused
+by unsafe deserialization of payloads from HTTP requests to Server Function endpoints, letting
+unauthenticated attackers execute arbitrary code remotely, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/assetnote/react2shell-scanner)
+- [参考资料](https://gist.github.com/maple3142/48bc9393f45e068cf8c90ab865c0f5f3)
+- [参考资料](https://www.facebook.com/security/advisories/cve-2025-55182)
+- [参考资料](http://www.openwall.com/lists/oss-security/2025/12/03/4)
+- [参考资料](https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components)
+- [参考资料](https://github.com/vercel/next.js/security/advisories/GHSA-9qr9-h5gf-34mp)
+- [参考资料](https://vercel.com/changelog/cve-2025-55182)
+
+---
+
+
+### WordPress Keydatas ≤ 2.5.2 - Arbitrary File Upload
+
+- **漏洞ID**: `CVE-2024-6220`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: The Keydatas plugin for WordPress (known in Chinese as &quot;简数采集器&quot;) is vulnerable to unrestricted file uploads due to missing file-type validation in the keydatas_downloadImages function in all versions up to and including 2.5.2. An unauthenticated attacker can upload arbitrary files to the server — potentially leading to remote code execution, site takeover, or other severe compromise.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2024-6220
+
+**参考链接**: 
+- [参考资料](https://www.wordfence.com/threat-intel/vulnerabilities/wordpress-plugins/keydatas/keydatas-252-unauthenticated-arbitrary-file-upload)
+- [参考资料](https://github.com/advisories/GHSA-29rm-j4cx-hmc5)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2024-6220)
+
+---
+
+
+### React Server Components - Remote Code Execution
+
+- **漏洞ID**: `CVE-2025-55182`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: React Server Components 19.0.0, 19.1.0, 19.1.1, and 19.2.0 including react-server-dom-parcel,
+react-server-dom-turbopack, and react-server-dom-webpack contain a remote code execution caused
+by unsafe deserialization of payloads from HTTP requests to Server Function endpoints, letting
+unauthenticated attackers execute arbitrary code remotely, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/assetnote/react2shell-scanner)
+- [参考资料](https://gist.github.com/maple3142/48bc9393f45e068cf8c90ab865c0f5f3)
+- [参考资料](https://www.facebook.com/security/advisories/cve-2025-55182)
+- [参考资料](http://www.openwall.com/lists/oss-security/2025/12/03/4)
+- [参考资料](https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components)
+- [参考资料](https://github.com/vercel/next.js/security/advisories/GHSA-9qr9-h5gf-34mp)
+- [参考资料](https://vercel.com/changelog/cve-2025-55182)
+
+---
+
+
+### React Server Components - Remote Code Execution
+
+- **漏洞ID**: `CVE-2025-55182`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: React Server Components 19.0.0, 19.1.0, 19.1.1, and 19.2.0 including react-server-dom-parcel,
+react-server-dom-turbopack, and react-server-dom-webpack contain a remote code execution caused
+by unsafe deserialization of payloads from HTTP requests to Server Function endpoints, letting
+unauthenticated attackers execute arbitrary code remotely, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/assetnote/react2shell-scanner)
+- [参考资料](https://gist.github.com/maple3142/48bc9393f45e068cf8c90ab865c0f5f3)
+- [参考资料](https://www.facebook.com/security/advisories/cve-2025-55182)
+- [参考资料](http://www.openwall.com/lists/oss-security/2025/12/03/4)
+- [参考资料](https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components)
+- [参考资料](https://github.com/vercel/next.js/security/advisories/GHSA-9qr9-h5gf-34mp)
+- [参考资料](https://vercel.com/changelog/cve-2025-55182)
+
+---
+
+
+### WordPress Keydatas ≤ 2.5.2 - Arbitrary File Upload
+
+- **漏洞ID**: `CVE-2024-6220`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: The Keydatas plugin for WordPress (known in Chinese as &quot;简数采集器&quot;) is vulnerable to unrestricted file uploads due to missing file-type validation in the keydatas_downloadImages function in all versions up to and including 2.5.2. An unauthenticated attacker can upload arbitrary files to the server — potentially leading to remote code execution, site takeover, or other severe compromise.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2024-6220
+
+**参考链接**: 
+- [参考资料](https://www.wordfence.com/threat-intel/vulnerabilities/wordpress-plugins/keydatas/keydatas-252-unauthenticated-arbitrary-file-upload)
+- [参考资料](https://github.com/advisories/GHSA-29rm-j4cx-hmc5)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2024-6220)
+
+---
+
+
+### React Server Components - Remote Code Execution
+
+- **漏洞ID**: `CVE-2025-55182`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: React Server Components 19.0.0, 19.1.0, 19.1.1, and 19.2.0 including react-server-dom-parcel,
+react-server-dom-turbopack, and react-server-dom-webpack contain a remote code execution caused
+by unsafe deserialization of payloads from HTTP requests to Server Function endpoints, letting
+unauthenticated attackers execute arbitrary code remotely, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/assetnote/react2shell-scanner)
+- [参考资料](https://gist.github.com/maple3142/48bc9393f45e068cf8c90ab865c0f5f3)
+- [参考资料](https://www.facebook.com/security/advisories/cve-2025-55182)
+- [参考资料](http://www.openwall.com/lists/oss-security/2025/12/03/4)
+- [参考资料](https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components)
+- [参考资料](https://github.com/vercel/next.js/security/advisories/GHSA-9qr9-h5gf-34mp)
+- [参考资料](https://vercel.com/changelog/cve-2025-55182)
+
+---
+
+
+### React Server Components - Remote Code Execution
+
+- **漏洞ID**: `CVE-2025-55182`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: React Server Components 19.0.0, 19.1.0, 19.1.1, and 19.2.0 including react-server-dom-parcel,
+react-server-dom-turbopack, and react-server-dom-webpack contain a remote code execution caused
+by unsafe deserialization of payloads from HTTP requests to Server Function endpoints, letting
+unauthenticated attackers execute arbitrary code remotely, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/assetnote/react2shell-scanner)
+- [参考资料](https://gist.github.com/maple3142/48bc9393f45e068cf8c90ab865c0f5f3)
+- [参考资料](https://www.facebook.com/security/advisories/cve-2025-55182)
+- [参考资料](http://www.openwall.com/lists/oss-security/2025/12/03/4)
+- [参考资料](https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components)
+- [参考资料](https://github.com/vercel/next.js/security/advisories/GHSA-9qr9-h5gf-34mp)
+- [参考资料](https://vercel.com/changelog/cve-2025-55182)
+
+---
+
+
+### React Server Components - Remote Code Execution
+
+- **漏洞ID**: `CVE-2025-55182`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: React Server Components 19.0.0, 19.1.0, 19.1.1, and 19.2.0 including react-server-dom-parcel,
+react-server-dom-turbopack, and react-server-dom-webpack contain a remote code execution caused
+by unsafe deserialization of payloads from HTTP requests to Server Function endpoints, letting
+unauthenticated attackers execute arbitrary code remotely, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/assetnote/react2shell-scanner)
+- [参考资料](https://gist.github.com/maple3142/48bc9393f45e068cf8c90ab865c0f5f3)
+- [参考资料](https://www.facebook.com/security/advisories/cve-2025-55182)
+- [参考资料](http://www.openwall.com/lists/oss-security/2025/12/03/4)
+- [参考资料](https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components)
+- [参考资料](https://github.com/vercel/next.js/security/advisories/GHSA-9qr9-h5gf-34mp)
+- [参考资料](https://vercel.com/changelog/cve-2025-55182)
+
+---
+
+
+### React Server Components - Remote Code Execution
+
+- **漏洞ID**: `CVE-2025-55182`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: React Server Components 19.0.0, 19.1.0, 19.1.1, and 19.2.0 including react-server-dom-parcel,
+react-server-dom-turbopack, and react-server-dom-webpack contain a remote code execution caused
+by unsafe deserialization of payloads from HTTP requests to Server Function endpoints, letting
+unauthenticated attackers execute arbitrary code remotely, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/assetnote/react2shell-scanner)
+- [参考资料](https://gist.github.com/maple3142/48bc9393f45e068cf8c90ab865c0f5f3)
+- [参考资料](https://www.facebook.com/security/advisories/cve-2025-55182)
+- [参考资料](http://www.openwall.com/lists/oss-security/2025/12/03/4)
+- [参考资料](https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components)
+- [参考资料](https://github.com/vercel/next.js/security/advisories/GHSA-9qr9-h5gf-34mp)
+- [参考资料](https://vercel.com/changelog/cve-2025-55182)
+
+---
+
+
+### React Server Components - Remote Code Execution
+
+- **漏洞ID**: `CVE-2025-55182`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: React Server Components 19.0.0, 19.1.0, 19.1.1, and 19.2.0 including react-server-dom-parcel,
+react-server-dom-turbopack, and react-server-dom-webpack contain a remote code execution caused
+by unsafe deserialization of payloads from HTTP requests to Server Function endpoints, letting
+unauthenticated attackers execute arbitrary code remotely, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/assetnote/react2shell-scanner)
+- [参考资料](https://gist.github.com/maple3142/48bc9393f45e068cf8c90ab865c0f5f3)
+- [参考资料](https://www.facebook.com/security/advisories/cve-2025-55182)
+- [参考资料](http://www.openwall.com/lists/oss-security/2025/12/03/4)
+- [参考资料](https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components)
+- [参考资料](https://github.com/vercel/next.js/security/advisories/GHSA-9qr9-h5gf-34mp)
+- [参考资料](https://vercel.com/changelog/cve-2025-55182)
+
+---
+
+
+### React Server Components - Remote Code Execution
+
+- **漏洞ID**: `CVE-2025-55182`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: React Server Components 19.0.0, 19.1.0, 19.1.1, and 19.2.0 including react-server-dom-parcel,
+react-server-dom-turbopack, and react-server-dom-webpack contain a remote code execution caused
+by unsafe deserialization of payloads from HTTP requests to Server Function endpoints, letting
+unauthenticated attackers execute arbitrary code remotely, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/assetnote/react2shell-scanner)
+- [参考资料](https://gist.github.com/maple3142/48bc9393f45e068cf8c90ab865c0f5f3)
+- [参考资料](https://www.facebook.com/security/advisories/cve-2025-55182)
+- [参考资料](http://www.openwall.com/lists/oss-security/2025/12/03/4)
+- [参考资料](https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components)
+- [参考资料](https://github.com/vercel/next.js/security/advisories/GHSA-9qr9-h5gf-34mp)
+- [参考资料](https://vercel.com/changelog/cve-2025-55182)
+
+---
+
+
+### React Server Components - Remote Code Execution
+
+- **漏洞ID**: `CVE-2025-55182`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: React Server Components 19.0.0, 19.1.0, 19.1.1, and 19.2.0 including react-server-dom-parcel,
+react-server-dom-turbopack, and react-server-dom-webpack contain a remote code execution caused
+by unsafe deserialization of payloads from HTTP requests to Server Function endpoints, letting
+unauthenticated attackers execute arbitrary code remotely, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/assetnote/react2shell-scanner)
+- [参考资料](https://gist.github.com/maple3142/48bc9393f45e068cf8c90ab865c0f5f3)
+- [参考资料](https://www.facebook.com/security/advisories/cve-2025-55182)
+- [参考资料](http://www.openwall.com/lists/oss-security/2025/12/03/4)
+- [参考资料](https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components)
+- [参考资料](https://github.com/vercel/next.js/security/advisories/GHSA-9qr9-h5gf-34mp)
+- [参考资料](https://vercel.com/changelog/cve-2025-55182)
+
+---
+
+
+### WordPress Keydatas ≤ 2.5.2 - Arbitrary File Upload
+
+- **漏洞ID**: `CVE-2024-6220`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: The Keydatas plugin for WordPress (known in Chinese as &quot;简数采集器&quot;) is vulnerable to unrestricted file uploads due to missing file-type validation in the keydatas_downloadImages function in all versions up to and including 2.5.2. An unauthenticated attacker can upload arbitrary files to the server — potentially leading to remote code execution, site takeover, or other severe compromise.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2024-6220
+
+**参考链接**: 
+- [参考资料](https://www.wordfence.com/threat-intel/vulnerabilities/wordpress-plugins/keydatas/keydatas-252-unauthenticated-arbitrary-file-upload)
+- [参考资料](https://github.com/advisories/GHSA-29rm-j4cx-hmc5)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2024-6220)
+
+---
+
+
+### React Server Components - Remote Code Execution
+
+- **漏洞ID**: `CVE-2025-55182`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: React Server Components 19.0.0, 19.1.0, 19.1.1, and 19.2.0 including react-server-dom-parcel,
+react-server-dom-turbopack, and react-server-dom-webpack contain a remote code execution caused
+by unsafe deserialization of payloads from HTTP requests to Server Function endpoints, letting
+unauthenticated attackers execute arbitrary code remotely, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/assetnote/react2shell-scanner)
+- [参考资料](https://gist.github.com/maple3142/48bc9393f45e068cf8c90ab865c0f5f3)
+- [参考资料](https://www.facebook.com/security/advisories/cve-2025-55182)
+- [参考资料](http://www.openwall.com/lists/oss-security/2025/12/03/4)
+- [参考资料](https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components)
+- [参考资料](https://github.com/vercel/next.js/security/advisories/GHSA-9qr9-h5gf-34mp)
+- [参考资料](https://vercel.com/changelog/cve-2025-55182)
+
+---
+
+
+### WordPress Keydatas ≤ 2.5.2 - Arbitrary File Upload
+
+- **漏洞ID**: `CVE-2024-6220`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: The Keydatas plugin for WordPress (known in Chinese as &quot;简数采集器&quot;) is vulnerable to unrestricted file uploads due to missing file-type validation in the keydatas_downloadImages function in all versions up to and including 2.5.2. An unauthenticated attacker can upload arbitrary files to the server — potentially leading to remote code execution, site takeover, or other severe compromise.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2024-6220
+
+**参考链接**: 
+- [参考资料](https://www.wordfence.com/threat-intel/vulnerabilities/wordpress-plugins/keydatas/keydatas-252-unauthenticated-arbitrary-file-upload)
+- [参考资料](https://github.com/advisories/GHSA-29rm-j4cx-hmc5)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2024-6220)
+
+---
+
+
+### WordPress Keydatas ≤ 2.5.2 - Arbitrary File Upload
+
+- **漏洞ID**: `CVE-2024-6220`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: The Keydatas plugin for WordPress (known in Chinese as &quot;简数采集器&quot;) is vulnerable to unrestricted file uploads due to missing file-type validation in the keydatas_downloadImages function in all versions up to and including 2.5.2. An unauthenticated attacker can upload arbitrary files to the server — potentially leading to remote code execution, site takeover, or other severe compromise.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2024-6220
+
+**参考链接**: 
+- [参考资料](https://www.wordfence.com/threat-intel/vulnerabilities/wordpress-plugins/keydatas/keydatas-252-unauthenticated-arbitrary-file-upload)
+- [参考资料](https://github.com/advisories/GHSA-29rm-j4cx-hmc5)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2024-6220)
+
+---
+
+
+### WordPress Keydatas ≤ 2.5.2 - Arbitrary File Upload
+
+- **漏洞ID**: `CVE-2024-6220`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: The Keydatas plugin for WordPress (known in Chinese as &quot;简数采集器&quot;) is vulnerable to unrestricted file uploads due to missing file-type validation in the keydatas_downloadImages function in all versions up to and including 2.5.2. An unauthenticated attacker can upload arbitrary files to the server — potentially leading to remote code execution, site takeover, or other severe compromise.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2024-6220
+
+**参考链接**: 
+- [参考资料](https://www.wordfence.com/threat-intel/vulnerabilities/wordpress-plugins/keydatas/keydatas-252-unauthenticated-arbitrary-file-upload)
+- [参考资料](https://github.com/advisories/GHSA-29rm-j4cx-hmc5)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2024-6220)
+
+---
+
+
+### WordPress Eventin (Themewinter) ≤ 4.0.26 - Arbitrary File Download
+
+- **漏洞ID**: `CVE-2025-47445`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: Themewinter Eventin contains a path traversal caused by relative path manipulation, letting attackers access arbitrary files on the server, exploit requires no specific privileges or user interaction.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-47445
+
+**参考链接**: 
+- [参考资料](https://patchstack.com/database/wordpress/plugin/wp-event-solution/vulnerability/wordpress-eventin-4-0-26-arbitrary-file-download-vulnerability?_s_id=cve)
+- [参考资料](https://github.com/advisories/GHSA-c3pr-284f-8x9f)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-47445)
+
+---
+
+
+### WordPress Eventin (Themewinter) ≤ 4.0.26 - Arbitrary File Download
+
+- **漏洞ID**: `CVE-2025-47445`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: Themewinter Eventin contains a path traversal caused by relative path manipulation, letting attackers access arbitrary files on the server, exploit requires no specific privileges or user interaction.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-47445
+
+**参考链接**: 
+- [参考资料](https://patchstack.com/database/wordpress/plugin/wp-event-solution/vulnerability/wordpress-eventin-4-0-26-arbitrary-file-download-vulnerability?_s_id=cve)
+- [参考资料](https://github.com/advisories/GHSA-c3pr-284f-8x9f)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-47445)
+
+---
+
+
+### WordPress Eventin (Themewinter) ≤ 4.0.26 - Arbitrary File Download
+
+- **漏洞ID**: `CVE-2025-47445`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: Themewinter Eventin contains a path traversal caused by relative path manipulation, letting attackers access arbitrary files on the server, exploit requires no specific privileges or user interaction.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-47445
+
+**参考链接**: 
+- [参考资料](https://patchstack.com/database/wordpress/plugin/wp-event-solution/vulnerability/wordpress-eventin-4-0-26-arbitrary-file-download-vulnerability?_s_id=cve)
+- [参考资料](https://github.com/advisories/GHSA-c3pr-284f-8x9f)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-47445)
+
+---
+
+
+### WordPress Eventin (Themewinter) ≤ 4.0.26 - Arbitrary File Download
+
+- **漏洞ID**: `CVE-2025-47445`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: Themewinter Eventin contains a path traversal caused by relative path manipulation, letting attackers access arbitrary files on the server, exploit requires no specific privileges or user interaction.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-47445
+
+**参考链接**: 
+- [参考资料](https://patchstack.com/database/wordpress/plugin/wp-event-solution/vulnerability/wordpress-eventin-4-0-26-arbitrary-file-download-vulnerability?_s_id=cve)
+- [参考资料](https://github.com/advisories/GHSA-c3pr-284f-8x9f)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-47445)
+
+---
+
+
+### WordPress Eventin (Themewinter) ≤ 4.0.26 - Arbitrary File Download
+
+- **漏洞ID**: `CVE-2025-47445`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: Themewinter Eventin contains a path traversal caused by relative path manipulation, letting attackers access arbitrary files on the server, exploit requires no specific privileges or user interaction.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-47445
+
+**参考链接**: 
+- [参考资料](https://patchstack.com/database/wordpress/plugin/wp-event-solution/vulnerability/wordpress-eventin-4-0-26-arbitrary-file-download-vulnerability?_s_id=cve)
+- [参考资料](https://github.com/advisories/GHSA-c3pr-284f-8x9f)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-47445)
+
+---
+
+
+### WordPress Eventin (Themewinter) ≤ 4.0.26 - Arbitrary File Download
+
+- **漏洞ID**: `CVE-2025-47445`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+
+**描述**: Themewinter Eventin contains a path traversal caused by relative path manipulation, letting attackers access arbitrary files on the server, exploit requires no specific privileges or user interaction.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-47445
+
+**参考链接**: 
+- [参考资料](https://patchstack.com/database/wordpress/plugin/wp-event-solution/vulnerability/wordpress-eventin-4-0-26-arbitrary-file-download-vulnerability?_s_id=cve)
+- [参考资料](https://github.com/advisories/GHSA-c3pr-284f-8x9f)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-47445)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+## 📋 完整模板列表
+
+| 模板名称 | 严重程度 | 类别 | 影响资产 | 风险评分 |
+|---------|---------|------|---------|---------|
+| React Server Components - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| WordPress Keydatas ≤ 2.5.2 - Arbitrary File Upload | 🔴 critical | CVE漏洞 | WordPress 站点 | 5/5 |
+| WordPress Keydatas ≤ 2.5.2 - Arbitrary File Upload | 🔴 critical | CVE漏洞 | WordPress 站点 | 5/5 |
+| React Server Components - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| React Server Components - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| WordPress Keydatas ≤ 2.5.2 - Arbitrary File Upload | 🔴 critical | CVE漏洞 | WordPress 站点 | 5/5 |
+| React Server Components - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| React Server Components - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| WordPress Keydatas ≤ 2.5.2 - Arbitrary File Upload | 🔴 critical | CVE漏洞 | WordPress 站点 | 5/5 |
+| React Server Components - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| React Server Components - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| React Server Components - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| React Server Components - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| React Server Components - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| React Server Components - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| React Server Components - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| WordPress Keydatas ≤ 2.5.2 - Arbitrary File Upload | 🔴 critical | CVE漏洞 | WordPress 站点 | 5/5 |
+| React Server Components - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| WordPress Keydatas ≤ 2.5.2 - Arbitrary File Upload | 🔴 critical | CVE漏洞 | WordPress 站点 | 5/5 |
+| WordPress Keydatas ≤ 2.5.2 - Arbitrary File Upload | 🔴 critical | CVE漏洞 | WordPress 站点 | 5/5 |
+| WordPress Keydatas ≤ 2.5.2 - Arbitrary File Upload | 🔴 critical | CVE漏洞 | WordPress 站点 | 5/5 |
+| WordPress Eventin (Themewinter) ≤ 4.0.26 - Arbitra | 🟠 high | CVE漏洞 | WordPress 站点 | 4.5/5 |
+| WordPress Eventin (Themewinter) ≤ 4.0.26 - Arbitra | 🟠 high | CVE漏洞 | WordPress 站点 | 4.5/5 |
+| WordPress Eventin (Themewinter) ≤ 4.0.26 - Arbitra | 🟠 high | CVE漏洞 | WordPress 站点 | 4.5/5 |
+| WordPress Eventin (Themewinter) ≤ 4.0.26 - Arbitra | 🟠 high | CVE漏洞 | WordPress 站点 | 4.5/5 |
+| WordPress Eventin (Themewinter) ≤ 4.0.26 - Arbitra | 🟠 high | CVE漏洞 | WordPress 站点 | 4.5/5 |
+| WordPress Eventin (Themewinter) ≤ 4.0.26 - Arbitra | 🟠 high | CVE漏洞 | WordPress 站点 | 4.5/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
+
+## 🛡️ 安全建议
+
+🚨 发现高风险漏洞，建议立即扫描相关资产
+🔍 关注新发布的 CVE 漏洞，及时更新补丁
+⚡ 检测到远程代码执行漏洞，优先处理
+
+## 🔧 扫描建议
+
+建议使用以下 Nuclei 命令进行扫描：
+
+```bash
+# 扫描高危漏洞
+nuclei -t http/cves/2025/CVE-2025-55182.yaml -t http/cves/2024/CVE-2024-6220.yaml -t http/cves/2024/CVE-2024-6220.yaml -t http/cves/2025/CVE-2025-55182.yaml -t http/cves/2025/CVE-2025-55182.yaml -t http/cves/2024/CVE-2024-6220.yaml -t http/cves/2025/CVE-2025-55182.yaml -t http/cves/2025/CVE-2025-55182.yaml -t http/cves/2024/CVE-2024-6220.yaml -t http/cves/2025/CVE-2025-55182.yaml -t http/cves/2025/CVE-2025-55182.yaml -t http/cves/2025/CVE-2025-55182.yaml -t http/cves/2025/CVE-2025-55182.yaml -t http/cves/2025/CVE-2025-55182.yaml -t http/cves/2025/CVE-2025-55182.yaml -t http/cves/2025/CVE-2025-55182.yaml -t http/cves/2024/CVE-2024-6220.yaml -t http/cves/2025/CVE-2025-55182.yaml -t http/cves/2024/CVE-2024-6220.yaml -t http/cves/2024/CVE-2024-6220.yaml -t http/cves/2024/CVE-2024-6220.yaml -t http/cves/2025/CVE-2025-47445.yaml -t http/cves/2025/CVE-2025-47445.yaml -t http/cves/2025/CVE-2025-47445.yaml -t http/cves/2025/CVE-2025-47445.yaml -t http/cves/2025/CVE-2025-47445.yaml -t http/cves/2025/CVE-2025-47445.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -u target-url
+
+# 扫描所有今日新增模板  
+nuclei -t http/cves/2025/CVE-2025-55182.yaml -t http/cves/2024/CVE-2024-6220.yaml -t http/cves/2024/CVE-2024-6220.yaml -t http/cves/2025/CVE-2025-55182.yaml -t http/cves/2025/CVE-2025-55182.yaml -t http/cves/2024/CVE-2024-6220.yaml -t http/cves/2025/CVE-2025-55182.yaml -t http/cves/2025/CVE-2025-55182.yaml -t http/cves/2024/CVE-2024-6220.yaml -t http/cves/2025/CVE-2025-55182.yaml -t http/cves/2025/CVE-2025-55182.yaml -t http/cves/2025/CVE-2025-55182.yaml -t http/cves/2025/CVE-2025-55182.yaml -t http/cves/2025/CVE-2025-55182.yaml -t http/cves/2025/CVE-2025-55182.yaml -t http/cves/2025/CVE-2025-55182.yaml -t http/cves/2024/CVE-2024-6220.yaml -t http/cves/2025/CVE-2025-55182.yaml -t http/cves/2024/CVE-2024-6220.yaml -t http/cves/2024/CVE-2024-6220.yaml -t http/cves/2024/CVE-2024-6220.yaml -t http/cves/2025/CVE-2025-47445.yaml -t http/cves/2025/CVE-2025-47445.yaml -t http/cves/2025/CVE-2025-47445.yaml -t http/cves/2025/CVE-2025-47445.yaml -t http/cves/2025/CVE-2025-47445.yaml -t http/cves/2025/CVE-2025-47445.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -u target-url
+```
+
+---
+
+*本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)*
+
+*扫描建议仅供参考，请在授权环境下进行安全测试*
