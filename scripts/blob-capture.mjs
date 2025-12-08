@@ -1,7 +1,7 @@
-import { chromium } from 'playwright';
-import fs from 'node:fs';
+import { chromium } from 'playwright'
+import fs from 'node:fs'
 
-const url = 'https://www.gaoding.com/editor/design?mode=user&id=33666427721202831';
+const url = 'https://www.gaoding.com/editor/design?mode=user&id=33666427721202831'
 
 const hook = `(() => {
   const toHex = (buf) => Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
@@ -70,43 +70,56 @@ const hook = `(() => {
   } catch {}
 
   Object.defineProperty(window, '__blobRecords', { value: records, configurable: false });
-})();`;
+})();`
 
-(async () => {
-  const browser = await chromium.launch({ headless: false });
-  const context = await browser.newContext();
-  await context.addInitScript(hook);
-  const page = await context.newPage();
-  await page.addInitScript(hook);
+;(async () => {
+  const browser = await chromium.launch({ headless: false })
+  const context = await browser.newContext()
+  await context.addInitScript(hook)
+  const page = await context.newPage()
+  await page.addInitScript(hook)
 
-  await page.goto(url, { waitUntil: 'networkidle' });
-  await page.waitForTimeout(4000);
+  await page.goto(url, { waitUntil: 'networkidle' })
+  await page.waitForTimeout(4000)
   // Try to open the download dialog which often triggers canvas/export flows
-  try { await page.getByRole('button', { name: '下载' }).click(); } catch {}
-  await page.waitForTimeout(8000);
+  try {
+    await page.getByRole('button', { name: '下载' }).click()
+  } catch {}
+  await page.waitForTimeout(8000)
 
   // Allow async sha256 to settle
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(2000)
 
-  const records = await page.evaluate(() => window.__blobRecords || []);
+  const records = await page.evaluate(() => window.__blobRecords || [])
 
   // Aggregate: prefer sha256, then fingerprint, then source tuple, then url
-  const bySig = {};
+  const bySig = {}
   for (const r of records) {
-    const fallbackSrc = r.source ? (r.source.file+':'+r.source.line+':'+r.source.col+'|'+(r.type||'')) : '';
-    const key = r.sha256 || r.fingerprint || fallbackSrc || r.url || 'unknown';
-    (bySig[key] ||= { count:0, type:r.type, source:r.source, sha256:r.sha256, samples:[] });
-    bySig[key].count++;
-    if (r.url && bySig[key].samples.length < 3) bySig[key].samples.push({ url:r.url, size:r.size });
+    const fallbackSrc = r.source
+      ? r.source.file + ':' + r.source.line + ':' + r.source.col + '|' + (r.type || '')
+      : ''
+    const key = r.sha256 || r.fingerprint || fallbackSrc || r.url || 'unknown'
+    bySig[key] ||= { count: 0, type: r.type, source: r.source, sha256: r.sha256, samples: [] }
+    bySig[key].count++
+    if (r.url && bySig[key].samples.length < 3)
+      bySig[key].samples.push({ url: r.url, size: r.size })
   }
 
-  fs.writeFileSync('scripts/blob-capture-output.json', JSON.stringify(records, null, 2));
-  fs.writeFileSync('scripts/blob-capture-agg.json', JSON.stringify(bySig, null, 2));
+  fs.writeFileSync('scripts/blob-capture-output.json', JSON.stringify(records, null, 2))
+  fs.writeFileSync('scripts/blob-capture-agg.json', JSON.stringify(bySig, null, 2))
 
-  console.log('Captured blobs by stable key (sha256/fingerprint/source):');
-  for (const [k,v] of Object.entries(bySig)) {
-    console.log('-', k, v.type, 'x', v.count, '=>', v.source?.file+':'+v.source?.line+':'+v.source?.col);
+  console.log('Captured blobs by stable key (sha256/fingerprint/source):')
+  for (const [k, v] of Object.entries(bySig)) {
+    console.log(
+      '-',
+      k,
+      v.type,
+      'x',
+      v.count,
+      '=>',
+      v.source?.file + ':' + v.source?.line + ':' + v.source?.col
+    )
   }
 
-  await browser.close();
-})();
+  await browser.close()
+})()

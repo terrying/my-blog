@@ -17,8 +17,11 @@ export async function GET(req: NextRequest) {
   const host = req.headers.get('host') || 'localhost:3000'
   const targetUrl = new URL(pathParam, `${proto}://${host}`).toString()
 
-  const browser = await chromium.launch({ args: ['--no-sandbox','--disable-setuid-sandbox'] })
-  const context = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: scale })
+  const browser = await chromium.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] })
+  const context = await browser.newContext({
+    viewport: { width, height },
+    deviceScaleFactor: scale,
+  })
   const page = await context.newPage()
 
   try {
@@ -27,16 +30,24 @@ export async function GET(req: NextRequest) {
     try {
       await page.evaluate(async () => {
         // @ts-ignore
-        if (document.fonts?.ready) { await (document.fonts as any).ready }
+        if (document.fonts?.ready) {
+          await (document.fonts as any).ready
+        }
       })
     } catch {}
 
     const element = await page.$('.shot-canvas')
     let buffer: Buffer
     if (element) {
-      buffer = await element.screenshot({ type: format, quality: format === 'jpeg' ? 92 : undefined }) as Buffer
+      buffer = (await element.screenshot({
+        type: format,
+        quality: format === 'jpeg' ? 92 : undefined,
+      })) as Buffer
     } else {
-      buffer = await page.screenshot({ type: format, quality: format === 'jpeg' ? 92 : undefined }) as Buffer
+      buffer = (await page.screenshot({
+        type: format,
+        quality: format === 'jpeg' ? 92 : undefined,
+      })) as Buffer
     }
 
     await browser.close()
@@ -72,18 +83,28 @@ function mdToHtml(md: string): string {
     const lines = src.split(/\n/)
     const out: string[] = []
     let i = 0
-    const isTableSep = (s: string) => /^(\s*\|)?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)+(\|\s*)?$/.test(s)
-    const splitCells = (s: string) => s
-      .replace(/^\s*\|/, '')
-      .replace(/\|\s*$/, '')
-      .split(/\|/)
-      .map((c) => c.trim())
+    const isTableSep = (s: string) =>
+      /^(\s*\|)?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)+(\|\s*)?$/.test(s)
+    const splitCells = (s: string) =>
+      s
+        .replace(/^\s*\|/, '')
+        .replace(/\|\s*$/, '')
+        .split(/\|/)
+        .map((c) => c.trim())
     while (i < lines.length) {
       const headerLine = lines[i]
       const sepLine = lines[i + 1]
       if (headerLine && sepLine && headerLine.includes('|') && isTableSep(sepLine)) {
         const headers = splitCells(headerLine)
-        const aligns = splitCells(sepLine).map((c) => (c.startsWith(':') && c.endsWith(':') ? 'center' : c.endsWith(':') ? 'right' : c.startsWith(':') ? 'left' : 'left'))
+        const aligns = splitCells(sepLine).map((c) =>
+          c.startsWith(':') && c.endsWith(':')
+            ? 'center'
+            : c.endsWith(':')
+              ? 'right'
+              : c.startsWith(':')
+                ? 'left'
+                : 'left'
+        )
         i += 2
         const rows: string[][] = []
         while (i < lines.length) {
@@ -140,17 +161,26 @@ function mdToHtml(md: string): string {
   md = md.replace(/\*([^*]+)\*/g, '<em>$1</em>')
   md = md.replace(/_([^_]+)_/g, '<em>$1</em>')
   // Images ![alt](src "title")
-  md = md.replace(/!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]+)")?\)/g, (m, alt: string, src: string, title?: string) => {
-    const t = title ? ` title="${escapeMdHtml(title)}"` : ''
-    return `<img src="${escapeMdHtml(src)}" alt="${escapeMdHtml(alt)}"${t} />`
-  })
-  md = md.replace(/\[([^\]]+)\]\(([^)\s]+)(?:\s+"([^"]+)")?\)/g, (m, text: string, href: string, title?: string) => {
-    const t = title ? ` title="${escapeMdHtml(title)}"` : ''
-    return `<a href="${escapeMdHtml(href)}"${t}>${text}</a>`
-  })
+  md = md.replace(
+    /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]+)")?\)/g,
+    (m, alt: string, src: string, title?: string) => {
+      const t = title ? ` title="${escapeMdHtml(title)}"` : ''
+      return `<img src="${escapeMdHtml(src)}" alt="${escapeMdHtml(alt)}"${t} />`
+    }
+  )
+  md = md.replace(
+    /\[([^\]]+)\]\(([^)\s]+)(?:\s+"([^"]+)")?\)/g,
+    (m, text: string, href: string, title?: string) => {
+      const t = title ? ` title="${escapeMdHtml(title)}"` : ''
+      return `<a href="${escapeMdHtml(href)}"${t}>${text}</a>`
+    }
+  )
   const blocks = md.split(/\n\n+/).map((b) => {
     if (/^\s*</.test(b.trim())) return b
-    const content = b.split(/\n/).map((l) => l.trim()).join(' ')
+    const content = b
+      .split(/\n/)
+      .map((l) => l.trim())
+      .join(' ')
     if (!content) return ''
     return `<p>${content}</p>`
   })
@@ -170,7 +200,9 @@ function escapeHtml(input: unknown): string {
 function getDeep(obj: any, pathStr: string): unknown {
   if (!pathStr) return ''
   const normalized = pathStr.replace(/\[(\d+)\]/g, '.$1')
-  return normalized.split('.').reduce((acc: any, key: string) => (acc == null ? undefined : acc[key]), obj)
+  return normalized
+    .split('.')
+    .reduce((acc: any, key: string) => (acc == null ? undefined : acc[key]), obj)
 }
 
 function renderTemplate(source: string, data: Record<string, unknown>): string {
@@ -267,7 +299,10 @@ export async function POST(req: NextRequest) {
  </html>`
 
   const browser = await chromium.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] })
-  const context = await browser.newContext({ viewport: { width: shotWidth, height: shotHeight }, deviceScaleFactor: deviceScale })
+  const context = await browser.newContext({
+    viewport: { width: shotWidth, height: shotHeight },
+    deviceScaleFactor: deviceScale,
+  })
   const page = await context.newPage()
 
   try {
@@ -276,16 +311,24 @@ export async function POST(req: NextRequest) {
     try {
       await page.evaluate(async () => {
         // @ts-ignore
-        if (document.fonts?.ready) { await (document.fonts as any).ready }
+        if (document.fonts?.ready) {
+          await (document.fonts as any).ready
+        }
       })
     } catch {}
 
     const element = await page.$('.shot-canvas')
     let buffer: Buffer
     if (element) {
-      buffer = (await element.screenshot({ type: safeFormat, quality: safeFormat === 'jpeg' ? 92 : undefined })) as Buffer
+      buffer = (await element.screenshot({
+        type: safeFormat,
+        quality: safeFormat === 'jpeg' ? 92 : undefined,
+      })) as Buffer
     } else {
-      buffer = (await page.screenshot({ type: safeFormat, quality: safeFormat === 'jpeg' ? 92 : undefined })) as Buffer
+      buffer = (await page.screenshot({
+        type: safeFormat,
+        quality: safeFormat === 'jpeg' ? 92 : undefined,
+      })) as Buffer
     }
 
     await browser.close()

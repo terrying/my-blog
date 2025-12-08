@@ -31,10 +31,7 @@ export default function IPOCardPage() {
       }}
       className="shot-canvas"
     >
-      <div
-        style={{ width: '100%', height: '100%' }}
-        dangerouslySetInnerHTML={{ __html: html }}
-      />
+      <div style={{ width: '100%', height: '100%' }} dangerouslySetInnerHTML={{ __html: html }} />
       <style>{`
         :root { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
         body { background: #f5f5f5; }

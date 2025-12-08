@@ -16,18 +16,27 @@ function convertTables(md: string): string {
   const out: string[] = []
   let i = 0
   const isTableSep = (s: string) => /^(\s*\|)?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)+(\|\s*)?$/.test(s)
-  const splitCells = (s: string) => s
-    .replace(/^\s*\|/, '')
-    .replace(/\|\s*$/, '')
-    .split(/\|/)
-    .map((c) => c.trim())
+  const splitCells = (s: string) =>
+    s
+      .replace(/^\s*\|/, '')
+      .replace(/\|\s*$/, '')
+      .split(/\|/)
+      .map((c) => c.trim())
 
   while (i < lines.length) {
     const headerLine = lines[i]
     const sepLine = lines[i + 1]
     if (headerLine && sepLine && headerLine.includes('|') && isTableSep(sepLine)) {
       const headers = splitCells(headerLine)
-      const aligns = splitCells(sepLine).map((c) => (c.startsWith(':') && c.endsWith(':') ? 'center' : c.endsWith(':') ? 'right' : c.startsWith(':') ? 'left' : 'left'))
+      const aligns = splitCells(sepLine).map((c) =>
+        c.startsWith(':') && c.endsWith(':')
+          ? 'center'
+          : c.endsWith(':')
+            ? 'right'
+            : c.startsWith(':')
+              ? 'left'
+              : 'left'
+      )
       i += 2
       const rows: string[][] = []
       while (i < lines.length) {
@@ -108,14 +117,20 @@ function markdownToHtml(md: string): string {
   md = md.replace(/\*([^*]+)\*/g, '<em>$1</em>')
   md = md.replace(/_([^_]+)_/g, '<em>$1</em>')
   // Images ![alt](src "title")
-  md = md.replace(/!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]+)")?\)/g, (m, alt: string, src: string, title?: string) => {
-    const t = title ? ` title="${escapeHtml(title)}"` : ''
-    return `<img src="${escapeHtml(src)}" alt="${escapeHtml(alt)}"${t} />`
-  })
-  md = md.replace(/\[([^\]]+)\]\(([^)\s]+)(?:\s+"([^"]+)")?\)/g, (m, text: string, href: string, title?: string) => {
-    const t = title ? ` title="${escapeHtml(title)}"` : ''
-    return `<a href="${escapeHtml(href)}"${t}>${text}</a>`
-  })
+  md = md.replace(
+    /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]+)")?\)/g,
+    (m, alt: string, src: string, title?: string) => {
+      const t = title ? ` title="${escapeHtml(title)}"` : ''
+      return `<img src="${escapeHtml(src)}" alt="${escapeHtml(alt)}"${t} />`
+    }
+  )
+  md = md.replace(
+    /\[([^\]]+)\]\(([^)\s]+)(?:\s+"([^"]+)")?\)/g,
+    (m, text: string, href: string, title?: string) => {
+      const t = title ? ` title="${escapeHtml(title)}"` : ''
+      return `<a href="${escapeHtml(href)}"${t}>${text}</a>`
+    }
+  )
 
   // Paragraphs: wrap loose lines
   const lines = md.split(/\n\n+/).map((block) => {
@@ -123,7 +138,10 @@ function markdownToHtml(md: string): string {
     if (/^\s*<(h\d|ul|ol|pre|blockquote|hr)/i.test(block.trim())) return block
     // If already contains block tags, keep as is
     if (/<\/(?:h\d|ul|ol|pre|blockquote|hr)>/i.test(block)) return block
-    const content = block.split(/\n/).map((l) => l.trim()).join(' ')
+    const content = block
+      .split(/\n/)
+      .map((l) => l.trim())
+      .join(' ')
     if (!content) return ''
     return `<p>${content}</p>`
   })
@@ -134,7 +152,8 @@ function markdownToHtml(md: string): string {
 export async function POST(req: NextRequest) {
   const { markdown = '' } = (await req.json().catch(() => ({}))) as { markdown?: string }
   const html = markdownToHtml(String(markdown || ''))
-  return new Response(JSON.stringify({ html }), { status: 200, headers: { 'Content-Type': 'application/json; charset=utf-8' } })
+  return new Response(JSON.stringify({ html }), {
+    status: 200,
+    headers: { 'Content-Type': 'application/json; charset=utf-8' },
+  })
 }
-
-

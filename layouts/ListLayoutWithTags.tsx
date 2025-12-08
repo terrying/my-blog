@@ -219,7 +219,9 @@ export default function ListLayoutWithTags({
                             {/* 标签和时间 */}
                             <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                               <div className="flex flex-wrap gap-2">
-                                {tags?.map((tag) => <Tag key={tag} text={tag} />)}
+                                {tags?.map((tag) => (
+                                  <Tag key={tag} text={tag} />
+                                ))}
                               </div>
                               <time
                                 dateTime={date}

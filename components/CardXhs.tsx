@@ -43,7 +43,7 @@ export function CardXhs({
 
   return (
     <div
-      className={["card", className].filter(Boolean).join(' ')}
+      className={['card', className].filter(Boolean).join(' ')}
       style={{
         width,
         height,
@@ -83,5 +83,3 @@ export function CardXhs({
 }
 
 export default CardXhs
-
-

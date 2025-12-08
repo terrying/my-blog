@@ -23,7 +23,8 @@ export const components: MDXComponents = {
         if (node == null) return ''
         if (typeof node === 'string') return node
         if (Array.isArray(node)) return node.map(toText).join('')
-        if (typeof node === 'object' && 'props' in node) return toText((node as any).props?.children)
+        if (typeof node === 'object' && 'props' in node)
+          return toText((node as any).props?.children)
         return String(node)
       }
       const chart = toText(child?.props?.children)

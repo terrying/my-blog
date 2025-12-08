@@ -10,7 +10,10 @@ export async function GET(req: NextRequest) {
   const p = path.join(process.cwd(), 'data', 'card-templates', `${name}.html`)
   try {
     const html = fs.readFileSync(p, 'utf-8')
-    return new Response(html, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } })
+    return new Response(html, {
+      status: 200,
+      headers: { 'Content-Type': 'text/html; charset=utf-8' },
+    })
   } catch (e) {
     return new Response('Not found', { status: 404 })
   }

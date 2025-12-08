@@ -1,10 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getRedisClient } from '@/lib/redis'
 
-export async function GET(
-  request: NextRequest,
-  { params }: { params: Promise<{ slug: string }> }
-) {
+export async function GET(request: NextRequest, { params }: { params: Promise<{ slug: string }> }) {
   try {
     const { slug } = await params
 

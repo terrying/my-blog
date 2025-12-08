@@ -6,7 +6,11 @@ const CARD_HEIGHT = 1440
 
 function decodeBase64(input?: string | null): string {
   if (!input) return ''
-  try { return Buffer.from(input, 'base64').toString('utf-8') } catch { return '' }
+  try {
+    return Buffer.from(input, 'base64').toString('utf-8')
+  } catch {
+    return ''
+  }
 }
 
 export default async function LiveCardPage({
@@ -16,7 +20,7 @@ export default async function LiveCardPage({
 }) {
   // Next.js 15 may pass searchParams as a Promise for streaming compatibility
   // Support both Promise and plain object
-  const sp = typeof searchParams?.then === 'function' ? (await searchParams) : (searchParams as any)
+  const sp = typeof searchParams?.then === 'function' ? await searchParams : (searchParams as any)
   const html = decodeBase64(sp?.html)
   const css = decodeBase64(sp?.css)
   const width = Number(sp?.width || CARD_WIDTH)

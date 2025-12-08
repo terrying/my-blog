@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import React, { useEffect, useId, useState } from 'react'
 
 type MermaidProps = {
@@ -7,7 +7,7 @@ type MermaidProps = {
 }
 
 export default function Mermaid({ chart, className }: MermaidProps) {
-  const [svg, setSvg] = useState<string>("")
+  const [svg, setSvg] = useState<string>('')
   const id = useId().replace(/[:]/g, '-')
 
   useEffect(() => {
@@ -31,7 +31,9 @@ export default function Mermaid({ chart, className }: MermaidProps) {
             .mermaid text { font-size: 22px !important; }
             .mermaid .messageText, .mermaid .noteText, .mermaid .actor > text, .mermaid .actor > tspan, .mermaid .labelText { font-size: 22px !important; }
           </style>`
-          const enhanced = svg.includes('</svg>') ? svg.replace('</svg>', `${forcedCss}</svg>`) : svg
+          const enhanced = svg.includes('</svg>')
+            ? svg.replace('</svg>', `${forcedCss}</svg>`)
+            : svg
           setSvg(enhanced)
         }
       })
@@ -49,5 +51,3 @@ export default function Mermaid({ chart, className }: MermaidProps) {
     <div className={className} dangerouslySetInnerHTML={{ __html: svg || '<div>渲染中…</div>' }} />
   )
 }
-
-

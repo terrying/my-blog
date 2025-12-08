@@ -33,20 +33,31 @@ export default function CardStudio() {
       <div style={{ marginBottom: 12, display: 'flex', gap: 12, alignItems: 'center' }}>
         <label>
           格式：
-          <select value={format} onChange={(e) => setFormat(e.target.value as 'png' | 'jpeg')} style={{ marginLeft: 8 }}>
+          <select
+            value={format}
+            onChange={(e) => setFormat(e.target.value as 'png' | 'jpeg')}
+            style={{ marginLeft: 8 }}
+          >
             <option value="png">PNG</option>
             <option value="jpeg">JPEG</option>
           </select>
         </label>
         <label>
           清晰度（DPR）：
-          <select value={scale} onChange={(e) => setScale(Number(e.target.value))} style={{ marginLeft: 8 }}>
+          <select
+            value={scale}
+            onChange={(e) => setScale(Number(e.target.value))}
+            style={{ marginLeft: 8 }}
+          >
             <option value={1}>1x</option>
             <option value={2}>2x</option>
             <option value={3}>3x</option>
           </select>
         </label>
-        <button onClick={onExport} style={{ padding: '8px 12px', borderRadius: 8, background: '#111', color: '#fff' }}>
+        <button
+          onClick={onExport}
+          style={{ padding: '8px 12px', borderRadius: 8, background: '#111', color: '#fff' }}
+        >
           导出图片
         </button>
       </div>
