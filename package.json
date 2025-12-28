@@ -78,10 +78,10 @@
   },
   "lint-staged": {
     "*.+(js|jsx|ts|tsx)": [
-      "eslint --fix"
+      "node node_modules/eslint/bin/eslint.js --fix"
     ],
     "*.+(js|jsx|ts|tsx|json|css|md|mdx)": [
-      "prettier --write"
+      "node node_modules/prettier/bin/prettier.cjs --write"
     ]
   },
   "packageManager": "yarn@3.6.1"
