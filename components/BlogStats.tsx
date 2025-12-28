@@ -7,8 +7,9 @@ interface BlogStatsProps {
 }
 
 export default function BlogStats({ posts }: BlogStatsProps) {
-  const tagCounts = tagData as Record<string, number>
-  const totalTags = Object.keys(tagCounts).length
+  type TagData = { counts: Record<string, number>; display: Record<string, string> }
+  const data = tagData as TagData
+  const totalTags = Object.keys(data.counts || {}).length
   const totalPosts = posts.length
 
   // 计算今年发布的文章数量

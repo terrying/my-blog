@@ -6,11 +6,20 @@ import tagData from 'app/tag-data.json'
 import { notFound } from 'next/navigation'
 
 const POSTS_PER_PAGE = 5
+type TagData = { counts: Record<string, number>; display: Record<string, string> }
+
+function getTagLabel(tagSlug: string) {
+  const data = tagData as TagData
+  const raw = data.display?.[tagSlug] ?? tagSlug
+  const m = /^([^-\s]+)-(.*)$/.exec(raw)
+  if (m && m[2]) return m[2]
+  return raw
+}
 
 export const generateStaticParams = async () => {
-  const tagCounts = tagData as Record<string, number>
-  return Object.keys(tagCounts).flatMap((tag) => {
-    const postCount = tagCounts[tag]
+  const data = tagData as TagData
+  return Object.keys(data.counts || {}).flatMap((tag) => {
+    const postCount = data.counts[tag]
     const totalPages = Math.max(1, Math.ceil(postCount / POSTS_PER_PAGE))
     return Array.from({ length: totalPages }, (_, i) => ({
       tag: tag,
@@ -22,7 +31,7 @@ export const generateStaticParams = async () => {
 export default async function TagPage(props: { params: Promise<{ tag: string; page: string }> }) {
   const params = await props.params
   const tag = decodeURI(params.tag)
-  const title = tag[0].toUpperCase() + tag.split(' ').join('-').slice(1)
+  const title = getTagLabel(tag)
   const pageNumber = parseInt(params.page)
   const filteredPosts = allCoreContent(
     sortPosts(allBlogs.filter((post) => post.tags && post.tags.map((t) => slug(t)).includes(tag)))

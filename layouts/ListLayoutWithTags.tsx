@@ -11,6 +11,7 @@ import Image from '@/components/Image'
 import ViewCounter from '@/components/ViewCounter'
 import siteMetadata from '@/data/siteMetadata'
 import tagData from 'app/tag-data.json'
+import { BLOG_CATEGORIES, getBlogCategoryLabel } from '@/lib/blogCategories'
 
 interface PaginationProps {
   totalPages: number
@@ -18,9 +19,46 @@ interface PaginationProps {
 }
 interface ListLayoutProps {
   posts: CoreContent<Blog>[]
+  // Used for sidebar counts (e.g., category counters). Useful when `posts` is filtered by category/page.
+  sidebarPosts?: CoreContent<Blog>[]
   title: string
   initialDisplayPosts?: CoreContent<Blog>[]
   pagination?: PaginationProps
+}
+
+type TagData = { counts: Record<string, number>; display: Record<string, string> }
+type TagItem = { slug: string; name: string; count: number }
+
+const TAG_GROUP_ORDER = ['主题', '技术', '方法', '治理'] as const
+type TagGroup = (typeof TAG_GROUP_ORDER)[number] | '其它'
+
+function splitLayer(tagName: string): {
+  group: TagGroup
+  shortName: string
+  kind?: '对象' | '场景'
+} {
+  const m = /^([^-\s]+)-(.*)$/.exec(tagName)
+  if (!m) return { group: '其它', shortName: tagName }
+  const rawGroup = m[1]
+  const shortName = m[2] || tagName
+  // Merge 对象/场景 into a single UI group: 主题
+  if (rawGroup === '对象' || rawGroup === '场景') {
+    return { group: '主题', shortName, kind: rawGroup }
+  }
+  const group = rawGroup as TagGroup
+  if ((TAG_GROUP_ORDER as readonly string[]).includes(group)) return { group, shortName }
+  return { group: '其它', shortName: tagName }
+}
+
+function buildTagItemsFromTagData(data: TagData): TagItem[] {
+  const slugs = Object.keys(data.counts || {})
+  return slugs
+    .map((s) => ({
+      slug: s,
+      name: data.display?.[s] ?? s,
+      count: data.counts[s] ?? 0,
+    }))
+    .filter((t) => t.count > 0)
 }
 
 function Pagination({ totalPages, currentPage }: PaginationProps) {
@@ -83,14 +121,50 @@ const getDefaultCoverImage = (index: number) => {
 
 export default function ListLayoutWithTags({
   posts,
+  sidebarPosts,
   title,
   initialDisplayPosts = [],
   pagination,
 }: ListLayoutProps) {
   const pathname = usePathname()
-  const tagCounts = tagData as Record<string, number>
-  const tagKeys = Object.keys(tagCounts)
-  const sortedTags = tagKeys.sort((a, b) => tagCounts[b] - tagCounts[a])
+  const isBlogSection = pathname.startsWith('/blog')
+  const isTagsSection = pathname.startsWith('/tags')
+  const sidebarBasePosts = sidebarPosts ?? posts
+
+  const activeBlogCategory = (() => {
+    const m = /^\/blog\/category\/([^/]+)/.exec(pathname)
+    return m ? decodeURI(m[1]) : null
+  })()
+  const buildTagItemsFromPosts = (items: CoreContent<Blog>[]): TagItem[] => {
+    const counts: Record<string, number> = {}
+    const display: Record<string, string> = {}
+    items.forEach((p) => {
+      p.tags?.forEach((t) => {
+        const key = slug(t)
+        if (!(key in display)) display[key] = t
+        counts[key] = (counts[key] || 0) + 1
+      })
+    })
+    return buildTagItemsFromTagData({ counts, display })
+  }
+
+  // /blog 列表只展示人工文章：标签侧边栏也应该基于“当前 posts”计算，避免 nuclei 自动内容标签混入
+  // 其它页面（如 /tags/*）仍使用构建时生成的全量 tagData
+  const tagItems = isBlogSection
+    ? buildTagItemsFromPosts(posts)
+    : buildTagItemsFromTagData(tagData as TagData)
+
+  const grouped = tagItems.reduce<Record<string, TagItem[]>>((acc, item) => {
+    const { group } = splitLayer(item.name)
+    acc[group] = acc[group] || []
+    acc[group].push(item)
+    return acc
+  }, {})
+
+  const groupKeys: TagGroup[] = [
+    ...TAG_GROUP_ORDER,
+    ...(grouped['其它']?.length ? (['其它'] as const) : []),
+  ]
 
   const displayPosts = initialDisplayPosts.length > 0 ? initialDisplayPosts : posts
 
@@ -113,8 +187,10 @@ export default function ListLayoutWithTags({
                 </div>
 
                 <h3 className="mb-4 text-lg font-bold text-gray-900 dark:text-gray-100">
-                  {pathname.startsWith('/blog') ? (
-                    <span className="text-primary-500">全部文章</span>
+                  {isBlogSection ? (
+                    <span className="text-primary-500">分类</span>
+                  ) : isTagsSection ? (
+                    <span className="text-primary-500">标签</span>
                   ) : (
                     <Link
                       href={`/blog`}
@@ -126,26 +202,190 @@ export default function ListLayoutWithTags({
                 </h3>
 
                 <div className="space-y-2">
-                  {sortedTags.map((t) => {
-                    const isActive = decodeURI(pathname.split('/tags/')[1] || '') === slug(t)
-                    return (
-                      <div key={t}>
-                        {isActive ? (
+                  {isBlogSection ? (
+                    <>
+                      <div>
+                        {activeBlogCategory == null ? (
                           <div className="bg-primary-100 text-primary-700 dark:bg-primary-900/30 dark:text-primary-300 inline-block rounded-lg px-3 py-1.5 text-sm font-medium">
-                            {`${t} (${tagCounts[t]})`}
+                            全部文章 ({sidebarBasePosts.length})
                           </div>
                         ) : (
                           <Link
-                            href={`/tags/${slug(t)}`}
+                            href="/blog"
                             className="hover:text-primary-600 dark:hover:text-primary-400 inline-block rounded-lg px-3 py-1.5 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700/50"
-                            aria-label={`View posts tagged ${t}`}
                           >
-                            {`${t} (${tagCounts[t]})`}
+                            全部文章 ({sidebarBasePosts.length})
                           </Link>
                         )}
                       </div>
-                    )
-                  })}
+
+                      {(() => {
+                        const counts: Record<string, number> = {}
+                        sidebarBasePosts.forEach((p) => {
+                          const c = (p as unknown as { category?: string }).category
+                          if (typeof c === 'string' && c) counts[c] = (counts[c] || 0) + 1
+                        })
+                        return BLOG_CATEGORIES.map((c) => {
+                          const count = counts[c.slug] || 0
+                          const isActive = activeBlogCategory === c.slug
+                          const label = c.label
+                          return (
+                            <div key={c.slug}>
+                              {isActive ? (
+                                <div className="bg-primary-100 text-primary-700 dark:bg-primary-900/30 dark:text-primary-300 inline-block rounded-lg px-3 py-1.5 text-sm font-medium">
+                                  {`${label} (${count})`}
+                                </div>
+                              ) : (
+                                <Link
+                                  href={`/blog/category/${c.slug}`}
+                                  className="hover:text-primary-600 dark:hover:text-primary-400 inline-block rounded-lg px-3 py-1.5 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700/50"
+                                  aria-label={`View posts in category ${label}`}
+                                >
+                                  {`${label} (${count})`}
+                                </Link>
+                              )}
+                            </div>
+                          )
+                        })
+                      })()}
+                    </>
+                  ) : (
+                    groupKeys.flatMap((g) => {
+                      const items = (grouped[g] || []).sort((a, b) => b.count - a.count)
+                      if (!items.length) return []
+
+                      // Keep UI grouping simple: "主题" is a single group, but internally split into 对象/场景
+                      const topic = g === '主题'
+                      const topicObjects = topic
+                        ? items.filter((it) => splitLayer(it.name).kind === '对象')
+                        : []
+                      const topicScenes = topic
+                        ? items.filter((it) => splitLayer(it.name).kind === '场景')
+                        : []
+                      const topicOthers = topic
+                        ? items.filter((it) => !splitLayer(it.name).kind)
+                        : []
+
+                      return [
+                        <div key={`group-${g}`} className="pt-2 first:pt-0">
+                          <div className="mb-2 text-xs font-semibold tracking-wide text-gray-500 uppercase dark:text-gray-400">
+                            {g}
+                          </div>
+                        </div>,
+                        ...(topic
+                          ? [
+                              ...(topicObjects.length
+                                ? [
+                                    <div
+                                      key="topic-objects"
+                                      className="pt-1 text-xs font-medium text-gray-400 dark:text-gray-500"
+                                    >
+                                      对象
+                                    </div>,
+                                    ...topicObjects.map((it) => {
+                                      const { shortName } = splitLayer(it.name)
+                                      const isActive =
+                                        decodeURI(pathname.split('/tags/')[1] || '') === it.slug
+                                      return (
+                                        <div key={it.slug}>
+                                          {isActive ? (
+                                            <div className="bg-primary-100 text-primary-700 dark:bg-primary-900/30 dark:text-primary-300 inline-block rounded-lg px-3 py-1.5 text-sm font-medium">
+                                              {`${shortName} (${it.count})`}
+                                            </div>
+                                          ) : (
+                                            <Link
+                                              href={`/tags/${it.slug}`}
+                                              className="hover:text-primary-600 dark:hover:text-primary-400 inline-block rounded-lg px-3 py-1.5 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700/50"
+                                              aria-label={`View posts tagged ${shortName}`}
+                                            >
+                                              {`${shortName} (${it.count})`}
+                                            </Link>
+                                          )}
+                                        </div>
+                                      )
+                                    }),
+                                  ]
+                                : []),
+                              ...(topicScenes.length
+                                ? [
+                                    <div
+                                      key="topic-scenes"
+                                      className="pt-2 text-xs font-medium text-gray-400 dark:text-gray-500"
+                                    >
+                                      场景
+                                    </div>,
+                                    ...topicScenes.map((it) => {
+                                      const { shortName } = splitLayer(it.name)
+                                      const isActive =
+                                        decodeURI(pathname.split('/tags/')[1] || '') === it.slug
+                                      return (
+                                        <div key={it.slug}>
+                                          {isActive ? (
+                                            <div className="bg-primary-100 text-primary-700 dark:bg-primary-900/30 dark:text-primary-300 inline-block rounded-lg px-3 py-1.5 text-sm font-medium">
+                                              {`${shortName} (${it.count})`}
+                                            </div>
+                                          ) : (
+                                            <Link
+                                              href={`/tags/${it.slug}`}
+                                              className="hover:text-primary-600 dark:hover:text-primary-400 inline-block rounded-lg px-3 py-1.5 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700/50"
+                                              aria-label={`View posts tagged ${shortName}`}
+                                            >
+                                              {`${shortName} (${it.count})`}
+                                            </Link>
+                                          )}
+                                        </div>
+                                      )
+                                    }),
+                                  ]
+                                : []),
+                              ...topicOthers.map((it) => {
+                                const { shortName } = splitLayer(it.name)
+                                const isActive =
+                                  decodeURI(pathname.split('/tags/')[1] || '') === it.slug
+                                return (
+                                  <div key={it.slug}>
+                                    {isActive ? (
+                                      <div className="bg-primary-100 text-primary-700 dark:bg-primary-900/30 dark:text-primary-300 inline-block rounded-lg px-3 py-1.5 text-sm font-medium">
+                                        {`${shortName} (${it.count})`}
+                                      </div>
+                                    ) : (
+                                      <Link
+                                        href={`/tags/${it.slug}`}
+                                        className="hover:text-primary-600 dark:hover:text-primary-400 inline-block rounded-lg px-3 py-1.5 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700/50"
+                                        aria-label={`View posts tagged ${shortName}`}
+                                      >
+                                        {`${shortName} (${it.count})`}
+                                      </Link>
+                                    )}
+                                  </div>
+                                )
+                              }),
+                            ]
+                          : items.map((it) => {
+                              const { shortName } = splitLayer(it.name)
+                              const isActive =
+                                decodeURI(pathname.split('/tags/')[1] || '') === it.slug
+                              return (
+                                <div key={it.slug}>
+                                  {isActive ? (
+                                    <div className="bg-primary-100 text-primary-700 dark:bg-primary-900/30 dark:text-primary-300 inline-block rounded-lg px-3 py-1.5 text-sm font-medium">
+                                      {`${shortName} (${it.count})`}
+                                    </div>
+                                  ) : (
+                                    <Link
+                                      href={`/tags/${it.slug}`}
+                                      className="hover:text-primary-600 dark:hover:text-primary-400 inline-block rounded-lg px-3 py-1.5 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700/50"
+                                      aria-label={`View posts tagged ${shortName}`}
+                                    >
+                                      {`${shortName} (${it.count})`}
+                                    </Link>
+                                  )}
+                                </div>
+                              )
+                            })),
+                      ]
+                    })
+                  )}
                 </div>
               </div>
             </div>
@@ -187,9 +427,11 @@ export default function ListLayoutWithTags({
                               className="group relative block h-20 w-36 lg:h-24 lg:w-44"
                             >
                               {images && images[0] ? (
-                                <img
+                                <Image
                                   src={images[0]}
                                   alt={title}
+                                  width={176}
+                                  height={96}
                                   className="h-full w-full rounded-lg object-cover transition-transform duration-300 group-hover:scale-105"
                                 />
                               ) : (
@@ -219,7 +461,9 @@ export default function ListLayoutWithTags({
                             {/* 标签和时间 */}
                             <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                               <div className="flex flex-wrap gap-2">
-                                {tags?.map((tag) => <Tag key={tag} text={tag} />)}
+                                {tags?.map((tag) => (
+                                  <Tag key={tag} text={tag} />
+                                ))}
                               </div>
                               <time
                                 dateTime={date}

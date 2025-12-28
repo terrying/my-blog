@@ -1,11 +1,11 @@
 ---
 title: 'Nuclei POC 精选分析 - 2025-11-16'
 date: '2025-11-16'
-tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
+tags: ['Nuclei', 'POC分析', '漏洞扫描']
 draft: false
 summary: '从 2 个模板更新中精选分析 2 个高价值 POC，发现 2 个高风险漏洞'
 authors: ['default']
-category: 'security-intel'
+category: 'app-vuln'
 ---
 
 # Nuclei POC 精选分析 - 2025-11-16
@@ -13,7 +13,7 @@ category: 'security-intel'
 ## 📊 智能筛选概况
 
 - **发现变更**: 2 个模板更新
-- **精选分析**: 2 个高价值 POC  
+- **精选分析**: 2 个高价值 POC
 - **智能跳过**: 0 个低优先级模板
 - **高风险漏洞**: 2 个
 - **主要类别**: CVE漏洞(2)
@@ -26,7 +26,6 @@ category: 'security-intel'
 
 ## 🔍 重点漏洞分析
 
-
 ### WordPress AI Engine Plugin - Token Exposure
 
 - **漏洞ID**: `CVE-2025-11749`
@@ -37,17 +36,16 @@ category: 'security-intel'
 
 **描述**: Unauthenticated sensitive information exposure in AI Engine WordPress plugin &lt;&#x3D; 3.1.3 exposes bearer tokens via REST API endpoints when No-Auth URL is enabled.
 
-
 **攻击向量**: 网络扫描
 
 **CVE编号**: CVE-2025-11749
 
-**参考链接**: 
+**参考链接**:
+
 - [参考资料](https://www.wordfence.com/blog/2025/11/100000-wordpress-sites-affected-by-privilege-escalation-vulnerability-in-ai-engine-wordpress-plugin/)
 - [参考资料](https://cve.mitre.org/cgi-bin/cvename/cgi?name=CVE-2025-11749)
 
 ---
-
 
 ### FortiWeb - Authentication Bypass
 
@@ -59,12 +57,12 @@ category: 'security-intel'
 
 **描述**: A relative path traversal vulnerability in Fortinet FortiWeb 8.0.0 through 8.0.1, FortiWeb 7.6.0 through 7.6.4, FortiWeb 7.4.0 through 7.4.9, FortiWeb 7.2.0 through 7.2.11, FortiWeb 7.0.0 through 7.0.11 may allow an attacker to execute administrative commands on the system via crafted HTTP or HTTPS requests.
 
-
 **攻击向量**: 网络扫描
 
 **CVE编号**: CVE-2025-64446
 
-**参考链接**: 
+**参考链接**:
+
 - [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-64446)
 - [参考资料](https://x.com/defusedcyber/status/1975242250373517373)
 - [参考资料](https://github.com/watchtowrlabs/watchTowr-vs-Fortiweb-AuthBypass)
@@ -72,13 +70,12 @@ category: 'security-intel'
 
 ---
 
-
 ## 📋 完整模板列表
 
-| 模板名称 | 严重程度 | 类别 | 影响资产 | 风险评分 |
-|---------|---------|------|---------|---------|
-| WordPress AI Engine Plugin - Token Exposure | 🔴 critical | CVE漏洞 | WordPress 站点 | 5/5 |
-| FortiWeb - Authentication Bypass | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| 模板名称                                    | 严重程度    | 类别    | 影响资产       | 风险评分 |
+| ------------------------------------------- | ----------- | ------- | -------------- | -------- |
+| WordPress AI Engine Plugin - Token Exposure | 🔴 critical | CVE漏洞 | WordPress 站点 | 5/5      |
+| FortiWeb - Authentication Bypass            | 🔴 critical | CVE漏洞 | 通用           | 5/5      |
 
 ## 🛡️ 安全建议
 
@@ -93,12 +90,12 @@ category: 'security-intel'
 # 扫描高危漏洞
 nuclei -t http/cves/2025/CVE-2025-11749.yaml -t http/cves/2025/CVE-2025-64446.yaml -u target-url
 
-# 扫描所有今日新增模板  
+# 扫描所有今日新增模板
 nuclei -t http/cves/2025/CVE-2025-11749.yaml -t http/cves/2025/CVE-2025-64446.yaml -u target-url
 ```
 
 ---
 
-*本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)*
+_本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)_
 
-*扫描建议仅供参考，请在授权环境下进行安全测试*
+_扫描建议仅供参考，请在授权环境下进行安全测试_

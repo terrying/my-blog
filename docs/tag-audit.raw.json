@@ -1,0 +1,251 @@
+{
+  "counts": {
+    "API 安全": 2,
+    "TLS 指纹": 1,
+    "反爬": 1,
+    "资产管理": 2,
+    "安全边界": 1,
+    "API安全": 2,
+    "安全框架": 1,
+    "Nuclei": 27,
+    "POC分析": 27,
+    "漏洞扫描": 27,
+    "威胁情报": 27,
+    "流量安全": 2,
+    "反爬虫": 1,
+    "traffic security": 1,
+    "SDLC": 3,
+    "风险评估": 1,
+    "渗透测试": 1,
+    "应用安全": 4,
+    "安全建设": 1,
+    "合规": 1,
+    "安全方案": 1,
+    "接口设计": 1,
+    "对抗思路": 2,
+    "机器学习": 2,
+    "接口风控": 1,
+    "安全运营": 1,
+    "态势感知": 1,
+    "核心系统": 1,
+    "监控架构": 1
+  },
+  "by_file": {
+    "/Users/shuzi.zhang/PythonProjects/my-blog/data/blog/TLS指纹在反爬领域的应用.mdx": [
+      "API 安全",
+      "TLS 指纹",
+      "反爬"
+    ],
+    "/Users/shuzi.zhang/PythonProjects/my-blog/data/blog/api - 安全之资产管理.mdx": [
+      "API 安全",
+      "资产管理",
+      "安全边界"
+    ],
+    "/Users/shuzi.zhang/PythonProjects/my-blog/data/blog/api-security-framework.mdx": [
+      "API安全",
+      "资产管理",
+      "安全框架"
+    ],
+    "/Users/shuzi.zhang/PythonProjects/my-blog/data/blog/nuclei-poc-2025-11-11.mdx": [
+      "Nuclei",
+      "POC分析",
+      "漏洞扫描",
+      "威胁情报"
+    ],
+    "/Users/shuzi.zhang/PythonProjects/my-blog/data/blog/nuclei-poc-2025-11-12.mdx": [
+      "Nuclei",
+      "POC分析",
+      "漏洞扫描",
+      "威胁情报"
+    ],
+    "/Users/shuzi.zhang/PythonProjects/my-blog/data/blog/nuclei-poc-2025-11-13.mdx": [
+      "Nuclei",
+      "POC分析",
+      "漏洞扫描",
+      "威胁情报"
+    ],
+    "/Users/shuzi.zhang/PythonProjects/my-blog/data/blog/nuclei-poc-2025-11-14.mdx": [
+      "Nuclei",
+      "POC分析",
+      "漏洞扫描",
+      "威胁情报"
+    ],
+    "/Users/shuzi.zhang/PythonProjects/my-blog/data/blog/nuclei-poc-2025-11-15.mdx": [
+      "Nuclei",
+      "POC分析",
+      "漏洞扫描",
+      "威胁情报"
+    ],
+    "/Users/shuzi.zhang/PythonProjects/my-blog/data/blog/nuclei-poc-2025-11-16.mdx": [
+      "Nuclei",
+      "POC分析",
+      "漏洞扫描",
+      "威胁情报"
+    ],
+    "/Users/shuzi.zhang/PythonProjects/my-blog/data/blog/nuclei-poc-2025-11-17.mdx": [
+      "Nuclei",
+      "POC分析",
+      "漏洞扫描",
+      "威胁情报"
+    ],
+    "/Users/shuzi.zhang/PythonProjects/my-blog/data/blog/nuclei-poc-2025-11-18.mdx": [
+      "Nuclei",
+      "POC分析",
+      "漏洞扫描",
+      "威胁情报"
+    ],
+    "/Users/shuzi.zhang/PythonProjects/my-blog/data/blog/nuclei-poc-2025-11-19.mdx": [
+      "Nuclei",
+      "POC分析",
+      "漏洞扫描",
+      "威胁情报"
+    ],
+    "/Users/shuzi.zhang/PythonProjects/my-blog/data/blog/nuclei-poc-2025-11-20.mdx": [
+      "Nuclei",
+      "POC分析",
+      "漏洞扫描",
+      "威胁情报"
+    ],
+    "/Users/shuzi.zhang/PythonProjects/my-blog/data/blog/nuclei-poc-2025-11-21.mdx": [
+      "Nuclei",
+      "POC分析",
+      "漏洞扫描",
+      "威胁情报"
+    ],
+    "/Users/shuzi.zhang/PythonProjects/my-blog/data/blog/nuclei-poc-2025-11-22.mdx": [
+      "Nuclei",
+      "POC分析",
+      "漏洞扫描",
+      "威胁情报"
+    ],
+    "/Users/shuzi.zhang/PythonProjects/my-blog/data/blog/nuclei-poc-2025-11-23.mdx": [
+      "Nuclei",
+      "POC分析",
+      "漏洞扫描",
+      "威胁情报"
+    ],
+    "/Users/shuzi.zhang/PythonProjects/my-blog/data/blog/nuclei-poc-2025-11-25.mdx": [
+      "Nuclei",
+      "POC分析",
+      "漏洞扫描",
+      "威胁情报"
+    ],
+    "/Users/shuzi.zhang/PythonProjects/my-blog/data/blog/nuclei-poc-2025-11-26.mdx": [
+      "Nuclei",
+      "POC分析",
+      "漏洞扫描",
+      "威胁情报"
+    ],
+    "/Users/shuzi.zhang/PythonProjects/my-blog/data/blog/nuclei-poc-2025-11-27.mdx": [
+      "Nuclei",
+      "POC分析",
+      "漏洞扫描",
+      "威胁情报"
+    ],
+    "/Users/shuzi.zhang/PythonProjects/my-blog/data/blog/nuclei-poc-2025-11-28.mdx": [
+      "Nuclei",
+      "POC分析",
+      "漏洞扫描",
+      "威胁情报"
+    ],
+    "/Users/shuzi.zhang/PythonProjects/my-blog/data/blog/nuclei-poc-2025-11-29.mdx": [
+      "Nuclei",
+      "POC分析",
+      "漏洞扫描",
+      "威胁情报"
+    ],
+    "/Users/shuzi.zhang/PythonProjects/my-blog/data/blog/nuclei-poc-2025-11-30.mdx": [
+      "Nuclei",
+      "POC分析",
+      "漏洞扫描",
+      "威胁情报"
+    ],
+    "/Users/shuzi.zhang/PythonProjects/my-blog/data/blog/nuclei-poc-2025-12-01.mdx": [
+      "Nuclei",
+      "POC分析",
+      "漏洞扫描",
+      "威胁情报"
+    ],
+    "/Users/shuzi.zhang/PythonProjects/my-blog/data/blog/nuclei-poc-2025-12-02.mdx": [
+      "Nuclei",
+      "POC分析",
+      "漏洞扫描",
+      "威胁情报"
+    ],
+    "/Users/shuzi.zhang/PythonProjects/my-blog/data/blog/nuclei-poc-2025-12-03.mdx": [
+      "Nuclei",
+      "POC分析",
+      "漏洞扫描",
+      "威胁情报"
+    ],
+    "/Users/shuzi.zhang/PythonProjects/my-blog/data/blog/nuclei-poc-2025-12-04.mdx": [
+      "Nuclei",
+      "POC分析",
+      "漏洞扫描",
+      "威胁情报"
+    ],
+    "/Users/shuzi.zhang/PythonProjects/my-blog/data/blog/nuclei-poc-2025-12-05.mdx": [
+      "Nuclei",
+      "POC分析",
+      "漏洞扫描",
+      "威胁情报"
+    ],
+    "/Users/shuzi.zhang/PythonProjects/my-blog/data/blog/nuclei-poc-2025-12-06.mdx": [
+      "Nuclei",
+      "POC分析",
+      "漏洞扫描",
+      "威胁情报"
+    ],
+    "/Users/shuzi.zhang/PythonProjects/my-blog/data/blog/nuclei-poc-2025-12-07.mdx": [
+      "Nuclei",
+      "POC分析",
+      "漏洞扫描",
+      "威胁情报"
+    ],
+    "/Users/shuzi.zhang/PythonProjects/my-blog/data/blog/nuclei-poc-2025-12-08.mdx": [
+      "Nuclei",
+      "POC分析",
+      "漏洞扫描",
+      "威胁情报"
+    ],
+    "/Users/shuzi.zhang/PythonProjects/my-blog/data/blog/traffic security architecture.mdx": [
+      "流量安全",
+      "API安全",
+      "反爬虫",
+      "traffic security",
+      "SDLC"
+    ],
+    "/Users/shuzi.zhang/PythonProjects/my-blog/data/blog/从 0 到 1 落地：企业信息安全风险评估与渗透测试实战指南.mdx": [
+      "风险评估",
+      "渗透测试",
+      "应用安全",
+      "安全建设",
+      "SDLC",
+      "合规"
+    ],
+    "/Users/shuzi.zhang/PythonProjects/my-blog/data/blog/安全设计 - 快速提高API接口协议的方案.mdx": [
+      "应用安全",
+      "安全方案",
+      "SDLC",
+      "接口设计"
+    ],
+    "/Users/shuzi.zhang/PythonProjects/my-blog/data/blog/流量安全.mdx": [
+      "应用安全",
+      "对抗思路",
+      "机器学习",
+      "接口风控"
+    ],
+    "/Users/shuzi.zhang/PythonProjects/my-blog/data/blog/用信息熵与随机森林算法对抗爬虫实践.mdx": [
+      "应用安全",
+      "对抗思路",
+      "机器学习",
+      "流量安全"
+    ],
+    "/Users/shuzi.zhang/PythonProjects/my-blog/data/blog/筑牢安全防线：如何设计高效的系统安全态势监控方案.mdx": [
+      "安全运营",
+      "态势感知",
+      "核心系统",
+      "监控架构"
+    ]
+  }
+}

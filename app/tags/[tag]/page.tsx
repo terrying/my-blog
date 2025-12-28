@@ -8,15 +8,25 @@ import { genPageMetadata } from 'app/seo'
 import { Metadata } from 'next'
 
 const POSTS_PER_PAGE = 5
+type TagData = { counts: Record<string, number>; display: Record<string, string> }
+
+function getTagLabel(tagSlug: string) {
+  const data = tagData as TagData
+  const raw = data.display?.[tagSlug] ?? tagSlug
+  const m = /^([^-\s]+)-(.*)$/.exec(raw)
+  if (m && m[2]) return m[2]
+  return raw
+}
 
 export async function generateMetadata(props: {
   params: Promise<{ tag: string }>
 }): Promise<Metadata> {
   const params = await props.params
   const tag = decodeURI(params.tag)
+  const label = getTagLabel(tag)
   return genPageMetadata({
-    title: tag,
-    description: `${siteMetadata.title} ${tag} tagged content`,
+    title: label,
+    description: `${siteMetadata.title} - ${label}`,
     alternates: {
       canonical: './',
       types: {
@@ -27,8 +37,8 @@ export async function generateMetadata(props: {
 }
 
 export const generateStaticParams = async () => {
-  const tagCounts = tagData as Record<string, number>
-  const tagKeys = Object.keys(tagCounts)
+  const data = tagData as TagData
+  const tagKeys = Object.keys(data.counts || {})
   return tagKeys.map((tag) => ({
     tag: tag,
   }))
@@ -37,7 +47,7 @@ export const generateStaticParams = async () => {
 export default async function TagPage(props: { params: Promise<{ tag: string }> }) {
   const params = await props.params
   const tag = decodeURI(params.tag)
-  const title = tag[0].toUpperCase() + tag.split(' ').join('-').slice(1)
+  const title = getTagLabel(tag)
   const filteredPosts = allCoreContent(
     sortPosts(allBlogs.filter((post) => post.tags && post.tags.map((t) => slug(t)).includes(tag)))
   )

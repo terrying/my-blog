@@ -1,11 +1,11 @@
 ---
 title: 'Nuclei POC 精选分析 - 2025-11-15'
 date: '2025-11-15'
-tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
+tags: ['Nuclei', 'POC分析', '漏洞扫描']
 draft: false
 summary: '从 64 个模板更新中精选分析 28 个高价值 POC，发现 18 个高风险漏洞'
 authors: ['default']
-category: 'security-intel'
+category: 'app-vuln'
 ---
 
 # Nuclei POC 精选分析 - 2025-11-15
@@ -13,7 +13,7 @@ category: 'security-intel'
 ## 📊 智能筛选概况
 
 - **发现变更**: 64 个模板更新
-- **精选分析**: 28 个高价值 POC  
+- **精选分析**: 28 个高价值 POC
 - **智能跳过**: 36 个低优先级模板
 - **高风险漏洞**: 18 个
 - **主要类别**: CVE漏洞(15), 其他(11), 配置错误(2)
@@ -29,7 +29,6 @@ category: 'security-intel'
 
 ## 🔍 重点漏洞分析
 
-
 ### FortiWeb - Authentication Bypass
 
 - **漏洞ID**: `CVE-2025-64446`
@@ -40,12 +39,12 @@ category: 'security-intel'
 
 **描述**: A relative path traversal vulnerability in Fortinet FortiWeb 8.0.0 through 8.0.1, FortiWeb 7.6.0 through 7.6.4, FortiWeb 7.4.0 through 7.4.9, FortiWeb 7.2.0 through 7.2.11, FortiWeb 7.0.0 through 7.0.11 may allow an attacker to execute administrative commands on the system via crafted HTTP or HTTPS requests.
 
-
 **攻击向量**: 网络扫描
 
 **CVE编号**: CVE-2025-64446
 
-**参考链接**: 
+**参考链接**:
+
 - [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-64446)
 - [参考资料](https://x.com/defusedcyber/status/1975242250373517373)
 - [参考资料](https://github.com/watchtowrlabs/watchTowr-vs-Fortiweb-AuthBypass)
@@ -53,7 +52,6 @@ category: 'security-intel'
 
 ---
 
-
 ### IBM Data Risk Manager - Hardcoded Credentials
 
 - **漏洞ID**: `CVE-2020-4429`
@@ -64,18 +62,17 @@ category: 'security-intel'
 
 **描述**: IBM Data Risk Manager 2.0.1, 2.0.2, 2.0.3, 2.0.4, 2.0.5, and 2.0.6 contains a default password for an IDRM administrative account. A remote attacker could exploit this vulnerability to login and execute arbitrary code on the system with root privileges. IBM X-Force ID- 180534.
 
-
 **攻击向量**: 网络扫描
 
 **CVE编号**: CVE-2020-4429
 
-**参考链接**: 
+**参考链接**:
+
 - [参考资料](https://exchange.xforce.ibmcloud.com/vulnerabilities/180534)
 - [参考资料](https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/linux/ssh/ibm_drm_a3user.rb)
 - [参考资料](https://www.ibm.com/support/pages/security-bulletin-vulnerabilities-exist-ibm-data-risk-manager-cve-2020-4427-cve-2020-4428-cve-2020-4429-and-cve-2020-4430)
 
 ---
-
 
 ### VMWare Aria Operations - Remote Code Execution
 
@@ -88,12 +85,12 @@ category: 'security-intel'
 **描述**: VMWare Aria Operations for Networks (vRealize Network Insight) Static SSH key RCE (CVE-2023-34039)
 Version: All versions from 6.0 to 6.10
 
-
 **攻击向量**: 网络扫描
 
 **CVE编号**: CVE-2023-34039
 
-**参考链接**: 
+**参考链接**:
+
 - [参考资料](https://github.com/sinsinology/CVE-2023-34039.git)
 - [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2023-34039)
 - [参考资料](http://packetstormsecurity.com/files/174452/VMWare-Aria-Operations-For-Networks-Remote-Code-Execution.html)
@@ -101,7 +98,6 @@ Version: All versions from 6.0 to 6.10
 - [参考资料](https://www.vmware.com/security/advisories/VMSA-2023-0018.html)
 
 ---
-
 
 ### Zimbra Collaboration Suite &lt; 9.0.0 - Remote Code Execution
 
@@ -113,17 +109,14 @@ Version: All versions from 6.0 to 6.10
 
 **描述**: SMTP-based vulnerability in the PostJournal service of Zimbra Collaboration Suite that allows unauthenticated attackers to inject arbitrary commands. This vulnerability arises due to improper sanitization of SMTP input, enabling attackers to craft malicious SMTP messages that execute commands under the Zimbra user context. Successful exploitation can lead to unauthorized access, privilege escalation, and potential compromise of the affected system&#x27;s integrity and confidentiality.
 
-
 **攻击向量**: 网络扫描
 
+**参考链接**:
 
-
-**参考链接**: 
 - [参考资料](https://wiki.zimbra.com/wiki/Zimbra_Security_Advisories)
 - [参考资料](https://blog.projectdiscovery.io/zimbra-remote-code-execution/)
 
 ---
-
 
 ### IBM Data Risk Manager - Hardcoded Credentials
 
@@ -135,18 +128,17 @@ Version: All versions from 6.0 to 6.10
 
 **描述**: IBM Data Risk Manager 2.0.1, 2.0.2, 2.0.3, 2.0.4, 2.0.5, and 2.0.6 contains a default password for an IDRM administrative account. A remote attacker could exploit this vulnerability to login and execute arbitrary code on the system with root privileges. IBM X-Force ID- 180534.
 
-
 **攻击向量**: 网络扫描
 
 **CVE编号**: CVE-2020-4429
 
-**参考链接**: 
+**参考链接**:
+
 - [参考资料](https://exchange.xforce.ibmcloud.com/vulnerabilities/180534)
 - [参考资料](https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/linux/ssh/ibm_drm_a3user.rb)
 - [参考资料](https://www.ibm.com/support/pages/security-bulletin-vulnerabilities-exist-ibm-data-risk-manager-cve-2020-4427-cve-2020-4428-cve-2020-4429-and-cve-2020-4430)
 
 ---
-
 
 ### VMWare Aria Operations - Remote Code Execution
 
@@ -159,12 +151,12 @@ Version: All versions from 6.0 to 6.10
 **描述**: VMWare Aria Operations for Networks (vRealize Network Insight) Static SSH key RCE (CVE-2023-34039)
 Version: All versions from 6.0 to 6.10
 
-
 **攻击向量**: 网络扫描
 
 **CVE编号**: CVE-2023-34039
 
-**参考链接**: 
+**参考链接**:
+
 - [参考资料](https://github.com/sinsinology/CVE-2023-34039.git)
 - [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2023-34039)
 - [参考资料](http://packetstormsecurity.com/files/174452/VMWare-Aria-Operations-For-Networks-Remote-Code-Execution.html)
@@ -172,7 +164,6 @@ Version: All versions from 6.0 to 6.10
 - [参考资料](https://www.vmware.com/security/advisories/VMSA-2023-0018.html)
 
 ---
-
 
 ### Zimbra Collaboration Suite &lt; 9.0.0 - Remote Code Execution
 
@@ -184,17 +175,32 @@ Version: All versions from 6.0 to 6.10
 
 **描述**: SMTP-based vulnerability in the PostJournal service of Zimbra Collaboration Suite that allows unauthenticated attackers to inject arbitrary commands. This vulnerability arises due to improper sanitization of SMTP input, enabling attackers to craft malicious SMTP messages that execute commands under the Zimbra user context. Successful exploitation can lead to unauthorized access, privilege escalation, and potential compromise of the affected system&#x27;s integrity and confidentiality.
 
-
 **攻击向量**: 网络扫描
 
+**参考链接**:
 
-
-**参考链接**: 
 - [参考资料](https://wiki.zimbra.com/wiki/Zimbra_Security_Advisories)
 - [参考资料](https://blog.projectdiscovery.io/zimbra-remote-code-execution/)
 
 ---
 
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+**攻击向量**: 网络扫描
+
+**参考链接**:
+
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
 
 ### UFIDA NC - Arbitrary File Read
 
@@ -206,16 +212,13 @@ Version: All versions from 6.0 to 6.10
 
 **描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
 
-
 **攻击向量**: 网络扫描
 
+**参考链接**:
 
-
-**参考链接**: 
 - [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
 
 ---
-
 
 ### UFIDA NC - Arbitrary File Read
 
@@ -227,16 +230,13 @@ Version: All versions from 6.0 to 6.10
 
 **描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
 
-
 **攻击向量**: 网络扫描
 
+**参考链接**:
 
-
-**参考链接**: 
 - [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
 
 ---
-
 
 ### UFIDA NC - Arbitrary File Read
 
@@ -248,16 +248,13 @@ Version: All versions from 6.0 to 6.10
 
 **描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
 
-
 **攻击向量**: 网络扫描
 
+**参考链接**:
 
-
-**参考链接**: 
 - [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
 
 ---
-
 
 ### UFIDA NC - Arbitrary File Read
 
@@ -269,16 +266,13 @@ Version: All versions from 6.0 to 6.10
 
 **描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
 
-
 **攻击向量**: 网络扫描
 
+**参考链接**:
 
-
-**参考链接**: 
 - [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
 
 ---
-
 
 ### UFIDA NC - Arbitrary File Read
 
@@ -290,16 +284,13 @@ Version: All versions from 6.0 to 6.10
 
 **描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
 
-
 **攻击向量**: 网络扫描
 
+**参考链接**:
 
-
-**参考链接**: 
 - [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
 
 ---
-
 
 ### UFIDA NC - Arbitrary File Read
 
@@ -311,37 +302,13 @@ Version: All versions from 6.0 to 6.10
 
 **描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
 
-
 **攻击向量**: 网络扫描
 
+**参考链接**:
 
-
-**参考链接**: 
 - [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
 
 ---
-
-
-### UFIDA NC - Arbitrary File Read
-
-- **漏洞ID**: `yonyou-nc-lfi`
-- **严重程度**: 🟠 HIGH
-- **风险等级**: 高风险 (4/5)
-- **影响资产**: 未知
-- **预估影响**: 数千个
-
-**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
-
-
-**攻击向量**: 网络扫描
-
-
-
-**参考链接**: 
-- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
-
----
-
 
 ### VNC Default Login
 
@@ -353,15 +320,9 @@ Version: All versions from 6.0 to 6.10
 
 **描述**: The VNC service had been accessed using easily guessed credentials.Weak credentials allowed unauthorized access to the VNC service.
 
-
 **攻击向量**: 网络扫描
 
-
-
-
-
 ---
-
 
 ### MySQL - Empty Password
 
@@ -373,15 +334,9 @@ Version: All versions from 6.0 to 6.10
 
 **描述**: Checks for MySQL servers with an empty password for root or anonymous.
 
-
 **攻击向量**: 网络扫描
 
-
-
-
-
 ---
-
 
 ### MySQL - Empty Password
 
@@ -393,15 +348,9 @@ Version: All versions from 6.0 to 6.10
 
 **描述**: Checks for MySQL servers with an empty password for root or anonymous.
 
-
 **攻击向量**: 网络扫描
 
-
-
-
-
 ---
-
 
 ### VNC Default Login
 
@@ -413,48 +362,42 @@ Version: All versions from 6.0 to 6.10
 
 **描述**: The VNC service had been accessed using easily guessed credentials.Weak credentials allowed unauthorized access to the VNC service.
 
-
 **攻击向量**: 网络扫描
 
-
-
-
-
 ---
-
 
 ## 📋 完整模板列表
 
-| 模板名称 | 严重程度 | 类别 | 影响资产 | 风险评分 |
-|---------|---------|------|---------|---------|
-| FortiWeb - Authentication Bypass | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
-| IBM Data Risk Manager - Hardcoded Credentials | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
-| VMWare Aria Operations - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
-| Zimbra Collaboration Suite &lt; 9.0.0 - Remote Cod | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
-| IBM Data Risk Manager - Hardcoded Credentials | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
-| VMWare Aria Operations - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
-| Zimbra Collaboration Suite &lt; 9.0.0 - Remote Cod | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
-| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
-| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
-| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
-| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
-| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
-| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
-| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | 4/5 |
-| VNC Default Login | 🟠 high | 其他 | 通用 | 4/5 |
-| MySQL - Empty Password | 🟠 high | 配置错误 | 通用 | 4/5 |
-| MySQL - Empty Password | 🟠 high | 配置错误 | 通用 | 4/5 |
-| VNC Default Login | 🟠 high | 其他 | 通用 | 4/5 |
-| Zimbra Collaboration Suite - Cross-site Scripting | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
-| Zimbra Collaboration Suite - Cross-site Scripting | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
-| MySQL - Authentication Bypass | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
-| MySQL - Authentication Bypass | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
-| Citrix NetScaler ADC & Gateway - Reflected XSS / O | 🟡 medium | CVE漏洞 | 通用 | 3/5 |
-| Citrix NetScaler ADC & Gateway - Reflected XSS / O | 🟡 medium | CVE漏洞 | 通用 | 3/5 |
-| Citrix NetScaler ADC & Gateway - Reflected XSS / O | 🟡 medium | CVE漏洞 | 通用 | 3/5 |
-| Citrix NetScaler ADC & Gateway - Reflected XSS / O | 🟡 medium | CVE漏洞 | 通用 | 3/5 |
-| ASP.NET Framework Exceptions | ⚪ info | 其他 | 通用 | 1/5 |
-| Node.js Framework Exceptions | ⚪ info | 其他 | 通用 | 1/5 |
+| 模板名称                                           | 严重程度    | 类别     | 影响资产 | 风险评分 |
+| -------------------------------------------------- | ----------- | -------- | -------- | -------- |
+| FortiWeb - Authentication Bypass                   | 🔴 critical | CVE漏洞  | 通用     | 5/5      |
+| IBM Data Risk Manager - Hardcoded Credentials      | 🔴 critical | CVE漏洞  | 通用     | 5/5      |
+| VMWare Aria Operations - Remote Code Execution     | 🔴 critical | CVE漏洞  | 通用     | 5/5      |
+| Zimbra Collaboration Suite &lt; 9.0.0 - Remote Cod | 🔴 critical | CVE漏洞  | 通用     | 5/5      |
+| IBM Data Risk Manager - Hardcoded Credentials      | 🔴 critical | CVE漏洞  | 通用     | 5/5      |
+| VMWare Aria Operations - Remote Code Execution     | 🔴 critical | CVE漏洞  | 通用     | 5/5      |
+| Zimbra Collaboration Suite &lt; 9.0.0 - Remote Cod | 🔴 critical | CVE漏洞  | 通用     | 5/5      |
+| UFIDA NC - Arbitrary File Read                     | 🟠 high     | 其他     | 通用     | 4/5      |
+| UFIDA NC - Arbitrary File Read                     | 🟠 high     | 其他     | 通用     | 4/5      |
+| UFIDA NC - Arbitrary File Read                     | 🟠 high     | 其他     | 通用     | 4/5      |
+| UFIDA NC - Arbitrary File Read                     | 🟠 high     | 其他     | 通用     | 4/5      |
+| UFIDA NC - Arbitrary File Read                     | 🟠 high     | 其他     | 通用     | 4/5      |
+| UFIDA NC - Arbitrary File Read                     | 🟠 high     | 其他     | 通用     | 4/5      |
+| UFIDA NC - Arbitrary File Read                     | 🟠 high     | 其他     | 通用     | 4/5      |
+| VNC Default Login                                  | 🟠 high     | 其他     | 通用     | 4/5      |
+| MySQL - Empty Password                             | 🟠 high     | 配置错误 | 通用     | 4/5      |
+| MySQL - Empty Password                             | 🟠 high     | 配置错误 | 通用     | 4/5      |
+| VNC Default Login                                  | 🟠 high     | 其他     | 通用     | 4/5      |
+| Zimbra Collaboration Suite - Cross-site Scripting  | 🟡 medium   | CVE漏洞  | 通用     | 3.5/5    |
+| Zimbra Collaboration Suite - Cross-site Scripting  | 🟡 medium   | CVE漏洞  | 通用     | 3.5/5    |
+| MySQL - Authentication Bypass                      | 🟡 medium   | CVE漏洞  | 通用     | 3.5/5    |
+| MySQL - Authentication Bypass                      | 🟡 medium   | CVE漏洞  | 通用     | 3.5/5    |
+| Citrix NetScaler ADC & Gateway - Reflected XSS / O | 🟡 medium   | CVE漏洞  | 通用     | 3/5      |
+| Citrix NetScaler ADC & Gateway - Reflected XSS / O | 🟡 medium   | CVE漏洞  | 通用     | 3/5      |
+| Citrix NetScaler ADC & Gateway - Reflected XSS / O | 🟡 medium   | CVE漏洞  | 通用     | 3/5      |
+| Citrix NetScaler ADC & Gateway - Reflected XSS / O | 🟡 medium   | CVE漏洞  | 通用     | 3/5      |
+| ASP.NET Framework Exceptions                       | ⚪ info     | 其他     | 通用     | 1/5      |
+| Node.js Framework Exceptions                       | ⚪ info     | 其他     | 通用     | 1/5      |
 
 ## 🛡️ 安全建议
 
@@ -470,12 +413,12 @@ Version: All versions from 6.0 to 6.10
 # 扫描高危漏洞
 nuclei -t http/cves/2025/CVE-2025-64446.yaml -t javascript/cves/2020/CVE-2020-4429.yaml -t javascript/cves/2023/CVE-2023-34039.yaml -t javascript/cves/2024/CVE-2024-45519.yaml -t javascript/cves/2020/CVE-2020-4429.yaml -t javascript/cves/2023/CVE-2023-34039.yaml -t javascript/cves/2024/CVE-2024-45519.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t javascript/default-logins/vnc-default-login.yaml -t javascript/misconfiguration/mysql/mysql-empty-password.yaml -t javascript/misconfiguration/mysql/mysql-empty-password.yaml -t javascript/default-logins/vnc-default-login.yaml -u target-url
 
-# 扫描所有今日新增模板  
+# 扫描所有今日新增模板
 nuclei -t http/cves/2025/CVE-2025-64446.yaml -t javascript/cves/2020/CVE-2020-4429.yaml -t javascript/cves/2023/CVE-2023-34039.yaml -t javascript/cves/2024/CVE-2024-45519.yaml -t javascript/cves/2020/CVE-2020-4429.yaml -t javascript/cves/2023/CVE-2023-34039.yaml -t javascript/cves/2024/CVE-2024-45519.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t javascript/default-logins/vnc-default-login.yaml -t javascript/misconfiguration/mysql/mysql-empty-password.yaml -t javascript/misconfiguration/mysql/mysql-empty-password.yaml -t javascript/default-logins/vnc-default-login.yaml -t http/cves/2018/CVE-2018-6882.yaml -t http/cves/2018/CVE-2018-6882.yaml -t javascript/cves/2012/CVE-2012-2122.yaml -t javascript/cves/2012/CVE-2012-2122.yaml -t javascript/cves/2025/CVE-2025-12101.yaml -t javascript/cves/2025/CVE-2025-12101.yaml -t javascript/cves/2025/CVE-2025-12101.yaml -t javascript/cves/2025/CVE-2025-12101.yaml -t file/logs/aspnet-framework-exceptions.yaml -t file/logs/nodejs-framework-exceptions.yaml -u target-url
 ```
 
 ---
 
-*本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)*
+_本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)_
 
-*扫描建议仅供参考，请在授权环境下进行安全测试*
+_扫描建议仅供参考，请在授权环境下进行安全测试_

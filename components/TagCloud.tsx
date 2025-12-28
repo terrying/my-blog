@@ -1,13 +1,23 @@
 import Link from '@/components/Link'
-import { slug } from 'github-slugger'
 import tagData from 'app/tag-data.json'
 
 export default function TagCloud() {
-  const tagCounts = tagData as Record<string, number>
+  type TagData = { counts: Record<string, number>; display: Record<string, string> }
+  const data = tagData as TagData
+  const tagCounts = data.counts || {}
+  const tagDisplay = data.display || {}
+
   const tagKeys = Object.keys(tagCounts)
   const sortedTags = tagKeys.sort((a, b) => tagCounts[b] - tagCounts[a])
-  const maxCount = Math.max(...Object.values(tagCounts))
-  const minCount = Math.min(...Object.values(tagCounts))
+  const values = Object.values(tagCounts)
+  const maxCount = values.length ? Math.max(...values) : 1
+  const minCount = values.length ? Math.min(...values) : 0
+
+  const prettyLabel = (raw: string) => {
+    const m = /^([^-\s]+)-(.*)$/.exec(raw)
+    if (m && m[2]) return m[2]
+    return raw
+  }
 
   const getTagSize = (count: number) => {
     const ratio = (count - minCount) / (maxCount - minCount)
@@ -50,11 +60,11 @@ export default function TagCloud() {
         {sortedTags.slice(0, 12).map((tag, index) => (
           <Link
             key={tag}
-            href={`/tags/${slug(tag)}`}
+            href={`/tags/${tag}`}
             className={`inline-block rounded-full border border-gray-200 px-3 py-1 transition-all duration-200 hover:border-transparent dark:border-gray-600 ${getTagColor(index)} transform hover:scale-105 hover:shadow-md`}
             style={{ fontSize: `${getTagSize(tagCounts[tag])}rem` }}
           >
-            #{tag}
+            #{prettyLabel(tagDisplay[tag] ?? tag)}
             <span className="ml-1 text-xs opacity-75">({tagCounts[tag]})</span>
           </Link>
         ))}

@@ -64,10 +64,15 @@ const computedFields: ComputedFields = {
  */
 async function createTagCount(allBlogs) {
   const tagCount: Record<string, number> = {}
+  const tagDisplay: Record<string, string> = {}
   allBlogs.forEach((file) => {
     if (file.tags && (!isProduction || file.draft !== true)) {
       file.tags.forEach((tag) => {
         const formattedTag = slug(tag)
+        // Preserve a display label for this tag slug (first occurrence wins)
+        if (!(formattedTag in tagDisplay)) {
+          tagDisplay[formattedTag] = tag
+        }
         if (formattedTag in tagCount) {
           tagCount[formattedTag] += 1
         } else {
@@ -76,7 +81,10 @@ async function createTagCount(allBlogs) {
       })
     }
   })
-  const formatted = await prettier.format(JSON.stringify(tagCount, null, 2), { parser: 'json' })
+  const formatted = await prettier.format(
+    JSON.stringify({ counts: tagCount, display: tagDisplay }, null, 2),
+    { parser: 'json' }
+  )
   writeFileSync('./app/tag-data.json', formatted)
 }
 

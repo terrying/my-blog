@@ -67,4 +67,12 @@ export default [
       '@typescript-eslint/ban-ts-comment': 'off',
     },
   },
+  // Next.js generates this file and uses triple-slash references by design.
+  // Put this override LAST so it wins over presets above.
+  {
+    files: ['next-env.d.ts'],
+    rules: {
+      '@typescript-eslint/triple-slash-reference': 'off',
+    },
+  },
 ]

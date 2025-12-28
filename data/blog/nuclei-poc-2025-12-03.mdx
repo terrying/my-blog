@@ -1,11 +1,11 @@
 ---
 title: 'Nuclei POC 精选分析 - 2025-12-03'
 date: '2025-12-03'
-tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
+tags: ['Nuclei', 'POC分析', '漏洞扫描']
 draft: false
 summary: '从 336 个模板更新中精选分析 30 个高价值 POC，发现 28 个高风险漏洞'
 authors: ['default']
-category: 'security-intel'
+category: 'app-vuln'
 ---
 
 # Nuclei POC 精选分析 - 2025-12-03
@@ -13,7 +13,7 @@ category: 'security-intel'
 ## 📊 智能筛选概况
 
 - **发现变更**: 336 个模板更新
-- **精选分析**: 30 个高价值 POC  
+- **精选分析**: 30 个高价值 POC
 - **智能跳过**: 306 个低优先级模板
 - **高风险漏洞**: 28 个
 - **主要类别**: CVE漏洞(28), 其他(2)
@@ -29,6 +29,26 @@ category: 'security-intel'
 
 ## 🔍 重点漏洞分析
 
+### Fortinet - Authentication Bypass
+
+- **漏洞ID**: `CVE-2024-55591`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Fortinet FortiOS is vulnerable to an information disclosure via service-worker.js that could allow an attacker to access sensitive information.This vulnerability affects FortiOS and could potentially lead to unauthorized access to the system.
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2024-55591
+
+**参考链接**:
+
+- [参考资料](https://github.com/watchtowrlabs/fortios-auth-bypass-poc-CVE-2024-55591/blob/main/CVE-2024-55591-PoC.py)
+- [参考资料](https://nvd.nist.gov/vuln/detail/cve-2024-55591)
+
+---
 
 ### Fortinet - Authentication Bypass
 
@@ -40,39 +60,16 @@ category: 'security-intel'
 
 **描述**: Fortinet FortiOS is vulnerable to an information disclosure via service-worker.js that could allow an attacker to access sensitive information.This vulnerability affects FortiOS and could potentially lead to unauthorized access to the system.
 
-
 **攻击向量**: 网络扫描
 
 **CVE编号**: CVE-2024-55591
 
-**参考链接**: 
+**参考链接**:
+
 - [参考资料](https://github.com/watchtowrlabs/fortios-auth-bypass-poc-CVE-2024-55591/blob/main/CVE-2024-55591-PoC.py)
 - [参考资料](https://nvd.nist.gov/vuln/detail/cve-2024-55591)
 
 ---
-
-
-### Fortinet - Authentication Bypass
-
-- **漏洞ID**: `CVE-2024-55591`
-- **严重程度**: 🔴 CRITICAL
-- **风险等级**: 极高风险 (5/5)
-- **影响资产**: 未知
-- **预估影响**: 数千个
-
-**描述**: Fortinet FortiOS is vulnerable to an information disclosure via service-worker.js that could allow an attacker to access sensitive information.This vulnerability affects FortiOS and could potentially lead to unauthorized access to the system.
-
-
-**攻击向量**: 网络扫描
-
-**CVE编号**: CVE-2024-55591
-
-**参考链接**: 
-- [参考资料](https://github.com/watchtowrlabs/fortios-auth-bypass-poc-CVE-2024-55591/blob/main/CVE-2024-55591-PoC.py)
-- [参考资料](https://nvd.nist.gov/vuln/detail/cve-2024-55591)
-
----
-
 
 ### Apache Tomcat - Remote Code Execution via JMX Ports
 
@@ -84,17 +81,16 @@ category: 'security-intel'
 
 **描述**: Apache Tomcat versions before 6.0.48, 7.x before 7.0.73, 8.x before 8.0.39, 8.5.x before 8.5.7, and 9.x before 9.0.0.M12 are vulnerable to remote code execution if JmxRemoteLifecycleListener is used and the JMX ports are exposed to attackers. The vulnerability exists due to inconsistent credential type handling, which was not aligned with the CVE-2016-3427 Oracle patch. Attackers with access to JMX ports can exploit this issue to execute arbitrary code remotely.
 
-
 **攻击向量**: 网络扫描
 
 **CVE编号**: CVE-2016-8735
 
-**参考链接**: 
+**参考链接**:
+
 - [参考资料](https://medium.com/tenable-techblog/achieving-rce-on-tomcat-via-cve-2016-8735-a-proof-of-concept-13df8a9ef0e0)
 - [参考资料](https://nvd.nist.gov/vuln/detail/cve-2016-8735)
 
 ---
-
 
 ### Microsoft SharePoint - Remote Code Execution
 
@@ -106,18 +102,17 @@ category: 'security-intel'
 
 **描述**: Microsoft SharePoint contains a remote code execution caused by failure to check the source markup of an application package, letting remote attackers execute arbitrary code, exploit requires sending malicious application package.
 
-
 **攻击向量**: 网络扫描
 
 **CVE编号**: CVE-2019-0604
 
-**参考链接**: 
+**参考链接**:
+
 - [参考资料](https://github.com/Gh0st0ne/weaponized-0604)
 - [参考资料](https://msrc.microsoft.com/update-guide/en-US/advisory/CVE-2019-0604)
 - [参考资料](https://nvd.nist.gov/vuln/detail/cve-2019-0604)
 
 ---
-
 
 ### Microsoft .NET Framework - Remote Code Execution
 
@@ -129,18 +124,17 @@ category: 'security-intel'
 
 **描述**: A remote code execution vulnerability exists when the Microsoft .NET Framework fails to validate input properly, aka &#x27;.NET Framework Remote Code Execution Injection Vulnerability&#x27;.
 
-
 **攻击向量**: 网络扫描
 
 **CVE编号**: CVE-2020-0646
 
-**参考链接**: 
+**参考链接**:
+
 - [参考资料](https://www.cve.org/CVERecord?id=CVE-2020-0646)
 - [参考资料](https://msrc.microsoft.com/update-guide/en-US/advisory/CVE-2020-0646)
 - [参考资料](http://packetstormsecurity.com/files/156930/SharePoint-Workflows-XOML-Injection.html)
 
 ---
-
 
 ### Fortinet SSL-VPN - Heap-Based Buffer Overflow
 
@@ -152,12 +146,12 @@ category: 'security-intel'
 
 **描述**: A heap-based buffer overflow vulnerability &#x5B;CWE-122&#x5D; in FortiOS SSL-VPN (versions 7.2.0 through 7.2.2, 7.0.0 through 7.0.8, 6.4.0 through 6.4.10, 6.2.0 through 6.2.11, 6.0.15 and earlier) and FortiProxy SSL-VPN (versions 7.2.0 through 7.2.1, 7.0.7 and earlier) may allow a remote unauthenticated attacker to execute arbitrary code or commands via specifically crafted requests.
 
-
 **攻击向量**: 网络扫描
 
 **CVE编号**: CVE-2022-42475
 
-**参考链接**: 
+**参考链接**:
+
 - [参考资料](https://github.com/0xhaggis/CVE-2022-42475)
 - [参考资料](https://fortiguard.com/psirt/FG-IR-22-398)
 - [参考资料](https://labs.watchtowr.com/fortinet-no-more-funny-titles-cve-2022-42475/)
@@ -165,7 +159,6 @@ category: 'security-intel'
 - [参考资料](https://github.com/3yujw7njai/CVE-2022-42475-RCE-POC)
 
 ---
-
 
 ### Abandoned Cart Lite for WooCommerce - Authentication Bypass
 
@@ -177,12 +170,12 @@ category: 'security-intel'
 
 **描述**: The Abandoned Cart Lite for WooCommerce plugin for WordPress is vulnerable to authentication bypass in versions up to, and including, 5.14.2. This is due to insufficient encryption on the user being supplied during the abandoned cart link decode through the plugin. This allows unauthenticated attackers to log in as users who have abandoned the cart, who are typically customers. Further security hardening was introduced in version 5.15.1 that ensures sites are no longer vulnerable through historical check-out links, and additional hardening was introduced in version 5.15.2 that ensured null key values wouldn&#x27;t permit the authentication bypass.
 
-
 **攻击向量**: 网络扫描
 
 **CVE编号**: CVE-2023-2986
 
-**参考链接**: 
+**参考链接**:
+
 - [参考资料](https://github.com/Alucard0x1/CVE-2023-2986)
 - [参考资料](https://github.com/TycheSoftwares/woocommerce-abandoned-cart/pull/885#issuecomment-1601813615)
 - [参考资料](https://plugins.trac.wordpress.org/changeset?sfp_email=&sfph_mail=&reponame=&old=2925274%40woocommerce-abandoned-cart&new=2925274%40woocommerce-abandoned-cart&sfp_email=&sfph_mail=)
@@ -190,7 +183,6 @@ category: 'security-intel'
 - [参考资料](https://github.com/Ayantaker/CVE-2023-2986)
 
 ---
-
 
 ### OwnCloud - WebDAV API Authentication Bypass
 
@@ -202,12 +194,12 @@ category: 'security-intel'
 
 **描述**: An issue was discovered in ownCloud owncloud/core before 10.13.1. An attacker can access, modify, or delete any file without authentication if the username of a victim is known, and the victim has no signing-key configured. This occurs because pre-signed URLs can be accepted even when no signing-key is configured for the owner of the files. The earliest affected version is 10.6.0.
 
-
 **攻击向量**: 网络扫描
 
 **CVE编号**: CVE-2023-49105
 
-**参考链接**: 
+**参考链接**:
+
 - [参考资料](https://owncloud.com/security-advisories/webdav-api-authentication-bypass-using-pre-signed-urls/)
 - [参考资料](https://github.com/0xfed/ownedcloud)
 - [参考资料](https://owncloud.org/security)
@@ -215,7 +207,6 @@ category: 'security-intel'
 - [参考资料](https://github.com/nomi-sec/PoC-in-GitHub)
 
 ---
-
 
 ### Synology BeeStation BST150-4T - Unauthenticated Command Injection
 
@@ -227,16 +218,15 @@ category: 'security-intel'
 
 **描述**: Improper neutralization of special elements used in a command (&#x27;Command Injection&#x27;) vulnerability in Task Manager component in Synology BeePhotos before 1.0.2-10026 and 1.1.0-10053 and Synology Photos before 1.6.2-0720 and 1.7.0-0795 allows remote attackers to execute arbitrary code via unspecified vectors.
 
-
 **攻击向量**: 网络扫描
 
 **CVE编号**: CVE-2024-10443
 
-**参考链接**: 
+**参考链接**:
+
 - [参考资料](https://www.synology.com/en-us/security/advisory/Synology_SA_24_18)
 
 ---
-
 
 ### Privileged Remote Access & Remote Support - Command Injection
 
@@ -248,16 +238,15 @@ category: 'security-intel'
 
 **描述**: A critical vulnerability has been discovered in Privileged Remote Access (PRA) and Remote Support (RS) products which can allow an unauthenticated attacker to inject commands that are run as a site user.
 
-
 **攻击向量**: 网络扫描
 
 **CVE编号**: CVE-2024-12356
 
-**参考链接**: 
+**参考链接**:
+
 - [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2024-12356)
 
 ---
-
 
 ### Zabbix Server - Time-Based Blind SQL injection
 
@@ -269,12 +258,12 @@ category: 'security-intel'
 
 **描述**: The Zabbix server can execute commands for configured scripts. After executing a command, an audit entry is added to the &quot;Audit Log&quot;. Due to the &quot;clientip&quot; field not being sanitized, it is possible to inject SQL into &quot;clientip&quot; and exploit a time-based blind SQL injection vulnerability.
 
-
 **攻击向量**: 网络扫描
 
 **CVE编号**: CVE-2024-22120
 
-**参考链接**: 
+**参考链接**:
+
 - [参考资料](https://support.zabbix.com/browse/ZBX-24505#/)
 - [参考资料](https://github.com/W01fh4cker/CVE-2024-22120-RCE)
 - [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2024-22120)
@@ -282,7 +271,6 @@ category: 'security-intel'
 - [参考资料](https://github.com/AboSteam/POPC)
 
 ---
-
 
 ### XZ - Embedded Malicious Code
 
@@ -294,12 +282,12 @@ category: 'security-intel'
 
 **描述**: Malicious code was discovered in the upstream tarballs of xz, starting with version 5.6.0. Through a series of complex obfuscations, the liblzma build process extracts a prebuilt object file from a disguised test file existing in the source code, which is then used to modify specific functions in the liblzma code. This results in a modified liblzma library that can be used by any software linked against this library, intercepting and modifying the data interaction with this library.
 
-
 **攻击向量**: 网络扫描
 
 **CVE编号**: CVE-2024-3094
 
-**参考链接**: 
+**参考链接**:
+
 - [参考资料](https://www.openwall.com/lists/oss-security/2024/03/29/4)
 - [参考资料](https://access.redhat.com/security/cve/CVE-2024-3094)
 - [参考资料](https://arstechnica.com/security/2024/03/backdoor-found-in-widely-used-linux-utility-breaks-encrypted-ssh-connections/)
@@ -307,7 +295,6 @@ category: 'security-intel'
 - [参考资料](https://bugzilla.redhat.com/show_bug.cgi?id=2272210)
 
 ---
-
 
 ### GitLab - SAML Authentication Bypass
 
@@ -319,19 +306,18 @@ category: 'security-intel'
 
 **描述**: The Ruby SAML library is for implementing the client side of a SAML authorization. Ruby-SAML in &lt;&#x3D; 12.2 and 1.13.0 &lt;&#x3D; 1.16.0 does not properly verify the signature of the SAML Response.
 
-
 **攻击向量**: 网络扫描
 
 **CVE编号**: CVE-2024-45409
 
-**参考链接**: 
+**参考链接**:
+
 - [参考资料](https://about.gitlab.com/releases/2024/09/17/patch-release-gitlab-17-3-3-released/)
 - [参考资料](https://github.com/omniauth/omniauth-saml/security/advisories/GHSA-cvp8-5r8g-fhvq)
 - [参考资料](https://github.com/SAML-Toolkits/ruby-saml/security/advisories/GHSA-jw9c-mfg7-9rx2)
 - [参考资料](https://blog.projectdiscovery.io/ruby-saml-gitlab-auth-bypass/)
 
 ---
-
 
 ### FortiManager Unauthenticated Remote Code Execution
 
@@ -343,18 +329,17 @@ category: 'security-intel'
 
 **描述**: A missing authentication vulnerability in Fortinet FortiManager allows a remote unauthenticated attacker to execute arbitrary code or commands via specially crafted requests to the fgfmd daemon. This vulnerability affects FortiManager versions 7.6.0, 7.4.0 through 7.4.4, 7.2.0 through 7.2.7, 7.0.0 through 7.0.12, 6.4.0 through 6.4.14, 6.2.0 through 6.2.12, and all versions of 6.0.
 
-
 **攻击向量**: 网络扫描
 
 **CVE编号**: CVE-2024-47575
 
-**参考链接**: 
+**参考链接**:
+
 - [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2024-47575)
 - [参考资料](https://github.com/watchtowrlabs/Fortijump-Exploit-CVE-2024-47575)
 - [参考资料](https://fortiguard.fortinet.com/psirt/FG-IR-24-423)
 
 ---
-
 
 ### InvoiceShelf &lt;&#x3D; 1.3.0 - PHP Deserialization
 
@@ -366,18 +351,40 @@ category: 'security-intel'
 
 **描述**: InvoiceShelf version 1.3.0 and below contains an unauthenticated PHP deserialization vulnerability that can lead to remote code execution. An attacker with knowledge of the APP_KEY can achieve remote command execution on the server through Laravel&#x27;s cookie deserialization. While the vulnerability is severe, it is partially mitigated in default installations as the APP_KEY is regenerated during setup.
 
-
 **攻击向量**: 网络扫描
 
 **CVE编号**: CVE-2024-55556
 
-**参考链接**: 
+**参考链接**:
+
 - [参考资料](https://www.synacktiv.com/en/advisories/crater-invoice-unauthenticated-remote-command-execution-when-appkey-known)
 - [参考资料](https://github.com/rapid7/metasploit-framework/pull/19950)
 - [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2024-55556)
 
 ---
 
+### elFinder &lt; 2.1.58 - Remote Code Execution
+
+- **漏洞ID**: `CVE-2021-23394`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: studio-42/elfinder before 2.1.58 contains a remote code execution caused by execution of PHP code in a .phar file, letting attackers execute arbitrary PHP code if the server parses .phar files as PHP, exploit requires server to parse .phar files as PHP.
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2021-23394
+
+**参考链接**:
+
+- [参考资料](https://github.com/Studio-42/elFinder/issues/3295)
+- [参考资料](https://blog.sonarsource.com/elfinder-the-story-of-a-file-manager-and-a-bunch-of-vulnerabilities)
+- [参考资料](https://snyk.io/vuln/SNYK-PHP-STUDIO42ELFINDER-1290554)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2021-23394)
+
+---
 
 ### elFinder &lt; 2.1.58 - Remote Code Execution
 
@@ -389,19 +396,18 @@ category: 'security-intel'
 
 **描述**: studio-42/elfinder before 2.1.58 contains a remote code execution caused by execution of PHP code in a .phar file, letting attackers execute arbitrary PHP code if the server parses .phar files as PHP, exploit requires server to parse .phar files as PHP.
 
-
 **攻击向量**: 网络扫描
 
 **CVE编号**: CVE-2021-23394
 
-**参考链接**: 
+**参考链接**:
+
 - [参考资料](https://github.com/Studio-42/elFinder/issues/3295)
 - [参考资料](https://blog.sonarsource.com/elfinder-the-story-of-a-file-manager-and-a-bunch-of-vulnerabilities)
 - [参考资料](https://snyk.io/vuln/SNYK-PHP-STUDIO42ELFINDER-1290554)
 - [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2021-23394)
 
 ---
-
 
 ### elFinder &lt; 2.1.58 - Remote Code Execution
 
@@ -413,19 +419,18 @@ category: 'security-intel'
 
 **描述**: studio-42/elfinder before 2.1.58 contains a remote code execution caused by execution of PHP code in a .phar file, letting attackers execute arbitrary PHP code if the server parses .phar files as PHP, exploit requires server to parse .phar files as PHP.
 
-
 **攻击向量**: 网络扫描
 
 **CVE编号**: CVE-2021-23394
 
-**参考链接**: 
+**参考链接**:
+
 - [参考资料](https://github.com/Studio-42/elFinder/issues/3295)
 - [参考资料](https://blog.sonarsource.com/elfinder-the-story-of-a-file-manager-and-a-bunch-of-vulnerabilities)
 - [参考资料](https://snyk.io/vuln/SNYK-PHP-STUDIO42ELFINDER-1290554)
 - [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2021-23394)
 
 ---
-
 
 ### elFinder &lt; 2.1.58 - Remote Code Execution
 
@@ -437,19 +442,18 @@ category: 'security-intel'
 
 **描述**: studio-42/elfinder before 2.1.58 contains a remote code execution caused by execution of PHP code in a .phar file, letting attackers execute arbitrary PHP code if the server parses .phar files as PHP, exploit requires server to parse .phar files as PHP.
 
-
 **攻击向量**: 网络扫描
 
 **CVE编号**: CVE-2021-23394
 
-**参考链接**: 
+**参考链接**:
+
 - [参考资料](https://github.com/Studio-42/elFinder/issues/3295)
 - [参考资料](https://blog.sonarsource.com/elfinder-the-story-of-a-file-manager-and-a-bunch-of-vulnerabilities)
 - [参考资料](https://snyk.io/vuln/SNYK-PHP-STUDIO42ELFINDER-1290554)
 - [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2021-23394)
 
 ---
-
 
 ### elFinder &lt; 2.1.58 - Remote Code Execution
 
@@ -461,43 +465,18 @@ category: 'security-intel'
 
 **描述**: studio-42/elfinder before 2.1.58 contains a remote code execution caused by execution of PHP code in a .phar file, letting attackers execute arbitrary PHP code if the server parses .phar files as PHP, exploit requires server to parse .phar files as PHP.
 
-
 **攻击向量**: 网络扫描
 
 **CVE编号**: CVE-2021-23394
 
-**参考链接**: 
+**参考链接**:
+
 - [参考资料](https://github.com/Studio-42/elFinder/issues/3295)
 - [参考资料](https://blog.sonarsource.com/elfinder-the-story-of-a-file-manager-and-a-bunch-of-vulnerabilities)
 - [参考资料](https://snyk.io/vuln/SNYK-PHP-STUDIO42ELFINDER-1290554)
 - [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2021-23394)
 
 ---
-
-
-### elFinder &lt; 2.1.58 - Remote Code Execution
-
-- **漏洞ID**: `CVE-2021-23394`
-- **严重程度**: 🟠 HIGH
-- **风险等级**: 极高风险 (4.5/5)
-- **影响资产**: 未知
-- **预估影响**: 数千个
-
-**描述**: studio-42/elfinder before 2.1.58 contains a remote code execution caused by execution of PHP code in a .phar file, letting attackers execute arbitrary PHP code if the server parses .phar files as PHP, exploit requires server to parse .phar files as PHP.
-
-
-**攻击向量**: 网络扫描
-
-**CVE编号**: CVE-2021-23394
-
-**参考链接**: 
-- [参考资料](https://github.com/Studio-42/elFinder/issues/3295)
-- [参考资料](https://blog.sonarsource.com/elfinder-the-story-of-a-file-manager-and-a-bunch-of-vulnerabilities)
-- [参考资料](https://snyk.io/vuln/SNYK-PHP-STUDIO42ELFINDER-1290554)
-- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2021-23394)
-
----
-
 
 ### Sudo &lt;&#x3D; 1.8.27 - Security Bypass
 
@@ -509,12 +488,12 @@ category: 'security-intel'
 
 **描述**: In Sudo before 1.8.28, an attacker with access to a Runas ALL sudoer account can bypass certain policy blacklists and session PAM modules, and can cause incorrect logging, by invoking sudo with a crafted user ID. For example, this allows bypass of !root configuration, and USER&#x3D; logging, for a &quot;sudo -u \#$((0xffffffff))&quot; command.
 
-
 **攻击向量**: 网络扫描
 
 **CVE编号**: CVE-2019-14287
 
-**参考链接**: 
+**参考链接**:
+
 - [参考资料](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14287)
 - [参考资料](https://www.exploit-db.com/exploits/47502)
 - [参考资料](http://lists.opensuse.org/opensuse-security-announce/2019-10/msg00042.html)
@@ -522,7 +501,6 @@ category: 'security-intel'
 - [参考资料](http://packetstormsecurity.com/files/154853/Slackware-Security-Advisory-sudo-Updates.html)
 
 ---
-
 
 ### Apache Tomcat WebSocket Frame Payload Length Validation Denial of Service
 
@@ -534,12 +512,12 @@ category: 'security-intel'
 
 **描述**: Apache Tomcat versions 10.0.0-M1 to 10.0.0-M6, 9.0.0.M1 to 9.0.36, 8.5.0 to 8.5.56, and 7.0.27 to 7.0.104 contain a vulnerability in the WebSocket module where the payload length of WebSocket frames is not correctly validated. This can lead to an infinite loop when processing frames with invalid payload lengths. Attackers can exploit this flaw by sending multiple malicious requests, resulting in a denial of service (DoS) on the affected Tomcat instance.
 
-
 **攻击向量**: 网络扫描
 
 **CVE编号**: CVE-2020-13935
 
-**参考链接**: 
+**参考链接**:
+
 - [参考资料](http://lists.opensuse.org/opensuse-security-announce/2020-07/msg00084.html)
 - [参考资料](http://lists.opensuse.org/opensuse-security-announce/2020-07/msg00088.html)
 - [参考资料](http://packetstormsecurity.com/files/161213/WordPress-5.0.0-Remote-Code-Execution.html)
@@ -549,7 +527,6 @@ category: 'security-intel'
 - [参考资料](https://github.com/RedTeamPentesting/CVE-2020-13935)
 
 ---
-
 
 ### Sudo Baron Samedit - Local Privilege Escalation
 
@@ -561,12 +538,12 @@ category: 'security-intel'
 
 **描述**: Sudo before 1.9.5p2 contains an off-by-one error that can result in a heap-based buffer overflow, which allows privilege escalation to root via &quot;sudoedit -s&quot; and a command-line argument that ends with a single backslash character.
 
-
 **攻击向量**: 网络扫描
 
 **CVE编号**: CVE-2021-3156
 
-**参考链接**: 
+**参考链接**:
+
 - [参考资料](https://medium.com/mii-cybersec/privilege-escalation-cve-2021-3156-new-sudo-vulnerability-4f9e84a9f435)
 - [参考资料](https://blog.qualys.com/vulnerabilities-threat-research/2021/01/26/cve-2021-3156-heap-based-buffer-overflow-in-sudo-baron-samedit)
 - [参考资料](https://infosecwriteups.com/baron-samedit-cve-2021-3156-tryhackme-76d7dedc3cff)
@@ -574,7 +551,6 @@ category: 'security-intel'
 - [参考资料](http://packetstormsecurity.com/files/176932/glibc-syslog-Heap-Based-Buffer-Overflow.html)
 
 ---
-
 
 ### GameOver(lay) - Local Privilege Escalation in Ubuntu Kernel
 
@@ -586,12 +562,12 @@ category: 'security-intel'
 
 **描述**: A local privilege escalation vulnerability has been discovered in the OverlayFS module of the Ubuntu kernel. This vulnerability could allow an attacker with local access to escalate their privileges, potentially gaining root-like access to the system.
 
-
 **攻击向量**: 网络扫描
 
 **CVE编号**: CVE-2023-2640
 
-**参考链接**: 
+**参考链接**:
+
 - [参考资料](http://packetstormsecurity.com/files/174577/Kernel-Live-Patch-Security-Notice-LSN-0097-1.html)
 - [参考资料](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-2640)
 - [参考资料](https://www.wiz.io/blog/ubuntu-overlayfs-vulnerability)
@@ -599,7 +575,6 @@ category: 'security-intel'
 - [参考资料](https://lists.ubuntu.com/archives/kernel-team/2023-July/140923.html)
 
 ---
-
 
 ### Looney Tunables Linux - Local Privilege Escalation
 
@@ -611,12 +586,12 @@ category: 'security-intel'
 
 **描述**: A buffer overflow was discovered in the GNU C Library&#x27;s dynamic loader ld.so while processing the GLIBC_TUNABLES environment variable. This issue could allow a local attacker to use maliciously crafted GLIBC_TUNABLES environment variables when launching binaries with SUID permission to execute code with elevated privileges.
 
-
 **攻击向量**: 网络扫描
 
 **CVE编号**: CVE-2023-4911
 
-**参考链接**: 
+**参考链接**:
+
 - [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2023-4911)
 - [参考资料](https://www.qualys.com/2023/10/03/cve-2023-4911/looney-tunables-local-privilege-escalation-glibc-ld-so.txt)
 - [参考资料](https://www.youtube.com/watch?v=1iV-CD9Apn8)
@@ -624,7 +599,6 @@ category: 'security-intel'
 - [参考资料](http://www.openwall.com/lists/oss-security/2023/10/13/11)
 
 ---
-
 
 ### glibc&#x27;s syslog - Local Privilege Escalation
 
@@ -634,14 +608,14 @@ category: 'security-intel'
 - **影响资产**: 未知
 - **预估影响**: 数千个
 
-**描述**: A heap-based buffer overflow was found in the __vsyslog_internal function of the glibc library. This function is called by the syslog and vsyslog functions. This issue occurs when the openlog function was not called, or called with the ident argument set to NULL, and the program name (the basename of argv&#x5B;0&#x5D;) is bigger than 1024 bytes, resulting in an application crash or local privilege escalation. This issue affects glibc 2.36 and newer.
-
+**描述**: A heap-based buffer overflow was found in the \_\_vsyslog_internal function of the glibc library. This function is called by the syslog and vsyslog functions. This issue occurs when the openlog function was not called, or called with the ident argument set to NULL, and the program name (the basename of argv&#x5B;0&#x5D;) is bigger than 1024 bytes, resulting in an application crash or local privilege escalation. This issue affects glibc 2.36 and newer.
 
 **攻击向量**: 网络扫描
 
 **CVE编号**: CVE-2023-6246
 
-**参考链接**: 
+**参考链接**:
+
 - [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2023-6246)
 - [参考资料](https://www.qualys.com/2024/01/30/cve-2023-6246/syslog.txt)
 - [参考资料](https://access.redhat.com/security/cve/CVE-2023-6246)
@@ -649,7 +623,6 @@ category: 'security-intel'
 - [参考资料](https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/D2FIH77VHY3KCRROCXOT6L27WMZXSJ2G/)
 
 ---
-
 
 ### sqlparse - Denial of Service
 
@@ -661,16 +634,15 @@ category: 'security-intel'
 
 **描述**: Passing a heavily nested list to sqlparse.parse() leads to a Denial of Service due to RecursionError.
 
-
 **攻击向量**: 网络扫描
 
 **CVE编号**: CVE-2024-4340
 
-**参考链接**: 
+**参考链接**:
+
 - [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2024-4340)
 
 ---
-
 
 ### OpenSSL Heartbleed Vulnerability
 
@@ -682,51 +654,48 @@ category: 'security-intel'
 
 **描述**: The Heartbleed bug allows anyone on the Internet to read the memory of the systems protected by the vulnerable versions of the OpenSSL software. This compromises the secret keys used to identify the service providers and to encrypt the traffic, the names and passwords of the users, and the actual content. This allows attackers to eavesdrop on communications, steal data directly from the services and users, and impersonate services and users.
 
-
 **攻击向量**: 网络扫描
 
+**参考链接**:
 
-
-**参考链接**: 
 - [参考资料](https://github.com/vulhub/vulhub/tree/master/openssl/CVE-2014-0160)
 
 ---
 
-
 ## 📋 完整模板列表
 
-| 模板名称 | 严重程度 | 类别 | 影响资产 | 风险评分 |
-|---------|---------|------|---------|---------|
-| Fortinet - Authentication Bypass | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
-| Fortinet - Authentication Bypass | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
-| Apache Tomcat - Remote Code Execution via JMX Port | 🔴 critical | CVE漏洞 | Apache 服务器 | 5/5 |
-| Microsoft SharePoint - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
-| Microsoft .NET Framework - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
-| Fortinet SSL-VPN - Heap-Based Buffer Overflow | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
-| Abandoned Cart Lite for WooCommerce - Authenticati | 🔴 critical | CVE漏洞 | WordPress 站点 | 5/5 |
-| OwnCloud - WebDAV API Authentication Bypass | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
-| Synology BeeStation BST150-4T - Unauthenticated Co | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
-| Privileged Remote Access & Remote Support - Comman | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
-| Zabbix Server - Time-Based Blind SQL injection | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
-| XZ - Embedded Malicious Code | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
-| GitLab - SAML Authentication Bypass | 🔴 critical | CVE漏洞 | GitLab 平台 | 5/5 |
-| FortiManager Unauthenticated Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
-| InvoiceShelf &lt;&#x3D; 1.3.0 - PHP Deserializatio | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
-| elFinder &lt; 2.1.58 - Remote Code Execution | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
-| elFinder &lt; 2.1.58 - Remote Code Execution | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
-| elFinder &lt; 2.1.58 - Remote Code Execution | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
-| elFinder &lt; 2.1.58 - Remote Code Execution | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
-| elFinder &lt; 2.1.58 - Remote Code Execution | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
-| Sudo &lt;&#x3D; 1.8.27 - Security Bypass | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
-| Apache Tomcat WebSocket Frame Payload Length Valid | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
-| Sudo Baron Samedit - Local Privilege Escalation | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
-| GameOver(lay) - Local Privilege Escalation in Ubun | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
-| Looney Tunables Linux - Local Privilege Escalation | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
-| glibc&#x27;s syslog - Local Privilege Escalation | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
-| sqlparse - Denial of Service | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
-| OpenSSL Heartbleed Vulnerability | 🟠 high | CVE漏洞 | 通用 | 4/5 |
-| Content-Security-Policy Bypass - Google Storage | 🟡 medium | 其他 | 通用 | 3/5 |
-| WordPress Twenty Fifteen Theme - Full Path Disclos | ⚪ info | 其他 | WordPress 站点 | 1/5 |
+| 模板名称                                           | 严重程度    | 类别    | 影响资产       | 风险评分 |
+| -------------------------------------------------- | ----------- | ------- | -------------- | -------- |
+| Fortinet - Authentication Bypass                   | 🔴 critical | CVE漏洞 | 通用           | 5/5      |
+| Fortinet - Authentication Bypass                   | 🔴 critical | CVE漏洞 | 通用           | 5/5      |
+| Apache Tomcat - Remote Code Execution via JMX Port | 🔴 critical | CVE漏洞 | Apache 服务器  | 5/5      |
+| Microsoft SharePoint - Remote Code Execution       | 🔴 critical | CVE漏洞 | 通用           | 5/5      |
+| Microsoft .NET Framework - Remote Code Execution   | 🔴 critical | CVE漏洞 | 通用           | 5/5      |
+| Fortinet SSL-VPN - Heap-Based Buffer Overflow      | 🔴 critical | CVE漏洞 | 通用           | 5/5      |
+| Abandoned Cart Lite for WooCommerce - Authenticati | 🔴 critical | CVE漏洞 | WordPress 站点 | 5/5      |
+| OwnCloud - WebDAV API Authentication Bypass        | 🔴 critical | CVE漏洞 | 通用           | 5/5      |
+| Synology BeeStation BST150-4T - Unauthenticated Co | 🔴 critical | CVE漏洞 | 通用           | 5/5      |
+| Privileged Remote Access & Remote Support - Comman | 🔴 critical | CVE漏洞 | 通用           | 5/5      |
+| Zabbix Server - Time-Based Blind SQL injection     | 🔴 critical | CVE漏洞 | 通用           | 5/5      |
+| XZ - Embedded Malicious Code                       | 🔴 critical | CVE漏洞 | 通用           | 5/5      |
+| GitLab - SAML Authentication Bypass                | 🔴 critical | CVE漏洞 | GitLab 平台    | 5/5      |
+| FortiManager Unauthenticated Remote Code Execution | 🔴 critical | CVE漏洞 | 通用           | 5/5      |
+| InvoiceShelf &lt;&#x3D; 1.3.0 - PHP Deserializatio | 🔴 critical | CVE漏洞 | 通用           | 5/5      |
+| elFinder &lt; 2.1.58 - Remote Code Execution       | 🟠 high     | CVE漏洞 | 通用           | 4.5/5    |
+| elFinder &lt; 2.1.58 - Remote Code Execution       | 🟠 high     | CVE漏洞 | 通用           | 4.5/5    |
+| elFinder &lt; 2.1.58 - Remote Code Execution       | 🟠 high     | CVE漏洞 | 通用           | 4.5/5    |
+| elFinder &lt; 2.1.58 - Remote Code Execution       | 🟠 high     | CVE漏洞 | 通用           | 4.5/5    |
+| elFinder &lt; 2.1.58 - Remote Code Execution       | 🟠 high     | CVE漏洞 | 通用           | 4.5/5    |
+| Sudo &lt;&#x3D; 1.8.27 - Security Bypass           | 🟠 high     | CVE漏洞 | 通用           | 4.5/5    |
+| Apache Tomcat WebSocket Frame Payload Length Valid | 🟠 high     | CVE漏洞 | 通用           | 4.5/5    |
+| Sudo Baron Samedit - Local Privilege Escalation    | 🟠 high     | CVE漏洞 | 通用           | 4.5/5    |
+| GameOver(lay) - Local Privilege Escalation in Ubun | 🟠 high     | CVE漏洞 | 通用           | 4.5/5    |
+| Looney Tunables Linux - Local Privilege Escalation | 🟠 high     | CVE漏洞 | 通用           | 4.5/5    |
+| glibc&#x27;s syslog - Local Privilege Escalation   | 🟠 high     | CVE漏洞 | 通用           | 4.5/5    |
+| sqlparse - Denial of Service                       | 🟠 high     | CVE漏洞 | 通用           | 4.5/5    |
+| OpenSSL Heartbleed Vulnerability                   | 🟠 high     | CVE漏洞 | 通用           | 4/5      |
+| Content-Security-Policy Bypass - Google Storage    | 🟡 medium   | 其他    | 通用           | 3/5      |
+| WordPress Twenty Fifteen Theme - Full Path Disclos | ⚪ info     | 其他    | WordPress 站点 | 1/5      |
 
 ## 🛡️ 安全建议
 
@@ -742,12 +711,12 @@ category: 'security-intel'
 # 扫描高危漏洞
 nuclei -t http/cves/2024/CVE-2024-55591.yaml -t http/cves/2024/CVE-2024-55591.yaml -t code/cves/2016/CVE-2016-8735.yaml -t code/cves/2019/CVE-2019-0604.yaml -t code/cves/2020/CVE-2020-0646.yaml -t code/cves/2022/CVE-2022-42475.yaml -t code/cves/2023/CVE-2023-2986.yaml -t code/cves/2023/CVE-2023-49105.yaml -t code/cves/2024/CVE-2024-10443.yaml -t code/cves/2024/CVE-2024-12356.yaml -t code/cves/2024/CVE-2024-22120.yaml -t code/cves/2024/CVE-2024-3094.yaml -t code/cves/2024/CVE-2024-45409.yaml -t code/cves/2024/CVE-2024-47575.yaml -t code/cves/2024/CVE-2024-55556.yaml -t http/cves/2021/CVE-2021-23394.yaml -t http/cves/2021/CVE-2021-23394.yaml -t http/cves/2021/CVE-2021-23394.yaml -t http/cves/2021/CVE-2021-23394.yaml -t http/cves/2021/CVE-2021-23394.yaml -t code/cves/2019/CVE-2019-14287.yaml -t code/cves/2020/CVE-2020-13935.yaml -t code/cves/2021/CVE-2021-3156.yaml -t code/cves/2023/CVE-2023-2640.yaml -t code/cves/2023/CVE-2023-4911.yaml -t code/cves/2023/CVE-2023-6246.yaml -t code/cves/2024/CVE-2024-4340.yaml -t code/cves/2014/CVE-2014-0160.yaml -u target-url
 
-# 扫描所有今日新增模板  
+# 扫描所有今日新增模板
 nuclei -t http/cves/2024/CVE-2024-55591.yaml -t http/cves/2024/CVE-2024-55591.yaml -t code/cves/2016/CVE-2016-8735.yaml -t code/cves/2019/CVE-2019-0604.yaml -t code/cves/2020/CVE-2020-0646.yaml -t code/cves/2022/CVE-2022-42475.yaml -t code/cves/2023/CVE-2023-2986.yaml -t code/cves/2023/CVE-2023-49105.yaml -t code/cves/2024/CVE-2024-10443.yaml -t code/cves/2024/CVE-2024-12356.yaml -t code/cves/2024/CVE-2024-22120.yaml -t code/cves/2024/CVE-2024-3094.yaml -t code/cves/2024/CVE-2024-45409.yaml -t code/cves/2024/CVE-2024-47575.yaml -t code/cves/2024/CVE-2024-55556.yaml -t http/cves/2021/CVE-2021-23394.yaml -t http/cves/2021/CVE-2021-23394.yaml -t http/cves/2021/CVE-2021-23394.yaml -t http/cves/2021/CVE-2021-23394.yaml -t http/cves/2021/CVE-2021-23394.yaml -t code/cves/2019/CVE-2019-14287.yaml -t code/cves/2020/CVE-2020-13935.yaml -t code/cves/2021/CVE-2021-3156.yaml -t code/cves/2023/CVE-2023-2640.yaml -t code/cves/2023/CVE-2023-4911.yaml -t code/cves/2023/CVE-2023-6246.yaml -t code/cves/2024/CVE-2024-4340.yaml -t code/cves/2014/CVE-2014-0160.yaml -t dast/vulnerabilities/xss/csp-bypass/google-storage-csp-bypass.yaml -t http/vulnerabilities/wordpress/wp-twentyfifteen-fpd.yaml -u target-url
 ```
 
 ---
 
-*本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)*
+_本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)_
 
-*扫描建议仅供参考，请在授权环境下进行安全测试*
+_扫描建议仅供参考，请在授权环境下进行安全测试_
