@@ -1,0 +1,400 @@
+---
+title: 'Nuclei POC 精选分析 - 2026-01-07'
+date: '2026-01-07'
+tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
+draft: false
+summary: '从 332 个模板更新中精选分析 30 个高价值 POC，发现 13 个高风险漏洞'
+authors: ['default']
+category: 'security-intel'
+---
+
+# Nuclei POC 精选分析 - 2026-01-07
+
+## 📊 智能筛选概况
+
+- **发现变更**: 332 个模板更新
+- **精选分析**: 30 个高价值 POC  
+- **智能跳过**: 302 个低优先级模板
+- **高风险漏洞**: 13 个
+- **主要类别**: CVE漏洞(30)
+
+> 💡 **智能筛选说明**: 系统自动优先分析 CVE 漏洞、高危漏洞和新增模板，跳过低价值的技术识别类模板，确保高效利用 API 资源。
+
+### 严重程度分布
+
+- 🔴 **严重**: 9 个
+- 🟠 **高危**: 4 个
+- 🟡 **中危**: 17 个
+
+## 🔍 重点漏洞分析
+
+
+### GitLab - SAML Authentication Bypass
+
+- **漏洞ID**: `CVE-2024-45409`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: GitLab 平台
+- **预估影响**: 数千个
+
+**描述**: The Ruby SAML library is for implementing the client side of a SAML authorization. Ruby-SAML in &lt;&#x3D; 12.2 and 1.13.0 &lt;&#x3D; 1.16.0 does not properly verify the signature of the SAML Response.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2024-45409
+
+**参考链接**: 
+- [参考资料](https://about.gitlab.com/releases/2024/09/17/patch-release-gitlab-17-3-3-released/)
+- [参考资料](https://github.com/omniauth/omniauth-saml/security/advisories/GHSA-cvp8-5r8g-fhvq)
+- [参考资料](https://github.com/SAML-Toolkits/ruby-saml/security/advisories/GHSA-jw9c-mfg7-9rx2)
+- [参考资料](https://blog.projectdiscovery.io/ruby-saml-gitlab-auth-bypass/)
+
+---
+
+
+### Uptime-Kuma - Local File Inclusion (LFI)
+
+- **漏洞ID**: `CVE-2024-56331`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Uptime Kuma has an Improper URL Handling vulnerability that can be exploited through the &quot;real-browser&quot; feature.
+By providing a URL using the file:/// protocol (e.g., file:///etc/passwd), an attacker can obtain a screenshot
+of local sensitive files, because the user input is not validated by the server.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2024-56331
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2024-56331)
+- [参考资料](https://github.com/griisemine/CVE-2024-56331)
+
+---
+
+
+### Keras Model.load_model - Arbitrary Code Execution
+
+- **漏洞ID**: `CVE-2025-1550`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: The Keras Model.load_model function permits arbitrary code execution, even with safe_mode&#x3D;True, through a manually constructed, malicious .keras archive. By altering the config.json file within the archive, an attacker can specify arbitrary Python modules and functions, along with their arguments, to be loaded and executed during model loading
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-1550)
+- [参考资料](https://github.com/keras-team/keras/pull/20751)
+- [参考资料](https://towerofhanoi.it/writeups/cve-2025-1550/)
+
+---
+
+
+### Ivanti Connect Secure - Stack-based Buffer Overflow
+
+- **漏洞ID**: `CVE-2025-22457`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Ivanti Connect Secure before version 22.7R2.6, Ivanti Policy Secure before version 22.7R1.4,
+and Ivanti ZTA Gateways before version 22.8R2.2 contain a stack-based buffer overflow caused by
+improper input handling, allowing remote attackers to execute arbitrary code without authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-22457
+
+**参考链接**: 
+- [参考资料](https://labs.watchtowr.com/is-the-sofistication-in-the-room-with-us-x-forwarded-for-and-ivanti-connect-secure-cve-2025-22457)
+- [参考资料](https://www.cvedetails.com/cve/CVE-2025-22457)
+- [参考资料](https://github.com/securekomodo/CVE-2025-22457)
+
+---
+
+
+### GitLab - SAML Authentication Bypass
+
+- **漏洞ID**: `CVE-2025-25291`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: GitLab 平台
+- **预估影响**: 数千个
+
+**描述**: ruby-saml provides security assertion markup language (SAML) single sign-on (SSO) for Ruby. An authentication bypass vulnerability was found in ruby-saml prior to versions 1.12.4 and 1.18.0 due to a parser differential. ReXML and Nokogiri parse XML differently; the parsers can generate entirely different document structures from the same XML input. That allows an attacker to be able to execute a Signature Wrapping attack. This issue may lead to authentication bypass. Versions 1.12.4 and 1.18.0 fix the issue.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-25291
+
+**参考链接**: 
+- [参考资料](https://portswigger.net/research/saml-roulette-the-hacker-always-wins)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials/)
+- [参考资料](https://about.gitlab.com/releases/2025/03/12/patch-release-gitlab-17-9-2-released)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials)
+- [参考资料](https://github.com/SAML-Toolkits/ruby-saml/commit/e76c5b36bac40aedbf1ba7ffaaf495be63328cd9)
+
+---
+
+
+### Erlang/OTP SSH - Remote Code Execution
+
+- **漏洞ID**: `CVE-2025-32433`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Erlang/OTP is a set of libraries for the Erlang programming language. Prior to versions OTP-27.3.3, OTP-26.2.5.11, and OTP-25.3.2.20, a SSH server may allow an attacker to perform unauthenticated remote code execution (RCE). By exploiting a flaw in SSH protocol message handling, a malicious actor could gain unauthorized access to affected systems and execute arbitrary commands without valid credentials.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-32433
+
+**参考链接**: 
+- [参考资料](https://platformsecurity.com/blog/CVE-2025-32433-poc)
+- [参考资料](https://github.com/erlang/otp/commit/0fcd9c56524b28615e8ece65fc0c3f66ef6e4c12)
+- [参考资料](https://github.com/erlang/otp/commit/6eef04130afc8b0ccb63c9a0d8650209cf54892f)
+- [参考资料](https://github.com/erlang/otp/commit/b1924d37fd83c070055beb115d5d6a6a9490b891)
+- [参考资料](https://github.com/erlang/otp/security/advisories/GHSA-37cp-fgq5-7wc2)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-32433)
+
+---
+
+
+### RustFS &lt; 1.0.0-alpha.77 - Hardcoded gRPC Authentication Token
+
+- **漏洞ID**: `CVE-2025-68926`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: RustFS before 1.0.0-alpha.77 used a hardcoded gRPC authentication token &quot;rustfs rpc&quot; that could not be changed without recompiling and this allowed unauthenticated remote attackers to gain full administrative access to the gRPC API.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-68926
+
+**参考链接**: 
+- [参考资料](https://github.com/rustfs/rustfs/security/advisories/GHSA-h956-rh7x-ppgj)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-68926)
+
+---
+
+
+### Next.js Middleware Authorization Bypass
+
+- **漏洞ID**: `CVE-2025-29927-HEADLESS`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: A critical vulnerability in Next.js middleware allows attackers to bypass authorization checks by manipulating the x-middleware-subrequest header. This flaw affects Next.js versions prior to 14.2.25 and 15.2.3, potentially granting unauthorized access to sensitive resources.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-29927
+
+**参考链接**: 
+- [参考资料](https://github.com/advisories/GHSA-f82v-jwr5-mffw)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-29927)
+- [参考资料](https://www.tenable.com/cve/CVE-2025-29927)
+
+---
+
+
+### Horde Groupware Unauthenticated Admin Access
+
+- **漏洞ID**: `CVE-2005-3344`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Horde Groupware contains an administrative account with a blank password, which allows remote attackers to gain access.
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2005-3344
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2005-3344)
+- [参考资料](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-3344)
+- [参考资料](http://www.debian.org/security/2005/dsa-884)
+- [参考资料](http://www.networkscanning.com/Horde-Default-Admin-Password-Vulnerability-VSS_20171.html)
+- [参考资料](https://exchange.xforce.ibmcloud.com/vulnerabilities/24576)
+
+---
+
+
+### glibc&#x27;s syslog - Local Privilege Escalation
+
+- **漏洞ID**: `CVE-2023-6246`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: A heap-based buffer overflow was found in the __vsyslog_internal function of the glibc library. This function is called by the syslog and vsyslog functions. This issue occurs when the openlog function was not called, or called with the ident argument set to NULL, and the program name (the basename of argv&#x5B;0&#x5D;) is bigger than 1024 bytes, resulting in an application crash or local privilege escalation. This issue affects glibc 2.36 and newer.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2023-6246
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2023-6246)
+- [参考资料](https://www.qualys.com/2024/01/30/cve-2023-6246/syslog.txt)
+- [参考资料](https://access.redhat.com/security/cve/CVE-2023-6246)
+- [参考资料](https://bugzilla.redhat.com/show_bug.cgi?id=2249053)
+- [参考资料](https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/D2FIH77VHY3KCRROCXOT6L27WMZXSJ2G/)
+
+---
+
+
+### HTTP API DOM - XSS on JSONP callback
+
+- **漏洞ID**: `CVE-2024-29882`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: SRS is a simple, high-efficiency, real-time video server. SRS&#x27;s `/api/v1/vhosts/vid-&lt;id&gt;?callback&#x3D;&lt;payload&gt;` endpoint didn&#x27;t filter the callback function name which led to injecting malicious javascript payloads and executing XSS ( Cross-Site Scripting). This vulnerability is fixed in 5.0.210 and 6.0.121.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2024-29882
+
+**参考链接**: 
+- [参考资料](https://github.com/ossrs/srs/commit/244ce7bc013a0b805274a65132a2980680ba6b9d)
+- [参考资料](https://github.com/ossrs/srs/security/advisories/GHSA-gv9r-qcjc-5hj7)
+
+---
+
+
+### SquirrelMail 1.2.6/1.2.7 - Cross-Site Scripting
+
+- **漏洞ID**: `CVE-2002-1131`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: The Virtual Keyboard plugin for SquirrelMail 1.2.6/1.2.7 is prone to a cross-site scripting vulnerability because it fails to properly sanitize user-supplied input.
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2002-1131
+
+**参考链接**: 
+- [参考资料](http://www.redhat.com/support/errata/RHSA-2002-204.html)
+- [参考资料](http://www.debian.org/security/2002/dsa-191)
+- [参考资料](http://sourceforge.net/project/shownotes.php?group_id=311&release_id=110774)
+- [参考资料](https://www.exploit-db.com/exploits/21811)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2002-1131)
+
+---
+
+
+### Squirrelmail &lt;&#x3D;1.4.6 - Local File Inclusion
+
+- **漏洞ID**: `CVE-2006-2842`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: SquirrelMail 1.4.6 and earlier versions are susceptible to a PHP local file inclusion vulnerability in functions/plugin.php if register_globals is enabled and magic_quotes_gpc is disabled. This allows remote attackers to execute arbitrary PHP code via a URL in the plugins array parameter.
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2006-2842
+
+**参考链接**: 
+- [参考资料](https://www.exploit-db.com/exploits/27948)
+- [参考资料](http://squirrelmail.cvs.sourceforge.net/squirrelmail/squirrelmail/functions/global.php?r1=1.27.2.16&r2=1.27.2.17&view=patch&pathrev=SM-1_4-STABLE)
+- [参考资料](http://www.squirrelmail.org/security/issue/2006-06-01)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2006-2842)
+- [参考资料](ftp://patches.sgi.com/support/free/security/advisories/20060703-01-U.asc)
+
+---
+
+
+## 📋 完整模板列表
+
+| 模板名称 | 严重程度 | 类别 | 影响资产 | 风险评分 |
+|---------|---------|------|---------|---------|
+| GitLab - SAML Authentication Bypass | 🔴 critical | CVE漏洞 | GitLab 平台 | 5/5 |
+| Uptime-Kuma - Local File Inclusion (LFI) | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Keras Model.load_model - Arbitrary Code Execution | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Ivanti Connect Secure - Stack-based Buffer Overflo | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| GitLab - SAML Authentication Bypass | 🔴 critical | CVE漏洞 | GitLab 平台 | 5/5 |
+| Erlang/OTP SSH - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| RustFS &lt; 1.0.0-alpha.77 - Hardcoded gRPC Authen | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Next.js Middleware Authorization Bypass | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Horde Groupware Unauthenticated Admin Access | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| glibc&#x27;s syslog - Local Privilege Escalation | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
+| HTTP API DOM - XSS on JSONP callback | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
+| SquirrelMail 1.2.6/1.2.7 - Cross-Site Scripting | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
+| Squirrelmail &lt;&#x3D;1.4.6 - Local File Inclusio | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
+| GiveWP &lt;&#x3D; 2.9.7 - Cross-Site Scripting | 🟡 medium | CVE漏洞 | WordPress 站点 | 3.5/5 |
+| WordPress Elementor Website Builder &lt;&#x3D; 3.5 | 🟡 medium | CVE漏洞 | WordPress 站点 | 3.5/5 |
+| Essential Addons for Elementor &lt; 6.0.15 - Cross | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| Backdrop CMS - Cross-Site Scripting | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| Swagger UI &gt;&#x3D;3.14.1 &lt; 3.38.0 - DOM Base | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| Microsoft FrontPage Extensions - Information Discl | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| Jakarta Tomcat 3.1 and 3.0 - Information Disclosur | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| SquirrelMail 1.4.x - Folder Name Cross-Site Script | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| Open Bulletin Board (OpenBB) v1.0.6 - Open Redirec | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| Lotus Domino R5 and R6 WebMail - Information Discl | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| SquirrelMail Address Add 1.4.2 - Cross-Site Script | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| SAP Web Application Server 6.x/7.0 - Open Redirect | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| Cofax &lt;&#x3D;2.0RC3 - Cross-Site Scripting | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| Cherokee HTTPD &lt;&#x3D;0.5 - Cross-Site Scriptin | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| Webmin &lt; 1.290 / Usermin &lt; 1.220 - Arbitrary | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| Jira Rainbow.Zen - Cross-Site Scripting | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| Joomla! RSfiles &lt;&#x3D;1.0.2 - Local File Inclu | 🟡 medium | CVE漏洞 | Joomla 站点 | 3.5/5 |
+
+## 🛡️ 安全建议
+
+🚨 发现高风险漏洞，建议立即扫描相关资产
+🔍 关注新发布的 CVE 漏洞，及时更新补丁
+⚡ 检测到远程代码执行漏洞，优先处理
+
+## 🔧 扫描建议
+
+建议使用以下 Nuclei 命令进行扫描：
+
+```bash
+# 扫描高危漏洞
+nuclei -t code/cves/2024/CVE-2024-45409.yaml -t code/cves/2024/CVE-2024-56331.yaml -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-22457.yaml -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2025/CVE-2025-32433.yaml -t code/cves/2025/CVE-2025-68926.yaml -t headless/cves/2025/CVE-2025-29927-HEADLESS.yaml -t http/cves/2005/CVE-2005-3344.yaml -t code/cves/2023/CVE-2023-6246.yaml -t headless/cves/2024/CVE-2024-29882.yaml -t http/cves/2002/CVE-2002-1131.yaml -t http/cves/2006/CVE-2006-2842.yaml -u target-url
+
+# 扫描所有今日新增模板  
+nuclei -t code/cves/2024/CVE-2024-45409.yaml -t code/cves/2024/CVE-2024-56331.yaml -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-22457.yaml -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2025/CVE-2025-32433.yaml -t code/cves/2025/CVE-2025-68926.yaml -t headless/cves/2025/CVE-2025-29927-HEADLESS.yaml -t http/cves/2005/CVE-2005-3344.yaml -t code/cves/2023/CVE-2023-6246.yaml -t headless/cves/2024/CVE-2024-29882.yaml -t http/cves/2002/CVE-2002-1131.yaml -t http/cves/2006/CVE-2006-2842.yaml -t http/cves/2021/CVE-2021-24213.yaml -t headless/cves/2022/CVE-2022-29455-headless.yaml -t headless/cves/2025/CVE-2025-24752.yaml -t headless/cves/2025/CVE-2025-25062.yaml -t headless/cves/2025/CVE-2025-8191.yaml -t http/cves/2000/CVE-2000-0114.yaml -t http/cves/2000/CVE-2000-0760.yaml -t http/cves/2004/CVE-2004-0519.yaml -t http/cves/2004/CVE-2004-1965.yaml -t http/cves/2005/CVE-2005-2428.yaml -t http/cves/2005/CVE-2005-3128.yaml -t http/cves/2005/CVE-2005-3634.yaml -t http/cves/2005/CVE-2005-4385.yaml -t http/cves/2006/CVE-2006-1681.yaml -t http/cves/2006/CVE-2006-3392.yaml -t http/cves/2007/CVE-2007-0885.yaml -t http/cves/2007/CVE-2007-4504.yaml -u target-url
+```
+
+---
+
+*本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)*
+
+*扫描建议仅供参考，请在授权环境下进行安全测试*
