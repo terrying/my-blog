@@ -1,0 +1,569 @@
+---
+title: 'Nuclei POC 精选分析 - 2026-01-11'
+date: '2026-01-11'
+tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
+draft: false
+summary: '从 628 个模板更新中精选分析 30 个高价值 POC，发现 20 个高风险漏洞'
+authors: ['default']
+category: 'security-intel'
+---
+
+# Nuclei POC 精选分析 - 2026-01-11
+
+## 📊 智能筛选概况
+
+- **发现变更**: 628 个模板更新
+- **精选分析**: 30 个高价值 POC  
+- **智能跳过**: 598 个低优先级模板
+- **高风险漏洞**: 20 个
+- **主要类别**: CVE漏洞(30)
+
+> 💡 **智能筛选说明**: 系统自动优先分析 CVE 漏洞、高危漏洞和新增模板，跳过低价值的技术识别类模板，确保高效利用 API 资源。
+
+### 严重程度分布
+
+- 🔴 **严重**: 11 个
+- 🟠 **高危**: 9 个
+- 🟡 **中危**: 10 个
+
+## 🔍 重点漏洞分析
+
+
+### QNAP HBS 3 - Broken Access Control
+
+- **漏洞ID**: `CVE-2021-28799`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: An improper authorization vulnerability has been reported to affect QNAP NAS running HBS 3 (Hybrid Backup Sync. ) If exploited, the vulnerability allows remote attackers to log in to a device. This issue affects: QNAP Systems Inc. HBS 3 versions prior to v16.0.0415 on QTS 4.5.2; versions prior to v3.0.210412 on QTS 4.3.6; versions prior to v3.0.210411 on QTS 4.3.4; versions prior to v3.0.210411 on QTS 4.3.3; versions prior to v16.0.0419 on QuTS hero h4.5.1; versions prior to v16.0.0419 on QuTScloud c4.5.1~c4.5.4. This issue does not affect: QNAP Systems Inc. HBS 2 . QNAP Systems Inc. HBS 1.3 .
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2021-28799
+
+**参考链接**: 
+- [参考资料](https://www.qnap.com/en/security-advisory/QSA-21-13)
+- [参考资料](https://unit42.paloaltonetworks.com/ech0raix-ransomware-soho/)
+- [参考资料](https://gist.github.com/daniruiz/962ecca527b59954e619c5ae2cab680c)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2021-28799)
+
+---
+
+
+### Fortinet SSL-VPN - Heap-Based Buffer Overflow
+
+- **漏洞ID**: `CVE-2022-42475`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: A heap-based buffer overflow vulnerability &#x5B;CWE-122&#x5D; in FortiOS SSL-VPN (versions 7.2.0 through 7.2.2, 7.0.0 through 7.0.8, 6.4.0 through 6.4.10, 6.2.0 through 6.2.11, 6.0.15 and earlier) and FortiProxy SSL-VPN (versions 7.2.0 through 7.2.1, 7.0.7 and earlier) may allow a remote unauthenticated attacker to execute arbitrary code or commands via specifically crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2022-42475
+
+**参考链接**: 
+- [参考资料](https://github.com/0xhaggis/CVE-2022-42475)
+- [参考资料](https://fortiguard.com/psirt/FG-IR-22-398)
+- [参考资料](https://labs.watchtowr.com/fortinet-no-more-funny-titles-cve-2022-42475/)
+- [参考资料](https://bishopfox.com/blog/exploit-cve-2022-42475)
+- [参考资料](https://github.com/3yujw7njai/CVE-2022-42475-RCE-POC)
+
+---
+
+
+### Privileged Remote Access & Remote Support - Command Injection
+
+- **漏洞ID**: `CVE-2024-12356`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: A critical vulnerability has been discovered in Privileged Remote Access (PRA) and Remote Support (RS) products which can allow an unauthenticated attacker to inject commands that are run as a site user.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2024-12356
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2024-12356)
+
+---
+
+
+### Zabbix Server - Time-Based Blind SQL injection
+
+- **漏洞ID**: `CVE-2024-22120`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: The Zabbix server can execute commands for configured scripts. After executing a command, an audit entry is added to the &quot;Audit Log&quot;. Due to the &quot;clientip&quot; field not being sanitized, it is possible to inject SQL into &quot;clientip&quot; and exploit a time-based blind SQL injection vulnerability.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2024-22120
+
+**参考链接**: 
+- [参考资料](https://support.zabbix.com/browse/ZBX-24505#/)
+- [参考资料](https://github.com/W01fh4cker/CVE-2024-22120-RCE)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2024-22120)
+- [参考资料](https://support.zabbix.com/browse/ZBX-24505)
+- [参考资料](https://github.com/AboSteam/POPC)
+
+---
+
+
+### FortiManager Unauthenticated Remote Code Execution
+
+- **漏洞ID**: `CVE-2024-47575`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: A missing authentication vulnerability in Fortinet FortiManager allows a remote unauthenticated attacker to execute arbitrary code or commands via specially crafted requests to the fgfmd daemon. This vulnerability affects FortiManager versions 7.6.0, 7.4.0 through 7.4.4, 7.2.0 through 7.2.7, 7.0.0 through 7.0.12, 6.4.0 through 6.4.14, 6.2.0 through 6.2.12, and all versions of 6.0.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2024-47575
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2024-47575)
+- [参考资料](https://github.com/watchtowrlabs/Fortijump-Exploit-CVE-2024-47575)
+- [参考资料](https://fortiguard.fortinet.com/psirt/FG-IR-24-423)
+
+---
+
+
+### Ivanti Connect Secure - Stack-based Buffer Overflow
+
+- **漏洞ID**: `CVE-2025-22457`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Ivanti Connect Secure before version 22.7R2.6, Ivanti Policy Secure before version 22.7R1.4,
+and Ivanti ZTA Gateways before version 22.8R2.2 contain a stack-based buffer overflow caused by
+improper input handling, allowing remote attackers to execute arbitrary code without authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-22457
+
+**参考链接**: 
+- [参考资料](https://labs.watchtowr.com/is-the-sofistication-in-the-room-with-us-x-forwarded-for-and-ivanti-connect-secure-cve-2025-22457)
+- [参考资料](https://www.cvedetails.com/cve/CVE-2025-22457)
+- [参考资料](https://github.com/securekomodo/CVE-2025-22457)
+
+---
+
+
+### GitLab - SAML Authentication Bypass
+
+- **漏洞ID**: `CVE-2025-25291`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: GitLab 平台
+- **预估影响**: 数千个
+
+**描述**: ruby-saml provides security assertion markup language (SAML) single sign-on (SSO) for Ruby. An authentication bypass vulnerability was found in ruby-saml prior to versions 1.12.4 and 1.18.0 due to a parser differential. ReXML and Nokogiri parse XML differently; the parsers can generate entirely different document structures from the same XML input. That allows an attacker to be able to execute a Signature Wrapping attack. This issue may lead to authentication bypass. Versions 1.12.4 and 1.18.0 fix the issue.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-25291
+
+**参考链接**: 
+- [参考资料](https://portswigger.net/research/saml-roulette-the-hacker-always-wins)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials/)
+- [参考资料](https://about.gitlab.com/releases/2025/03/12/patch-release-gitlab-17-9-2-released)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials)
+- [参考资料](https://github.com/SAML-Toolkits/ruby-saml/commit/e76c5b36bac40aedbf1ba7ffaaf495be63328cd9)
+
+---
+
+
+### RustFS &lt; 1.0.0-alpha.77 - Hardcoded gRPC Authentication Token
+
+- **漏洞ID**: `CVE-2025-68926`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: RustFS before 1.0.0-alpha.77 used a hardcoded gRPC authentication token &quot;rustfs rpc&quot; that could not be changed without recompiling and this allowed unauthenticated remote attackers to gain full administrative access to the gRPC API.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-68926
+
+**参考链接**: 
+- [参考资料](https://github.com/rustfs/rustfs/security/advisories/GHSA-h956-rh7x-ppgj)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-68926)
+
+---
+
+
+### WatchGuard IKEv2 Out-of-Bounds Write Vulnerability
+
+- **漏洞ID**: `CVE-2025-9242`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: WatchGuard Fireware OS 11.10.2 to 11.12.4_Update1, 12.0 to 12.11.3, and 2025.1 contains an out-of-bounds write caused by improper handling in Mobile User VPN and Branch Office VPN with IKEv2 dynamic gateway peer, letting remote unauthenticated attackers execute arbitrary code.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-9242
+
+**参考链接**: 
+- [参考资料](https://github.com/watchtowrlabs/watchTowr-vs-WatchGuard-CVE-2025-9242/)
+- [参考资料](https://labs.watchtowr.com/yikes-watchguard-fireware-os-ikev2-out-of-bounds-write-cve-2025-9242)
+
+---
+
+
+### Django QuerySet.order_by - SQL Injection
+
+- **漏洞ID**: `CVE-2021-35042`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Django 3.1.x before 3.1.13 and 3.2.x before 3.2.5 contain a SQL injection caused by untrusted input in QuerySet.order_by. Attackers can execute arbitrary SQL commands if they control order_by input parameters.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2021-35042
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2021-35042)
+- [参考资料](https://github.com/zer0qs/CVE-2021-35042)
+- [参考资料](https://github.com/django/django/commit/a34a5f724c5d5adb2109374ba3989ebb7b11f81f)
+
+---
+
+
+### Horde Groupware Unauthenticated Admin Access
+
+- **漏洞ID**: `CVE-2005-3344`
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Horde Groupware contains an administrative account with a blank password, which allows remote attackers to gain access.
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2005-3344
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2005-3344)
+- [参考资料](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-3344)
+- [参考资料](http://www.debian.org/security/2005/dsa-884)
+- [参考资料](http://www.networkscanning.com/Horde-Default-Admin-Password-Vulnerability-VSS_20171.html)
+- [参考资料](https://exchange.xforce.ibmcloud.com/vulnerabilities/24576)
+
+---
+
+
+### phpMyFAQ - Configuration Backup Disclosure
+
+- **漏洞ID**: `CVE-2025-69200`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: phpMyFAQ &lt;&#x3D; 4.0.16 contains an information disclosure vulnerability caused by unauthenticated access to configuration backup ZIP generation and download, letting remote attackers access sensitive configuration files, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-69200
+
+**参考链接**: 
+- [参考资料](https://github.com/thorsten/phpMyFAQ/security/advisories/GHSA-9cg9-4h4f-j6fg)
+- [参考资料](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-69200)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-69200)
+
+---
+
+
+### PowerDNS Authoritative Server - Denial of Service
+
+- **漏洞ID**: `CVE-2021-36754`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: PowerDNS Authoritative Server 4.5.0 before 4.5.1 allows anybody to crash the process by sending a specific query (QTYPE 65535) that causes an out-of-bounds exception.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2021-36754
+
+**参考链接**: 
+- [参考资料](http://www.openwall.com/lists/oss-security/2021/07/26/2)
+- [参考资料](https://doc.powerdns.com/authoritative/security-advisories/powerdns-advisory-2021-01.html)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2021-36754)
+
+---
+
+
+### Apache Tomcat WebSocket Frame Payload Length Validation Denial of Service
+
+- **漏洞ID**: `CVE-2020-13935`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Apache Tomcat versions 10.0.0-M1 to 10.0.0-M6, 9.0.0.M1 to 9.0.36, 8.5.0 to 8.5.56, and 7.0.27 to 7.0.104 contain a vulnerability in the WebSocket module where the payload length of WebSocket frames is not correctly validated. This can lead to an infinite loop when processing frames with invalid payload lengths. Attackers can exploit this flaw by sending multiple malicious requests, resulting in a denial of service (DoS) on the affected Tomcat instance.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2020-13935
+
+**参考链接**: 
+- [参考资料](http://lists.opensuse.org/opensuse-security-announce/2020-07/msg00084.html)
+- [参考资料](http://lists.opensuse.org/opensuse-security-announce/2020-07/msg00088.html)
+- [参考资料](http://packetstormsecurity.com/files/161213/WordPress-5.0.0-Remote-Code-Execution.html)
+- [参考资料](https://kc.mcafee.com/corporate/index?page=content&id=SB10332)
+- [参考资料](https://lists.apache.org/thread.html/r4e5d3c09f4dd2923191e972408b40fb8b42dbff0bc7904d44b651e50%40%3Cusers.tomcat.apache.org%3E)
+- [参考资料](https://security.netapp.com/advisory/ntap-20200724-0003/)
+- [参考资料](https://github.com/RedTeamPentesting/CVE-2020-13935)
+
+---
+
+
+### Sudo Baron Samedit - Local Privilege Escalation
+
+- **漏洞ID**: `CVE-2021-3156`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: Sudo before 1.9.5p2 contains an off-by-one error that can result in a heap-based buffer overflow, which allows privilege escalation to root via &quot;sudoedit -s&quot; and a command-line argument that ends with a single backslash character.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2021-3156
+
+**参考链接**: 
+- [参考资料](https://medium.com/mii-cybersec/privilege-escalation-cve-2021-3156-new-sudo-vulnerability-4f9e84a9f435)
+- [参考资料](https://blog.qualys.com/vulnerabilities-threat-research/2021/01/26/cve-2021-3156-heap-based-buffer-overflow-in-sudo-baron-samedit)
+- [参考资料](https://infosecwriteups.com/baron-samedit-cve-2021-3156-tryhackme-76d7dedc3cff)
+- [参考资料](http://packetstormsecurity.com/files/161160/Sudo-Heap-Based-Buffer-Overflow.html)
+- [参考资料](http://packetstormsecurity.com/files/176932/glibc-syslog-Heap-Based-Buffer-Overflow.html)
+
+---
+
+
+### Looney Tunables Linux - Local Privilege Escalation
+
+- **漏洞ID**: `CVE-2023-4911`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: A buffer overflow was discovered in the GNU C Library&#x27;s dynamic loader ld.so while processing the GLIBC_TUNABLES environment variable. This issue could allow a local attacker to use maliciously crafted GLIBC_TUNABLES environment variables when launching binaries with SUID permission to execute code with elevated privileges.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2023-4911
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2023-4911)
+- [参考资料](https://www.qualys.com/2023/10/03/cve-2023-4911/looney-tunables-local-privilege-escalation-glibc-ld-so.txt)
+- [参考资料](https://www.youtube.com/watch?v=1iV-CD9Apn8)
+- [参考资料](http://www.openwall.com/lists/oss-security/2023/10/05/1)
+- [参考资料](http://www.openwall.com/lists/oss-security/2023/10/13/11)
+
+---
+
+
+### glibc&#x27;s syslog - Local Privilege Escalation
+
+- **漏洞ID**: `CVE-2023-6246`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: A heap-based buffer overflow was found in the __vsyslog_internal function of the glibc library. This function is called by the syslog and vsyslog functions. This issue occurs when the openlog function was not called, or called with the ident argument set to NULL, and the program name (the basename of argv&#x5B;0&#x5D;) is bigger than 1024 bytes, resulting in an application crash or local privilege escalation. This issue affects glibc 2.36 and newer.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2023-6246
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2023-6246)
+- [参考资料](https://www.qualys.com/2024/01/30/cve-2023-6246/syslog.txt)
+- [参考资料](https://access.redhat.com/security/cve/CVE-2023-6246)
+- [参考资料](https://bugzilla.redhat.com/show_bug.cgi?id=2249053)
+- [参考资料](https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/D2FIH77VHY3KCRROCXOT6L27WMZXSJ2G/)
+
+---
+
+
+### PHP imap - Remote Command Execution
+
+- **漏洞ID**: `CVE-2018-19518`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: University of Washington IMAP Toolkit 2007f on UNIX, as used in imap_open() in PHP and other products, launches an rsh command (by means of the imap_rimap function in c-client/imap4r1.c and the tcp_aopen function in osdep/unix/tcp_unix.c) without preventing argument injection, which might allow remote attackers to execute arbitrary OS commands if the IMAP server name is untrusted input (e.g., entered by a user of a web application) and if rsh has been replaced by a program with different argument semantics. For example, if rsh is a link to ssh (as seen on Debian and Ubuntu systems), then the attack can use an IMAP server name containing a &quot;-oProxyCommand&quot; argument.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2018-19518
+
+**参考链接**: 
+- [参考资料](https://github.com/vulhub/vulhub/tree/master/php/CVE-2018-19518)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2018-19518)
+- [参考资料](https://www.openwall.com/lists/oss-security/2018/11/22/3)
+- [参考资料](https://github.com/Bo0oM/PHP_imap_open_exploit/blob/master/exploit.php)
+
+---
+
+
+### Polyfill Supply Chain Attack Malicious Code Execution
+
+- **漏洞ID**: `CVE-2024-38526`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: pdoc provides API Documentation for Python Projects. Documentation generated with `pdoc --math` linked to JavaScript files from polyfill.io
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2024-38526
+
+**参考链接**: 
+- [参考资料](https://sansec.io/research/polyfill-supply-chain-attack)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2024-38526)
+- [参考资料](https://x.com/triblondon/status/1761852117579427975)
+- [参考资料](https://github.com/mitmproxy/pdoc/pull/703)
+- [参考资料](https://github.com/mitmproxy/pdoc/security/advisories/GHSA-5vgj-ggm4-fg62)
+
+---
+
+
+### Squirrelmail &lt;&#x3D;1.4.6 - Local File Inclusion
+
+- **漏洞ID**: `CVE-2006-2842`
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+**描述**: SquirrelMail 1.4.6 and earlier versions are susceptible to a PHP local file inclusion vulnerability in functions/plugin.php if register_globals is enabled and magic_quotes_gpc is disabled. This allows remote attackers to execute arbitrary PHP code via a URL in the plugins array parameter.
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2006-2842
+
+**参考链接**: 
+- [参考资料](https://www.exploit-db.com/exploits/27948)
+- [参考资料](http://squirrelmail.cvs.sourceforge.net/squirrelmail/squirrelmail/functions/global.php?r1=1.27.2.16&r2=1.27.2.17&view=patch&pathrev=SM-1_4-STABLE)
+- [参考资料](http://www.squirrelmail.org/security/issue/2006-06-01)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2006-2842)
+- [参考资料](ftp://patches.sgi.com/support/free/security/advisories/20060703-01-U.asc)
+
+---
+
+
+## 📋 完整模板列表
+
+| 模板名称 | 严重程度 | 类别 | 影响资产 | 风险评分 |
+|---------|---------|------|---------|---------|
+| QNAP HBS 3 - Broken Access Control | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Fortinet SSL-VPN - Heap-Based Buffer Overflow | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Privileged Remote Access & Remote Support - Comman | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Zabbix Server - Time-Based Blind SQL injection | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| FortiManager Unauthenticated Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Ivanti Connect Secure - Stack-based Buffer Overflo | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| GitLab - SAML Authentication Bypass | 🔴 critical | CVE漏洞 | GitLab 平台 | 5/5 |
+| RustFS &lt; 1.0.0-alpha.77 - Hardcoded gRPC Authen | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| WatchGuard IKEv2 Out-of-Bounds Write Vulnerability | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Django QuerySet.order_by - SQL Injection | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| Horde Groupware Unauthenticated Admin Access | 🔴 critical | CVE漏洞 | 通用 | 5/5 |
+| phpMyFAQ - Configuration Backup Disclosure | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
+| PowerDNS Authoritative Server - Denial of Service | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
+| Apache Tomcat WebSocket Frame Payload Length Valid | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
+| Sudo Baron Samedit - Local Privilege Escalation | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
+| Looney Tunables Linux - Local Privilege Escalation | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
+| glibc&#x27;s syslog - Local Privilege Escalation | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
+| PHP imap - Remote Command Execution | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
+| Polyfill Supply Chain Attack Malicious Code Execut | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
+| Squirrelmail &lt;&#x3D;1.4.6 - Local File Inclusio | 🟠 high | CVE漏洞 | 通用 | 4.5/5 |
+| WordPress Elementor Website Builder &lt;&#x3D; 3.5 | 🟡 medium | CVE漏洞 | WordPress 站点 | 3.5/5 |
+| Essential Addons for Elementor &lt; 6.0.15 - Cross | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| Backdrop CMS - Cross-Site Scripting | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| Swagger UI &gt;&#x3D;3.14.1 &lt; 3.38.0 - DOM Base | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| Open Bulletin Board (OpenBB) v1.0.6 - Open Redirec | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| Cofax &lt;&#x3D;2.0RC3 - Cross-Site Scripting | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| Cherokee HTTPD &lt;&#x3D;0.5 - Cross-Site Scriptin | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| Jira Rainbow.Zen - Cross-Site Scripting | 🟡 medium | CVE漏洞 | 通用 | 3.5/5 |
+| Joomla! RSfiles &lt;&#x3D;1.0.2 - Local File Inclu | 🟡 medium | CVE漏洞 | Joomla 站点 | 3.5/5 |
+| OpenSymphony XWork/Apache Struts2 - Remote Code Ex | 🟡 medium | CVE漏洞 | Apache 服务器 | 3.5/5 |
+
+## 🛡️ 安全建议
+
+🚨 发现高风险漏洞，建议立即扫描相关资产
+🔍 关注新发布的 CVE 漏洞，及时更新补丁
+⚡ 检测到远程代码执行漏洞，优先处理
+
+## 🔧 扫描建议
+
+建议使用以下 Nuclei 命令进行扫描：
+
+```bash
+# 扫描高危漏洞
+nuclei -t http/cves/2021/CVE-2021-28799.yaml -t code/cves/2022/CVE-2022-42475.yaml -t code/cves/2024/CVE-2024-12356.yaml -t code/cves/2024/CVE-2024-22120.yaml -t code/cves/2024/CVE-2024-47575.yaml -t code/cves/2025/CVE-2025-22457.yaml -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2025/CVE-2025-68926.yaml -t code/cves/2025/CVE-2025-9242.yaml -t dast/cves/2021/CVE-2021-35042.yaml -t http/cves/2005/CVE-2005-3344.yaml -t http/cves/2025/CVE-2025-69200.yaml -t javascript/cves/2021/CVE-2021-36754.yaml -t code/cves/2020/CVE-2020-13935.yaml -t code/cves/2021/CVE-2021-3156.yaml -t code/cves/2023/CVE-2023-4911.yaml -t code/cves/2023/CVE-2023-6246.yaml -t dast/cves/2018/CVE-2018-19518.yaml -t headless/cves/2024/CVE-2024-38526.yaml -t http/cves/2006/CVE-2006-2842.yaml -u target-url
+
+# 扫描所有今日新增模板  
+nuclei -t http/cves/2021/CVE-2021-28799.yaml -t code/cves/2022/CVE-2022-42475.yaml -t code/cves/2024/CVE-2024-12356.yaml -t code/cves/2024/CVE-2024-22120.yaml -t code/cves/2024/CVE-2024-47575.yaml -t code/cves/2025/CVE-2025-22457.yaml -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2025/CVE-2025-68926.yaml -t code/cves/2025/CVE-2025-9242.yaml -t dast/cves/2021/CVE-2021-35042.yaml -t http/cves/2005/CVE-2005-3344.yaml -t http/cves/2025/CVE-2025-69200.yaml -t javascript/cves/2021/CVE-2021-36754.yaml -t code/cves/2020/CVE-2020-13935.yaml -t code/cves/2021/CVE-2021-3156.yaml -t code/cves/2023/CVE-2023-4911.yaml -t code/cves/2023/CVE-2023-6246.yaml -t dast/cves/2018/CVE-2018-19518.yaml -t headless/cves/2024/CVE-2024-38526.yaml -t http/cves/2006/CVE-2006-2842.yaml -t headless/cves/2022/CVE-2022-29455-headless.yaml -t headless/cves/2025/CVE-2025-24752.yaml -t headless/cves/2025/CVE-2025-25062.yaml -t headless/cves/2025/CVE-2025-8191.yaml -t http/cves/2004/CVE-2004-1965.yaml -t http/cves/2005/CVE-2005-4385.yaml -t http/cves/2006/CVE-2006-1681.yaml -t http/cves/2007/CVE-2007-0885.yaml -t http/cves/2007/CVE-2007-4504.yaml -t http/cves/2007/CVE-2007-4556.yaml -u target-url
+```
+
+---
+
+*本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)*
+
+*扫描建议仅供参考，请在授权环境下进行安全测试*
