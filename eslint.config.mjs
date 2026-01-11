@@ -67,6 +67,13 @@ export default [
       '@typescript-eslint/ban-ts-comment': 'off',
     },
   },
+  // Node scripts in `scripts/` are CommonJS by design (GitHub Actions runner scripts, etc.)
+  {
+    files: ['scripts/**/*.js'],
+    rules: {
+      '@typescript-eslint/no-require-imports': 'off',
+    },
+  },
   // Next.js generates this file and uses triple-slash references by design.
   // Put this override LAST so it wins over presets above.
   {
