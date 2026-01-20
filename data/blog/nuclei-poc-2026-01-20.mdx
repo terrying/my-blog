@@ -1,0 +1,373 @@
+---
+title: 'Nuclei POC 精选分析 - 2026-01-20'
+date: '2026-01-20'
+tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
+draft: false
+summary: '从 339 个模板更新中精选分析 29 个高价值 POC，发现 12 个高风险漏洞'
+authors: ['default']
+category: 'security-intel'
+---
+
+# Nuclei POC 精选分析 - 2026-01-20
+
+## 📊 智能筛选概况
+
+- **发现变更**: 339 个模板更新
+- **精选分析**: 29 个高价值 POC  
+- **智能跳过**: 310 个低优先级模板
+- **高风险漏洞**: 12 个
+- **主要类别**: CVE漏洞(11), 信息泄露(4), 其他(7), 配置错误(7)
+
+> 💡 **智能筛选说明**: 系统自动优先分析 CVE 漏洞、高危漏洞和新增模板，跳过低价值的技术识别类模板，确保高效利用 API 资源。
+
+### 严重程度分布
+
+- 🔴 **严重**: 3 个
+- 🟠 **高危**: 9 个
+- 🟡 **中危**: 10 个
+- 🔵 **低危**: 4 个
+- ⚪ **unknown**: 3 个
+
+## 🔍 重点漏洞分析
+
+
+### Keras Model.load_model - Arbitrary Code Execution
+
+- **漏洞ID**: `CVE-2025-1550`
+- **CVE**: `CVE-2025-1550` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.04785 (percentile 0.89149) @ 2026-01-19
+
+**描述**: The Keras Model.load_model function permits arbitrary code execution, even with safe_mode&#x3D;True, through a manually constructed, malicious .keras archive. By altering the config.json file within the archive, an attacker can specify arbitrary Python modules and functions, along with their arguments, to be loaded and executed during model loading
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-1550)
+- [参考资料](https://github.com/keras-team/keras/pull/20751)
+- [参考资料](https://towerofhanoi.it/writeups/cve-2025-1550/)
+
+---
+
+
+### GitLab - SAML Authentication Bypass
+
+- **漏洞ID**: `CVE-2025-25291`
+- **CVE**: `CVE-2025-25291` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: GitLab 平台
+- **预估影响**: 数千个
+- **EPSS**: 0.13848 (percentile 0.94085) @ 2026-01-19
+
+**描述**: ruby-saml provides security assertion markup language (SAML) single sign-on (SSO) for Ruby. An authentication bypass vulnerability was found in ruby-saml prior to versions 1.12.4 and 1.18.0 due to a parser differential. ReXML and Nokogiri parse XML differently; the parsers can generate entirely different document structures from the same XML input. That allows an attacker to be able to execute a Signature Wrapping attack. This issue may lead to authentication bypass. Versions 1.12.4 and 1.18.0 fix the issue.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-25291
+
+**参考链接**: 
+- [参考资料](https://portswigger.net/research/saml-roulette-the-hacker-always-wins)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials/)
+- [参考资料](https://about.gitlab.com/releases/2025/03/12/patch-release-gitlab-17-9-2-released)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials)
+- [参考资料](https://github.com/SAML-Toolkits/ruby-saml/commit/e76c5b36bac40aedbf1ba7ffaaf495be63328cd9)
+
+---
+
+
+### WatchGuard IKEv2 Out-of-Bounds Write Vulnerability
+
+- **漏洞ID**: `CVE-2025-9242`
+- **CVE**: `CVE-2025-9242` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.7283 (percentile 0.98731) @ 2026-01-19
+
+**描述**: WatchGuard Fireware OS 11.10.2 to 11.12.4_Update1, 12.0 to 12.11.3, and 2025.1 contains an out-of-bounds write caused by improper handling in Mobile User VPN and Branch Office VPN with IKEv2 dynamic gateway peer, letting remote unauthenticated attackers execute arbitrary code.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-9242
+
+**参考链接**: 
+- [参考资料](https://github.com/watchtowrlabs/watchTowr-vs-WatchGuard-CVE-2025-9242/)
+- [参考资料](https://labs.watchtowr.com/yikes-watchguard-fireware-os-ikev2-out-of-bounds-write-cve-2025-9242)
+
+---
+
+
+### OVHcloud Backup Configuration - Exposure
+
+- **漏洞ID**: `ovhcloud-backup-config`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: Detected exposed OVHcloud backup configuration files (ovh-backups.json) containing sensitive credentials such as OpenStack/Swift authentication details, API keys, and storage configuration.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://docs.ovh.com/gb/en/storage/)
+- [参考资料](https://docs.ovh.com/gb/en/public-cloud/access_and_security_in_horizon/)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### OVHcloud Backup Configuration - Exposure
+
+- **漏洞ID**: `ovhcloud-backup-config`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: Detected exposed OVHcloud backup configuration files (ovh-backups.json) containing sensitive credentials such as OpenStack/Swift authentication details, API keys, and storage configuration.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://docs.ovh.com/gb/en/storage/)
+- [参考资料](https://docs.ovh.com/gb/en/public-cloud/access_and_security_in_horizon/)
+
+---
+
+
+### Laravel Sessions Folder Exposure
+
+- **漏洞ID**: `laravel-sessions-exposure`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: Detected unauthenticated access to the Laravel session storage directory, allowing attackers to browse and download session files that may contain active authentication tokens, CSRF tokens, and serialized user data.
+
+
+**攻击向量**: 网络扫描
+
+
+
+
+
+---
+
+
+### Laravel Sessions Folder Exposure
+
+- **漏洞ID**: `laravel-sessions-exposure`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: Detected unauthenticated access to the Laravel session storage directory, allowing attackers to browse and download session files that may contain active authentication tokens, CSRF tokens, and serialized user data.
+
+
+**攻击向量**: 网络扫描
+
+
+
+
+
+---
+
+
+## 📋 完整模板列表
+
+| 模板名称 | 严重程度 | 类别 | 影响资产 | EPSS | 风险评分 |
+|---------|---------|------|---------|------|---------|
+| Keras Model.load_model - Arbitrary Code Execution | 🔴 critical | CVE漏洞 | 通用 | 0.0478 | 5/5 |
+| GitLab - SAML Authentication Bypass | 🔴 critical | CVE漏洞 | GitLab 平台 | 0.1385 | 5/5 |
+| WatchGuard IKEv2 Out-of-Bounds Write Vulnerability | 🔴 critical | CVE漏洞 | 通用 | 0.7283 | 5/5 |
+| OVHcloud Backup Configuration - Exposure | 🟠 high | 信息泄露 | 通用 | - | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | - | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | - | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | - | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | - | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | - | 4/5 |
+| OVHcloud Backup Configuration - Exposure | 🟠 high | 信息泄露 | 通用 | - | 4/5 |
+| Laravel Sessions Folder Exposure | 🟠 high | 配置错误 | 通用 | - | 4/5 |
+| Laravel Sessions Folder Exposure | 🟠 high | 配置错误 | 通用 | - | 4/5 |
+| Backdrop CMS - Cross-Site Scripting | 🟡 medium | CVE漏洞 | 通用 | 0.3406 | 3.7/5 |
+| Responsive Pricing Table &lt;&#x3D; 5.1.12 - Cross | 🟡 medium | CVE漏洞 | WordPress 站点 | 0.0003 | 3.5/5 |
+| Essential Addons for Elementor &lt; 6.0.15 - Cross | 🟡 medium | CVE漏洞 | 通用 | 0.0304 | 3.5/5 |
+| Swagger UI &gt;&#x3D;3.14.1 &lt; 3.38.0 - DOM Base | 🟡 medium | CVE漏洞 | 通用 | 0.0108 | 3.5/5 |
+| Responsive Pricing Table &lt;&#x3D; 5.1.12 - Cross | 🟡 medium | CVE漏洞 | WordPress 站点 | 0.0003 | 3.5/5 |
+| Responsive Pricing Table &lt;&#x3D; 5.1.12 - Cross | 🟡 medium | CVE漏洞 | WordPress 站点 | 0.0003 | 3.5/5 |
+| Responsive Pricing Table &lt;&#x3D; 5.1.12 - Cross | 🟡 medium | CVE漏洞 | WordPress 站点 | 0.0003 | 3.5/5 |
+| Responsive Pricing Table &lt;&#x3D; 5.1.12 - Cross | 🟡 medium | CVE漏洞 | WordPress 站点 | 0.0003 | 3.5/5 |
+| Zen Cart Log File Exposure | 🟡 medium | 信息泄露 | 通用 | - | 3/5 |
+| Zen Cart Log File Exposure | 🟡 medium | 信息泄露 | 通用 | - | 3/5 |
+| TinyTiny RSS Open Redirect | 🔵 low | 其他 | 通用 | - | 2/5 |
+| TinyTiny RSS Open Redirect | 🔵 low | 其他 | 通用 | - | 2/5 |
+| Spring Boot `X-Application-Context` Header Exposur | 🔵 low | 配置错误 | 通用 | - | 2/5 |
+| Spring Boot `X-Application-Context` Header Exposur | 🔵 low | 配置错误 | 通用 | - | 2/5 |
+| IBM Cloud Object Storage - Bucket Exposure | undefined unknown | 配置错误 | 通用 | - | 1/5 |
+| IBM Cloud Object Storage - Bucket Exposure | undefined unknown | 配置错误 | 通用 | - | 1/5 |
+| IBM Cloud Object Storage - Bucket Exposure | undefined unknown | 配置错误 | 通用 | - | 1/5 |
+
+## 🛡️ 安全建议
+
+🚨 发现高风险漏洞，建议立即扫描相关资产
+🔍 关注新发布的 CVE 漏洞，及时更新补丁
+⚡ 检测到远程代码执行漏洞，优先处理
+
+## 🔧 扫描建议
+
+建议使用以下 Nuclei 命令进行扫描：
+
+```bash
+# 扫描高危漏洞
+nuclei -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2025/CVE-2025-9242.yaml -t http/exposures/configs/ovhcloud-backup-config.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/exposures/configs/ovhcloud-backup-config.yaml -t http/misconfiguration/laravel-sessions-exposure.yaml -t http/misconfiguration/laravel-sessions-exposure.yaml -u target-url
+
+# 扫描所有今日新增模板  
+nuclei -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2025/CVE-2025-9242.yaml -t http/exposures/configs/ovhcloud-backup-config.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/exposures/configs/ovhcloud-backup-config.yaml -t http/misconfiguration/laravel-sessions-exposure.yaml -t http/misconfiguration/laravel-sessions-exposure.yaml -t headless/cves/2025/CVE-2025-25062.yaml -t http/cves/2025/CVE-2025-13418.yaml -t headless/cves/2025/CVE-2025-24752.yaml -t headless/cves/2025/CVE-2025-8191.yaml -t http/cves/2025/CVE-2025-13418.yaml -t http/cves/2025/CVE-2025-13418.yaml -t http/cves/2025/CVE-2025-13418.yaml -t http/cves/2025/CVE-2025-13418.yaml -t http/exposures/logs/zen-cart-log-exposure.yaml -t http/exposures/logs/zen-cart-log-exposure.yaml -t http/vulnerabilities/other/tinytiny-rss-redirect.yaml -t http/vulnerabilities/other/tinytiny-rss-redirect.yaml -t http/misconfiguration/springboot/springboot-x-application-context.yaml -t http/misconfiguration/springboot/springboot-x-application-context.yaml -t http/misconfiguration/ibm/ibm-cloud-bucket-exposure.yaml -t http/misconfiguration/ibm/ibm-cloud-bucket-exposure.yaml -t http/misconfiguration/ibm/ibm-cloud-bucket-exposure.yaml -u target-url
+```
+
+---
+
+*本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)*
+
+*扫描建议仅供参考，请在授权环境下进行安全测试*
