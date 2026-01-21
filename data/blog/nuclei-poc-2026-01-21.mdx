@@ -1,0 +1,532 @@
+---
+title: 'Nuclei POC 精选分析 - 2026-01-21'
+date: '2026-01-21'
+tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
+draft: false
+summary: '从 341 个模板更新中精选分析 30 个高价值 POC，发现 18 个高风险漏洞'
+authors: ['default']
+category: 'security-intel'
+---
+
+# Nuclei POC 精选分析 - 2026-01-21
+
+## 📊 智能筛选概况
+
+- **发现变更**: 341 个模板更新
+- **精选分析**: 30 个高价值 POC  
+- **智能跳过**: 311 个低优先级模板
+- **高风险漏洞**: 18 个
+- **主要类别**: CVE漏洞(9), 其他(5), 配置错误(12), 信息泄露(4)
+
+> 💡 **智能筛选说明**: 系统自动优先分析 CVE 漏洞、高危漏洞和新增模板，跳过低价值的技术识别类模板，确保高效利用 API 资源。
+
+### 严重程度分布
+
+- 🔴 **严重**: 7 个
+- 🟠 **高危**: 11 个
+- 🟡 **中危**: 6 个
+- 🔵 **低危**: 2 个
+- ⚪ **信息**: 4 个
+
+## 🔍 重点漏洞分析
+
+
+### Keras Model.load_model - Arbitrary Code Execution
+
+- **漏洞ID**: `CVE-2025-1550`
+- **CVE**: `CVE-2025-1550` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.04785 (percentile 0.89151) @ 2026-01-20
+
+**描述**: The Keras Model.load_model function permits arbitrary code execution, even with safe_mode&#x3D;True, through a manually constructed, malicious .keras archive. By altering the config.json file within the archive, an attacker can specify arbitrary Python modules and functions, along with their arguments, to be loaded and executed during model loading
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-1550)
+- [参考资料](https://github.com/keras-team/keras/pull/20751)
+- [参考资料](https://towerofhanoi.it/writeups/cve-2025-1550/)
+
+---
+
+
+### Ivanti Connect Secure - Stack-based Buffer Overflow
+
+- **漏洞ID**: `CVE-2025-22457`
+- **CVE**: `CVE-2025-22457` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.61518 (percentile 0.9826) @ 2026-01-20
+
+**描述**: Ivanti Connect Secure before version 22.7R2.6, Ivanti Policy Secure before version 22.7R1.4,
+and Ivanti ZTA Gateways before version 22.8R2.2 contain a stack-based buffer overflow caused by
+improper input handling, allowing remote attackers to execute arbitrary code without authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-22457
+
+**参考链接**: 
+- [参考资料](https://labs.watchtowr.com/is-the-sofistication-in-the-room-with-us-x-forwarded-for-and-ivanti-connect-secure-cve-2025-22457)
+- [参考资料](https://www.cvedetails.com/cve/CVE-2025-22457)
+- [参考资料](https://github.com/securekomodo/CVE-2025-22457)
+
+---
+
+
+### GitLab - SAML Authentication Bypass
+
+- **漏洞ID**: `CVE-2025-25291`
+- **CVE**: `CVE-2025-25291` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: GitLab 平台
+- **预估影响**: 数千个
+- **EPSS**: 0.13848 (percentile 0.94086) @ 2026-01-20
+
+**描述**: ruby-saml provides security assertion markup language (SAML) single sign-on (SSO) for Ruby. An authentication bypass vulnerability was found in ruby-saml prior to versions 1.12.4 and 1.18.0 due to a parser differential. ReXML and Nokogiri parse XML differently; the parsers can generate entirely different document structures from the same XML input. That allows an attacker to be able to execute a Signature Wrapping attack. This issue may lead to authentication bypass. Versions 1.12.4 and 1.18.0 fix the issue.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-25291
+
+**参考链接**: 
+- [参考资料](https://portswigger.net/research/saml-roulette-the-hacker-always-wins)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials/)
+- [参考资料](https://about.gitlab.com/releases/2025/03/12/patch-release-gitlab-17-9-2-released)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials)
+- [参考资料](https://github.com/SAML-Toolkits/ruby-saml/commit/e76c5b36bac40aedbf1ba7ffaaf495be63328cd9)
+
+---
+
+
+### Allegra - Authentication Bypass via Predictable Password Reset Token
+
+- **漏洞ID**: `CVE-2025-6216`
+- **CVE**: `CVE-2025-6216` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.33256 (percentile 0.96774) @ 2026-01-20
+
+**描述**: Allegra calculateTokenExpDate Password Recovery Authentication Bypass Vulnerability. This vulnerability allows remote attackers to bypass authentication on affected installations of Allegra. Authentication is not required to exploit this vulnerability. The specific flaw exists within the password recovery mechanism. The issue results from reliance upon a predictable value when generating a password reset token. An attacker can leverage this vulnerability to bypass authentication on the application.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-6216
+
+**参考链接**: 
+- [参考资料](https://www.zerodayinitiative.com/advisories/ZDI-25-410/)
+- [参考资料](https://alltena.com/en/resources/release-notes/release-notes-for-release-8-1-4-and-release-7-5-2)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-6216)
+
+---
+
+
+### Next.js Middleware Authorization Bypass
+
+- **漏洞ID**: `CVE-2025-29927-HEADLESS`
+- **CVE**: `CVE-2025-29927` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.92896 (percentile 0.9976) @ 2026-01-20
+
+**描述**: A critical vulnerability in Next.js middleware allows attackers to bypass authorization checks by manipulating the x-middleware-subrequest header. This flaw affects Next.js versions prior to 14.2.25 and 15.2.3, potentially granting unauthorized access to sensitive resources.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-29927
+
+**参考链接**: 
+- [参考资料](https://github.com/advisories/GHSA-f82v-jwr5-mffw)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-29927)
+- [参考资料](https://www.tenable.com/cve/CVE-2025-29927)
+
+---
+
+
+### Oracle E-Business Suite 12.2.3–12.2.14 – Remote Code Execution
+
+- **漏洞ID**: `CVE-2025-61882`
+- **CVE**: `CVE-2025-61882` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.76811 (percentile 0.98907) @ 2026-01-20
+
+**描述**: Oracle Concurrent Processing 12.2.3-12.2.14 contains a remote code execution caused by unauthenticated network access via HTTP, letting unauthenticated attackers fully compromise the system, exploit requires network access via HTTP.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://labs.watchtowr.com/well-well-well-its-another-day-oracle-e-business-suite-pre-auth-rce-chain-cve-2025-61882well-well-well-its-another-day-oracle-e-business-suite-pre-auth-rce-chain-cve-2025-61882/)
+- [参考资料](https://github.com/watchtowrlabs/watchTowr-vs-Oracle-E-Business-Suite-CVE-2025-61882)
+- [参考资料](https://www.oracle.com/security-alerts/alert-cve-2025-61882.html)
+- [参考资料](https://blogs.oracle.com/security/post/apply-july-2025-cpu)
+- [参考资料](https://vred.mbbank.com.vn/p/oracle-e-business-suite-authentication)
+- [参考资料](https://gist.github.com/testanull/a897473577b8650932221172e50304ce#file-ebs_cve-2025-61882_poc-py)
+
+---
+
+
+### Oracle E-Business Suite 12.2.3–12.2.14 – Remote Code Execution
+
+- **漏洞ID**: `CVE-2025-61882`
+- **CVE**: `CVE-2025-61882` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.76811 (percentile 0.98907) @ 2026-01-20
+
+**描述**: Oracle Concurrent Processing 12.2.3-12.2.14 contains a remote code execution caused by unauthenticated network access via HTTP, letting unauthenticated attackers fully compromise the system, exploit requires network access via HTTP.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://labs.watchtowr.com/well-well-well-its-another-day-oracle-e-business-suite-pre-auth-rce-chain-cve-2025-61882well-well-well-its-another-day-oracle-e-business-suite-pre-auth-rce-chain-cve-2025-61882/)
+- [参考资料](https://github.com/watchtowrlabs/watchTowr-vs-Oracle-E-Business-Suite-CVE-2025-61882)
+- [参考资料](https://www.oracle.com/security-alerts/alert-cve-2025-61882.html)
+- [参考资料](https://blogs.oracle.com/security/post/apply-july-2025-cpu)
+- [参考资料](https://vred.mbbank.com.vn/p/oracle-e-business-suite-authentication)
+- [参考资料](https://gist.github.com/testanull/a897473577b8650932221172e50304ce#file-ebs_cve-2025-61882_poc-py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### ITFlow Unfinished Installation
+
+- **漏洞ID**: `itflow-unfinished-installation`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: Detected ITFlow setup wizard was exposed with an unfinished installation, allowing attackers to configure the database and create an admin account.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/itflow-org/itflow)
+- [参考资料](https://docs.itflow.org/installation)
+
+---
+
+
+### Beszel Unfinished Installation
+
+- **漏洞ID**: `beszel-unfinished-installation`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: Detected Beszel server monitoring hub had an unfinished installation with no admin account configured, allowing attackers to create an admin account and gain full control.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/henrygd/beszel)
+
+---
+
+
+### Beszel Unfinished Installation
+
+- **漏洞ID**: `beszel-unfinished-installation`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: Detected Beszel server monitoring hub had an unfinished installation with no admin account configured, allowing attackers to create an admin account and gain full control.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/henrygd/beszel)
+
+---
+
+
+### ITFlow Unfinished Installation
+
+- **漏洞ID**: `itflow-unfinished-installation`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: Detected ITFlow setup wizard was exposed with an unfinished installation, allowing attackers to configure the database and create an admin account.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/itflow-org/itflow)
+- [参考资料](https://docs.itflow.org/installation)
+
+---
+
+
+### ITFlow Unfinished Installation
+
+- **漏洞ID**: `itflow-unfinished-installation`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: Detected ITFlow setup wizard was exposed with an unfinished installation, allowing attackers to configure the database and create an admin account.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/itflow-org/itflow)
+- [参考资料](https://docs.itflow.org/installation)
+
+---
+
+
+### Beszel Unfinished Installation
+
+- **漏洞ID**: `beszel-unfinished-installation`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: Detected Beszel server monitoring hub had an unfinished installation with no admin account configured, allowing attackers to create an admin account and gain full control.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/henrygd/beszel)
+
+---
+
+
+## 📋 完整模板列表
+
+| 模板名称 | 严重程度 | 类别 | 影响资产 | EPSS | 风险评分 |
+|---------|---------|------|---------|------|---------|
+| Keras Model.load_model - Arbitrary Code Execution | 🔴 critical | CVE漏洞 | 通用 | 0.0478 | 5/5 |
+| Ivanti Connect Secure - Stack-based Buffer Overflo | 🔴 critical | CVE漏洞 | 通用 | 0.6152 | 5/5 |
+| GitLab - SAML Authentication Bypass | 🔴 critical | CVE漏洞 | GitLab 平台 | 0.1385 | 5/5 |
+| Allegra - Authentication Bypass via Predictable Pa | 🔴 critical | CVE漏洞 | 通用 | 0.3326 | 5/5 |
+| Next.js Middleware Authorization Bypass | 🔴 critical | CVE漏洞 | 通用 | 0.9290 | 5/5 |
+| Oracle E-Business Suite 12.2.3–12.2.14 – Remote Co | 🔴 critical | CVE漏洞 | 通用 | 0.7681 | 5/5 |
+| Oracle E-Business Suite 12.2.3–12.2.14 – Remote Co | 🔴 critical | CVE漏洞 | 通用 | 0.7681 | 5/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | - | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | - | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | - | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | - | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | - | 4/5 |
+| ITFlow Unfinished Installation | 🟠 high | 配置错误 | 通用 | - | 4/5 |
+| Beszel Unfinished Installation | 🟠 high | 配置错误 | 通用 | - | 4/5 |
+| Beszel Unfinished Installation | 🟠 high | 配置错误 | 通用 | - | 4/5 |
+| ITFlow Unfinished Installation | 🟠 high | 配置错误 | 通用 | - | 4/5 |
+| ITFlow Unfinished Installation | 🟠 high | 配置错误 | 通用 | - | 4/5 |
+| Beszel Unfinished Installation | 🟠 high | 配置错误 | 通用 | - | 4/5 |
+| Essential Addons for Elementor &lt; 6.0.15 - Cross | 🟡 medium | CVE漏洞 | 通用 | 0.0304 | 3.5/5 |
+| Swagger UI &gt;&#x3D;3.14.1 &lt; 3.38.0 - DOM Base | 🟡 medium | CVE漏洞 | 通用 | 0.0106 | 3.5/5 |
+| Azure Functions host.json Configuration Exposure | 🟡 medium | 信息泄露 | 通用 | - | 3/5 |
+| SQLite History - Exposure | 🟡 medium | 信息泄露 | 通用 | - | 3/5 |
+| Azure Functions host.json Configuration Exposure | 🟡 medium | 信息泄露 | 通用 | - | 3/5 |
+| SQLite History - Exposure | 🟡 medium | 信息泄露 | 通用 | - | 3/5 |
+| Gitea Public Repository - Exposure | 🔵 low | 配置错误 | 通用 | - | 2/5 |
+| Gitea Public Repository - Exposure | 🔵 low | 配置错误 | 通用 | - | 2/5 |
+| Envoy Proxy - Metadata Disclosure | ⚪ info | 配置错误 | 通用 | - | 1/5 |
+| MongoDB Exposure | ⚪ info | 配置错误 | 通用 | - | 1/5 |
+| Envoy Proxy - Metadata Disclosure | ⚪ info | 配置错误 | 通用 | - | 1/5 |
+| MongoDB Exposure | ⚪ info | 配置错误 | 通用 | - | 1/5 |
+
+## 🛡️ 安全建议
+
+🚨 发现高风险漏洞，建议立即扫描相关资产
+🔍 关注新发布的 CVE 漏洞，及时更新补丁
+⚡ 检测到远程代码执行漏洞，优先处理
+
+## 🔧 扫描建议
+
+建议使用以下 Nuclei 命令进行扫描：
+
+```bash
+# 扫描高危漏洞
+nuclei -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-22457.yaml -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2025/CVE-2025-6216.yaml -t headless/cves/2025/CVE-2025-29927-HEADLESS.yaml -t http/cves/2025/CVE-2025-61882.yaml -t http/cves/2025/CVE-2025-61882.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/misconfiguration/installer/itflow-unfinished-installation.yaml -t http/misconfiguration/installer/beszel-unfinished-installation.yaml -t http/misconfiguration/installer/beszel-unfinished-installation.yaml -t http/misconfiguration/installer/itflow-unfinished-installation.yaml -t http/misconfiguration/installer/itflow-unfinished-installation.yaml -t http/misconfiguration/installer/beszel-unfinished-installation.yaml -u target-url
+
+# 扫描所有今日新增模板  
+nuclei -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-22457.yaml -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2025/CVE-2025-6216.yaml -t headless/cves/2025/CVE-2025-29927-HEADLESS.yaml -t http/cves/2025/CVE-2025-61882.yaml -t http/cves/2025/CVE-2025-61882.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/misconfiguration/installer/itflow-unfinished-installation.yaml -t http/misconfiguration/installer/beszel-unfinished-installation.yaml -t http/misconfiguration/installer/beszel-unfinished-installation.yaml -t http/misconfiguration/installer/itflow-unfinished-installation.yaml -t http/misconfiguration/installer/itflow-unfinished-installation.yaml -t http/misconfiguration/installer/beszel-unfinished-installation.yaml -t headless/cves/2025/CVE-2025-24752.yaml -t headless/cves/2025/CVE-2025-8191.yaml -t http/exposures/configs/azure-functions-hostjson-exposure.yaml -t http/exposures/files/sqlite-history-exposure.yaml -t http/exposures/configs/azure-functions-hostjson-exposure.yaml -t http/exposures/files/sqlite-history-exposure.yaml -t http/misconfiguration/gitea-public-repo-exposure.yaml -t http/misconfiguration/gitea-public-repo-exposure.yaml -t http/misconfiguration/envoy-metadata-disclosure.yaml -t http/misconfiguration/mongodb-exposure.yaml -t http/misconfiguration/envoy-metadata-disclosure.yaml -t http/misconfiguration/mongodb-exposure.yaml -u target-url
+```
+
+---
+
+*本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)*
+
+*扫描建议仅供参考，请在授权环境下进行安全测试*
