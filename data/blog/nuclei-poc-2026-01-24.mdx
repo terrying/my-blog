@@ -1,0 +1,479 @@
+---
+title: 'Nuclei POC 精选分析 - 2026-01-24'
+date: '2026-01-24'
+tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
+draft: false
+summary: '从 338 个模板更新中精选分析 30 个高价值 POC，发现 16 个高风险漏洞'
+authors: ['default']
+category: 'security-intel'
+---
+
+# Nuclei POC 精选分析 - 2026-01-24
+
+## 📊 智能筛选概况
+
+- **发现变更**: 338 个模板更新
+- **精选分析**: 30 个高价值 POC  
+- **智能跳过**: 308 个低优先级模板
+- **高风险漏洞**: 16 个
+- **主要类别**: CVE漏洞(13), 其他(15), 配置错误(2)
+
+> 💡 **智能筛选说明**: 系统自动优先分析 CVE 漏洞、高危漏洞和新增模板，跳过低价值的技术识别类模板，确保高效利用 API 资源。
+
+### 严重程度分布
+
+- 🔴 **严重**: 5 个
+- 🟠 **高危**: 11 个
+- 🟡 **中危**: 3 个
+- 🔵 **低危**: 2 个
+- ⚪ **信息**: 9 个
+
+## 🔍 重点漏洞分析
+
+
+### Keras Model.load_model - Arbitrary Code Execution
+
+- **漏洞ID**: `CVE-2025-1550`
+- **CVE**: `CVE-2025-1550` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.04785 (percentile 0.89174) @ 2026-01-23
+
+**描述**: The Keras Model.load_model function permits arbitrary code execution, even with safe_mode&#x3D;True, through a manually constructed, malicious .keras archive. By altering the config.json file within the archive, an attacker can specify arbitrary Python modules and functions, along with their arguments, to be loaded and executed during model loading
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-1550)
+- [参考资料](https://github.com/keras-team/keras/pull/20751)
+- [参考资料](https://towerofhanoi.it/writeups/cve-2025-1550/)
+
+---
+
+
+### GitLab - SAML Authentication Bypass
+
+- **漏洞ID**: `CVE-2025-25291`
+- **CVE**: `CVE-2025-25291` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: GitLab 平台
+- **预估影响**: 数千个
+- **EPSS**: 0.13848 (percentile 0.94099) @ 2026-01-23
+
+**描述**: ruby-saml provides security assertion markup language (SAML) single sign-on (SSO) for Ruby. An authentication bypass vulnerability was found in ruby-saml prior to versions 1.12.4 and 1.18.0 due to a parser differential. ReXML and Nokogiri parse XML differently; the parsers can generate entirely different document structures from the same XML input. That allows an attacker to be able to execute a Signature Wrapping attack. This issue may lead to authentication bypass. Versions 1.12.4 and 1.18.0 fix the issue.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-25291
+
+**参考链接**: 
+- [参考资料](https://portswigger.net/research/saml-roulette-the-hacker-always-wins)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials/)
+- [参考资料](https://about.gitlab.com/releases/2025/03/12/patch-release-gitlab-17-9-2-released)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials)
+- [参考资料](https://github.com/SAML-Toolkits/ruby-saml/commit/e76c5b36bac40aedbf1ba7ffaaf495be63328cd9)
+
+---
+
+
+### Erlang/OTP SSH - Remote Code Execution
+
+- **漏洞ID**: `CVE-2025-32433`
+- **CVE**: `CVE-2025-32433` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.48106 (percentile 0.97634) @ 2026-01-23
+
+**描述**: Erlang/OTP is a set of libraries for the Erlang programming language. Prior to versions OTP-27.3.3, OTP-26.2.5.11, and OTP-25.3.2.20, a SSH server may allow an attacker to perform unauthenticated remote code execution (RCE). By exploiting a flaw in SSH protocol message handling, a malicious actor could gain unauthorized access to affected systems and execute arbitrary commands without valid credentials.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-32433
+
+**参考链接**: 
+- [参考资料](https://platformsecurity.com/blog/CVE-2025-32433-poc)
+- [参考资料](https://github.com/erlang/otp/commit/0fcd9c56524b28615e8ece65fc0c3f66ef6e4c12)
+- [参考资料](https://github.com/erlang/otp/commit/6eef04130afc8b0ccb63c9a0d8650209cf54892f)
+- [参考资料](https://github.com/erlang/otp/commit/b1924d37fd83c070055beb115d5d6a6a9490b891)
+- [参考资料](https://github.com/erlang/otp/security/advisories/GHSA-37cp-fgq5-7wc2)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-32433)
+
+---
+
+
+### Allegra - Authentication Bypass via Predictable Password Reset Token
+
+- **漏洞ID**: `CVE-2025-6216`
+- **CVE**: `CVE-2025-6216` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.33256 (percentile 0.96781) @ 2026-01-23
+
+**描述**: Allegra calculateTokenExpDate Password Recovery Authentication Bypass Vulnerability. This vulnerability allows remote attackers to bypass authentication on affected installations of Allegra. Authentication is not required to exploit this vulnerability. The specific flaw exists within the password recovery mechanism. The issue results from reliance upon a predictable value when generating a password reset token. An attacker can leverage this vulnerability to bypass authentication on the application.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-6216
+
+**参考链接**: 
+- [参考资料](https://www.zerodayinitiative.com/advisories/ZDI-25-410/)
+- [参考资料](https://alltena.com/en/resources/release-notes/release-notes-for-release-8-1-4-and-release-7-5-2)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-6216)
+
+---
+
+
+### RustFS &lt; 1.0.0-alpha.77 - Hardcoded gRPC Authentication Token
+
+- **漏洞ID**: `CVE-2025-68926`
+- **CVE**: `CVE-2025-68926` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.06663 (percentile 0.90963) @ 2026-01-23
+
+**描述**: RustFS before 1.0.0-alpha.77 used a hardcoded gRPC authentication token &quot;rustfs rpc&quot; that could not be changed without recompiling and this allowed unauthenticated remote attackers to gain full administrative access to the gRPC API.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-68926
+
+**参考链接**: 
+- [参考资料](https://github.com/rustfs/rustfs/security/advisories/GHSA-h956-rh7x-ppgj)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-68926)
+
+---
+
+
+### osTicket - Arbitrary File Read
+
+- **漏洞ID**: `CVE-2026-22200`
+- **CVE**: `CVE-2026-22200` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00233 (percentile 0.45961) @ 2026-01-23
+
+**描述**: Enhancesoft osTicket versions 1.18.x prior to 1.18.3 and 1.17.x prior to 1.17.7 contain an arbitrary file read vulnerability in the ticket PDF export functionality. A remote attacker can submit a ticket containing crafted rich-text HTML that includes PHP filter expressions which are insufficiently sanitized before being processed by the mPDF PDF generator during export. When the attacker exports the ticket to PDF, the generated PDF can embed the contents of attacker-selected files from the server filesystem as bitmap images, allowing disclosure of sensitive local files in the context of the osTicket application user. This issue is exploitable in default configurations where guests may create tickets and access ticket status, or where self-registration is enabled.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-22200
+
+**参考链接**: 
+- [参考资料](https://horizon3.ai/attack-research/attack-blogs/ticket-to-shell-exploiting-php-filters-and-cnext-in-osticket-cve-2026-22200/)
+- [参考资料](https://github.com/horizon3ai/CVE-2026-22200/blob/main/check.py)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-22200)
+
+---
+
+
+### osTicket - Arbitrary File Read
+
+- **漏洞ID**: `CVE-2026-22200`
+- **CVE**: `CVE-2026-22200` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00233 (percentile 0.45961) @ 2026-01-23
+
+**描述**: Enhancesoft osTicket versions 1.18.x prior to 1.18.3 and 1.17.x prior to 1.17.7 contain an arbitrary file read vulnerability in the ticket PDF export functionality. A remote attacker can submit a ticket containing crafted rich-text HTML that includes PHP filter expressions which are insufficiently sanitized before being processed by the mPDF PDF generator during export. When the attacker exports the ticket to PDF, the generated PDF can embed the contents of attacker-selected files from the server filesystem as bitmap images, allowing disclosure of sensitive local files in the context of the osTicket application user. This issue is exploitable in default configurations where guests may create tickets and access ticket status, or where self-registration is enabled.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-22200
+
+**参考链接**: 
+- [参考资料](https://horizon3.ai/attack-research/attack-blogs/ticket-to-shell-exploiting-php-filters-and-cnext-in-osticket-cve-2026-22200/)
+- [参考资料](https://github.com/horizon3ai/CVE-2026-22200/blob/main/check.py)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-22200)
+
+---
+
+
+### osTicket - Arbitrary File Read
+
+- **漏洞ID**: `CVE-2026-22200`
+- **CVE**: `CVE-2026-22200` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00233 (percentile 0.45961) @ 2026-01-23
+
+**描述**: Enhancesoft osTicket versions 1.18.x prior to 1.18.3 and 1.17.x prior to 1.17.7 contain an arbitrary file read vulnerability in the ticket PDF export functionality. A remote attacker can submit a ticket containing crafted rich-text HTML that includes PHP filter expressions which are insufficiently sanitized before being processed by the mPDF PDF generator during export. When the attacker exports the ticket to PDF, the generated PDF can embed the contents of attacker-selected files from the server filesystem as bitmap images, allowing disclosure of sensitive local files in the context of the osTicket application user. This issue is exploitable in default configurations where guests may create tickets and access ticket status, or where self-registration is enabled.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-22200
+
+**参考链接**: 
+- [参考资料](https://horizon3.ai/attack-research/attack-blogs/ticket-to-shell-exploiting-php-filters-and-cnext-in-osticket-cve-2026-22200/)
+- [参考资料](https://github.com/horizon3ai/CVE-2026-22200/blob/main/check.py)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-22200)
+
+---
+
+
+### Atarim &lt; 4.2.2 - Sensitive Information Exposure
+
+- **漏洞ID**: `CVE-2025-60188`
+- **CVE**: `CVE-2025-60188` (2025)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.04187 (percentile 0.88408) @ 2026-01-23
+
+**描述**: Vito Peleg Atarim &lt;&#x3D; 4.2 contains an insertion of sensitive information into sent data vulnerability caused by improper handling of embedded sensitive data, letting attackers retrieve embedded sensitive data remotely, exploit requires no special privileges.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/m4sh-wacker/CVE-2025-60188-Atarim-Plugin-Exploit)
+
+---
+
+
+### Atarim &lt; 4.2.2 - Sensitive Information Exposure
+
+- **漏洞ID**: `CVE-2025-60188`
+- **CVE**: `CVE-2025-60188` (2025)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.04187 (percentile 0.88408) @ 2026-01-23
+
+**描述**: Vito Peleg Atarim &lt;&#x3D; 4.2 contains an insertion of sensitive information into sent data vulnerability caused by improper handling of embedded sensitive data, letting attackers retrieve embedded sensitive data remotely, exploit requires no special privileges.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/m4sh-wacker/CVE-2025-60188-Atarim-Plugin-Exploit)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+## 📋 完整模板列表
+
+| 模板名称 | 严重程度 | 类别 | 影响资产 | EPSS | 风险评分 |
+|---------|---------|------|---------|------|---------|
+| Keras Model.load_model - Arbitrary Code Execution | 🔴 critical | CVE漏洞 | 通用 | 0.0478 | 5/5 |
+| GitLab - SAML Authentication Bypass | 🔴 critical | CVE漏洞 | GitLab 平台 | 0.1385 | 5/5 |
+| Erlang/OTP SSH - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 0.4811 | 5/5 |
+| Allegra - Authentication Bypass via Predictable Pa | 🔴 critical | CVE漏洞 | 通用 | 0.3326 | 5/5 |
+| RustFS &lt; 1.0.0-alpha.77 - Hardcoded gRPC Authen | 🔴 critical | CVE漏洞 | 通用 | 0.0666 | 5/5 |
+| osTicket - Arbitrary File Read | 🟠 high | CVE漏洞 | 通用 | 0.0023 | 4.5/5 |
+| osTicket - Arbitrary File Read | 🟠 high | CVE漏洞 | 通用 | 0.0023 | 4.5/5 |
+| osTicket - Arbitrary File Read | 🟠 high | CVE漏洞 | 通用 | 0.0023 | 4.5/5 |
+| Atarim &lt; 4.2.2 - Sensitive Information Exposure | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0419 | 4/5 |
+| Atarim &lt; 4.2.2 - Sensitive Information Exposure | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0419 | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | - | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | - | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | - | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | - | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | - | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | - | 4/5 |
+| Backdrop CMS - Cross-Site Scripting | 🟡 medium | CVE漏洞 | 通用 | 0.3406 | 3.7/5 |
+| Essential Addons for Elementor &lt; 6.0.15 - Cross | 🟡 medium | CVE漏洞 | 通用 | 0.0304 | 3.5/5 |
+| Swagger UI &gt;&#x3D;3.14.1 &lt; 3.38.0 - DOM Base | 🟡 medium | CVE漏洞 | 通用 | 0.0106 | 3.5/5 |
+| Unauthenticated Java Message Broker - Detect | 🔵 low | 其他 | 通用 | - | 2/5 |
+| Unauthenticated Java Message Broker - Detect | 🔵 low | 其他 | 通用 | - | 2/5 |
+| Fastly CDN Debug Headers Exposure | ⚪ info | 配置错误 | 通用 | - | 1/5 |
+| Eclipse Theia IDE Panel - Detect | ⚪ info | 其他 | 管理面板 | - | 1/5 |
+| Fastly CDN Debug Headers Exposure | ⚪ info | 配置错误 | 通用 | - | 1/5 |
+| Eclipse Theia IDE Panel - Detect | ⚪ info | 其他 | 管理面板 | - | 1/5 |
+| ASP.NET Framework Exceptions | ⚪ info | 其他 | 通用 | - | 1/5 |
+| Node.js Framework Exceptions | ⚪ info | 其他 | 通用 | - | 1/5 |
+| ASP.NET Framework Exceptions | ⚪ info | 其他 | 通用 | - | 1/5 |
+| Node.js Framework Exceptions | ⚪ info | 其他 | 通用 | - | 1/5 |
+| ASP.NET Framework Exceptions | ⚪ info | 其他 | 通用 | - | 1/5 |
+
+## 🛡️ 安全建议
+
+🚨 发现高风险漏洞，建议立即扫描相关资产
+🔍 关注新发布的 CVE 漏洞，及时更新补丁
+⚡ 检测到远程代码执行漏洞，优先处理
+
+## 🔧 扫描建议
+
+建议使用以下 Nuclei 命令进行扫描：
+
+```bash
+# 扫描高危漏洞
+nuclei -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2025/CVE-2025-32433.yaml -t code/cves/2025/CVE-2025-6216.yaml -t code/cves/2025/CVE-2025-68926.yaml -t http/cves/2026/CVE-2026-22200.yaml -t http/cves/2026/CVE-2026-22200.yaml -t http/cves/2026/CVE-2026-22200.yaml -t http/cves/2025/CVE-2025-60188.yaml -t http/cves/2025/CVE-2025-60188.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -u target-url
+
+# 扫描所有今日新增模板  
+nuclei -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2025/CVE-2025-32433.yaml -t code/cves/2025/CVE-2025-6216.yaml -t code/cves/2025/CVE-2025-68926.yaml -t http/cves/2026/CVE-2026-22200.yaml -t http/cves/2026/CVE-2026-22200.yaml -t http/cves/2026/CVE-2026-22200.yaml -t http/cves/2025/CVE-2025-60188.yaml -t http/cves/2025/CVE-2025-60188.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t headless/cves/2025/CVE-2025-25062.yaml -t headless/cves/2025/CVE-2025-24752.yaml -t headless/cves/2025/CVE-2025-8191.yaml -t network/detection/unauth-java-message-broker-detect.yaml -t network/detection/unauth-java-message-broker-detect.yaml -t http/misconfiguration/fastly-debug-headers.yaml -t http/exposed-panels/theia-ide-panel.yaml -t http/misconfiguration/fastly-debug-headers.yaml -t http/exposed-panels/theia-ide-panel.yaml -t file/logs/aspnet-framework-exceptions.yaml -t file/logs/nodejs-framework-exceptions.yaml -t file/logs/aspnet-framework-exceptions.yaml -t file/logs/nodejs-framework-exceptions.yaml -t file/logs/aspnet-framework-exceptions.yaml -u target-url
+```
+
+---
+
+*本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)*
+
+*扫描建议仅供参考，请在授权环境下进行安全测试*
