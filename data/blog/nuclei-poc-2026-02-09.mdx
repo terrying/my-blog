@@ -1,0 +1,277 @@
+---
+title: 'Nuclei POC 精选分析 - 2026-02-09'
+date: '2026-02-09'
+tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
+draft: false
+summary: '从 330 个模板更新中精选分析 24 个高价值 POC，发现 8 个高风险漏洞'
+authors: ['default']
+category: 'security-intel'
+---
+
+# Nuclei POC 精选分析 - 2026-02-09
+
+## 📊 智能筛选概况
+
+- **发现变更**: 330 个模板更新
+- **精选分析**: 24 个高价值 POC  
+- **智能跳过**: 306 个低优先级模板
+- **高风险漏洞**: 8 个
+- **主要类别**: CVE漏洞(8), 其他(16)
+
+> 💡 **智能筛选说明**: 系统自动优先分析 CVE 漏洞、高危漏洞和新增模板，跳过低价值的技术识别类模板，确保高效利用 API 资源。
+
+### 严重程度分布
+
+- 🔴 **严重**: 4 个
+- 🟠 **高危**: 4 个
+- 🟡 **中危**: 4 个
+- 🔵 **低危**: 4 个
+- ⚪ **信息**: 8 个
+
+## 🔍 重点漏洞分析
+
+
+### GitLab - SAML Authentication Bypass
+
+- **漏洞ID**: `CVE-2025-25291`
+- **CVE**: `CVE-2025-25291` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: GitLab 平台
+- **预估影响**: 数千个
+- **EPSS**: 0.13848 (percentile 0.94123) @ 2026-02-08
+
+**描述**: ruby-saml provides security assertion markup language (SAML) single sign-on (SSO) for Ruby. An authentication bypass vulnerability was found in ruby-saml prior to versions 1.12.4 and 1.18.0 due to a parser differential. ReXML and Nokogiri parse XML differently; the parsers can generate entirely different document structures from the same XML input. That allows an attacker to be able to execute a Signature Wrapping attack. This issue may lead to authentication bypass. Versions 1.12.4 and 1.18.0 fix the issue.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-25291
+
+**参考链接**: 
+- [参考资料](https://portswigger.net/research/saml-roulette-the-hacker-always-wins)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials/)
+- [参考资料](https://about.gitlab.com/releases/2025/03/12/patch-release-gitlab-17-9-2-released)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials)
+- [参考资料](https://github.com/SAML-Toolkits/ruby-saml/commit/e76c5b36bac40aedbf1ba7ffaaf495be63328cd9)
+
+---
+
+
+### CrushFTP - Authentication Bypass Race Condition
+
+- **漏洞ID**: `CVE-2025-54309`
+- **CVE**: `CVE-2025-54309` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.72177 (percentile 0.98714) @ 2026-02-08
+
+**描述**: CrushFTP 10 before 10.8.5 and 11 before 11.3.4_23, when the DMZ proxy feature is not used, mishandles AS2 validation and consequently allows remote attackers to obtain admin access via HTTPS, as exploited in the wild in July 2025.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-54309
+
+**参考链接**: 
+- [参考资料](https://github.com/watchtowrlabs/watchTowr-vs-CrushFTP-Authentication-Bypass-CVE-2025-54309/blob/main/watchTowr-vs-CrushFTP-CVE-2025-54309.py)
+- [参考资料](https://labs.watchtowr.com/the-one-where-we-just-steal-the-vulnerabilities-crushftp-cve-2025-54309/)
+
+---
+
+
+### GNU Inetutils telnetd - Authentication Bypass
+
+- **漏洞ID**: `CVE-2026-24061`
+- **CVE**: `CVE-2026-24061` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.32541 (percentile 0.96735) @ 2026-02-08
+
+**描述**: GNU Inetutils telnetd through 2.7 contains an authentication bypass caused by setting the USER environment variable to \&quot;-f root\&quot;, letting remote attackers bypass authentication, exploit requires remote access to telnetd service.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-24061
+
+**参考链接**: 
+- [参考资料](https://github.com/vulhub/vulhub/tree/master/inetutils/CVE-2026-24061)
+
+---
+
+
+### SolarWinds Web Help Desk &lt; 2026.1 - Unauthenticated JNDI Injection RCE
+
+- **漏洞ID**: `CVE-2025-40551`
+- **CVE**: `CVE-2025-40551` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.22938 (percentile 0.95753) @ 2026-02-08
+
+**描述**: SolarWinds Web Help Desk before version 2026.1 contains an insecure deserialization vulnerability in the jabsorb JSON-RPC library. When chained with a CSRF whitelist bypass (CVE-2025-40536), remote unauthenticated attackers can exploit JNDI injection via the Apache Xalan JNDIConnectionPool class to achieve remote code execution. The bypass involves including &quot;/ajax/&quot; in a query parameter to circumvent URI validation, while switching from &quot;/ajax/&quot; to &quot;/wo/&quot; endpoints bypasses payload sanitization routines.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-40551
+
+**参考链接**: 
+- [参考资料](https://horizon3.ai/attack-research/cve-2025-40551-another-solarwinds-web-help-desk-deserialization-issue/)
+- [参考资料](https://www.solarwinds.com/trust-center/security-advisories/CVE-2025-40551)
+- [参考资料](https://documentation.solarwinds.com/en/success_center/whd/content/release_notes/whd_2026-1_release_notes.htm)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-40551)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+## 📋 完整模板列表
+
+| 模板名称 | 严重程度 | 类别 | 影响资产 | EPSS | 风险评分 |
+|---------|---------|------|---------|------|---------|
+| GitLab - SAML Authentication Bypass | 🔴 critical | CVE漏洞 | GitLab 平台 | 0.1385 | 5/5 |
+| CrushFTP - Authentication Bypass Race Condition | 🔴 critical | CVE漏洞 | 通用 | 0.7218 | 5/5 |
+| GNU Inetutils telnetd - Authentication Bypass | 🔴 critical | CVE漏洞 | 通用 | 0.3254 | 5/5 |
+| SolarWinds Web Help Desk &lt; 2026.1 - Unauthentic | 🔴 critical | CVE漏洞 | 通用 | 0.2294 | 5/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | - | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | - | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | - | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | - | 4/5 |
+| LearnPress &lt; 4.3.0 - Arbitrary Callback Executi | 🟡 medium | CVE漏洞 | WordPress 站点 | 0.0008 | 3.5/5 |
+| Essential Addons for Elementor &lt; 6.0.15 - Cross | 🟡 medium | CVE漏洞 | 通用 | 0.0241 | 3.5/5 |
+| Swagger UI &gt;&#x3D;3.14.1 &lt; 3.38.0 - DOM Base | 🟡 medium | CVE漏洞 | 通用 | 0.0106 | 3.5/5 |
+| LearnPress &lt; 4.3.0 - Arbitrary Callback Executi | 🟡 medium | CVE漏洞 | WordPress 站点 | 0.0008 | 3.5/5 |
+| Unauthenticated Java Message Broker - Detect | 🔵 low | 其他 | 通用 | - | 2/5 |
+| Unauthenticated Java Message Broker - Detect | 🔵 low | 其他 | 通用 | - | 2/5 |
+| Unauthenticated Java Message Broker - Detect | 🔵 low | 其他 | 通用 | - | 2/5 |
+| Unauthenticated Java Message Broker - Detect | 🔵 low | 其他 | 通用 | - | 2/5 |
+| ASP.NET Framework Exceptions | ⚪ info | 其他 | 通用 | - | 1/5 |
+| Node.js Framework Exceptions | ⚪ info | 其他 | 通用 | - | 1/5 |
+| ASP.NET Framework Exceptions | ⚪ info | 其他 | 通用 | - | 1/5 |
+| Node.js Framework Exceptions | ⚪ info | 其他 | 通用 | - | 1/5 |
+| ASP.NET Framework Exceptions | ⚪ info | 其他 | 通用 | - | 1/5 |
+| Node.js Framework Exceptions | ⚪ info | 其他 | 通用 | - | 1/5 |
+| ASP.NET Framework Exceptions | ⚪ info | 其他 | 通用 | - | 1/5 |
+| Node.js Framework Exceptions | ⚪ info | 其他 | 通用 | - | 1/5 |
+
+## 🛡️ 安全建议
+
+🚨 发现高风险漏洞，建议立即扫描相关资产
+🔍 关注新发布的 CVE 漏洞，及时更新补丁
+⚡ 检测到远程代码执行漏洞，优先处理
+
+## 🔧 扫描建议
+
+建议使用以下 Nuclei 命令进行扫描：
+
+```bash
+# 扫描高危漏洞
+nuclei -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2025/CVE-2025-54309.yaml -t code/cves/2026/CVE-2026-24061.yaml -t http/cves/2025/CVE-2025-40551.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -u target-url
+
+# 扫描所有今日新增模板  
+nuclei -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2025/CVE-2025-54309.yaml -t code/cves/2026/CVE-2026-24061.yaml -t http/cves/2025/CVE-2025-40551.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/cves/2025/CVE-2025-11368.yaml -t headless/cves/2025/CVE-2025-24752.yaml -t headless/cves/2025/CVE-2025-8191.yaml -t http/cves/2025/CVE-2025-11368.yaml -t network/detection/unauth-java-message-broker-detect.yaml -t network/detection/unauth-java-message-broker-detect.yaml -t network/detection/unauth-java-message-broker-detect.yaml -t network/detection/unauth-java-message-broker-detect.yaml -t file/logs/aspnet-framework-exceptions.yaml -t file/logs/nodejs-framework-exceptions.yaml -t file/logs/aspnet-framework-exceptions.yaml -t file/logs/nodejs-framework-exceptions.yaml -t file/logs/aspnet-framework-exceptions.yaml -t file/logs/nodejs-framework-exceptions.yaml -t file/logs/aspnet-framework-exceptions.yaml -t file/logs/nodejs-framework-exceptions.yaml -u target-url
+```
+
+---
+
+*本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)*
+
+*扫描建议仅供参考，请在授权环境下进行安全测试*
