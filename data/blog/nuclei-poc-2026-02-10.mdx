@@ -1,0 +1,380 @@
+---
+title: 'Nuclei POC 精选分析 - 2026-02-10'
+date: '2026-02-10'
+tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
+draft: false
+summary: '从 337 个模板更新中精选分析 26 个高价值 POC，发现 12 个高风险漏洞'
+authors: ['default']
+category: 'security-intel'
+---
+
+# Nuclei POC 精选分析 - 2026-02-10
+
+## 📊 智能筛选概况
+
+- **发现变更**: 337 个模板更新
+- **精选分析**: 26 个高价值 POC  
+- **智能跳过**: 311 个低优先级模板
+- **高风险漏洞**: 12 个
+- **主要类别**: CVE漏洞(10), 其他(16)
+
+> 💡 **智能筛选说明**: 系统自动优先分析 CVE 漏洞、高危漏洞和新增模板，跳过低价值的技术识别类模板，确保高效利用 API 资源。
+
+### 严重程度分布
+
+- 🔴 **严重**: 7 个
+- 🟡 **中危**: 3 个
+- 🟠 **高危**: 4 个
+- 🔵 **低危**: 4 个
+- ⚪ **信息**: 8 个
+
+## 🔍 重点漏洞分析
+
+
+### Keras Model.load_model - Arbitrary Code Execution
+
+- **漏洞ID**: `CVE-2025-1550`
+- **CVE**: `CVE-2025-1550` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.04785 (percentile 0.89214) @ 2026-02-09
+
+**描述**: The Keras Model.load_model function permits arbitrary code execution, even with safe_mode&#x3D;True, through a manually constructed, malicious .keras archive. By altering the config.json file within the archive, an attacker can specify arbitrary Python modules and functions, along with their arguments, to be loaded and executed during model loading
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-1550)
+- [参考资料](https://github.com/keras-team/keras/pull/20751)
+- [参考资料](https://towerofhanoi.it/writeups/cve-2025-1550/)
+
+---
+
+
+### Ivanti Connect Secure - Stack-based Buffer Overflow
+
+- **漏洞ID**: `CVE-2025-22457`
+- **CVE**: `CVE-2025-22457` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.55523 (percentile 0.98006) @ 2026-02-09
+
+**描述**: Ivanti Connect Secure before version 22.7R2.6, Ivanti Policy Secure before version 22.7R1.4,
+and Ivanti ZTA Gateways before version 22.8R2.2 contain a stack-based buffer overflow caused by
+improper input handling, allowing remote attackers to execute arbitrary code without authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-22457
+
+**参考链接**: 
+- [参考资料](https://labs.watchtowr.com/is-the-sofistication-in-the-room-with-us-x-forwarded-for-and-ivanti-connect-secure-cve-2025-22457)
+- [参考资料](https://www.cvedetails.com/cve/CVE-2025-22457)
+- [参考资料](https://github.com/securekomodo/CVE-2025-22457)
+
+---
+
+
+### Erlang/OTP SSH - Remote Code Execution
+
+- **漏洞ID**: `CVE-2025-32433`
+- **CVE**: `CVE-2025-32433` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.43921 (percentile 0.97433) @ 2026-02-09
+
+**描述**: Erlang/OTP is a set of libraries for the Erlang programming language. Prior to versions OTP-27.3.3, OTP-26.2.5.11, and OTP-25.3.2.20, a SSH server may allow an attacker to perform unauthenticated remote code execution (RCE). By exploiting a flaw in SSH protocol message handling, a malicious actor could gain unauthorized access to affected systems and execute arbitrary commands without valid credentials.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-32433
+
+**参考链接**: 
+- [参考资料](https://platformsecurity.com/blog/CVE-2025-32433-poc)
+- [参考资料](https://github.com/erlang/otp/commit/0fcd9c56524b28615e8ece65fc0c3f66ef6e4c12)
+- [参考资料](https://github.com/erlang/otp/commit/6eef04130afc8b0ccb63c9a0d8650209cf54892f)
+- [参考资料](https://github.com/erlang/otp/commit/b1924d37fd83c070055beb115d5d6a6a9490b891)
+- [参考资料](https://github.com/erlang/otp/security/advisories/GHSA-37cp-fgq5-7wc2)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-32433)
+
+---
+
+
+### CrushFTP - Authentication Bypass Race Condition
+
+- **漏洞ID**: `CVE-2025-54309`
+- **CVE**: `CVE-2025-54309` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.72177 (percentile 0.98713) @ 2026-02-09
+
+**描述**: CrushFTP 10 before 10.8.5 and 11 before 11.3.4_23, when the DMZ proxy feature is not used, mishandles AS2 validation and consequently allows remote attackers to obtain admin access via HTTPS, as exploited in the wild in July 2025.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-54309
+
+**参考链接**: 
+- [参考资料](https://github.com/watchtowrlabs/watchTowr-vs-CrushFTP-Authentication-Bypass-CVE-2025-54309/blob/main/watchTowr-vs-CrushFTP-CVE-2025-54309.py)
+- [参考资料](https://labs.watchtowr.com/the-one-where-we-just-steal-the-vulnerabilities-crushftp-cve-2025-54309/)
+
+---
+
+
+### RustFS &lt; 1.0.0-alpha.77 - Hardcoded gRPC Authentication Token
+
+- **漏洞ID**: `CVE-2025-68926`
+- **CVE**: `CVE-2025-68926` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.07206 (percentile 0.91395) @ 2026-02-09
+
+**描述**: RustFS before 1.0.0-alpha.77 used a hardcoded gRPC authentication token &quot;rustfs rpc&quot; that could not be changed without recompiling and this allowed unauthenticated remote attackers to gain full administrative access to the gRPC API.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-68926
+
+**参考链接**: 
+- [参考资料](https://github.com/rustfs/rustfs/security/advisories/GHSA-h956-rh7x-ppgj)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-68926)
+
+---
+
+
+### WatchGuard IKEv2 Out-of-Bounds Write Vulnerability
+
+- **漏洞ID**: `CVE-2025-9242`
+- **CVE**: `CVE-2025-9242` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.70969 (percentile 0.98665) @ 2026-02-09
+
+**描述**: WatchGuard Fireware OS 11.10.2 to 11.12.4_Update1, 12.0 to 12.11.3, and 2025.1 contains an out-of-bounds write caused by improper handling in Mobile User VPN and Branch Office VPN with IKEv2 dynamic gateway peer, letting remote unauthenticated attackers execute arbitrary code.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-9242
+
+**参考链接**: 
+- [参考资料](https://github.com/watchtowrlabs/watchTowr-vs-WatchGuard-CVE-2025-9242/)
+- [参考资料](https://labs.watchtowr.com/yikes-watchguard-fireware-os-ikev2-out-of-bounds-write-cve-2025-9242)
+
+---
+
+
+### GNU Inetutils telnetd - Authentication Bypass
+
+- **漏洞ID**: `CVE-2026-24061`
+- **CVE**: `CVE-2026-24061` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.32541 (percentile 0.96737) @ 2026-02-09
+
+**描述**: GNU Inetutils telnetd through 2.7 contains an authentication bypass caused by setting the USER environment variable to \&quot;-f root\&quot;, letting remote attackers bypass authentication, exploit requires remote access to telnetd service.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-24061
+
+**参考链接**: 
+- [参考资料](https://github.com/vulhub/vulhub/tree/master/inetutils/CVE-2026-24061)
+
+---
+
+
+### Backdrop CMS - Cross-Site Scripting
+
+- **漏洞ID**: `CVE-2025-25062`
+- **CVE**: `CVE-2025-25062` (2025)
+- **严重程度**: 🟡 MEDIUM
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.42843 (percentile 0.9738) @ 2026-02-09
+
+**描述**: An XSS issue was discovered in Backdrop CMS 1.28.x before 1.28.5 and 1.29.x before 1.29.3. It doesn&#x27;t sufficiently isolate long text content when the CKEditor 5 rich text editor is used. This allows a potential attacker to craft specialized HTML and JavaScript that may be executed when an administrator attempts to edit a piece of content. This vulnerability is mitigated by the fact that an attacker must have the ability to create long text content (such as through the node or comment forms) and an administrator must edit (not view) the content that contains the malicious content. This problem only exists when using the CKEditor 5 module.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-25062
+
+**参考链接**: 
+- [参考资料](https://github.com/XiaomingX/data-cve-poc/tree/main/2025/CVE-2025-25062)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-25062)
+- [参考资料](https://www.tenable.com/cve/CVE-2025-25062/cpes)
+- [参考资料](https://feedly.com/cve/CVE-2025-25062)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+## 📋 完整模板列表
+
+| 模板名称 | 严重程度 | 类别 | 影响资产 | EPSS | 风险评分 |
+|---------|---------|------|---------|------|---------|
+| Keras Model.load_model - Arbitrary Code Execution | 🔴 critical | CVE漏洞 | 通用 | 0.0478 | 5/5 |
+| Ivanti Connect Secure - Stack-based Buffer Overflo | 🔴 critical | CVE漏洞 | 通用 | 0.5552 | 5/5 |
+| Erlang/OTP SSH - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 0.4392 | 5/5 |
+| CrushFTP - Authentication Bypass Race Condition | 🔴 critical | CVE漏洞 | 通用 | 0.7218 | 5/5 |
+| RustFS &lt; 1.0.0-alpha.77 - Hardcoded gRPC Authen | 🔴 critical | CVE漏洞 | 通用 | 0.0721 | 5/5 |
+| WatchGuard IKEv2 Out-of-Bounds Write Vulnerability | 🔴 critical | CVE漏洞 | 通用 | 0.7097 | 5/5 |
+| GNU Inetutils telnetd - Authentication Bypass | 🔴 critical | CVE漏洞 | 通用 | 0.3254 | 5/5 |
+| Backdrop CMS - Cross-Site Scripting | 🟡 medium | CVE漏洞 | 通用 | 0.4284 | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | - | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | - | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | - | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | - | 4/5 |
+| Essential Addons for Elementor &lt; 6.0.15 - Cross | 🟡 medium | CVE漏洞 | 通用 | 0.0241 | 3.5/5 |
+| Swagger UI &gt;&#x3D;3.14.1 &lt; 3.38.0 - DOM Base | 🟡 medium | CVE漏洞 | 通用 | 0.0106 | 3.5/5 |
+| Unauthenticated Java Message Broker - Detect | 🔵 low | 其他 | 通用 | - | 2/5 |
+| Unauthenticated Java Message Broker - Detect | 🔵 low | 其他 | 通用 | - | 2/5 |
+| Unauthenticated Java Message Broker - Detect | 🔵 low | 其他 | 通用 | - | 2/5 |
+| Unauthenticated Java Message Broker - Detect | 🔵 low | 其他 | 通用 | - | 2/5 |
+| ASP.NET Framework Exceptions | ⚪ info | 其他 | 通用 | - | 1/5 |
+| Node.js Framework Exceptions | ⚪ info | 其他 | 通用 | - | 1/5 |
+| ASP.NET Framework Exceptions | ⚪ info | 其他 | 通用 | - | 1/5 |
+| Node.js Framework Exceptions | ⚪ info | 其他 | 通用 | - | 1/5 |
+| ASP.NET Framework Exceptions | ⚪ info | 其他 | 通用 | - | 1/5 |
+| Node.js Framework Exceptions | ⚪ info | 其他 | 通用 | - | 1/5 |
+| ASP.NET Framework Exceptions | ⚪ info | 其他 | 通用 | - | 1/5 |
+| Node.js Framework Exceptions | ⚪ info | 其他 | 通用 | - | 1/5 |
+
+## 🛡️ 安全建议
+
+🚨 发现高风险漏洞，建议立即扫描相关资产
+🔍 关注新发布的 CVE 漏洞，及时更新补丁
+⚡ 检测到远程代码执行漏洞，优先处理
+
+## 🔧 扫描建议
+
+建议使用以下 Nuclei 命令进行扫描：
+
+```bash
+# 扫描高危漏洞
+nuclei -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-22457.yaml -t code/cves/2025/CVE-2025-32433.yaml -t code/cves/2025/CVE-2025-54309.yaml -t code/cves/2025/CVE-2025-68926.yaml -t code/cves/2025/CVE-2025-9242.yaml -t code/cves/2026/CVE-2026-24061.yaml -t headless/cves/2025/CVE-2025-25062.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -u target-url
+
+# 扫描所有今日新增模板  
+nuclei -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-22457.yaml -t code/cves/2025/CVE-2025-32433.yaml -t code/cves/2025/CVE-2025-54309.yaml -t code/cves/2025/CVE-2025-68926.yaml -t code/cves/2025/CVE-2025-9242.yaml -t code/cves/2026/CVE-2026-24061.yaml -t headless/cves/2025/CVE-2025-25062.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t headless/cves/2025/CVE-2025-24752.yaml -t headless/cves/2025/CVE-2025-8191.yaml -t network/detection/unauth-java-message-broker-detect.yaml -t network/detection/unauth-java-message-broker-detect.yaml -t network/detection/unauth-java-message-broker-detect.yaml -t network/detection/unauth-java-message-broker-detect.yaml -t file/logs/aspnet-framework-exceptions.yaml -t file/logs/nodejs-framework-exceptions.yaml -t file/logs/aspnet-framework-exceptions.yaml -t file/logs/nodejs-framework-exceptions.yaml -t file/logs/aspnet-framework-exceptions.yaml -t file/logs/nodejs-framework-exceptions.yaml -t file/logs/aspnet-framework-exceptions.yaml -t file/logs/nodejs-framework-exceptions.yaml -u target-url
+```
+
+---
+
+*本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)*
+
+*扫描建议仅供参考，请在授权环境下进行安全测试*
