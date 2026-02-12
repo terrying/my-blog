@@ -1,0 +1,273 @@
+---
+title: 'Nuclei POC 精选分析 - 2026-02-12'
+date: '2026-02-12'
+tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
+draft: false
+summary: '从 42 个模板更新中精选分析 29 个高价值 POC，发现 8 个高风险漏洞'
+authors: ['default']
+category: 'security-intel'
+---
+
+# Nuclei POC 精选分析 - 2026-02-12
+
+## 📊 智能筛选概况
+
+- **发现变更**: 42 个模板更新
+- **精选分析**: 29 个高价值 POC  
+- **智能跳过**: 13 个低优先级模板
+- **高风险漏洞**: 8 个
+- **主要类别**: CVE漏洞(5), 其他(24)
+
+> 💡 **智能筛选说明**: 系统自动优先分析 CVE 漏洞、高危漏洞和新增模板，跳过低价值的技术识别类模板，确保高效利用 API 资源。
+
+### 严重程度分布
+
+- 🟠 **高危**: 8 个
+- 🟡 **中危**: 3 个
+- 🔵 **低危**: 6 个
+- ⚪ **信息**: 12 个
+
+## 🔍 重点漏洞分析
+
+
+### Adminer 4.6.2 - 5.4.1 Unauthenticated Persistent DoS
+
+- **漏洞ID**: `CVE-2026-25892`
+- **CVE**: `CVE-2026-25892` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00056 (percentile 0.17364) @ 2026-02-11
+
+**描述**: Adminer &lt;&#x3D; 5.4.1 contains a denial of service caused by lack of origin validation in version check endpoint, letting attackers trigger server errors via crafted POST requests, exploit requires no special privileges.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/vrana/adminer/security/advisories/GHSA-q4f2-39gr-45jh)
+- [参考资料](https://github.com/vrana/adminer/commit/21d3a3150388677b18647d68aec93b7850e457d3)
+
+---
+
+
+### Adminer 4.6.2 - 5.4.1 Unauthenticated Persistent DoS
+
+- **漏洞ID**: `CVE-2026-25892`
+- **CVE**: `CVE-2026-25892` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00056 (percentile 0.17364) @ 2026-02-11
+
+**描述**: Adminer &lt;&#x3D; 5.4.1 contains a denial of service caused by lack of origin validation in version check endpoint, letting attackers trigger server errors via crafted POST requests, exploit requires no special privileges.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/vrana/adminer/security/advisories/GHSA-q4f2-39gr-45jh)
+- [参考资料](https://github.com/vrana/adminer/commit/21d3a3150388677b18647d68aec93b7850e457d3)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+## 📋 完整模板列表
+
+| 模板名称 | 严重程度 | 类别 | 影响资产 | EPSS | 风险评分 |
+|---------|---------|------|---------|------|---------|
+| Adminer 4.6.2 - 5.4.1 Unauthenticated Persistent D | 🟠 high | CVE漏洞 | 通用 | 0.0006 | 4/5 |
+| Adminer 4.6.2 - 5.4.1 Unauthenticated Persistent D | 🟠 high | CVE漏洞 | 通用 | 0.0006 | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | - | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | - | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | - | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | - | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | - | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | - | 4/5 |
+| Plugin Oficial – Getnet para WooCommerce &lt;&#x3D | 🟡 medium | CVE漏洞 | WordPress 站点 | 0.0015 | 3/5 |
+| Plugin Oficial – Getnet para WooCommerce &lt;&#x3D | 🟡 medium | CVE漏洞 | WordPress 站点 | 0.0015 | 3/5 |
+| Plugin Oficial – Getnet para WooCommerce &lt;&#x3D | 🟡 medium | CVE漏洞 | WordPress 站点 | 0.0015 | 3/5 |
+| Unauthenticated Java Message Broker - Detect | 🔵 low | 其他 | 通用 | - | 2/5 |
+| Unauthenticated Java Message Broker - Detect | 🔵 low | 其他 | 通用 | - | 2/5 |
+| Unauthenticated Java Message Broker - Detect | 🔵 low | 其他 | 通用 | - | 2/5 |
+| Unauthenticated Java Message Broker - Detect | 🔵 low | 其他 | 通用 | - | 2/5 |
+| Unauthenticated Java Message Broker - Detect | 🔵 low | 其他 | 通用 | - | 2/5 |
+| Unauthenticated Java Message Broker - Detect | 🔵 low | 其他 | 通用 | - | 2/5 |
+| ASP.NET Framework Exceptions | ⚪ info | 其他 | 通用 | - | 1/5 |
+| Node.js Framework Exceptions | ⚪ info | 其他 | 通用 | - | 1/5 |
+| ASP.NET Framework Exceptions | ⚪ info | 其他 | 通用 | - | 1/5 |
+| Node.js Framework Exceptions | ⚪ info | 其他 | 通用 | - | 1/5 |
+| ASP.NET Framework Exceptions | ⚪ info | 其他 | 通用 | - | 1/5 |
+| Node.js Framework Exceptions | ⚪ info | 其他 | 通用 | - | 1/5 |
+| ASP.NET Framework Exceptions | ⚪ info | 其他 | 通用 | - | 1/5 |
+| Node.js Framework Exceptions | ⚪ info | 其他 | 通用 | - | 1/5 |
+| ASP.NET Framework Exceptions | ⚪ info | 其他 | 通用 | - | 1/5 |
+| Node.js Framework Exceptions | ⚪ info | 其他 | 通用 | - | 1/5 |
+| ASP.NET Framework Exceptions | ⚪ info | 其他 | 通用 | - | 1/5 |
+| Node.js Framework Exceptions | ⚪ info | 其他 | 通用 | - | 1/5 |
+
+## 🛡️ 安全建议
+
+🚨 发现高风险漏洞，建议立即扫描相关资产
+
+## 🔧 扫描建议
+
+建议使用以下 Nuclei 命令进行扫描：
+
+```bash
+# 扫描高危漏洞
+nuclei -t http/cves/2026/CVE-2026-25892.yaml -t http/cves/2026/CVE-2026-25892.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -u target-url
+
+# 扫描所有今日新增模板  
+nuclei -t http/cves/2026/CVE-2026-25892.yaml -t http/cves/2026/CVE-2026-25892.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/cves/2025/CVE-2025-1303.yaml -t http/cves/2025/CVE-2025-1303.yaml -t http/cves/2025/CVE-2025-1303.yaml -t network/detection/unauth-java-message-broker-detect.yaml -t network/detection/unauth-java-message-broker-detect.yaml -t network/detection/unauth-java-message-broker-detect.yaml -t network/detection/unauth-java-message-broker-detect.yaml -t network/detection/unauth-java-message-broker-detect.yaml -t network/detection/unauth-java-message-broker-detect.yaml -t file/logs/aspnet-framework-exceptions.yaml -t file/logs/nodejs-framework-exceptions.yaml -t file/logs/aspnet-framework-exceptions.yaml -t file/logs/nodejs-framework-exceptions.yaml -t file/logs/aspnet-framework-exceptions.yaml -t file/logs/nodejs-framework-exceptions.yaml -t file/logs/aspnet-framework-exceptions.yaml -t file/logs/nodejs-framework-exceptions.yaml -t file/logs/aspnet-framework-exceptions.yaml -t file/logs/nodejs-framework-exceptions.yaml -t file/logs/aspnet-framework-exceptions.yaml -t file/logs/nodejs-framework-exceptions.yaml -u target-url
+```
+
+---
+
+*本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)*
+
+*扫描建议仅供参考，请在授权环境下进行安全测试*
