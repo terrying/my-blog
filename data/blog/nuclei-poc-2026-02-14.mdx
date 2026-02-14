@@ -1,0 +1,238 @@
+---
+title: 'Nuclei POC 精选分析 - 2026-02-14'
+date: '2026-02-14'
+tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
+draft: false
+summary: '从 302 个模板更新中精选分析 7 个高价值 POC，发现 7 个高风险漏洞'
+authors: ['default']
+category: 'security-intel'
+---
+
+# Nuclei POC 精选分析 - 2026-02-14
+
+## 📊 智能筛选概况
+
+- **发现变更**: 302 个模板更新
+- **精选分析**: 7 个高价值 POC  
+- **智能跳过**: 295 个低优先级模板
+- **高风险漏洞**: 7 个
+- **主要类别**: CVE漏洞(7)
+
+> 💡 **智能筛选说明**: 系统自动优先分析 CVE 漏洞、高危漏洞和新增模板，跳过低价值的技术识别类模板，确保高效利用 API 资源。
+
+### 严重程度分布
+
+- 🔴 **严重**: 7 个
+
+## 🔍 重点漏洞分析
+
+
+### GitLab - SAML Authentication Bypass
+
+- **漏洞ID**: `CVE-2025-25291`
+- **CVE**: `CVE-2025-25291` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: GitLab 平台
+- **预估影响**: 数千个
+- **EPSS**: 0.13848 (percentile 0.94131) @ 2026-02-13
+
+**描述**: ruby-saml provides security assertion markup language (SAML) single sign-on (SSO) for Ruby. An authentication bypass vulnerability was found in ruby-saml prior to versions 1.12.4 and 1.18.0 due to a parser differential. ReXML and Nokogiri parse XML differently; the parsers can generate entirely different document structures from the same XML input. That allows an attacker to be able to execute a Signature Wrapping attack. This issue may lead to authentication bypass. Versions 1.12.4 and 1.18.0 fix the issue.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-25291
+
+**参考链接**: 
+- [参考资料](https://portswigger.net/research/saml-roulette-the-hacker-always-wins)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials/)
+- [参考资料](https://about.gitlab.com/releases/2025/03/12/patch-release-gitlab-17-9-2-released)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials)
+- [参考资料](https://github.com/SAML-Toolkits/ruby-saml/commit/e76c5b36bac40aedbf1ba7ffaaf495be63328cd9)
+
+---
+
+
+### Erlang/OTP SSH - Remote Code Execution
+
+- **漏洞ID**: `CVE-2025-32433`
+- **CVE**: `CVE-2025-32433` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.49906 (percentile 0.97734) @ 2026-02-13
+
+**描述**: Erlang/OTP is a set of libraries for the Erlang programming language. Prior to versions OTP-27.3.3, OTP-26.2.5.11, and OTP-25.3.2.20, a SSH server may allow an attacker to perform unauthenticated remote code execution (RCE). By exploiting a flaw in SSH protocol message handling, a malicious actor could gain unauthorized access to affected systems and execute arbitrary commands without valid credentials.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-32433
+
+**参考链接**: 
+- [参考资料](https://platformsecurity.com/blog/CVE-2025-32433-poc)
+- [参考资料](https://github.com/erlang/otp/commit/0fcd9c56524b28615e8ece65fc0c3f66ef6e4c12)
+- [参考资料](https://github.com/erlang/otp/commit/6eef04130afc8b0ccb63c9a0d8650209cf54892f)
+- [参考资料](https://github.com/erlang/otp/commit/b1924d37fd83c070055beb115d5d6a6a9490b891)
+- [参考资料](https://github.com/erlang/otp/security/advisories/GHSA-37cp-fgq5-7wc2)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-32433)
+
+---
+
+
+### RustFS &lt; 1.0.0-alpha.77 - Hardcoded gRPC Authentication Token
+
+- **漏洞ID**: `CVE-2025-68926`
+- **CVE**: `CVE-2025-68926` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.09474 (percentile 0.92637) @ 2026-02-13
+
+**描述**: RustFS before 1.0.0-alpha.77 used a hardcoded gRPC authentication token &quot;rustfs rpc&quot; that could not be changed without recompiling and this allowed unauthenticated remote attackers to gain full administrative access to the gRPC API.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-68926
+
+**参考链接**: 
+- [参考资料](https://github.com/rustfs/rustfs/security/advisories/GHSA-h956-rh7x-ppgj)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-68926)
+
+---
+
+
+### WatchGuard IKEv2 Out-of-Bounds Write Vulnerability
+
+- **漏洞ID**: `CVE-2025-9242`
+- **CVE**: `CVE-2025-9242` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.66535 (percentile 0.98491) @ 2026-02-13
+
+**描述**: WatchGuard Fireware OS 11.10.2 to 11.12.4_Update1, 12.0 to 12.11.3, and 2025.1 contains an out-of-bounds write caused by improper handling in Mobile User VPN and Branch Office VPN with IKEv2 dynamic gateway peer, letting remote unauthenticated attackers execute arbitrary code.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-9242
+
+**参考链接**: 
+- [参考资料](https://github.com/watchtowrlabs/watchTowr-vs-WatchGuard-CVE-2025-9242/)
+- [参考资料](https://labs.watchtowr.com/yikes-watchguard-fireware-os-ikev2-out-of-bounds-write-cve-2025-9242)
+
+---
+
+
+### GNU Inetutils telnetd - Authentication Bypass
+
+- **漏洞ID**: `CVE-2026-24061`
+- **CVE**: `CVE-2026-24061` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.8389 (percentile 0.9927) @ 2026-02-13
+
+**描述**: GNU Inetutils telnetd through 2.7 contains an authentication bypass caused by setting the USER environment variable to \&quot;-f root\&quot;, letting remote attackers bypass authentication, exploit requires remote access to telnetd service.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-24061
+
+**参考链接**: 
+- [参考资料](https://github.com/vulhub/vulhub/tree/master/inetutils/CVE-2026-24061)
+
+---
+
+
+### Landray EIS SQL注入漏洞
+
+- **漏洞ID**: `CVE-2025-22214`
+- **CVE**: `CVE-2025-22214` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00151 (percentile 0.35746) @ 2026-02-13
+
+**描述**: Landray EIS 2001 through 2006 contains a SQL injection caused by unsanitized input in Message/fi_message_receiver.aspx?replyid&#x3D;, letting attackers execute arbitrary SQL commands, exploit requires crafted input.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-22214)
+
+---
+
+
+### BeyondTrust Remote Support - Unauthenticated WebSocket RCE
+
+- **漏洞ID**: `CVE-2026-1731`
+- **CVE**: `CVE-2026-1731` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.04222 (percentile 0.88503) @ 2026-02-13
+
+**描述**: BeyondTrust Remote Support is vulnerable to unauthenticated remote code execution via the WebSocket endpoint /nw. An attacker can extract the company identifier from the /get_mech_list endpoint and use it to connect to the WebSocket service, then inject OS commands through the binary WebSocket payload that are executed on the server.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-1731
+
+**参考链接**: 
+- [参考资料](https://attackerkb.com/topics/jNMBccstay/cve-2026-1731/rapid7-analysis)
+- [参考资料](https://www.hacktron.ai/blog/cve-2026-1731-beyondtrust-remote-support-rce)
+- [参考资料](https://www.beyondtrust.com/trust-center/security-advisories/bt26-02)
+
+---
+
+
+## 📋 完整模板列表
+
+| 模板名称 | 严重程度 | 类别 | 影响资产 | EPSS | 风险评分 |
+|---------|---------|------|---------|------|---------|
+| GitLab - SAML Authentication Bypass | 🔴 critical | CVE漏洞 | GitLab 平台 | 0.1385 | 5/5 |
+| Erlang/OTP SSH - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 0.4991 | 5/5 |
+| RustFS &lt; 1.0.0-alpha.77 - Hardcoded gRPC Authen | 🔴 critical | CVE漏洞 | 通用 | 0.0947 | 5/5 |
+| WatchGuard IKEv2 Out-of-Bounds Write Vulnerability | 🔴 critical | CVE漏洞 | 通用 | 0.6653 | 5/5 |
+| GNU Inetutils telnetd - Authentication Bypass | 🔴 critical | CVE漏洞 | 通用 | 0.8389 | 5/5 |
+| Landray EIS SQL注入漏洞 | 🔴 critical | CVE漏洞 | 通用 | 0.0015 | 5/5 |
+| BeyondTrust Remote Support - Unauthenticated WebSo | 🔴 critical | CVE漏洞 | 通用 | 0.0422 | 5/5 |
+
+## 🛡️ 安全建议
+
+🚨 发现高风险漏洞，建议立即扫描相关资产
+🔍 关注新发布的 CVE 漏洞，及时更新补丁
+⚡ 检测到远程代码执行漏洞，优先处理
+
+## 🔧 扫描建议
+
+建议使用以下 Nuclei 命令进行扫描：
+
+```bash
+# 扫描高危漏洞
+nuclei -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2025/CVE-2025-32433.yaml -t code/cves/2025/CVE-2025-68926.yaml -t code/cves/2025/CVE-2025-9242.yaml -t code/cves/2026/CVE-2026-24061.yaml -t http/cves/2025/CVE-2025-22214.yaml -t javascript/cves/2026/CVE-2026-1731.yaml -u target-url
+
+# 扫描所有今日新增模板  
+nuclei -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2025/CVE-2025-32433.yaml -t code/cves/2025/CVE-2025-68926.yaml -t code/cves/2025/CVE-2025-9242.yaml -t code/cves/2026/CVE-2026-24061.yaml -t http/cves/2025/CVE-2025-22214.yaml -t javascript/cves/2026/CVE-2026-1731.yaml -u target-url
+```
+
+---
+
+*本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)*
+
+*扫描建议仅供参考，请在授权环境下进行安全测试*
