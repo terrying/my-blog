@@ -1,0 +1,491 @@
+---
+title: 'Nuclei POC 精选分析 - 2026-03-10'
+date: '2026-03-10'
+tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
+draft: false
+summary: '从 649 个模板更新中精选分析 30 个高价值 POC，发现 16 个高风险漏洞'
+authors: ['default']
+category: 'security-intel'
+---
+
+# Nuclei POC 精选分析 - 2026-03-10
+
+## 📊 智能筛选概况
+
+- **发现变更**: 649 个模板更新
+- **精选分析**: 30 个高价值 POC  
+- **智能跳过**: 619 个低优先级模板
+- **高风险漏洞**: 16 个
+- **主要类别**: CVE漏洞(17), 其他(3), 技术识别(10)
+
+> 💡 **智能筛选说明**: 系统自动优先分析 CVE 漏洞、高危漏洞和新增模板，跳过低价值的技术识别类模板，确保高效利用 API 资源。
+
+### 严重程度分布
+
+- 🔴 **严重**: 11 个
+- 🟡 **中危**: 6 个
+- 🟠 **高危**: 3 个
+- ⚪ **信息**: 10 个
+
+## 🔍 重点漏洞分析
+
+
+### Qwik - Unauthenticated RCE via server$ Deserialization
+
+- **漏洞ID**: `CVE-2026-27971`
+- **CVE**: `CVE-2026-27971` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00301 (percentile 0.53055) @ 2026-03-09
+
+**描述**: Qwik &lt;&#x3D;1.19.0 contains an insecure deserialization vulnerability in the server$ RPC mechanism, letting unauthenticated attackers execute arbitrary code remotely, exploit requires require() availability at runtime.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-27971
+
+**参考链接**: 
+- [参考资料](https://github.com/QwikDev/qwik/security/advisories/GHSA-p9x5-jp3h-96mm)
+- [参考资料](https://vulnerabletarget.com/VT-2026-27971)
+
+---
+
+
+### Ivanti Connect Secure - Stack-based Buffer Overflow
+
+- **漏洞ID**: `CVE-2025-22457`
+- **CVE**: `CVE-2025-22457` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.53659 (percentile 0.97943) @ 2026-03-09
+
+**描述**: Ivanti Connect Secure before version 22.7R2.6, Ivanti Policy Secure before version 22.7R1.4,
+and Ivanti ZTA Gateways before version 22.8R2.2 contain a stack-based buffer overflow caused by
+improper input handling, allowing remote attackers to execute arbitrary code without authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-22457
+
+**参考链接**: 
+- [参考资料](https://labs.watchtowr.com/is-the-sofistication-in-the-room-with-us-x-forwarded-for-and-ivanti-connect-secure-cve-2025-22457)
+- [参考资料](https://www.cvedetails.com/cve/CVE-2025-22457)
+- [参考资料](https://github.com/securekomodo/CVE-2025-22457)
+
+---
+
+
+### GitLab - SAML Authentication Bypass
+
+- **漏洞ID**: `CVE-2025-25291`
+- **CVE**: `CVE-2025-25291` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: GitLab 平台
+- **预估影响**: 数千个
+- **EPSS**: 0.13848 (percentile 0.94159) @ 2026-03-09
+
+**描述**: ruby-saml provides security assertion markup language (SAML) single sign-on (SSO) for Ruby. An authentication bypass vulnerability was found in ruby-saml prior to versions 1.12.4 and 1.18.0 due to a parser differential. ReXML and Nokogiri parse XML differently; the parsers can generate entirely different document structures from the same XML input. That allows an attacker to be able to execute a Signature Wrapping attack. This issue may lead to authentication bypass. Versions 1.12.4 and 1.18.0 fix the issue.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-25291
+
+**参考链接**: 
+- [参考资料](https://portswigger.net/research/saml-roulette-the-hacker-always-wins)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials/)
+- [参考资料](https://about.gitlab.com/releases/2025/03/12/patch-release-gitlab-17-9-2-released)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials)
+- [参考资料](https://github.com/SAML-Toolkits/ruby-saml/commit/e76c5b36bac40aedbf1ba7ffaaf495be63328cd9)
+
+---
+
+
+### Erlang/OTP SSH - Remote Code Execution
+
+- **漏洞ID**: `CVE-2025-32433`
+- **CVE**: `CVE-2025-32433` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.50314 (percentile 0.97787) @ 2026-03-09
+
+**描述**: Erlang/OTP is a set of libraries for the Erlang programming language. Prior to versions OTP-27.3.3, OTP-26.2.5.11, and OTP-25.3.2.20, a SSH server may allow an attacker to perform unauthenticated remote code execution (RCE). By exploiting a flaw in SSH protocol message handling, a malicious actor could gain unauthorized access to affected systems and execute arbitrary commands without valid credentials.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-32433
+
+**参考链接**: 
+- [参考资料](https://platformsecurity.com/blog/CVE-2025-32433-poc)
+- [参考资料](https://github.com/erlang/otp/commit/0fcd9c56524b28615e8ece65fc0c3f66ef6e4c12)
+- [参考资料](https://github.com/erlang/otp/commit/6eef04130afc8b0ccb63c9a0d8650209cf54892f)
+- [参考资料](https://github.com/erlang/otp/commit/b1924d37fd83c070055beb115d5d6a6a9490b891)
+- [参考资料](https://github.com/erlang/otp/security/advisories/GHSA-37cp-fgq5-7wc2)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-32433)
+
+---
+
+
+### Allegra - Authentication Bypass via Predictable Password Reset Token
+
+- **漏洞ID**: `CVE-2025-6216`
+- **CVE**: `CVE-2025-6216` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.25424 (percentile 0.96113) @ 2026-03-09
+
+**描述**: Allegra calculateTokenExpDate Password Recovery Authentication Bypass Vulnerability. This vulnerability allows remote attackers to bypass authentication on affected installations of Allegra. Authentication is not required to exploit this vulnerability. The specific flaw exists within the password recovery mechanism. The issue results from reliance upon a predictable value when generating a password reset token. An attacker can leverage this vulnerability to bypass authentication on the application.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-6216
+
+**参考链接**: 
+- [参考资料](https://www.zerodayinitiative.com/advisories/ZDI-25-410/)
+- [参考资料](https://alltena.com/en/resources/release-notes/release-notes-for-release-8-1-4-and-release-7-5-2)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-6216)
+
+---
+
+
+### RustFS &lt; 1.0.0-alpha.77 - Hardcoded gRPC Authentication Token
+
+- **漏洞ID**: `CVE-2025-68926`
+- **CVE**: `CVE-2025-68926` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.07497 (percentile 0.91641) @ 2026-03-09
+
+**描述**: RustFS before 1.0.0-alpha.77 used a hardcoded gRPC authentication token &quot;rustfs rpc&quot; that could not be changed without recompiling and this allowed unauthenticated remote attackers to gain full administrative access to the gRPC API.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-68926
+
+**参考链接**: 
+- [参考资料](https://github.com/rustfs/rustfs/security/advisories/GHSA-h956-rh7x-ppgj)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-68926)
+
+---
+
+
+### Qwik - Unauthenticated RCE via server$ Deserialization
+
+- **漏洞ID**: `CVE-2026-27971`
+- **CVE**: `CVE-2026-27971` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00301 (percentile 0.53055) @ 2026-03-09
+
+**描述**: Qwik &lt;&#x3D;1.19.0 contains an insecure deserialization vulnerability in the server$ RPC mechanism, letting unauthenticated attackers execute arbitrary code remotely, exploit requires require() availability at runtime.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-27971
+
+**参考链接**: 
+- [参考资料](https://github.com/QwikDev/qwik/security/advisories/GHSA-p9x5-jp3h-96mm)
+- [参考资料](https://vulnerabletarget.com/VT-2026-27971)
+
+---
+
+
+### Keras Model.load_model - Arbitrary Code Execution
+
+- **漏洞ID**: `CVE-2025-1550`
+- **CVE**: `CVE-2025-1550` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.04785 (percentile 0.89289) @ 2026-03-09
+
+**描述**: The Keras Model.load_model function permits arbitrary code execution, even with safe_mode&#x3D;True, through a manually constructed, malicious .keras archive. By altering the config.json file within the archive, an attacker can specify arbitrary Python modules and functions, along with their arguments, to be loaded and executed during model loading
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-1550)
+- [参考资料](https://github.com/keras-team/keras/pull/20751)
+- [参考资料](https://towerofhanoi.it/writeups/cve-2025-1550/)
+
+---
+
+
+### Ivanti Connect Secure - Stack-based Buffer Overflow
+
+- **漏洞ID**: `CVE-2025-22457`
+- **CVE**: `CVE-2025-22457` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.53659 (percentile 0.97943) @ 2026-03-09
+
+**描述**: Ivanti Connect Secure before version 22.7R2.6, Ivanti Policy Secure before version 22.7R1.4,
+and Ivanti ZTA Gateways before version 22.8R2.2 contain a stack-based buffer overflow caused by
+improper input handling, allowing remote attackers to execute arbitrary code without authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-22457
+
+**参考链接**: 
+- [参考资料](https://labs.watchtowr.com/is-the-sofistication-in-the-room-with-us-x-forwarded-for-and-ivanti-connect-secure-cve-2025-22457)
+- [参考资料](https://www.cvedetails.com/cve/CVE-2025-22457)
+- [参考资料](https://github.com/securekomodo/CVE-2025-22457)
+
+---
+
+
+### TRUfusion Enterprise &lt;&#x3D; 7.10.4.0 - Path Traversal
+
+- **漏洞ID**: `CVE-2025-27222`
+- **CVE**: `CVE-2025-27222` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.05506 (percentile 0.90074) @ 2026-03-09
+
+**描述**: Pre-Auth Path Traversal Allowing to Leak Local server files disclosing sensitive clear-text passwords.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/MrTuxracer/advisories/blob/master/CVEs/CVE-2025-27222.txt)
+- [参考资料](https://www.rcesecurity.com/2025/09/when-audits-fail-four-critical-pre-auth-vulnerabilities-in-trufusion-enterprise/)
+- [参考资料](https://docs.rocketsoftware.com/bundle/trufusion_rn_71031/page/kwg1743156415157.html)
+
+---
+
+
+### ZimaOS - Authentication Bypass
+
+- **漏洞ID**: `CVE-2026-21891`
+- **CVE**: `CVE-2026-21891` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.13629 (percentile 0.94105) @ 2026-03-09
+
+**描述**: ZimaOS &lt;&#x3D; 1.5.0 contains a broken authentication caused by improper password validation for known system service accounts in the login function, letting attackers authenticate with any password for these accounts, exploit requires knowledge of common usernames.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-21891
+
+**参考链接**: 
+- [参考资料](https://github.com/IceWhaleTech/ZimaOS/security/advisories/GHSA-xj93-qw9p-jxq4)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-21891)
+
+---
+
+
+### Backdrop CMS - Cross-Site Scripting
+
+- **漏洞ID**: `CVE-2025-25062`
+- **CVE**: `CVE-2025-25062` (2025)
+- **严重程度**: 🟡 MEDIUM
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.42843 (percentile 0.97412) @ 2026-03-09
+
+**描述**: An XSS issue was discovered in Backdrop CMS 1.28.x before 1.28.5 and 1.29.x before 1.29.3. It doesn&#x27;t sufficiently isolate long text content when the CKEditor 5 rich text editor is used. This allows a potential attacker to craft specialized HTML and JavaScript that may be executed when an administrator attempts to edit a piece of content. This vulnerability is mitigated by the fact that an attacker must have the ability to create long text content (such as through the node or comment forms) and an administrator must edit (not view) the content that contains the malicious content. This problem only exists when using the CKEditor 5 module.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-25062
+
+**参考链接**: 
+- [参考资料](https://github.com/XiaomingX/data-cve-poc/tree/main/2025/CVE-2025-25062)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-25062)
+- [参考资料](https://www.tenable.com/cve/CVE-2025-25062/cpes)
+- [参考资料](https://feedly.com/cve/CVE-2025-25062)
+
+---
+
+
+### Backdrop CMS - Cross-Site Scripting
+
+- **漏洞ID**: `CVE-2025-25062`
+- **CVE**: `CVE-2025-25062` (2025)
+- **严重程度**: 🟡 MEDIUM
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.42843 (percentile 0.97412) @ 2026-03-09
+
+**描述**: An XSS issue was discovered in Backdrop CMS 1.28.x before 1.28.5 and 1.29.x before 1.29.3. It doesn&#x27;t sufficiently isolate long text content when the CKEditor 5 rich text editor is used. This allows a potential attacker to craft specialized HTML and JavaScript that may be executed when an administrator attempts to edit a piece of content. This vulnerability is mitigated by the fact that an attacker must have the ability to create long text content (such as through the node or comment forms) and an administrator must edit (not view) the content that contains the malicious content. This problem only exists when using the CKEditor 5 module.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-25062
+
+**参考链接**: 
+- [参考资料](https://github.com/XiaomingX/data-cve-poc/tree/main/2025/CVE-2025-25062)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-25062)
+- [参考资料](https://www.tenable.com/cve/CVE-2025-25062/cpes)
+- [参考资料](https://feedly.com/cve/CVE-2025-25062)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### Apache Syncope - Default Login
+
+- **漏洞ID**: `apache-syncope-default-login`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: Apache 服务器
+- **预估影响**: 数百万台
+
+
+**描述**: The Apache Syncope server is configured with default administrative credentials, allowing an attacker to perform unauthorized operations. This template verifies the use of the default username admin and password password.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/apache/syncope)
+
+---
+
+
+## 📋 完整模板列表
+
+| 模板名称 | 严重程度 | 类别 | 影响资产 | EPSS | 风险评分 |
+|---------|---------|------|---------|------|---------|
+| Qwik - Unauthenticated RCE via server$ Deserializa | 🔴 critical | CVE漏洞 | 通用 | 0.0030 | 5/5 |
+| Ivanti Connect Secure - Stack-based Buffer Overflo | 🔴 critical | CVE漏洞 | 通用 | 0.5366 | 5/5 |
+| GitLab - SAML Authentication Bypass | 🔴 critical | CVE漏洞 | GitLab 平台 | 0.1385 | 5/5 |
+| Erlang/OTP SSH - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 0.5031 | 5/5 |
+| Allegra - Authentication Bypass via Predictable Pa | 🔴 critical | CVE漏洞 | 通用 | 0.2542 | 5/5 |
+| RustFS &lt; 1.0.0-alpha.77 - Hardcoded gRPC Authen | 🔴 critical | CVE漏洞 | 通用 | 0.0750 | 5/5 |
+| Qwik - Unauthenticated RCE via server$ Deserializa | 🔴 critical | CVE漏洞 | 通用 | 0.0030 | 5/5 |
+| Keras Model.load_model - Arbitrary Code Execution | 🔴 critical | CVE漏洞 | 通用 | 0.0478 | 5/5 |
+| Ivanti Connect Secure - Stack-based Buffer Overflo | 🔴 critical | CVE漏洞 | 通用 | 0.5366 | 5/5 |
+| TRUfusion Enterprise &lt;&#x3D; 7.10.4.0 - Path Tr | 🔴 critical | CVE漏洞 | 通用 | 0.0551 | 5/5 |
+| ZimaOS - Authentication Bypass | 🔴 critical | CVE漏洞 | 通用 | 0.1363 | 5/5 |
+| Backdrop CMS - Cross-Site Scripting | 🟡 medium | CVE漏洞 | 通用 | 0.4284 | 4/5 |
+| Backdrop CMS - Cross-Site Scripting | 🟡 medium | CVE漏洞 | 通用 | 0.4284 | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | - | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | - | 4/5 |
+| Apache Syncope - Default Login | 🟠 high | 其他 | Apache 服务器 | - | 4/5 |
+| Essential Addons for Elementor &lt; 6.0.15 - Cross | 🟡 medium | CVE漏洞 | 通用 | 0.0241 | 3.5/5 |
+| Swagger UI &gt;&#x3D;3.14.1 &lt; 3.38.0 - DOM Base | 🟡 medium | CVE漏洞 | 通用 | 0.0051 | 3.5/5 |
+| Essential Addons for Elementor &lt; 6.0.15 - Cross | 🟡 medium | CVE漏洞 | 通用 | 0.0241 | 3.5/5 |
+| Swagger UI &gt;&#x3D;3.14.1 &lt; 3.38.0 - DOM Base | 🟡 medium | CVE漏洞 | 通用 | 0.0051 | 3.5/5 |
+| WordPress End-of-Life - Detect | ⚪ info | 技术识别 | WordPress 站点 | - | 1/5 |
+| Apache Syncope - Detect | ⚪ info | 技术识别 | Apache 服务器 | - | 1/5 |
+| Wix Detection | ⚪ info | 技术识别 | 通用 | - | 1/5 |
+| BigCommerce Detection | ⚪ info | 技术识别 | 通用 | - | 1/5 |
+| Bitrix Detection | ⚪ info | 技术识别 | 通用 | - | 1/5 |
+| Blogger Detection | ⚪ info | 技术识别 | 通用 | - | 1/5 |
+| Concrete5 Detection | ⚪ info | 技术识别 | 通用 | - | 1/5 |
+| Django Detection | ⚪ info | 技术识别 | 通用 | - | 1/5 |
+| WordPress End-of-Life - Detect | ⚪ info | 技术识别 | WordPress 站点 | - | 1/5 |
+| ExpressionEngine Detection | ⚪ info | 技术识别 | 通用 | - | 1/5 |
+
+## 🛡️ 安全建议
+
+🚨 发现高风险漏洞，建议立即扫描相关资产
+🔍 关注新发布的 CVE 漏洞，及时更新补丁
+⚡ 检测到远程代码执行漏洞，优先处理
+
+## 🔧 扫描建议
+
+建议使用以下 Nuclei 命令进行扫描：
+
+```bash
+# 扫描高危漏洞
+nuclei -t http/cves/2026/CVE-2026-27971.yaml -t code/cves/2025/CVE-2025-22457.yaml -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2025/CVE-2025-32433.yaml -t code/cves/2025/CVE-2025-6216.yaml -t code/cves/2025/CVE-2025-68926.yaml -t http/cves/2026/CVE-2026-27971.yaml -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-22457.yaml -t http/cves/2025/CVE-2025-27222.yaml -t http/cves/2026/CVE-2026-21891.yaml -t headless/cves/2025/CVE-2025-25062.yaml -t headless/cves/2025/CVE-2025-25062.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/default-logins/apache/apache-syncope-default-login.yaml -u target-url
+
+# 扫描所有今日新增模板  
+nuclei -t http/cves/2026/CVE-2026-27971.yaml -t code/cves/2025/CVE-2025-22457.yaml -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2025/CVE-2025-32433.yaml -t code/cves/2025/CVE-2025-6216.yaml -t code/cves/2025/CVE-2025-68926.yaml -t http/cves/2026/CVE-2026-27971.yaml -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-22457.yaml -t http/cves/2025/CVE-2025-27222.yaml -t http/cves/2026/CVE-2026-21891.yaml -t headless/cves/2025/CVE-2025-25062.yaml -t headless/cves/2025/CVE-2025-25062.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/default-logins/apache/apache-syncope-default-login.yaml -t headless/cves/2025/CVE-2025-24752.yaml -t headless/cves/2025/CVE-2025-8191.yaml -t headless/cves/2025/CVE-2025-24752.yaml -t headless/cves/2025/CVE-2025-8191.yaml -t http/technologies/eol/wordpress-eol.yaml -t http/technologies/apache/apache-syncope-detect.yaml -t http/technologies/Wix-detect.yaml -t http/technologies/bigcommerce-detect.yaml -t http/technologies/bitrix-detect.yaml -t http/technologies/blogger-detect.yaml -t http/technologies/concrete5-detect.yaml -t http/technologies/django-detect.yaml -t http/technologies/eol/wordpress-eol.yaml -t http/technologies/expressionengine-detect.yaml -u target-url
+```
+
+---
+
+*本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)*
+
+*扫描建议仅供参考，请在授权环境下进行安全测试*
