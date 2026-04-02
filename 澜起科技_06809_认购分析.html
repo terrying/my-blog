@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>澜起科技 IPO 分析报告</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%); 
+            color: #333; 
+            line-height: 1.6; 
+            min-height: 100vh;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        
+        /* Header */
+        .header { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            color: white; 
+            padding: 30px; 
+            border-radius: 16px; 
+            margin-bottom: 20px;
+            box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+        }
+        .header h1 { font-size: 26px; margin-bottom: 10px; font-weight: 700; }
+        .header .meta { opacity: 0.9; font-size: 14px; }
+        
+        /* Cards */
+        .card { 
+            background: white; 
+            border-radius: 16px; 
+            padding: 0; 
+            margin-bottom: 20px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+        .card-body { padding: 24px; }
+        
+        /* Section Headers with Colored Backgrounds */
+        .card h2 { 
+            font-size: 16px; 
+            color: white; 
+            padding: 16px 24px;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .card.score-card h2 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .card.info-card h2 { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); }
+        .card.analysis-card h2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .card.advice-card h2 { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+        
+        /* SVG Icons in Headers */
+        .card h2 svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+        
+        /* Score Grid */
+        .score-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+        .score-item { 
+            text-align: center; 
+            padding: 20px 16px; 
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); 
+            border-radius: 12px;
+            transition: transform 0.2s ease;
+        }
+        .score-item:hover { transform: translateY(-2px); }
+        .score-item .value { font-size: 32px; font-weight: 700; color: #667eea; }
+        .score-item .label { font-size: 12px; color: #666; margin-top: 6px; font-weight: 500; }
+        
+        /* Info Grid */
+        .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+        .info-item { 
+            padding: 12px 16px; 
+            background: #f8f9fa; 
+            border-radius: 8px;
+        }
+        .info-item .label { font-size: 12px; color: #999; margin-bottom: 4px; }
+        .info-item .value { font-size: 14px; color: #333; font-weight: 500; }
+        
+        /* Analysis Sections - Enhanced Card Style */
+        .analysis-section { 
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            transition: box-shadow 0.2s ease;
+        }
+        .analysis-section:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        }
+        .analysis-section:nth-child(2) { border-left-color: #11998e; }
+        .analysis-section:nth-child(3) { border-left-color: #f5576c; }
+        .analysis-section h3 { 
+            font-size: 15px; 
+            font-weight: 600;
+            color: #333; 
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .analysis-section h3::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #667eea;
+        }
+        .analysis-section:nth-child(2) h3::before { background: #11998e; }
+        .analysis-section:nth-child(3) h3::before { background: #f5576c; }
+        .analysis-section p { font-size: 14px; color: #555; line-height: 1.8; }
+        
+        /* Highlights */
+        .highlights { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+        .highlight-tag { 
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); 
+            color: #2e7d32; 
+            padding: 8px 16px; 
+            border-radius: 20px; 
+            font-size: 13px;
+            font-weight: 500;
+            box-shadow: 0 2px 4px rgba(46, 125, 50, 0.1);
+        }
+        
+        /* Advice List */
+        .advice-list {
+            list-style: none;
+            padding: 0;
+            margin: 16px 0;
+        }
+        .advice-list li {
+            padding: 14px 18px;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            line-height: 1.7;
+            font-size: 14px;
+            color: #444;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        }
+        .advice-list li:last-child { margin-bottom: 0; }
+        
+        /* Risk Warning */
+        .risk-warning { 
+            background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%); 
+            border-left: 4px solid #ff9800; 
+            padding: 16px 20px; 
+            border-radius: 0 12px 12px 0;
+            margin-top: 20px;
+        }
+        .risk-warning strong {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            font-size: 15px;
+            color: #e65100;
+        }
+        .risk-warning strong svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+        .risk-warning .advice-list li {
+            background: linear-gradient(135deg, #fff8e1 0%, #ffffff 100%);
+            border-left-color: #ff9800;
+            color: #5d4037;
+        }
+        .risk-warning p {
+            font-size: 14px;
+            color: #5d4037;
+            line-height: 1.7;
+        }
+        
+        /* Footer */
+        .footer { 
+            text-align: center; 
+            color: #999; 
+            font-size: 12px; 
+            padding: 24px 0;
+        }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            .score-grid { grid-template-columns: repeat(2, 1fr); }
+            .info-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>澜起科技 (06809.HK)</h1>
+            <div class="meta">电子元件 | 上市日期: 2026/02/09 | 生成时间: 2026-01-30 12:04</div>
+        </div>
+        
+        <div class="card score-card">
+            <h2><svg viewBox="0 0 24 24"><path d="M3 3v18h18V3H3zm16 16H5V5h14v14zM7 12h2v5H7v-5zm4-3h2v8h-2V9zm4-3h2v11h-2V6z"/></svg>评分概览</h2>
+            <div class="card-body">
+                <div class="score-grid">
+                    <div class="score-item">
+                        <div class="value">8.5</div>
+                        <div class="label">公司质地</div>
+                    </div>
+                    <div class="score-item">
+                        <div class="value">9.0</div>
+                        <div class="label">保荐人</div>
+                    </div>
+                    <div class="score-item">
+                        <div class="value">6.5</div>
+                        <div class="label">发行条款</div>
+                    </div>
+                    <div class="score-item">
+                        <div class="value" style="color: #4caf50">8.0</div>
+                        <div class="label">综合认购指数</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card info-card">
+            <h2><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"/></svg>基本信息</h2>
+            <div class="card-body">
+                <div class="info-grid">
+                    <div class="info-item"><div class="label">发行价</div><div class="value">106.89</div></div>
+                    <div class="info-item"><div class="label">每手股数</div><div class="value">100</div></div>
+                    <div class="info-item"><div class="label">入场费</div><div class="value">10,796.80</div></div>
+                    <div class="info-item"><div class="label">保荐人</div><div class="value">中国国际金融香港证券有限公司, 摩根士丹利亚洲有限公司, 瑞银证券香港有限公司</div></div>
+                    <div class="info-item"><div class="label">绿鞋</div><div class="value">无</div></div>
+                    <div class="info-item"><div class="label">基石投资者</div><div class="value">abrdn Asia Limited(美元19百萬), AGIC Partners Holding (Cayman) II Limited(美元10百萬), Alisoft China Holding Limited(美元55百萬)</div></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card analysis-card">
+            <h2><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>分析详情</h2>
+            <div class="card-body">
+                <div class="analysis-section">
+                    <h3>业务分析</h3>
+                    <p>公司属于电子元件行业，财务数据完整且表现强劲。2025年营收达363.9亿元，净利润141.3亿元，相比2024年净利润增长近200%，显示出极高的盈利能力和成长性。公司质地优秀，财务数据是重要加分项。</p>
+                </div>
+                <div class="analysis-section">
+                    <h3>保荐人分析</h3>
+                    <p>保荐人团队豪华，由中金、摩根士丹利、瑞银三家顶级投行联合保荐。近期战绩非常亮眼，列举的四个项目首日涨幅均超过150%，最高达363.75%。这表明保荐人具备强大的定价、销售和护盘能力，新股上市首日大概率有良好表现，是本次IPO最大的利好因素。</p>
+                </div>
+                <div class="analysis-section">
+                    <h3>发行条款分析</h3>
+                    <p>发行条款有利有弊。有利方面：1）基石投资者阵容强大，包括abrdn、AGIC、Alisoft、Aspex、霸菱等知名机构，合计认购金额超1.4亿美元，为发行价提供有力锚定和信心支撑。2）入场费约10797港元，属于较高水平，意味着单手中签后潜在盈利或亏损的绝对金额较大。不利方面：1）采用无回拨机制，这意味着无论公开发售超额多少倍，散户可分配的股份份额都不会增加，对散户极不友好，中签难度极高。散户若想确保中签，必须通过融资认购（甲尾或乙组）来提升分配机会。</p>
+                </div>
+                <div class="highlights">
+                    <span class="highlight-tag">保荐人战绩极其出色，近期项目首日涨幅均超150%</span><span class="highlight-tag">基石投资者阵容强大且认购金额高，提供有力支撑</span><span class="highlight-tag">公司财务数据优异，2025年净利润同比大幅增长近200%</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card advice-card">
+            <h2><svg viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 017 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/></svg>认购建议</h2>
+            <div class="card-body">
+                <p>建议积极认购，但必须使用融资（现金认购几乎不可能中签）。理由：1）盈利预期高：保荐人战绩卓越，首日大涨概率极高。2）公司基本面优秀，有知名基石背书，下跌风险相对可控。3）近期新股市场热度极高（超额倍数均超千倍），预计本股也会获得火热认购。关键策略：由于无回拨机制，散户应通过融资认购（甲组尾或乙组）来确保获得分配份额，现金认购意义不大。看涨且能承受较高入场费风险的投资者应参与。</p>
+                <div class="risk-warning">
+                    <strong><svg viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>风险提示</strong>
+                    <p>主要风险：1）中签风险：无回拨机制导致散户中签率极低，现金认购可能颗粒无收。2）价格风险：入场费较高，若上市表现不佳，单手亏损金额较大。3）市场风险：近期新股涨幅巨大，需警惕市场情绪转向或获利盘抛压。4）流动性风险：高入场费可能影响上市后的交投活跃度。投资者需根据自身资金情况和风险承受能力决定融资额度。</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>报告由 IPO Agent 自动生成 | 仅供参考，不构成投资建议</p>
+        </div>
+    </div>
+</body>
+</html>

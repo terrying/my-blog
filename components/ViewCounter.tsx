@@ -30,13 +30,17 @@ export default function ViewCounter({ slug, trackView = false, className = '' }:
 
     const incrementView = async () => {
       try {
-        // 增加阅读次数
         const response = await fetch(`/api/views/${encodeURIComponent(slug)}`, {
           method: 'POST',
         })
         if (response.ok) {
           const data = await response.json()
           setViews(data.views)
+          try {
+            sessionStorage.setItem(`viewed:${slug}`, '1')
+          } catch (_) {
+            // sessionStorage unavailable (e.g. private mode)
+          }
         }
       } catch (error) {
         console.error('Error incrementing views:', error)
@@ -46,10 +50,18 @@ export default function ViewCounter({ slug, trackView = false, className = '' }:
     }
 
     if (trackView) {
-      // 如果需要统计阅读，则增加计数
-      incrementView()
+      let alreadyViewed = false
+      try {
+        alreadyViewed = !!sessionStorage.getItem(`viewed:${slug}`)
+      } catch (_) {
+        // sessionStorage unavailable
+      }
+      if (alreadyViewed) {
+        fetchViews()
+      } else {
+        incrementView()
+      }
     } else {
-      // 否则只获取当前计数
       fetchViews()
     }
   }, [slug, trackView])
