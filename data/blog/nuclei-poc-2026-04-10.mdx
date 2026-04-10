@@ -1,0 +1,637 @@
+---
+title: 'Nuclei POC 精选分析 - 2026-04-10'
+date: '2026-04-10'
+tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
+draft: false
+summary: '从 393 个模板更新中精选分析 30 个高价值 POC，发现 22 个高风险漏洞'
+authors: ['default']
+category: 'security-intel'
+---
+
+# Nuclei POC 精选分析 - 2026-04-10
+
+## 📊 智能筛选概况
+
+- **发现变更**: 393 个模板更新
+- **精选分析**: 30 个高价值 POC  
+- **智能跳过**: 363 个低优先级模板
+- **高风险漏洞**: 22 个
+- **主要类别**: CVE漏洞(23), 其他(4), 信息泄露(2), 技术识别(1)
+
+> 💡 **智能筛选说明**: 系统自动优先分析 CVE 漏洞、高危漏洞和新增模板，跳过低价值的技术识别类模板，确保高效利用 API 资源。
+
+### 严重程度分布
+
+- 🟠 **高危**: 14 个
+- 🔴 **严重**: 8 个
+- 🟡 **中危**: 5 个
+- ⚪ **信息**: 3 个
+
+## 🔍 重点漏洞分析
+
+
+### Stirling-PDF &lt; 1.1.0 - Server-Side Request Forgery
+
+- **漏洞ID**: `CVE-2025-55150`
+- **CVE**: `CVE-2025-55150` (2025)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00064 (percentile 0.19918) @ 2026-04-09
+
+**描述**: Stirling-PDF &lt; 1.1.0 contains a server side request forgery caused by bypassing the sanitizer in the /api/v1/convert/html/pdf endpoint when processing HTML to PDF conversion, letting attackers perform SSRF, exploit requires local access.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-55150
+
+**参考链接**: 
+- [参考资料](https://github.com/Stirling-Tools/Stirling-PDF/security/advisories/GHSA-xw8v-9mfm-g2pm)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-55150)
+
+---
+
+
+### Payara Server - Cross-Site Scripting
+
+- **漏洞ID**: `CVE-2025-14340`
+- **CVE**: `CVE-2025-14340` (2025)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00062 (percentile 0.19336) @ 2026-04-09
+
+**描述**: Payara Server versions &lt;4.1.2.191.54, &lt;5.83.0, &lt;6.34.0, and &lt;7.2026.1 contain a stored XSS vulnerability caused by improper input sanitization in the REST Management Interface. This allows attackers to mislead administrators into changing the admin password via a URL payload; however, the exploit requires administrator interaction.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-14340
+
+**参考链接**: 
+- [参考资料](https://github.com/DeepSecurityResearch/CVE-2025-14340)
+- [参考资料](https://www.payara.fish)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-14340)
+
+---
+
+
+### Keras Model.load_model - Arbitrary Code Execution
+
+- **漏洞ID**: `CVE-2025-1550`
+- **CVE**: `CVE-2025-1550` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.04785 (percentile 0.8947) @ 2026-04-09
+
+**描述**: The Keras Model.load_model function permits arbitrary code execution, even with safe_mode&#x3D;True, through a manually constructed, malicious .keras archive. By altering the config.json file within the archive, an attacker can specify arbitrary Python modules and functions, along with their arguments, to be loaded and executed during model loading
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-1550)
+- [参考资料](https://github.com/keras-team/keras/pull/20751)
+- [参考资料](https://towerofhanoi.it/writeups/cve-2025-1550/)
+
+---
+
+
+### Ivanti Connect Secure - Stack-based Buffer Overflow
+
+- **漏洞ID**: `CVE-2025-22457`
+- **CVE**: `CVE-2025-22457` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.53659 (percentile 0.9799) @ 2026-04-09
+
+**描述**: Ivanti Connect Secure before version 22.7R2.6, Ivanti Policy Secure before version 22.7R1.4,
+and Ivanti ZTA Gateways before version 22.8R2.2 contain a stack-based buffer overflow caused by
+improper input handling, allowing remote attackers to execute arbitrary code without authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-22457
+
+**参考链接**: 
+- [参考资料](https://labs.watchtowr.com/is-the-sofistication-in-the-room-with-us-x-forwarded-for-and-ivanti-connect-secure-cve-2025-22457)
+- [参考资料](https://www.cvedetails.com/cve/CVE-2025-22457)
+- [参考资料](https://github.com/securekomodo/CVE-2025-22457)
+
+---
+
+
+### GitLab - SAML Authentication Bypass
+
+- **漏洞ID**: `CVE-2025-25291`
+- **CVE**: `CVE-2025-25291` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: GitLab 平台
+- **预估影响**: 数千个
+- **EPSS**: 0.13848 (percentile 0.9429) @ 2026-04-09
+
+**描述**: ruby-saml provides security assertion markup language (SAML) single sign-on (SSO) for Ruby. An authentication bypass vulnerability was found in ruby-saml prior to versions 1.12.4 and 1.18.0 due to a parser differential. ReXML and Nokogiri parse XML differently; the parsers can generate entirely different document structures from the same XML input. That allows an attacker to be able to execute a Signature Wrapping attack. This issue may lead to authentication bypass. Versions 1.12.4 and 1.18.0 fix the issue.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-25291
+
+**参考链接**: 
+- [参考资料](https://portswigger.net/research/saml-roulette-the-hacker-always-wins)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials/)
+- [参考资料](https://about.gitlab.com/releases/2025/03/12/patch-release-gitlab-17-9-2-released)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials)
+- [参考资料](https://github.com/SAML-Toolkits/ruby-saml/commit/e76c5b36bac40aedbf1ba7ffaaf495be63328cd9)
+
+---
+
+
+### Erlang/OTP SSH - Remote Code Execution
+
+- **漏洞ID**: `CVE-2025-32433`
+- **CVE**: `CVE-2025-32433` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.5672 (percentile 0.98123) @ 2026-04-09
+
+**描述**: Erlang/OTP is a set of libraries for the Erlang programming language. Prior to versions OTP-27.3.3, OTP-26.2.5.11, and OTP-25.3.2.20, a SSH server may allow an attacker to perform unauthenticated remote code execution (RCE). By exploiting a flaw in SSH protocol message handling, a malicious actor could gain unauthorized access to affected systems and execute arbitrary commands without valid credentials.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-32433
+
+**参考链接**: 
+- [参考资料](https://platformsecurity.com/blog/CVE-2025-32433-poc)
+- [参考资料](https://github.com/erlang/otp/commit/0fcd9c56524b28615e8ece65fc0c3f66ef6e4c12)
+- [参考资料](https://github.com/erlang/otp/commit/6eef04130afc8b0ccb63c9a0d8650209cf54892f)
+- [参考资料](https://github.com/erlang/otp/commit/b1924d37fd83c070055beb115d5d6a6a9490b891)
+- [参考资料](https://github.com/erlang/otp/security/advisories/GHSA-37cp-fgq5-7wc2)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-32433)
+
+---
+
+
+### Sudo - Local Privilege Escalation via chroot
+
+- **漏洞ID**: `CVE-2025-32463`
+- **CVE**: `CVE-2025-32463` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.38489 (percentile 0.97235) @ 2026-04-09
+
+**描述**: Sudo before 1.9.17p1 allows local users to obtain root access by using /etc/nsswitch.conf from a user-controlled directory with the --chroot (-R) option.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-32463
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-32463)
+- [参考资料](https://www.sudo.ws/security/advisories/chroot_bug/)
+- [参考资料](https://ubuntu.com/security/CVE-2025-32463)
+- [参考资料](https://www.wiz.io/vulnerability-database/cve/cve-2025-32463)
+- [参考资料](https://explore.alas.aws.amazon.com/CVE-2025-32463.html)
+
+---
+
+
+### Allegra - Authentication Bypass via Predictable Password Reset Token
+
+- **漏洞ID**: `CVE-2025-6216`
+- **CVE**: `CVE-2025-6216` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.29966 (percentile 0.96644) @ 2026-04-09
+
+**描述**: Allegra calculateTokenExpDate Password Recovery Authentication Bypass Vulnerability. This vulnerability allows remote attackers to bypass authentication on affected installations of Allegra. Authentication is not required to exploit this vulnerability. The specific flaw exists within the password recovery mechanism. The issue results from reliance upon a predictable value when generating a password reset token. An attacker can leverage this vulnerability to bypass authentication on the application.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-6216
+
+**参考链接**: 
+- [参考资料](https://www.zerodayinitiative.com/advisories/ZDI-25-410/)
+- [参考资料](https://alltena.com/en/resources/release-notes/release-notes-for-release-8-1-4-and-release-7-5-2)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-6216)
+
+---
+
+
+### RustFS &lt; 1.0.0-alpha.77 - Hardcoded gRPC Authentication Token
+
+- **漏洞ID**: `CVE-2025-68926`
+- **CVE**: `CVE-2025-68926` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.10607 (percentile 0.93284) @ 2026-04-09
+
+**描述**: RustFS before 1.0.0-alpha.77 used a hardcoded gRPC authentication token &quot;rustfs rpc&quot; that could not be changed without recompiling and this allowed unauthenticated remote attackers to gain full administrative access to the gRPC API.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-68926
+
+**参考链接**: 
+- [参考资料](https://github.com/rustfs/rustfs/security/advisories/GHSA-h956-rh7x-ppgj)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-68926)
+
+---
+
+
+### Next.js Middleware Authorization Bypass
+
+- **漏洞ID**: `CVE-2025-29927-HEADLESS`
+- **CVE**: `CVE-2025-29927` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.92955 (percentile 0.99777) @ 2026-04-09
+
+**描述**: A critical vulnerability in Next.js middleware allows attackers to bypass authorization checks by manipulating the x-middleware-subrequest header. This flaw affects Next.js versions prior to 14.2.25 and 15.2.3, potentially granting unauthorized access to sensitive resources.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-29927
+
+**参考链接**: 
+- [参考资料](https://github.com/advisories/GHSA-f82v-jwr5-mffw)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-29927)
+- [参考资料](https://www.tenable.com/cve/CVE-2025-29927)
+
+---
+
+
+### Payara Server - Cross-Site Scripting
+
+- **漏洞ID**: `CVE-2025-14340`
+- **CVE**: `CVE-2025-14340` (2025)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00062 (percentile 0.19336) @ 2026-04-09
+
+**描述**: Payara Server versions &lt;4.1.2.191.54, &lt;5.83.0, &lt;6.34.0, and &lt;7.2026.1 contain a stored XSS vulnerability caused by improper input sanitization in the REST Management Interface. This allows attackers to mislead administrators into changing the admin password via a URL payload; however, the exploit requires administrator interaction.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-14340
+
+**参考链接**: 
+- [参考资料](https://github.com/DeepSecurityResearch/CVE-2025-14340)
+- [参考资料](https://www.payara.fish)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-14340)
+
+---
+
+
+### Stirling-PDF &lt; 1.1.0 - Server-Side Request Forgery
+
+- **漏洞ID**: `CVE-2025-55150`
+- **CVE**: `CVE-2025-55150` (2025)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00064 (percentile 0.19918) @ 2026-04-09
+
+**描述**: Stirling-PDF &lt; 1.1.0 contains a server side request forgery caused by bypassing the sanitizer in the /api/v1/convert/html/pdf endpoint when processing HTML to PDF conversion, letting attackers perform SSRF, exploit requires local access.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-55150
+
+**参考链接**: 
+- [参考资料](https://github.com/Stirling-Tools/Stirling-PDF/security/advisories/GHSA-xw8v-9mfm-g2pm)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-55150)
+
+---
+
+
+### Stirling-PDF &lt; 1.1.0 - Server-Side Request Forgery
+
+- **漏洞ID**: `CVE-2025-55150`
+- **CVE**: `CVE-2025-55150` (2025)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00064 (percentile 0.19918) @ 2026-04-09
+
+**描述**: Stirling-PDF &lt; 1.1.0 contains a server side request forgery caused by bypassing the sanitizer in the /api/v1/convert/html/pdf endpoint when processing HTML to PDF conversion, letting attackers perform SSRF, exploit requires local access.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-55150
+
+**参考链接**: 
+- [参考资料](https://github.com/Stirling-Tools/Stirling-PDF/security/advisories/GHSA-xw8v-9mfm-g2pm)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-55150)
+
+---
+
+
+### langchain-ai langchain - XML External Entity Injection
+
+- **漏洞ID**: `CVE-2025-6984`
+- **CVE**: `CVE-2025-6984` (2025)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.01922 (percentile 0.83354) @ 2026-04-09
+
+**描述**: langchain-ai/langchain 0.3.63 contains an XML External Entity (XXE) injection caused by insecure XML parsing in EverNoteLoader using etree.iterparse(), letting attackers disclose sensitive information, exploit requires crafted malicious XML payload.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-6984
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-6984)
+- [参考资料](https://huntr.com/bounties/a6b521cf-258c-41c0-9edb-d8ef976abb2a)
+- [参考资料](https://github.com/langchain-ai/langchain-community/commit/e842452)
+
+---
+
+
+### WordPress The Wound Theme &lt;&#x3D; 0.0.1 - Local File Inclusion
+
+- **漏洞ID**: `CVE-2025-2558`
+- **CVE**: `CVE-2025-2558` (2025)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.00718 (percentile 0.7245) @ 2026-04-09
+
+**描述**: The-wound WordPress theme through 0.0.1 contains a local file inclusion caused by insufficient validation of parameters used to generate paths passed to include functions, letting unauthenticated users perform LFI attacks and download arbitrary files from the server.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/6a8e1c89-a01d-4347-91fc-ba454784b153/)
+- [参考资料](https://www.wordfence.com/threat-intel/vulnerabilities/wordpress-themes/the-wound/the-wound-001-unauthenticated-local-file-inclusion)
+- [参考资料](https://nvd.nist.gov/vuln/detail/cve-2025-2558)
+
+---
+
+
+### WordPress The Wound Theme &lt;&#x3D; 0.0.1 - Local File Inclusion
+
+- **漏洞ID**: `CVE-2025-2558`
+- **CVE**: `CVE-2025-2558` (2025)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.00718 (percentile 0.7245) @ 2026-04-09
+
+**描述**: The-wound WordPress theme through 0.0.1 contains a local file inclusion caused by insufficient validation of parameters used to generate paths passed to include functions, letting unauthenticated users perform LFI attacks and download arbitrary files from the server.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/6a8e1c89-a01d-4347-91fc-ba454784b153/)
+- [参考资料](https://www.wordfence.com/threat-intel/vulnerabilities/wordpress-themes/the-wound/the-wound-001-unauthenticated-local-file-inclusion)
+- [参考资料](https://nvd.nist.gov/vuln/detail/cve-2025-2558)
+
+---
+
+
+### WordPress The Wound Theme &lt;&#x3D; 0.0.1 - Local File Inclusion
+
+- **漏洞ID**: `CVE-2025-2558`
+- **CVE**: `CVE-2025-2558` (2025)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.00718 (percentile 0.7245) @ 2026-04-09
+
+**描述**: The-wound WordPress theme through 0.0.1 contains a local file inclusion caused by insufficient validation of parameters used to generate paths passed to include functions, letting unauthenticated users perform LFI attacks and download arbitrary files from the server.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/6a8e1c89-a01d-4347-91fc-ba454784b153/)
+- [参考资料](https://www.wordfence.com/threat-intel/vulnerabilities/wordpress-themes/the-wound/the-wound-001-unauthenticated-local-file-inclusion)
+- [参考资料](https://nvd.nist.gov/vuln/detail/cve-2025-2558)
+
+---
+
+
+### WordPress The Wound Theme &lt;&#x3D; 0.0.1 - Local File Inclusion
+
+- **漏洞ID**: `CVE-2025-2558`
+- **CVE**: `CVE-2025-2558` (2025)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.00718 (percentile 0.7245) @ 2026-04-09
+
+**描述**: The-wound WordPress theme through 0.0.1 contains a local file inclusion caused by insufficient validation of parameters used to generate paths passed to include functions, letting unauthenticated users perform LFI attacks and download arbitrary files from the server.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/6a8e1c89-a01d-4347-91fc-ba454784b153/)
+- [参考资料](https://www.wordfence.com/threat-intel/vulnerabilities/wordpress-themes/the-wound/the-wound-001-unauthenticated-local-file-inclusion)
+- [参考资料](https://nvd.nist.gov/vuln/detail/cve-2025-2558)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+### UFIDA NC - Arbitrary File Read
+
+- **漏洞ID**: `yonyou-nc-lfi`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: UFIDA NC is vulnerable to an arbitrary file read vulnerability in the nc.uap.lfw.file.action.DocServlet component. An unauthenticated remote attacker can exploit this flaw to read sensitive files on the server by sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/szjr123/Target-practice/blob/05ed667090d8040a09235826f7698ff5347a93cf/%E7%94%A8%E5%8F%8BOA/NC%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96_DocServlet/yongyou_read.py)
+
+---
+
+
+## 📋 完整模板列表
+
+| 模板名称 | 严重程度 | 类别 | 影响资产 | EPSS | 风险评分 |
+|---------|---------|------|---------|------|---------|
+| Stirling-PDF &lt; 1.1.0 - Server-Side Request Forg | 🟠 high | CVE漏洞 | 通用 | 0.0006 | 5/5 |
+| Payara Server - Cross-Site Scripting | 🟠 high | CVE漏洞 | 通用 | 0.0006 | 5/5 |
+| Keras Model.load_model - Arbitrary Code Execution | 🔴 critical | CVE漏洞 | 通用 | 0.0478 | 5/5 |
+| Ivanti Connect Secure - Stack-based Buffer Overflo | 🔴 critical | CVE漏洞 | 通用 | 0.5366 | 5/5 |
+| GitLab - SAML Authentication Bypass | 🔴 critical | CVE漏洞 | GitLab 平台 | 0.1385 | 5/5 |
+| Erlang/OTP SSH - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 0.5672 | 5/5 |
+| Sudo - Local Privilege Escalation via chroot | 🔴 critical | CVE漏洞 | 通用 | 0.3849 | 5/5 |
+| Allegra - Authentication Bypass via Predictable Pa | 🔴 critical | CVE漏洞 | 通用 | 0.2997 | 5/5 |
+| RustFS &lt; 1.0.0-alpha.77 - Hardcoded gRPC Authen | 🔴 critical | CVE漏洞 | 通用 | 0.1061 | 5/5 |
+| Next.js Middleware Authorization Bypass | 🔴 critical | CVE漏洞 | 通用 | 0.9295 | 5/5 |
+| Payara Server - Cross-Site Scripting | 🟠 high | CVE漏洞 | 通用 | 0.0006 | 5/5 |
+| Stirling-PDF &lt; 1.1.0 - Server-Side Request Forg | 🟠 high | CVE漏洞 | 通用 | 0.0006 | 5/5 |
+| Stirling-PDF &lt; 1.1.0 - Server-Side Request Forg | 🟠 high | CVE漏洞 | 通用 | 0.0006 | 5/5 |
+| langchain-ai langchain - XML External Entity Injec | 🟠 high | CVE漏洞 | 通用 | 0.0192 | 4.5/5 |
+| WordPress The Wound Theme &lt;&#x3D; 0.0.1 - Local | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0072 | 4/5 |
+| WordPress The Wound Theme &lt;&#x3D; 0.0.1 - Local | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0072 | 4/5 |
+| WordPress The Wound Theme &lt;&#x3D; 0.0.1 - Local | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0072 | 4/5 |
+| WordPress The Wound Theme &lt;&#x3D; 0.0.1 - Local | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0072 | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | - | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | - | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | - | 4/5 |
+| UFIDA NC - Arbitrary File Read | 🟠 high | 其他 | 通用 | - | 4/5 |
+| Backdrop CMS - Cross-Site Scripting | 🟡 medium | CVE漏洞 | 通用 | 0.2464 | 3.7/5 |
+| Blesta &lt;&#x3D; 5.13.1 - Cross-Site Scripting | 🟡 medium | CVE漏洞 | 通用 | 0.0001 | 3.5/5 |
+| Essential Addons for Elementor &lt; 6.0.15 - Cross | 🟡 medium | CVE漏洞 | 通用 | 0.0256 | 3.5/5 |
+| Swagger UI &gt;&#x3D;3.14.1 &lt; 3.38.0 - DOM Base | 🟡 medium | CVE漏洞 | 通用 | 0.0051 | 3.5/5 |
+| Blesta &lt;&#x3D; 5.13.1 - Cross-Site Scripting | 🟡 medium | CVE漏洞 | 通用 | 0.0001 | 3.5/5 |
+| Openclaw (formerly Clawdbot / Moltbot) - Detect | ⚪ info | 信息泄露 | 通用 | - | 1/5 |
+| Openclaw (formerly Clawdbot / Moltbot) - Detect | ⚪ info | 信息泄露 | 通用 | - | 1/5 |
+| Wix Detection | ⚪ info | 技术识别 | 通用 | - | 1/5 |
+
+## 🛡️ 安全建议
+
+🚨 发现高风险漏洞，建议立即扫描相关资产
+🔍 关注新发布的 CVE 漏洞，及时更新补丁
+⚡ 检测到远程代码执行漏洞，优先处理
+
+## 🔧 扫描建议
+
+建议使用以下 Nuclei 命令进行扫描：
+
+```bash
+# 扫描高危漏洞
+nuclei -t http/cves/2025/CVE-2025-55150.yaml -t http/cves/2025/CVE-2025-14340.yaml -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-22457.yaml -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2025/CVE-2025-32433.yaml -t code/cves/2025/CVE-2025-32463.yaml -t code/cves/2025/CVE-2025-6216.yaml -t code/cves/2025/CVE-2025-68926.yaml -t headless/cves/2025/CVE-2025-29927-HEADLESS.yaml -t http/cves/2025/CVE-2025-14340.yaml -t http/cves/2025/CVE-2025-55150.yaml -t http/cves/2025/CVE-2025-55150.yaml -t code/cves/2025/CVE-2025-6984.yaml -t http/cves/2025/CVE-2025-2558.yaml -t http/cves/2025/CVE-2025-2558.yaml -t http/cves/2025/CVE-2025-2558.yaml -t http/cves/2025/CVE-2025-2558.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -u target-url
+
+# 扫描所有今日新增模板  
+nuclei -t http/cves/2025/CVE-2025-55150.yaml -t http/cves/2025/CVE-2025-14340.yaml -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-22457.yaml -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2025/CVE-2025-32433.yaml -t code/cves/2025/CVE-2025-32463.yaml -t code/cves/2025/CVE-2025-6216.yaml -t code/cves/2025/CVE-2025-68926.yaml -t headless/cves/2025/CVE-2025-29927-HEADLESS.yaml -t http/cves/2025/CVE-2025-14340.yaml -t http/cves/2025/CVE-2025-55150.yaml -t http/cves/2025/CVE-2025-55150.yaml -t code/cves/2025/CVE-2025-6984.yaml -t http/cves/2025/CVE-2025-2558.yaml -t http/cves/2025/CVE-2025-2558.yaml -t http/cves/2025/CVE-2025-2558.yaml -t http/cves/2025/CVE-2025-2558.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t http/vulnerabilities/yonyou/yonyou-nc-lfi.yaml -t headless/cves/2025/CVE-2025-25062.yaml -t http/cves/2026/CVE-2026-25616.yaml -t headless/cves/2025/CVE-2025-24752.yaml -t headless/cves/2025/CVE-2025-8191.yaml -t http/cves/2026/CVE-2026-25616.yaml -t network/exposures/openclaw-exposure.yaml -t network/exposures/openclaw-exposure.yaml -t http/technologies/Wix-detect.yaml -u target-url
+```
+
+---
+
+*本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)*
+
+*扫描建议仅供参考，请在授权环境下进行安全测试*
