@@ -1,0 +1,719 @@
+---
+title: 'Nuclei POC 精选分析 - 2026-04-30'
+date: '2026-04-30'
+tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
+draft: false
+summary: '从 1255 个模板更新中精选分析 30 个高价值 POC，发现 25 个高风险漏洞'
+authors: ['default']
+category: 'security-intel'
+---
+
+# Nuclei POC 精选分析 - 2026-04-30
+
+## 📊 智能筛选概况
+
+- **发现变更**: 1255 个模板更新
+- **精选分析**: 30 个高价值 POC  
+- **智能跳过**: 1225 个低优先级模板
+- **高风险漏洞**: 25 个
+- **主要类别**: CVE漏洞(30)
+
+> 💡 **智能筛选说明**: 系统自动优先分析 CVE 漏洞、高危漏洞和新增模板，跳过低价值的技术识别类模板，确保高效利用 API 资源。
+
+### 严重程度分布
+
+- 🔴 **严重**: 18 个
+- 🟠 **高危**: 7 个
+- 🟡 **中危**: 5 个
+
+## 🔍 重点漏洞分析
+
+
+### Breeze &lt;&#x3D; 2.4.4 - Arbitrary File Upload
+
+- **漏洞ID**: `CVE-2026-3844`
+- **CVE**: `CVE-2026-3844` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.00078 (percentile 0.23043) @ 2026-04-29
+
+**描述**: Breeze Cache WordPress plugin &lt;&#x3D; 2.4.4 contains an unrestricted file upload vulnerability caused by missing file type validation in &#x27;fetch_gravatar_from_remote&#x27; function, letting unauthenticated attackers upload arbitrary files, exploit requires &#x27;Host Files Locally - Gravatars&#x27; enabled.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-3844
+
+**参考链接**: 
+- [参考资料](https://patchstack.com/database/vulnerability/wordpress-breeze-cache-plugin-2-4-4-unauthenticated-arbitrary-file-upload-via-fetch-gravatar-from-remote-vulnerability)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-3844)
+
+---
+
+
+### Mesop AI Sandbox &lt;&#x3D; 1.2.2 - Remote Code Execution
+
+- **漏洞ID**: `CVE-2026-33057`
+- **CVE**: `CVE-2026-33057` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00355 (percentile 0.57767) @ 2026-04-29
+
+**描述**: Mesop &lt;&#x3D; 1.2.2 contains an unrestricted remote code execution caused by unauthenticated ingestion and execution of base64-encoded Python code in the /exec-py endpoint of ai/testing module, letting attackers execute arbitrary commands on the host, exploit requires HTTP access to the server.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-33057
+
+**参考链接**: 
+- [参考资料](https://github.com/mesop-dev/mesop/security/advisories/GHSA-gjgx-rvqr-6w6v)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-33057)
+
+---
+
+
+### AVideo &lt;&#x3D; 26.0 - WWBN AVideo - Remote Code Execution
+
+- **漏洞ID**: `CVE-2026-33478`
+- **CVE**: `CVE-2026-33478` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.10881 (percentile 0.93414) @ 2026-04-29
+
+**描述**: WWBN AVideo &lt;&#x3D; 26.0 contains multiple vulnerabilities in the CloneSite plugin including unauthenticated exposure of clone secret keys and OS command injection in rsync command construction, letting unauthenticated attackers achieve remote code execution.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://github.com/WWBN/AVideo/security/advisories/GHSA-687q-32c6-8x68)
+
+---
+
+
+### Breeze &lt;&#x3D; 2.4.4 - Arbitrary File Upload
+
+- **漏洞ID**: `CVE-2026-3844`
+- **CVE**: `CVE-2026-3844` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.00078 (percentile 0.23043) @ 2026-04-29
+
+**描述**: Breeze Cache WordPress plugin &lt;&#x3D; 2.4.4 contains an unrestricted file upload vulnerability caused by missing file type validation in &#x27;fetch_gravatar_from_remote&#x27; function, letting unauthenticated attackers upload arbitrary files, exploit requires &#x27;Host Files Locally - Gravatars&#x27; enabled.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-3844
+
+**参考链接**: 
+- [参考资料](https://patchstack.com/database/vulnerability/wordpress-breeze-cache-plugin-2-4-4-unauthenticated-arbitrary-file-upload-via-fetch-gravatar-from-remote-vulnerability)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-3844)
+
+---
+
+
+### cPanel & WHM - Authentication Bypass via Session-File CRLF Injection
+
+- **漏洞ID**: `CVE-2026-41940`
+- **CVE**: `CVE-2026-41940` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: cPanel and WHM versions prior to 11.110.0.97, 11.118.0.63, 11.126.0.54, 11.132.0.29, 11.134.0.20, and 11.136.0.5 contain an authentication bypass vulnerability in the login flow that allows unauthenticated remote attackers to gain unauthorized access to the control panel.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://support.cpanel.net/hc/en-us/articles/40073787579671-cPanel-WHM-Security-Update-04-28-2026)
+- [参考资料](https://labs.watchtowr.com/the-internet-is-falling-down-falling-down-falling-down-cpanel-whm-authentication-bypass-cve-2026-41940/)
+- [参考资料](https://github.com/watchtowrlabs/watchTowr-vs-cPanel-WHM-AuthBypass-to-RCE.py)
+- [参考资料](https://hadrian.io/blog/cve-2026-41940-a-critical-authentication-bypass-in-cpanel)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-41940)
+
+---
+
+
+### Breeze &lt;&#x3D; 2.4.4 - Arbitrary File Upload
+
+- **漏洞ID**: `CVE-2026-3844`
+- **CVE**: `CVE-2026-3844` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.00078 (percentile 0.23043) @ 2026-04-29
+
+**描述**: Breeze Cache WordPress plugin &lt;&#x3D; 2.4.4 contains an unrestricted file upload vulnerability caused by missing file type validation in &#x27;fetch_gravatar_from_remote&#x27; function, letting unauthenticated attackers upload arbitrary files, exploit requires &#x27;Host Files Locally - Gravatars&#x27; enabled.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-3844
+
+**参考链接**: 
+- [参考资料](https://patchstack.com/database/vulnerability/wordpress-breeze-cache-plugin-2-4-4-unauthenticated-arbitrary-file-upload-via-fetch-gravatar-from-remote-vulnerability)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-3844)
+
+---
+
+
+### Breeze &lt;&#x3D; 2.4.4 - Arbitrary File Upload
+
+- **漏洞ID**: `CVE-2026-3844`
+- **CVE**: `CVE-2026-3844` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.00078 (percentile 0.23043) @ 2026-04-29
+
+**描述**: Breeze Cache WordPress plugin &lt;&#x3D; 2.4.4 contains an unrestricted file upload vulnerability caused by missing file type validation in &#x27;fetch_gravatar_from_remote&#x27; function, letting unauthenticated attackers upload arbitrary files, exploit requires &#x27;Host Files Locally - Gravatars&#x27; enabled.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-3844
+
+**参考链接**: 
+- [参考资料](https://patchstack.com/database/vulnerability/wordpress-breeze-cache-plugin-2-4-4-unauthenticated-arbitrary-file-upload-via-fetch-gravatar-from-remote-vulnerability)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-3844)
+
+---
+
+
+### GitLab - SAML Authentication Bypass
+
+- **漏洞ID**: `CVE-2025-25291`
+- **CVE**: `CVE-2025-25291` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: GitLab 平台
+- **预估影响**: 数千个
+- **EPSS**: 0.20843 (percentile 0.95628) @ 2026-04-29
+
+**描述**: ruby-saml provides security assertion markup language (SAML) single sign-on (SSO) for Ruby. An authentication bypass vulnerability was found in ruby-saml prior to versions 1.12.4 and 1.18.0 due to a parser differential. ReXML and Nokogiri parse XML differently; the parsers can generate entirely different document structures from the same XML input. That allows an attacker to be able to execute a Signature Wrapping attack. This issue may lead to authentication bypass. Versions 1.12.4 and 1.18.0 fix the issue.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-25291
+
+**参考链接**: 
+- [参考资料](https://portswigger.net/research/saml-roulette-the-hacker-always-wins)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials/)
+- [参考资料](https://about.gitlab.com/releases/2025/03/12/patch-release-gitlab-17-9-2-released)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials)
+- [参考资料](https://github.com/SAML-Toolkits/ruby-saml/commit/e76c5b36bac40aedbf1ba7ffaaf495be63328cd9)
+
+---
+
+
+### Sudo - Local Privilege Escalation via chroot
+
+- **漏洞ID**: `CVE-2025-32463`
+- **CVE**: `CVE-2025-32463` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.44456 (percentile 0.97575) @ 2026-04-29
+
+**描述**: Sudo before 1.9.17p1 allows local users to obtain root access by using /etc/nsswitch.conf from a user-controlled directory with the --chroot (-R) option.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-32463
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-32463)
+- [参考资料](https://www.sudo.ws/security/advisories/chroot_bug/)
+- [参考资料](https://ubuntu.com/security/CVE-2025-32463)
+- [参考资料](https://www.wiz.io/vulnerability-database/cve/cve-2025-32463)
+- [参考资料](https://explore.alas.aws.amazon.com/CVE-2025-32463.html)
+
+---
+
+
+### Allegra - Authentication Bypass via Predictable Password Reset Token
+
+- **漏洞ID**: `CVE-2025-6216`
+- **CVE**: `CVE-2025-6216` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.53057 (percentile 0.97971) @ 2026-04-29
+
+**描述**: Allegra calculateTokenExpDate Password Recovery Authentication Bypass Vulnerability. This vulnerability allows remote attackers to bypass authentication on affected installations of Allegra. Authentication is not required to exploit this vulnerability. The specific flaw exists within the password recovery mechanism. The issue results from reliance upon a predictable value when generating a password reset token. An attacker can leverage this vulnerability to bypass authentication on the application.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-6216
+
+**参考链接**: 
+- [参考资料](https://www.zerodayinitiative.com/advisories/ZDI-25-410/)
+- [参考资料](https://alltena.com/en/resources/release-notes/release-notes-for-release-8-1-4-and-release-7-5-2)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-6216)
+
+---
+
+
+### WatchGuard IKEv2 Out-of-Bounds Write Vulnerability
+
+- **漏洞ID**: `CVE-2025-9242`
+- **CVE**: `CVE-2025-9242` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.68973 (percentile 0.98644) @ 2026-04-29
+
+**描述**: WatchGuard Fireware OS 11.10.2 to 11.12.4_Update1, 12.0 to 12.11.3, and 2025.1 contains an out-of-bounds write caused by improper handling in Mobile User VPN and Branch Office VPN with IKEv2 dynamic gateway peer, letting remote unauthenticated attackers execute arbitrary code.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-9242
+
+**参考链接**: 
+- [参考资料](https://github.com/watchtowrlabs/watchTowr-vs-WatchGuard-CVE-2025-9242/)
+- [参考资料](https://labs.watchtowr.com/yikes-watchguard-fireware-os-ikev2-out-of-bounds-write-cve-2025-9242)
+
+---
+
+
+### Next.js Middleware Authorization Bypass
+
+- **漏洞ID**: `CVE-2025-29927-HEADLESS`
+- **CVE**: `CVE-2025-29927` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.91848 (percentile 0.99695) @ 2026-04-29
+
+**描述**: A critical vulnerability in Next.js middleware allows attackers to bypass authorization checks by manipulating the x-middleware-subrequest header. This flaw affects Next.js versions prior to 14.2.25 and 15.2.3, potentially granting unauthorized access to sensitive resources.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-29927
+
+**参考链接**: 
+- [参考资料](https://github.com/advisories/GHSA-f82v-jwr5-mffw)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-29927)
+- [参考资料](https://www.tenable.com/cve/CVE-2025-29927)
+
+---
+
+
+### Keras Model.load_model - Arbitrary Code Execution
+
+- **漏洞ID**: `CVE-2025-1550`
+- **CVE**: `CVE-2025-1550` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.07973 (percentile 0.92084) @ 2026-04-29
+
+**描述**: The Keras Model.load_model function permits arbitrary code execution, even with safe_mode&#x3D;True, through a manually constructed, malicious .keras archive. By altering the config.json file within the archive, an attacker can specify arbitrary Python modules and functions, along with their arguments, to be loaded and executed during model loading
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-1550)
+- [参考资料](https://github.com/keras-team/keras/pull/20751)
+- [参考资料](https://towerofhanoi.it/writeups/cve-2025-1550/)
+
+---
+
+
+### Ivanti Connect Secure - Stack-based Buffer Overflow
+
+- **漏洞ID**: `CVE-2025-22457`
+- **CVE**: `CVE-2025-22457` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.53659 (percentile 0.98003) @ 2026-04-29
+
+**描述**: Ivanti Connect Secure before version 22.7R2.6, Ivanti Policy Secure before version 22.7R1.4,
+and Ivanti ZTA Gateways before version 22.8R2.2 contain a stack-based buffer overflow caused by
+improper input handling, allowing remote attackers to execute arbitrary code without authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-22457
+
+**参考链接**: 
+- [参考资料](https://labs.watchtowr.com/is-the-sofistication-in-the-room-with-us-x-forwarded-for-and-ivanti-connect-secure-cve-2025-22457)
+- [参考资料](https://www.cvedetails.com/cve/CVE-2025-22457)
+- [参考资料](https://github.com/securekomodo/CVE-2025-22457)
+
+---
+
+
+### GitLab - SAML Authentication Bypass
+
+- **漏洞ID**: `CVE-2025-25291`
+- **CVE**: `CVE-2025-25291` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: GitLab 平台
+- **预估影响**: 数千个
+- **EPSS**: 0.20843 (percentile 0.95628) @ 2026-04-29
+
+**描述**: ruby-saml provides security assertion markup language (SAML) single sign-on (SSO) for Ruby. An authentication bypass vulnerability was found in ruby-saml prior to versions 1.12.4 and 1.18.0 due to a parser differential. ReXML and Nokogiri parse XML differently; the parsers can generate entirely different document structures from the same XML input. That allows an attacker to be able to execute a Signature Wrapping attack. This issue may lead to authentication bypass. Versions 1.12.4 and 1.18.0 fix the issue.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-25291
+
+**参考链接**: 
+- [参考资料](https://portswigger.net/research/saml-roulette-the-hacker-always-wins)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials/)
+- [参考资料](https://about.gitlab.com/releases/2025/03/12/patch-release-gitlab-17-9-2-released)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials)
+- [参考资料](https://github.com/SAML-Toolkits/ruby-saml/commit/e76c5b36bac40aedbf1ba7ffaaf495be63328cd9)
+
+---
+
+
+### Erlang/OTP SSH - Remote Code Execution
+
+- **漏洞ID**: `CVE-2025-32433`
+- **CVE**: `CVE-2025-32433` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: Erlang/OTP is a set of libraries for the Erlang programming language. Prior to versions OTP-27.3.3, OTP-26.2.5.11, and OTP-25.3.2.20, a SSH server may allow an attacker to perform unauthenticated remote code execution (RCE). By exploiting a flaw in SSH protocol message handling, a malicious actor could gain unauthorized access to affected systems and execute arbitrary commands without valid credentials.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-32433
+
+**参考链接**: 
+- [参考资料](https://platformsecurity.com/blog/CVE-2025-32433-poc)
+- [参考资料](https://github.com/erlang/otp/commit/0fcd9c56524b28615e8ece65fc0c3f66ef6e4c12)
+- [参考资料](https://github.com/erlang/otp/commit/6eef04130afc8b0ccb63c9a0d8650209cf54892f)
+- [参考资料](https://github.com/erlang/otp/commit/b1924d37fd83c070055beb115d5d6a6a9490b891)
+- [参考资料](https://github.com/erlang/otp/security/advisories/GHSA-37cp-fgq5-7wc2)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-32433)
+
+---
+
+
+### Sudo - Local Privilege Escalation via chroot
+
+- **漏洞ID**: `CVE-2025-32463`
+- **CVE**: `CVE-2025-32463` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.44456 (percentile 0.97575) @ 2026-04-29
+
+**描述**: Sudo before 1.9.17p1 allows local users to obtain root access by using /etc/nsswitch.conf from a user-controlled directory with the --chroot (-R) option.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-32463
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-32463)
+- [参考资料](https://www.sudo.ws/security/advisories/chroot_bug/)
+- [参考资料](https://ubuntu.com/security/CVE-2025-32463)
+- [参考资料](https://www.wiz.io/vulnerability-database/cve/cve-2025-32463)
+- [参考资料](https://explore.alas.aws.amazon.com/CVE-2025-32463.html)
+
+---
+
+
+### Allegra - Authentication Bypass via Predictable Password Reset Token
+
+- **漏洞ID**: `CVE-2025-6216`
+- **CVE**: `CVE-2025-6216` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.53057 (percentile 0.97971) @ 2026-04-29
+
+**描述**: Allegra calculateTokenExpDate Password Recovery Authentication Bypass Vulnerability. This vulnerability allows remote attackers to bypass authentication on affected installations of Allegra. Authentication is not required to exploit this vulnerability. The specific flaw exists within the password recovery mechanism. The issue results from reliance upon a predictable value when generating a password reset token. An attacker can leverage this vulnerability to bypass authentication on the application.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-6216
+
+**参考链接**: 
+- [参考资料](https://www.zerodayinitiative.com/advisories/ZDI-25-410/)
+- [参考资料](https://alltena.com/en/resources/release-notes/release-notes-for-release-8-1-4-and-release-7-5-2)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-6216)
+
+---
+
+
+### Mail Mint &lt; 1.19.5 - Unauthenticated Email Disclosure
+
+- **漏洞ID**: `CVE-2026-2025`
+- **CVE**: `CVE-2026-2025` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.7/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.33956 (percentile 0.96983) @ 2026-04-29
+
+**描述**: Mail Mint WordPress plugin &lt; 1.19.5 contains an information disclosure vulnerability caused by lack of authorization in a REST API endpoint, letting unauthenticated users retrieve email addresses of blog users, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-2025
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/1b815cde-cd9d-46fa-a6ab-3d2851705e7b/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-2025)
+- [参考资料](https://wordpress.org/plugins/mail-mint/)
+
+---
+
+
+### Blinko &lt; 1.8.4 - Path Traversal
+
+- **漏洞ID**: `CVE-2026-23482`
+- **CVE**: `CVE-2026-23482` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.0002 (percentile 0.05669) @ 2026-04-29
+
+**描述**: Blinko &lt; 1.8.4 contains a path traversal vulnerability caused by lack of permission checks and filtering on the temp/ path in the file server endpoint, letting unauthorized attackers read arbitrary files including backup files with user notes and tokens, exploit requires no special privileges.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-23482
+
+**参考链接**: 
+- [参考资料](https://github.com/blinkospace/blinko/commit/c48851090767feba431418630c495d90a7da1781)
+- [参考资料](https://github.com/blinkospace/blinko/security/advisories/GHSA-hrwx-rhrx-f9mm)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-23482)
+
+---
+
+
+### LiquidFiles &lt; 4.2 - User Enumeration via Password Reset
+
+- **漏洞ID**: `CVE-2025-56132`
+- **CVE**: `CVE-2025-56132` (2025)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.0248 (percentile 0.85339) @ 2026-04-29
+
+**描述**: LiquidFiles filetransfer server before 4.2 contains a user enumeration vulnerability caused by distinguishable responses in password reset functionality, letting unauthenticated attackers enumerate valid user accounts, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-56132
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-56132)
+- [参考资料](https://docs.liquidfiles.com/release_notes/version_4-2-x.html)
+
+---
+
+
+### Astro Cloudflare Adapter - Server Side Request Forgery
+
+- **漏洞ID**: `CVE-2025-58179`
+- **CVE**: `CVE-2025-58179` (2025)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00429 (percentile 0.62568) @ 2026-04-29
+
+**描述**: Astro is a web framework for content-driven websites. Versions 11.0.3 through 12.6.5 are vulnerable to SSRF when using Astro&#x27;s Cloudflare adapter. When configured with output: &#x27;server&#x27; while using the default imageService: &#x27;compile&#x27;, the generated image optimization endpoint doesn&#x27;t check the URLs it receives, allowing content from unauthorized third-party domains to be served. a A bug in impacted versions of the @astrojs/cloudflare adapter for deployment on Cloudflare’s infrastructure, allows an attacker to bypass the third-party domain restrictions and serve any content from the vulnerable origin.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-58179
+
+**参考链接**: 
+- [参考资料](https://github.com/withastro/astro/commit/9ecf359)
+- [参考资料](https://github.com/advisories/GHSA-qpr4-c339-7vq8)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-58179)
+
+---
+
+
+### Blinko &lt; 1.8.4 - Path Traversal
+
+- **漏洞ID**: `CVE-2026-23482`
+- **CVE**: `CVE-2026-23482` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.0002 (percentile 0.05669) @ 2026-04-29
+
+**描述**: Blinko &lt; 1.8.4 contains a path traversal vulnerability caused by lack of permission checks and filtering on the temp/ path in the file server endpoint, letting unauthorized attackers read arbitrary files including backup files with user notes and tokens, exploit requires no special privileges.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-23482
+
+**参考链接**: 
+- [参考资料](https://github.com/blinkospace/blinko/commit/c48851090767feba431418630c495d90a7da1781)
+- [参考资料](https://github.com/blinkospace/blinko/security/advisories/GHSA-hrwx-rhrx-f9mm)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-23482)
+
+---
+
+
+### langchain-ai langchain - XML External Entity Injection
+
+- **漏洞ID**: `CVE-2025-6984`
+- **CVE**: `CVE-2025-6984` (2025)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.01922 (percentile 0.83429) @ 2026-04-29
+
+**描述**: langchain-ai/langchain 0.3.63 contains an XML External Entity (XXE) injection caused by insecure XML parsing in EverNoteLoader using etree.iterparse(), letting attackers disclose sensitive information, exploit requires crafted malicious XML payload.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-6984
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-6984)
+- [参考资料](https://huntr.com/bounties/a6b521cf-258c-41c0-9edb-d8ef976abb2a)
+- [参考资料](https://github.com/langchain-ai/langchain-community/commit/e842452)
+
+---
+
+
+### ZTE ZXHN-F660T/F660A - Default Credentials
+
+- **漏洞ID**: `CVE-2025-53558`
+- **CVE**: `CVE-2025-53558` (2025)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.12387 (percentile 0.93917) @ 2026-04-29
+
+**描述**: ZXHN-F660T and ZXHN-F660A provided by ZTE Japan K.K. use a common credential for all installations. With the knowledge of the credential, an attacker may log in to the affected devices.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-53558)
+- [参考资料](https://jvn.jp/en/jp/JVN66546573/)
+
+---
+
+
+## 📋 完整模板列表
+
+| 模板名称 | 严重程度 | 类别 | 影响资产 | EPSS | 风险评分 |
+|---------|---------|------|---------|------|---------|
+| Breeze &lt;&#x3D; 2.4.4 - Arbitrary File Upload | 🔴 critical | CVE漏洞 | WordPress 站点 | 0.0008 | 5/5 |
+| Mesop AI Sandbox &lt;&#x3D; 1.2.2 - Remote Code Ex | 🔴 critical | CVE漏洞 | 通用 | 0.0036 | 5/5 |
+| AVideo &lt;&#x3D; 26.0 - WWBN AVideo - Remote Code | 🔴 critical | CVE漏洞 | 通用 | 0.1088 | 5/5 |
+| Breeze &lt;&#x3D; 2.4.4 - Arbitrary File Upload | 🔴 critical | CVE漏洞 | WordPress 站点 | 0.0008 | 5/5 |
+| cPanel & WHM - Authentication Bypass via Session-F | 🔴 critical | CVE漏洞 | 通用 | - | 5/5 |
+| Breeze &lt;&#x3D; 2.4.4 - Arbitrary File Upload | 🔴 critical | CVE漏洞 | WordPress 站点 | 0.0008 | 5/5 |
+| Breeze &lt;&#x3D; 2.4.4 - Arbitrary File Upload | 🔴 critical | CVE漏洞 | WordPress 站点 | 0.0008 | 5/5 |
+| GitLab - SAML Authentication Bypass | 🔴 critical | CVE漏洞 | GitLab 平台 | 0.2084 | 5/5 |
+| Sudo - Local Privilege Escalation via chroot | 🔴 critical | CVE漏洞 | 通用 | 0.4446 | 5/5 |
+| Allegra - Authentication Bypass via Predictable Pa | 🔴 critical | CVE漏洞 | 通用 | 0.5306 | 5/5 |
+| WatchGuard IKEv2 Out-of-Bounds Write Vulnerability | 🔴 critical | CVE漏洞 | 通用 | 0.6897 | 5/5 |
+| Next.js Middleware Authorization Bypass | 🔴 critical | CVE漏洞 | 通用 | 0.9185 | 5/5 |
+| Keras Model.load_model - Arbitrary Code Execution | 🔴 critical | CVE漏洞 | 通用 | 0.0797 | 5/5 |
+| Ivanti Connect Secure - Stack-based Buffer Overflo | 🔴 critical | CVE漏洞 | 通用 | 0.5366 | 5/5 |
+| GitLab - SAML Authentication Bypass | 🔴 critical | CVE漏洞 | GitLab 平台 | 0.2084 | 5/5 |
+| Erlang/OTP SSH - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | - | 5/5 |
+| Sudo - Local Privilege Escalation via chroot | 🔴 critical | CVE漏洞 | 通用 | 0.4446 | 5/5 |
+| Allegra - Authentication Bypass via Predictable Pa | 🔴 critical | CVE漏洞 | 通用 | 0.5306 | 5/5 |
+| Mail Mint &lt; 1.19.5 - Unauthenticated Email Disc | 🟠 high | CVE漏洞 | WordPress 站点 | 0.3396 | 4.7/5 |
+| Blinko &lt; 1.8.4 - Path Traversal | 🟠 high | CVE漏洞 | 通用 | 0.0002 | 4.5/5 |
+| LiquidFiles &lt; 4.2 - User Enumeration via Passwo | 🟠 high | CVE漏洞 | 通用 | 0.0248 | 4.5/5 |
+| Astro Cloudflare Adapter - Server Side Request For | 🟠 high | CVE漏洞 | 通用 | 0.0043 | 4.5/5 |
+| Blinko &lt; 1.8.4 - Path Traversal | 🟠 high | CVE漏洞 | 通用 | 0.0002 | 4.5/5 |
+| langchain-ai langchain - XML External Entity Injec | 🟠 high | CVE漏洞 | 通用 | 0.0192 | 4.5/5 |
+| ZTE ZXHN-F660T/F660A - Default Credentials | 🟠 high | CVE漏洞 | 通用 | 0.1239 | 4/5 |
+| Vitest Browser Mode - Local File Read | 🟡 medium | CVE漏洞 | 通用 | 0.2364 | 3.7/5 |
+| Blinko &lt;&#x3D; 1.8.3 - Path Traversal via /plug | 🟡 medium | CVE漏洞 | 通用 | 0.0002 | 3.5/5 |
+| Essential Addons for Elementor &lt; 6.0.15 - Cross | 🟡 medium | CVE漏洞 | 通用 | 0.0385 | 3.5/5 |
+| Swagger UI &gt;&#x3D;3.14.1 &lt; 3.38.0 - DOM Base | 🟡 medium | CVE漏洞 | 通用 | 0.0051 | 3.5/5 |
+| Wangshen SecGate 3600 Path Traversal Vulnerability | 🟡 medium | CVE漏洞 | 通用 | 0.0183 | 3/5 |
+
+## 🛡️ 安全建议
+
+🚨 发现高风险漏洞，建议立即扫描相关资产
+🔍 关注新发布的 CVE 漏洞，及时更新补丁
+⚡ 检测到远程代码执行漏洞，优先处理
+
+## 🔧 扫描建议
+
+建议使用以下 Nuclei 命令进行扫描：
+
+```bash
+# 扫描高危漏洞
+nuclei -t http/cves/2026/CVE-2026-3844.yaml -t http/cves/2026/CVE-2026-33057.yaml -t http/cves/2026/CVE-2026-33478.yaml -t http/cves/2026/CVE-2026-3844.yaml -t http/cves/2026/CVE-2026-41940.yaml -t http/cves/2026/CVE-2026-3844.yaml -t http/cves/2026/CVE-2026-3844.yaml -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2025/CVE-2025-32463.yaml -t code/cves/2025/CVE-2025-6216.yaml -t code/cves/2025/CVE-2025-9242.yaml -t headless/cves/2025/CVE-2025-29927-HEADLESS.yaml -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-22457.yaml -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2025/CVE-2025-32433.yaml -t code/cves/2025/CVE-2025-32463.yaml -t code/cves/2025/CVE-2025-6216.yaml -t http/cves/2026/CVE-2026-2025.yaml -t http/cves/2026/CVE-2026-23482.yaml -t http/cves/2025/CVE-2025-56132.yaml -t http/cves/2025/CVE-2025-58179.yaml -t http/cves/2026/CVE-2026-23482.yaml -t code/cves/2025/CVE-2025-6984.yaml -t http/cves/2025/CVE-2025-53558.yaml -u target-url
+
+# 扫描所有今日新增模板  
+nuclei -t http/cves/2026/CVE-2026-3844.yaml -t http/cves/2026/CVE-2026-33057.yaml -t http/cves/2026/CVE-2026-33478.yaml -t http/cves/2026/CVE-2026-3844.yaml -t http/cves/2026/CVE-2026-41940.yaml -t http/cves/2026/CVE-2026-3844.yaml -t http/cves/2026/CVE-2026-3844.yaml -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2025/CVE-2025-32463.yaml -t code/cves/2025/CVE-2025-6216.yaml -t code/cves/2025/CVE-2025-9242.yaml -t headless/cves/2025/CVE-2025-29927-HEADLESS.yaml -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-22457.yaml -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2025/CVE-2025-32433.yaml -t code/cves/2025/CVE-2025-32463.yaml -t code/cves/2025/CVE-2025-6216.yaml -t http/cves/2026/CVE-2026-2025.yaml -t http/cves/2026/CVE-2026-23482.yaml -t http/cves/2025/CVE-2025-56132.yaml -t http/cves/2025/CVE-2025-58179.yaml -t http/cves/2026/CVE-2026-23482.yaml -t code/cves/2025/CVE-2025-6984.yaml -t http/cves/2025/CVE-2025-53558.yaml -t http/cves/2025/CVE-2025-24963.yaml -t http/cves/2026/CVE-2026-23483.yaml -t headless/cves/2025/CVE-2025-24752.yaml -t headless/cves/2025/CVE-2025-8191.yaml -t http/cves/2025/CVE-2025-4078.yaml -u target-url
+```
+
+---
+
+*本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)*
+
+*扫描建议仅供参考，请在授权环境下进行安全测试*
