@@ -1,0 +1,423 @@
+---
+title: 'Nuclei POC 精选分析 - 2026-06-09'
+date: '2026-06-09'
+tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
+draft: false
+summary: '从 420 个模板更新中精选分析 30 个高价值 POC，发现 13 个高风险漏洞'
+authors: ['default']
+category: 'security-intel'
+---
+
+# Nuclei POC 精选分析 - 2026-06-09
+
+## 📊 智能筛选概况
+
+- **发现变更**: 420 个模板更新
+- **精选分析**: 30 个高价值 POC  
+- **智能跳过**: 390 个低优先级模板
+- **高风险漏洞**: 13 个
+- **主要类别**: CVE漏洞(18), 信息泄露(3), 其他(9)
+
+> 💡 **智能筛选说明**: 系统自动优先分析 CVE 漏洞、高危漏洞和新增模板，跳过低价值的技术识别类模板，确保高效利用 API 资源。
+
+### 严重程度分布
+
+- 🔴 **严重**: 12 个
+- 🟠 **高危**: 1 个
+- 🟡 **中危**: 5 个
+- 🔵 **低危**: 3 个
+- ⚪ **信息**: 9 个
+
+## 🔍 重点漏洞分析
+
+
+### Milvus - Unauthenticated Metrics API Access
+
+- **漏洞ID**: `CVE-2026-26190`
+- **CVE**: `CVE-2026-26190` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.005 (percentile 0.66325) @ 2026-06-08
+
+**描述**: Milvus &lt; 2.5.27 and &lt; 2.6.10 contains an authentication bypass caused by weak default token and unauthenticated REST API on TCP port 9091, letting attackers perform arbitrary expression evaluation and data manipulation, exploit requires network access to port 9091.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-26190
+
+**参考链接**: 
+- [参考资料](https://github.com/milvus-io/milvus/security/advisories/GHSA-7ppg-37fh-vcr6)
+- [参考资料](https://github.com/advisories/GHSA-7ppg-37fh-vcr6)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-26190)
+
+---
+
+
+### Fortinet FortiSandbox - Command Injection
+
+- **漏洞ID**: `CVE-2026-39808`
+- **CVE**: `CVE-2026-39808` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.22764 (percentile 0.95986) @ 2026-06-08
+
+**描述**: Fortinet FortiSandbox 4.4.0 through 4.4.8 contains a command injection caused by improper neutralization of special elements in OS commands, letting attackers execute unauthorized code or commands, exploit requires crafted input.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-39808
+
+**参考链接**: 
+- [参考资料](https://fortiguard.fortinet.com/psirt/FG-IR-26-100)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-39808)
+
+---
+
+
+### LiteLLM - Command Injection
+
+- **漏洞ID**: `CVE-2026-42271`
+- **CVE**: `CVE-2026-42271` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.04116 (percentile 0.88828) @ 2026-06-08
+
+**描述**: A critical unauthenticated remote code execution vulnerability exists in LiteLLM due to improper input handling in the MCP stdio test endpoint. An attacker can send a specially crafted request to the `/mcp-rest/test/connection` endpoint with controlled parameters, resulting in arbitrary command execution on the server. When combined with an authentication bypass technique—such as the Starlette BadHost flaw (CVE-2026-48710)—an unauthenticated attacker can exploit the chain to execute commands as the server process. Exploitation allows an attacker to spawn processes with the privileges of the LiteLLM server, potentially leading to complete compromise of the host.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-42271
+
+**参考链接**: 
+- [参考资料](https://horizon3.ai/attack-research/vulnerabilities/cve-2026-42271-chained-with-cve-2026-48710/)
+- [参考资料](https://github.com/BerriAI/litellm/security/advisories/GHSA-v4p8-mg3p-g94g)
+- [参考资料](https://github.com/BerriAI/litellm/pull/25343)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-42271)
+
+---
+
+
+### Keras Model.load_model - Arbitrary Code Execution
+
+- **漏洞ID**: `CVE-2025-1550`
+- **CVE**: `CVE-2025-1550` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.09875 (percentile 0.93142) @ 2026-06-08
+
+**描述**: The Keras Model.load_model function permits arbitrary code execution, even with safe_mode&#x3D;True, through a manually constructed, malicious .keras archive. By altering the config.json file within the archive, an attacker can specify arbitrary Python modules and functions, along with their arguments, to be loaded and executed during model loading
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-1550)
+- [参考资料](https://github.com/keras-team/keras/pull/20751)
+- [参考资料](https://towerofhanoi.it/writeups/cve-2025-1550/)
+
+---
+
+
+### Ivanti Connect Secure - Stack-based Buffer Overflow
+
+- **漏洞ID**: `CVE-2025-22457`
+- **CVE**: `CVE-2025-22457` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.58941 (percentile 0.98261) @ 2026-06-08
+
+**描述**: Ivanti Connect Secure before version 22.7R2.6, Ivanti Policy Secure before version 22.7R1.4,
+and Ivanti ZTA Gateways before version 22.8R2.2 contain a stack-based buffer overflow caused by
+improper input handling, allowing remote attackers to execute arbitrary code without authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-22457
+
+**参考链接**: 
+- [参考资料](https://labs.watchtowr.com/is-the-sofistication-in-the-room-with-us-x-forwarded-for-and-ivanti-connect-secure-cve-2025-22457)
+- [参考资料](https://www.cvedetails.com/cve/CVE-2025-22457)
+- [参考资料](https://github.com/securekomodo/CVE-2025-22457)
+
+---
+
+
+### Erlang/OTP SSH - Remote Code Execution
+
+- **漏洞ID**: `CVE-2025-32433`
+- **CVE**: `CVE-2025-32433` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.59319 (percentile 0.98278) @ 2026-06-08
+
+**描述**: Erlang/OTP is a set of libraries for the Erlang programming language. Prior to versions OTP-27.3.3, OTP-26.2.5.11, and OTP-25.3.2.20, a SSH server may allow an attacker to perform unauthenticated remote code execution (RCE). By exploiting a flaw in SSH protocol message handling, a malicious actor could gain unauthorized access to affected systems and execute arbitrary commands without valid credentials.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-32433
+
+**参考链接**: 
+- [参考资料](https://platformsecurity.com/blog/CVE-2025-32433-poc)
+- [参考资料](https://github.com/erlang/otp/commit/0fcd9c56524b28615e8ece65fc0c3f66ef6e4c12)
+- [参考资料](https://github.com/erlang/otp/commit/6eef04130afc8b0ccb63c9a0d8650209cf54892f)
+- [参考资料](https://github.com/erlang/otp/commit/b1924d37fd83c070055beb115d5d6a6a9490b891)
+- [参考资料](https://github.com/erlang/otp/security/advisories/GHSA-37cp-fgq5-7wc2)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-32433)
+
+---
+
+
+### Sudo - Local Privilege Escalation via chroot
+
+- **漏洞ID**: `CVE-2025-32463`
+- **CVE**: `CVE-2025-32463` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.57345 (percentile 0.98192) @ 2026-06-08
+
+**描述**: Sudo before 1.9.17p1 allows local users to obtain root access by using /etc/nsswitch.conf from a user-controlled directory with the --chroot (-R) option.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-32463
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-32463)
+- [参考资料](https://www.sudo.ws/security/advisories/chroot_bug/)
+- [参考资料](https://ubuntu.com/security/CVE-2025-32463)
+- [参考资料](https://www.wiz.io/vulnerability-database/cve/cve-2025-32463)
+- [参考资料](https://explore.alas.aws.amazon.com/CVE-2025-32463.html)
+
+---
+
+
+### RustFS &lt; 1.0.0-alpha.77 - Hardcoded gRPC Authentication Token
+
+- **漏洞ID**: `CVE-2025-68926`
+- **CVE**: `CVE-2025-68926` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.06616 (percentile 0.91357) @ 2026-06-08
+
+**描述**: RustFS before 1.0.0-alpha.77 used a hardcoded gRPC authentication token &quot;rustfs rpc&quot; that could not be changed without recompiling and this allowed unauthenticated remote attackers to gain full administrative access to the gRPC API.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-68926
+
+**参考链接**: 
+- [参考资料](https://github.com/rustfs/rustfs/security/advisories/GHSA-h956-rh7x-ppgj)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-68926)
+
+---
+
+
+### Cisco Catalyst SD-WAN Controller - vHub Authentication Bypass
+
+- **漏洞ID**: `CVE-2026-20182`
+- **CVE**: `CVE-2026-20182` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.83838 (percentile 0.99311) @ 2026-06-08
+
+**描述**: Cisco Catalyst SD-WAN Controller and Manager contain an authentication bypass caused by improper peering authentication mechanism, letting unauthenticated remote attackers obtain administrative privileges, exploit requires sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-20182
+
+**参考链接**: 
+- [参考资料](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-rpa2-v69WY2SW)
+- [参考资料](https://blog.talosintelligence.com/sd-wan-ongoing-exploitation/)
+- [参考资料](https://www.rapid7.com/blog/post/ve-cve-2026-20182-critical-authentication-bypass-cisco-catalyst-sd-wan-controller-fixed/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-20182)
+
+---
+
+
+### Next.js Middleware Authorization Bypass
+
+- **漏洞ID**: `CVE-2025-29927-HEADLESS`
+- **CVE**: `CVE-2025-29927` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.92118 (percentile 0.99723) @ 2026-06-08
+
+**描述**: A critical vulnerability in Next.js middleware allows attackers to bypass authorization checks by manipulating the x-middleware-subrequest header. This flaw affects Next.js versions prior to 14.2.25 and 15.2.3, potentially granting unauthorized access to sensitive resources.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-29927
+
+**参考链接**: 
+- [参考资料](https://github.com/advisories/GHSA-f82v-jwr5-mffw)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-29927)
+- [参考资料](https://www.tenable.com/cve/CVE-2025-29927)
+
+---
+
+
+### Milvus - Unauthenticated Metrics API Access
+
+- **漏洞ID**: `CVE-2026-26190`
+- **CVE**: `CVE-2026-26190` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.005 (percentile 0.66325) @ 2026-06-08
+
+**描述**: Milvus &lt; 2.5.27 and &lt; 2.6.10 contains an authentication bypass caused by weak default token and unauthenticated REST API on TCP port 9091, letting attackers perform arbitrary expression evaluation and data manipulation, exploit requires network access to port 9091.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-26190
+
+**参考链接**: 
+- [参考资料](https://github.com/milvus-io/milvus/security/advisories/GHSA-7ppg-37fh-vcr6)
+- [参考资料](https://github.com/advisories/GHSA-7ppg-37fh-vcr6)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-26190)
+
+---
+
+
+### Milvus - Unauthenticated Metrics API Access
+
+- **漏洞ID**: `CVE-2026-26190`
+- **CVE**: `CVE-2026-26190` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.005 (percentile 0.66325) @ 2026-06-08
+
+**描述**: Milvus &lt; 2.5.27 and &lt; 2.6.10 contains an authentication bypass caused by weak default token and unauthenticated REST API on TCP port 9091, letting attackers perform arbitrary expression evaluation and data manipulation, exploit requires network access to port 9091.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-26190
+
+**参考链接**: 
+- [参考资料](https://github.com/milvus-io/milvus/security/advisories/GHSA-7ppg-37fh-vcr6)
+- [参考资料](https://github.com/advisories/GHSA-7ppg-37fh-vcr6)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-26190)
+
+---
+
+
+### langchain-ai langchain - XML External Entity Injection
+
+- **漏洞ID**: `CVE-2025-6984`
+- **CVE**: `CVE-2025-6984` (2025)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.01922 (percentile 0.83702) @ 2026-06-08
+
+**描述**: langchain-ai/langchain 0.3.63 contains an XML External Entity (XXE) injection caused by insecure XML parsing in EverNoteLoader using etree.iterparse(), letting attackers disclose sensitive information, exploit requires crafted malicious XML payload.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-6984
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-6984)
+- [参考资料](https://huntr.com/bounties/a6b521cf-258c-41c0-9edb-d8ef976abb2a)
+- [参考资料](https://github.com/langchain-ai/langchain-community/commit/e842452)
+
+---
+
+
+## 📋 完整模板列表
+
+| 模板名称 | 严重程度 | 类别 | 影响资产 | EPSS | 风险评分 |
+|---------|---------|------|---------|------|---------|
+| Milvus - Unauthenticated Metrics API Access | 🔴 critical | CVE漏洞 | 通用 | 0.0050 | 5/5 |
+| Fortinet FortiSandbox - Command Injection | 🔴 critical | CVE漏洞 | 通用 | 0.2276 | 5/5 |
+| LiteLLM - Command Injection | 🔴 critical | CVE漏洞 | 通用 | 0.0412 | 5/5 |
+| Keras Model.load_model - Arbitrary Code Execution | 🔴 critical | CVE漏洞 | 通用 | 0.0988 | 5/5 |
+| Ivanti Connect Secure - Stack-based Buffer Overflo | 🔴 critical | CVE漏洞 | 通用 | 0.5894 | 5/5 |
+| Erlang/OTP SSH - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 0.5932 | 5/5 |
+| Sudo - Local Privilege Escalation via chroot | 🔴 critical | CVE漏洞 | 通用 | 0.5735 | 5/5 |
+| RustFS &lt; 1.0.0-alpha.77 - Hardcoded gRPC Authen | 🔴 critical | CVE漏洞 | 通用 | 0.0662 | 5/5 |
+| Cisco Catalyst SD-WAN Controller - vHub Authentica | 🔴 critical | CVE漏洞 | 通用 | 0.8384 | 5/5 |
+| Next.js Middleware Authorization Bypass | 🔴 critical | CVE漏洞 | 通用 | 0.9212 | 5/5 |
+| Milvus - Unauthenticated Metrics API Access | 🔴 critical | CVE漏洞 | 通用 | 0.0050 | 5/5 |
+| Milvus - Unauthenticated Metrics API Access | 🔴 critical | CVE漏洞 | 通用 | 0.0050 | 5/5 |
+| langchain-ai langchain - XML External Entity Injec | 🟠 high | CVE漏洞 | 通用 | 0.0192 | 4.5/5 |
+| changedetection.io &lt;&#x3D; 0.52.9 - Unauthentic | 🟡 medium | CVE漏洞 | 通用 | 0.0010 | 3.5/5 |
+| Essential Addons for Elementor &lt; 6.0.15 - Cross | 🟡 medium | CVE漏洞 | 通用 | 0.0397 | 3.5/5 |
+| Swagger UI &gt;&#x3D;3.14.1 &lt; 3.38.0 - DOM Base | 🟡 medium | CVE漏洞 | 通用 | 0.0068 | 3.5/5 |
+| PrestaShop - Information Disclosure | 🟡 medium | CVE漏洞 | 管理面板 | 0.0103 | 3/5 |
+| PrestaShop - Information Disclosure | 🟡 medium | CVE漏洞 | 管理面板 | 0.0103 | 3/5 |
+| ASP.NET Trace.AXD - Exposure | 🔵 low | 信息泄露 | 通用 | - | 2/5 |
+| ASP.NET Trace.AXD - Exposure | 🔵 low | 信息泄露 | 通用 | - | 2/5 |
+| ASP.NET Trace.AXD - Exposure | 🔵 low | 信息泄露 | 通用 | - | 2/5 |
+| Ligolo-ng Panel - Detect | ⚪ info | 其他 | 管理面板 | - | 1/5 |
+| Ligolo-ng Panel - Detect | ⚪ info | 其他 | 管理面板 | - | 1/5 |
+| Janitza UMG Power Meter - Login Panel | ⚪ info | 其他 | 管理面板 | - | 1/5 |
+| Janitza UMG Power Meter - Login Panel | ⚪ info | 其他 | 管理面板 | - | 1/5 |
+| Ligolo-ng Panel - Detect | ⚪ info | 其他 | 管理面板 | - | 1/5 |
+| OutSystems Service Center Login Panel - Detect | ⚪ info | 其他 | 管理面板 | - | 1/5 |
+| OutSystems Service Center Login Panel - Detect | ⚪ info | 其他 | 管理面板 | - | 1/5 |
+| OutSystems Service Center Login Panel - Detect | ⚪ info | 其他 | 管理面板 | - | 1/5 |
+| OutSystems Service Center Login Panel - Detect | ⚪ info | 其他 | 管理面板 | - | 1/5 |
+
+## 🛡️ 安全建议
+
+🚨 发现高风险漏洞，建议立即扫描相关资产
+🔍 关注新发布的 CVE 漏洞，及时更新补丁
+⚡ 检测到远程代码执行漏洞，优先处理
+
+## 🔧 扫描建议
+
+建议使用以下 Nuclei 命令进行扫描：
+
+```bash
+# 扫描高危漏洞
+nuclei -t http/cves/2026/CVE-2026-26190.yaml -t http/cves/2026/CVE-2026-39808.yaml -t http/cves/2026/CVE-2026-42271.yaml -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-22457.yaml -t code/cves/2025/CVE-2025-32433.yaml -t code/cves/2025/CVE-2025-32463.yaml -t code/cves/2025/CVE-2025-68926.yaml -t code/cves/2026/CVE-2026-20182.yaml -t headless/cves/2025/CVE-2025-29927-HEADLESS.yaml -t http/cves/2026/CVE-2026-26190.yaml -t http/cves/2026/CVE-2026-26190.yaml -t code/cves/2025/CVE-2025-6984.yaml -u target-url
+
+# 扫描所有今日新增模板  
+nuclei -t http/cves/2026/CVE-2026-26190.yaml -t http/cves/2026/CVE-2026-39808.yaml -t http/cves/2026/CVE-2026-42271.yaml -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-22457.yaml -t code/cves/2025/CVE-2025-32433.yaml -t code/cves/2025/CVE-2025-32463.yaml -t code/cves/2025/CVE-2025-68926.yaml -t code/cves/2026/CVE-2026-20182.yaml -t headless/cves/2025/CVE-2025-29927-HEADLESS.yaml -t http/cves/2026/CVE-2026-26190.yaml -t http/cves/2026/CVE-2026-26190.yaml -t code/cves/2025/CVE-2025-6984.yaml -t http/cves/2026/CVE-2026-25527.yaml -t headless/cves/2025/CVE-2025-24752.yaml -t headless/cves/2025/CVE-2025-8191.yaml -t http/cves/2025/CVE-2025-51586.yaml -t http/cves/2025/CVE-2025-51586.yaml -t http/exposures/logs/trace-axd-expose.yaml -t http/exposures/logs/trace-axd-expose.yaml -t http/exposures/logs/trace-axd-expose.yaml -t http/exposed-panels/ligolo-ng-panel.yaml -t http/exposed-panels/ligolo-ng-panel.yaml -t http/exposed-panels/janitza-umg-panel.yaml -t http/exposed-panels/janitza-umg-panel.yaml -t http/exposed-panels/ligolo-ng-panel.yaml -t http/exposed-panels/outsystems-servicecenter-panel.yaml -t http/exposed-panels/outsystems-servicecenter-panel.yaml -t http/exposed-panels/outsystems-servicecenter-panel.yaml -t http/exposed-panels/outsystems-servicecenter-panel.yaml -u target-url
+```
+
+---
+
+*本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)*
+
+*扫描建议仅供参考，请在授权环境下进行安全测试*
