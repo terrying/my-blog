@@ -1,0 +1,475 @@
+---
+title: 'Nuclei POC 精选分析 - 2026-06-23'
+date: '2026-06-23'
+tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
+draft: false
+summary: '从 647 个模板更新中精选分析 30 个高价值 POC，发现 15 个高风险漏洞'
+authors: ['default']
+category: 'security-intel'
+---
+
+# Nuclei POC 精选分析 - 2026-06-23
+
+## 📊 智能筛选概况
+
+- **发现变更**: 647 个模板更新
+- **精选分析**: 30 个高价值 POC  
+- **智能跳过**: 617 个低优先级模板
+- **高风险漏洞**: 15 个
+- **主要类别**: CVE漏洞(22), 技术识别(8)
+
+> 💡 **智能筛选说明**: 系统自动优先分析 CVE 漏洞、高危漏洞和新增模板，跳过低价值的技术识别类模板，确保高效利用 API 资源。
+
+### 严重程度分布
+
+- 🔴 **严重**: 11 个
+- 🟠 **高危**: 4 个
+- 🟡 **中危**: 7 个
+- ⚪ **信息**: 8 个
+
+## 🔍 重点漏洞分析
+
+
+### UniFi Network Application - Path Traversal
+
+- **漏洞ID**: `CVE-2026-22557`
+- **CVE**: `CVE-2026-22557` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.05793 (percentile 0.9213) @ 2026-06-22
+
+**描述**: UniFi Network Application contains a path traversal vulnerability allowing a network attacker to access and manipulate files on the underlying system, potentially leading to account access, exploit requires network access.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-22557
+
+**参考链接**: 
+- [参考资料](https://community.ui.com/releases/Security-Advisory-Bulletin-062-062/c29719c0-405e-4d4a-8f26-e343e99f931b)
+- [参考资料](https://github.com/ThePotatoOfDoom/CVE-2026-22557-PoC)
+- [参考资料](https://www.cycognito.com/blog/emerging-threat-ubiquiti-unifi-network-application-path-traversal-cve-2026-22557/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-22557)
+
+---
+
+
+### Samba Printing Subsystem - Remote Code Execution
+
+- **漏洞ID**: `CVE-2026-4480`
+- **CVE**: `CVE-2026-4480` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.01169 (percentile 0.63284) @ 2026-06-22
+
+**描述**: A flaw was found in the Samba printing subsystem. Samba passes the client-controlled job description string to the command configured with the &quot;print command&quot; setting via the &quot;%J&quot; substitution character without escaping shell meta characters. A remote attacker could exploit this vulnerability by sending a specially crafted print job description that contains unescaped shell characters. This could lead to remote code execution on the affected system.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-4480
+
+**参考链接**: 
+- [参考资料](https://github.com/Vusal777/CVE-2026-4480-exploit-poc)
+- [参考资料](https://www.samba.org/samba/security/CVE-2026-4480.html)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-4480)
+
+---
+
+
+### Keras Model.load_model - Arbitrary Code Execution
+
+- **漏洞ID**: `CVE-2025-1550`
+- **CVE**: `CVE-2025-1550` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.02803 (percentile 0.84628) @ 2026-06-22
+
+**描述**: The Keras Model.load_model function permits arbitrary code execution, even with safe_mode&#x3D;True, through a manually constructed, malicious .keras archive. By altering the config.json file within the archive, an attacker can specify arbitrary Python modules and functions, along with their arguments, to be loaded and executed during model loading
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-1550)
+- [参考资料](https://github.com/keras-team/keras/pull/20751)
+- [参考资料](https://towerofhanoi.it/writeups/cve-2025-1550/)
+
+---
+
+
+### GitLab - SAML Authentication Bypass
+
+- **漏洞ID**: `CVE-2025-25291`
+- **CVE**: `CVE-2025-25291` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: GitLab 平台
+- **预估影响**: 数千个
+- **EPSS**: 0.19506 (percentile 0.97024) @ 2026-06-22
+
+**描述**: ruby-saml provides security assertion markup language (SAML) single sign-on (SSO) for Ruby. An authentication bypass vulnerability was found in ruby-saml prior to versions 1.12.4 and 1.18.0 due to a parser differential. ReXML and Nokogiri parse XML differently; the parsers can generate entirely different document structures from the same XML input. That allows an attacker to be able to execute a Signature Wrapping attack. This issue may lead to authentication bypass. Versions 1.12.4 and 1.18.0 fix the issue.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-25291
+
+**参考链接**: 
+- [参考资料](https://portswigger.net/research/saml-roulette-the-hacker-always-wins)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials/)
+- [参考资料](https://about.gitlab.com/releases/2025/03/12/patch-release-gitlab-17-9-2-released)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials)
+- [参考资料](https://github.com/SAML-Toolkits/ruby-saml/commit/e76c5b36bac40aedbf1ba7ffaaf495be63328cd9)
+
+---
+
+
+### Cisco Catalyst SD-WAN Controller - vHub Authentication Bypass
+
+- **漏洞ID**: `CVE-2026-20182`
+- **CVE**: `CVE-2026-20182` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.76286 (percentile 0.99474) @ 2026-06-22
+
+**描述**: Cisco Catalyst SD-WAN Controller and Manager contain an authentication bypass caused by improper peering authentication mechanism, letting unauthenticated remote attackers obtain administrative privileges, exploit requires sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-20182
+
+**参考链接**: 
+- [参考资料](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-rpa2-v69WY2SW)
+- [参考资料](https://blog.talosintelligence.com/sd-wan-ongoing-exploitation/)
+- [参考资料](https://www.rapid7.com/blog/post/ve-cve-2026-20182-critical-authentication-bypass-cisco-catalyst-sd-wan-controller-fixed/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-20182)
+
+---
+
+
+### Copy Fail - Linux Kernel Local Privilege Escalation via AF_ALG
+
+- **漏洞ID**: `CVE-2026-31431`
+- **CVE**: `CVE-2026-31431` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.94016 (percentile 0.99835) @ 2026-06-22
+
+**描述**: In the Linux kernel, the following vulnerability has been resolved: crypto: algif_aead - Revert to operating out-of-place This mostly reverts commit 72548b093ee3 except for the copying of the associated data. There is no benefit in operating in-place in algif_aead since the source and destination come from different mappings. Get rid of all the complexity added for in-place operation and just copy the AD directly.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-31431
+
+**参考链接**: 
+- [参考资料](https://discourse.ubuntu.com/t/fixes-available-for-cve-2026-31431-copy-fail-linux-kernel-local-privilege-escalation-vulnerability/81498)
+- [参考资料](https://cert.europa.eu/publications/security-advisories/2026-005)
+- [参考资料](https://xint.io/blog/copy-fail-linux-distributions)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-31431)
+
+---
+
+
+### Next.js Middleware Authorization Bypass
+
+- **漏洞ID**: `CVE-2025-29927-HEADLESS`
+- **CVE**: `CVE-2025-29927` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.98378 (percentile 0.99911) @ 2026-06-22
+
+**描述**: A critical vulnerability in Next.js middleware allows attackers to bypass authorization checks by manipulating the x-middleware-subrequest header. This flaw affects Next.js versions prior to 14.2.25 and 15.2.3, potentially granting unauthorized access to sensitive resources.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-29927
+
+**参考链接**: 
+- [参考资料](https://github.com/advisories/GHSA-f82v-jwr5-mffw)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-29927)
+- [参考资料](https://www.tenable.com/cve/CVE-2025-29927)
+
+---
+
+
+### Keras Model.load_model - Arbitrary Code Execution
+
+- **漏洞ID**: `CVE-2025-1550`
+- **CVE**: `CVE-2025-1550` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.02803 (percentile 0.84628) @ 2026-06-22
+
+**描述**: The Keras Model.load_model function permits arbitrary code execution, even with safe_mode&#x3D;True, through a manually constructed, malicious .keras archive. By altering the config.json file within the archive, an attacker can specify arbitrary Python modules and functions, along with their arguments, to be loaded and executed during model loading
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-1550)
+- [参考资料](https://github.com/keras-team/keras/pull/20751)
+- [参考资料](https://towerofhanoi.it/writeups/cve-2025-1550/)
+
+---
+
+
+### GitLab - SAML Authentication Bypass
+
+- **漏洞ID**: `CVE-2025-25291`
+- **CVE**: `CVE-2025-25291` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: GitLab 平台
+- **预估影响**: 数千个
+- **EPSS**: 0.19506 (percentile 0.97024) @ 2026-06-22
+
+**描述**: ruby-saml provides security assertion markup language (SAML) single sign-on (SSO) for Ruby. An authentication bypass vulnerability was found in ruby-saml prior to versions 1.12.4 and 1.18.0 due to a parser differential. ReXML and Nokogiri parse XML differently; the parsers can generate entirely different document structures from the same XML input. That allows an attacker to be able to execute a Signature Wrapping attack. This issue may lead to authentication bypass. Versions 1.12.4 and 1.18.0 fix the issue.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-25291
+
+**参考链接**: 
+- [参考资料](https://portswigger.net/research/saml-roulette-the-hacker-always-wins)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials/)
+- [参考资料](https://about.gitlab.com/releases/2025/03/12/patch-release-gitlab-17-9-2-released)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials)
+- [参考资料](https://github.com/SAML-Toolkits/ruby-saml/commit/e76c5b36bac40aedbf1ba7ffaaf495be63328cd9)
+
+---
+
+
+### Sudo - Local Privilege Escalation via chroot
+
+- **漏洞ID**: `CVE-2025-32463`
+- **CVE**: `CVE-2025-32463` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.48008 (percentile 0.98704) @ 2026-06-22
+
+**描述**: Sudo before 1.9.17p1 allows local users to obtain root access by using /etc/nsswitch.conf from a user-controlled directory with the --chroot (-R) option.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-32463
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-32463)
+- [参考资料](https://www.sudo.ws/security/advisories/chroot_bug/)
+- [参考资料](https://ubuntu.com/security/CVE-2025-32463)
+- [参考资料](https://www.wiz.io/vulnerability-database/cve/cve-2025-32463)
+- [参考资料](https://explore.alas.aws.amazon.com/CVE-2025-32463.html)
+
+---
+
+
+### Allegra - Authentication Bypass via Predictable Password Reset Token
+
+- **漏洞ID**: `CVE-2025-6216`
+- **CVE**: `CVE-2025-6216` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.29434 (percentile 0.97939) @ 2026-06-22
+
+**描述**: Allegra calculateTokenExpDate Password Recovery Authentication Bypass Vulnerability. This vulnerability allows remote attackers to bypass authentication on affected installations of Allegra. Authentication is not required to exploit this vulnerability. The specific flaw exists within the password recovery mechanism. The issue results from reliance upon a predictable value when generating a password reset token. An attacker can leverage this vulnerability to bypass authentication on the application.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-6216
+
+**参考链接**: 
+- [参考资料](https://www.zerodayinitiative.com/advisories/ZDI-25-410/)
+- [参考资料](https://alltena.com/en/resources/release-notes/release-notes-for-release-8-1-4-and-release-7-5-2)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-6216)
+
+---
+
+
+### Cisco Catalyst SD-WAN Controller - vHub Authentication Bypass
+
+- **漏洞ID**: `CVE-2026-20182`
+- **CVE**: `CVE-2026-20182` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.76286 (percentile 0.99474) @ 2026-06-22
+
+**描述**: Cisco Catalyst SD-WAN Controller and Manager contain an authentication bypass caused by improper peering authentication mechanism, letting unauthenticated remote attackers obtain administrative privileges, exploit requires sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-20182
+
+**参考链接**: 
+- [参考资料](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-rpa2-v69WY2SW)
+- [参考资料](https://blog.talosintelligence.com/sd-wan-ongoing-exploitation/)
+- [参考资料](https://www.rapid7.com/blog/post/ve-cve-2026-20182-critical-authentication-bypass-cisco-catalyst-sd-wan-controller-fixed/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-20182)
+
+---
+
+
+### UpdraftPlus WP Backup & Migration Plugin - Authentication Bypass
+
+- **漏洞ID**: `CVE-2026-10795`
+- **CVE**: `CVE-2026-10795` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.01252 (percentile 0.65543) @ 2026-06-22
+
+**描述**: UpdraftPlus WP Backup & Migration Plugin for WordPress &lt;&#x3D; 1.26.4 contains an authentication bypass caused by insufficient validation in UpdraftPlus_Remote_Communications_V2::wp_loaded, letting unauthenticated attackers execute arbitrary RPC commands as admin, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-10795
+
+**参考链接**: 
+- [参考资料](https://patchstack.com/database/vulnerability/wordpress-updraftplus-wp-backup-migration-plugin-1-26-4-unauthenticated-authentication-bypass-via-updraftcentral-udrpc-vulnerability)
+- [参考资料](https://teamupdraft.com/blog/important-security-update-for-updraftplus-and-updraftcentral-users/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-10795)
+
+---
+
+
+### langchain-ai langchain - XML External Entity Injection
+
+- **漏洞ID**: `CVE-2025-6984`
+- **CVE**: `CVE-2025-6984` (2025)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.01531 (percentile 0.7147) @ 2026-06-22
+
+**描述**: langchain-ai/langchain 0.3.63 contains an XML External Entity (XXE) injection caused by insecure XML parsing in EverNoteLoader using etree.iterparse(), letting attackers disclose sensitive information, exploit requires crafted malicious XML payload.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-6984
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-6984)
+- [参考资料](https://huntr.com/bounties/a6b521cf-258c-41c0-9edb-d8ef976abb2a)
+- [参考资料](https://github.com/langchain-ai/langchain-community/commit/e842452)
+
+---
+
+
+### UpdraftPlus WP Backup & Migration Plugin - Authentication Bypass
+
+- **漏洞ID**: `CVE-2026-10795`
+- **CVE**: `CVE-2026-10795` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.01252 (percentile 0.65543) @ 2026-06-22
+
+**描述**: UpdraftPlus WP Backup & Migration Plugin for WordPress &lt;&#x3D; 1.26.4 contains an authentication bypass caused by insufficient validation in UpdraftPlus_Remote_Communications_V2::wp_loaded, letting unauthenticated attackers execute arbitrary RPC commands as admin, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-10795
+
+**参考链接**: 
+- [参考资料](https://patchstack.com/database/vulnerability/wordpress-updraftplus-wp-backup-migration-plugin-1-26-4-unauthenticated-authentication-bypass-via-updraftcentral-udrpc-vulnerability)
+- [参考资料](https://teamupdraft.com/blog/important-security-update-for-updraftplus-and-updraftcentral-users/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-10795)
+
+---
+
+
+## 📋 完整模板列表
+
+| 模板名称 | 严重程度 | 类别 | 影响资产 | EPSS | 风险评分 |
+|---------|---------|------|---------|------|---------|
+| UniFi Network Application - Path Traversal | 🔴 critical | CVE漏洞 | 通用 | 0.0579 | 5/5 |
+| Samba Printing Subsystem - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 0.0117 | 5/5 |
+| Keras Model.load_model - Arbitrary Code Execution | 🔴 critical | CVE漏洞 | 通用 | 0.0280 | 5/5 |
+| GitLab - SAML Authentication Bypass | 🔴 critical | CVE漏洞 | GitLab 平台 | 0.1951 | 5/5 |
+| Cisco Catalyst SD-WAN Controller - vHub Authentica | 🔴 critical | CVE漏洞 | 通用 | 0.7629 | 5/5 |
+| Copy Fail - Linux Kernel Local Privilege Escalatio | 🟠 high | CVE漏洞 | 通用 | 0.9402 | 5/5 |
+| Next.js Middleware Authorization Bypass | 🔴 critical | CVE漏洞 | 通用 | 0.9838 | 5/5 |
+| Keras Model.load_model - Arbitrary Code Execution | 🔴 critical | CVE漏洞 | 通用 | 0.0280 | 5/5 |
+| GitLab - SAML Authentication Bypass | 🔴 critical | CVE漏洞 | GitLab 平台 | 0.1951 | 5/5 |
+| Sudo - Local Privilege Escalation via chroot | 🔴 critical | CVE漏洞 | 通用 | 0.4801 | 5/5 |
+| Allegra - Authentication Bypass via Predictable Pa | 🔴 critical | CVE漏洞 | 通用 | 0.2943 | 5/5 |
+| Cisco Catalyst SD-WAN Controller - vHub Authentica | 🔴 critical | CVE漏洞 | 通用 | 0.7629 | 5/5 |
+| UpdraftPlus WP Backup & Migration Plugin - Authent | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0125 | 4.5/5 |
+| langchain-ai langchain - XML External Entity Injec | 🟠 high | CVE漏洞 | 通用 | 0.0153 | 4.5/5 |
+| UpdraftPlus WP Backup & Migration Plugin - Authent | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0125 | 4.5/5 |
+| LobeHub LobeChat &lt;&#x3D; 2.1.56 - Server-Side R | 🟡 medium | CVE漏洞 | 通用 | - | 3.5/5 |
+| Essential Addons for Elementor &lt; 6.0.15 - Cross | 🟡 medium | CVE漏洞 | 通用 | 0.0116 | 3.5/5 |
+| Swagger UI &gt;&#x3D;3.14.1 &lt; 3.38.0 - DOM Base | 🟡 medium | CVE漏洞 | 通用 | 0.0155 | 3.5/5 |
+| LobeHub LobeChat &lt;&#x3D; 2.1.56 - Server-Side R | 🟡 medium | CVE漏洞 | 通用 | - | 3.5/5 |
+| Essential Addons for Elementor &lt; 6.0.15 - Cross | 🟡 medium | CVE漏洞 | 通用 | 0.0116 | 3.5/5 |
+| Backdrop CMS - Cross-Site Scripting | 🟡 medium | CVE漏洞 | 通用 | 0.0164 | 3.5/5 |
+| Swagger UI &gt;&#x3D;3.14.1 &lt; 3.38.0 - DOM Base | 🟡 medium | CVE漏洞 | 通用 | 0.0155 | 3.5/5 |
+| Wix Detection | ⚪ info | 技术识别 | 通用 | - | 1/5 |
+| BigCommerce Detection | ⚪ info | 技术识别 | 通用 | - | 1/5 |
+| Bitrix Detection | ⚪ info | 技术识别 | 通用 | - | 1/5 |
+| Blogger Detection | ⚪ info | 技术识别 | 通用 | - | 1/5 |
+| Concrete5 Detection | ⚪ info | 技术识别 | 通用 | - | 1/5 |
+| Django Detection | ⚪ info | 技术识别 | 通用 | - | 1/5 |
+| ExpressionEngine Detection | ⚪ info | 技术识别 | 通用 | - | 1/5 |
+| Flask Detection | ⚪ info | 技术识别 | 通用 | - | 1/5 |
+
+## 🛡️ 安全建议
+
+🚨 发现高风险漏洞，建议立即扫描相关资产
+🔍 关注新发布的 CVE 漏洞，及时更新补丁
+⚡ 检测到远程代码执行漏洞，优先处理
+
+## 🔧 扫描建议
+
+建议使用以下 Nuclei 命令进行扫描：
+
+```bash
+# 扫描高危漏洞
+nuclei -t http/cves/2026/CVE-2026-22557.yaml -t javascript/cves/2026/CVE-2026-4480.yaml -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2026/CVE-2026-20182.yaml -t code/cves/2026/CVE-2026-31431.yaml -t headless/cves/2025/CVE-2025-29927-HEADLESS.yaml -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2025/CVE-2025-32463.yaml -t code/cves/2025/CVE-2025-6216.yaml -t code/cves/2026/CVE-2026-20182.yaml -t code/cves/2026/CVE-2026-10795.yaml -t code/cves/2025/CVE-2025-6984.yaml -t code/cves/2026/CVE-2026-10795.yaml -u target-url
+
+# 扫描所有今日新增模板  
+nuclei -t http/cves/2026/CVE-2026-22557.yaml -t javascript/cves/2026/CVE-2026-4480.yaml -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2026/CVE-2026-20182.yaml -t code/cves/2026/CVE-2026-31431.yaml -t headless/cves/2025/CVE-2025-29927-HEADLESS.yaml -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2025/CVE-2025-32463.yaml -t code/cves/2025/CVE-2025-6216.yaml -t code/cves/2026/CVE-2026-20182.yaml -t code/cves/2026/CVE-2026-10795.yaml -t code/cves/2025/CVE-2025-6984.yaml -t code/cves/2026/CVE-2026-10795.yaml -t http/cves/2026/CVE-2026-54157.yaml -t headless/cves/2025/CVE-2025-24752.yaml -t headless/cves/2025/CVE-2025-8191.yaml -t http/cves/2026/CVE-2026-54157.yaml -t headless/cves/2025/CVE-2025-24752.yaml -t headless/cves/2025/CVE-2025-25062.yaml -t headless/cves/2025/CVE-2025-8191.yaml -t http/technologies/Wix-detect.yaml -t http/technologies/bigcommerce-detect.yaml -t http/technologies/bitrix-detect.yaml -t http/technologies/blogger-detect.yaml -t http/technologies/concrete5-detect.yaml -t http/technologies/django-detect.yaml -t http/technologies/expressionengine-detect.yaml -t http/technologies/flask-detect.yaml -u target-url
+```
+
+---
+
+*本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)*
+
+*扫描建议仅供参考，请在授权环境下进行安全测试*
