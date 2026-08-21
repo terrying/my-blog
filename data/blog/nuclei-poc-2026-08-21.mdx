@@ -1,0 +1,710 @@
+---
+title: 'Nuclei POC 精选分析 - 2026-08-21'
+date: '2026-08-21'
+tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
+draft: false
+summary: '从 322 个模板更新中精选分析 28 个高价值 POC，发现 25 个高风险漏洞'
+authors: ['default']
+category: 'security-intel'
+---
+
+# Nuclei POC 精选分析 - 2026-08-21
+
+## 📊 智能筛选概况
+
+- **发现变更**: 322 个模板更新
+- **精选分析**: 28 个高价值 POC  
+- **智能跳过**: 294 个低优先级模板
+- **高风险漏洞**: 25 个
+- **主要类别**: CVE漏洞(25), 配置错误(3)
+
+> 💡 **智能筛选说明**: 系统自动优先分析 CVE 漏洞、高危漏洞和新增模板，跳过低价值的技术识别类模板，确保高效利用 API 资源。
+
+### 严重程度分布
+
+- 🔴 **严重**: 13 个
+- 🟠 **高危**: 12 个
+- 🟡 **中危**: 3 个
+
+## 🔍 重点漏洞分析
+
+
+### LolLMS &lt;&#x3D; 2.2.0 - Unauthenticated File Upload
+
+- **漏洞ID**: `CVE-2026-0558`
+- **CVE**: `CVE-2026-0558` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.0043 (percentile 0.36117) @ 2026-08-20
+
+**描述**: A vulnerability in parisneo/lollms up to and including version 2.2.0 allows unauthenticated users to upload and process files through the /api/files/extract-text endpoint. The endpoint lacks the Depends(get_current_active_user) dependency used by other file-related APIs.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-0558
+
+**参考链接**: 
+- [参考资料](https://github.com/parisneo/lollms/commit/a6625dc83786ff21d109b0d545ca61b770607ef3)
+- [参考资料](https://huntr.com/bounties/0a722001-89ce-4c91-b6a6-a55ee5ba2113)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-0558)
+
+---
+
+
+### WordPress MemberGlut &lt; 1.1.5 - Unauthenticated Privilege Escalation
+
+- **漏洞ID**: `CVE-2026-12394`
+- **CVE**: `CVE-2026-12394` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.00277 (percentile 0.20236) @ 2026-08-20
+
+**描述**: MemberGlut WordPress plugin &lt; 1.1.5 contains a broken access control vulnerability caused by lack of validation of roles during front-end registration, letting unauthenticated users register with arbitrary roles including administrator, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-12394
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/6b126a3e-30d5-4bed-ba47-33e589ec2852/)
+- [参考资料](https://plugins.trac.wordpress.org/browser/memberglut/tags/1.1.0/includes/class-memberglut-forms.php)
+- [参考资料](https://plugins.trac.wordpress.org/browser/memberglut/tags/1.1.5/includes/class-memberglut-forms.php)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-12394)
+
+---
+
+
+### WordPress MemberGlut &lt; 1.1.5 - Unauthenticated Privilege Escalation
+
+- **漏洞ID**: `CVE-2026-12394`
+- **CVE**: `CVE-2026-12394` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.00277 (percentile 0.20236) @ 2026-08-20
+
+**描述**: MemberGlut WordPress plugin &lt; 1.1.5 contains a broken access control vulnerability caused by lack of validation of roles during front-end registration, letting unauthenticated users register with arbitrary roles including administrator, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-12394
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/6b126a3e-30d5-4bed-ba47-33e589ec2852/)
+- [参考资料](https://plugins.trac.wordpress.org/browser/memberglut/tags/1.1.0/includes/class-memberglut-forms.php)
+- [参考资料](https://plugins.trac.wordpress.org/browser/memberglut/tags/1.1.5/includes/class-memberglut-forms.php)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-12394)
+
+---
+
+
+### n8n - Remote Code Execution via Expression Injection
+
+- **漏洞ID**: `CVE-2025-68613`
+- **CVE**: `CVE-2025-68613` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.9795 (percentile 0.99907) @ 2026-08-20
+
+**描述**: n8n &lt; 1.120.4, 1.121.1, 1.122.0 contains a remote code execution caused by insufficient isolation in workflow expression evaluation, letting authenticated attackers execute arbitrary code with n8n process privileges. Exploit requires authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-68613
+
+**参考链接**: 
+- [参考资料](https://github.com/n8n-io/n8n/security/advisories/GHSA-v98v-ff95-f3cp)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-68613)
+
+---
+
+
+### n8n - Remote Code Execution via Expression Injection
+
+- **漏洞ID**: `CVE-2025-68613`
+- **CVE**: `CVE-2025-68613` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.9795 (percentile 0.99907) @ 2026-08-20
+
+**描述**: n8n &lt; 1.120.4, 1.121.1, 1.122.0 contains a remote code execution caused by insufficient isolation in workflow expression evaluation, letting authenticated attackers execute arbitrary code with n8n process privileges. Exploit requires authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-68613
+
+**参考链接**: 
+- [参考资料](https://github.com/n8n-io/n8n/security/advisories/GHSA-v98v-ff95-f3cp)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-68613)
+
+---
+
+
+### Keras Model.load_model - Arbitrary Code Execution
+
+- **漏洞ID**: `CVE-2025-1550`
+- **CVE**: `CVE-2025-1550` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.02581 (percentile 0.84007) @ 2026-08-20
+
+**描述**: The Keras Model.load_model function permits arbitrary code execution, even with safe_mode&#x3D;True, through a manually constructed, malicious .keras archive. By altering the config.json file within the archive, an attacker can specify arbitrary Python modules and functions, along with their arguments, to be loaded and executed during model loading
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-1550)
+- [参考资料](https://github.com/keras-team/keras/pull/20751)
+- [参考资料](https://towerofhanoi.it/writeups/cve-2025-1550/)
+
+---
+
+
+### GitLab - SAML Authentication Bypass
+
+- **漏洞ID**: `CVE-2025-25291`
+- **CVE**: `CVE-2025-25291` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: GitLab 平台
+- **预估影响**: 数千个
+- **EPSS**: 0.2026 (percentile 0.97265) @ 2026-08-20
+
+**描述**: ruby-saml provides security assertion markup language (SAML) single sign-on (SSO) for Ruby. An authentication bypass vulnerability was found in ruby-saml prior to versions 1.12.4 and 1.18.0 due to a parser differential. ReXML and Nokogiri parse XML differently; the parsers can generate entirely different document structures from the same XML input. That allows an attacker to be able to execute a Signature Wrapping attack. This issue may lead to authentication bypass. Versions 1.12.4 and 1.18.0 fix the issue.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-25291
+
+**参考链接**: 
+- [参考资料](https://portswigger.net/research/saml-roulette-the-hacker-always-wins)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials/)
+- [参考资料](https://about.gitlab.com/releases/2025/03/12/patch-release-gitlab-17-9-2-released)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials)
+- [参考资料](https://github.com/SAML-Toolkits/ruby-saml/commit/e76c5b36bac40aedbf1ba7ffaaf495be63328cd9)
+
+---
+
+
+### Sudo - Local Privilege Escalation via chroot
+
+- **漏洞ID**: `CVE-2025-32463`
+- **CVE**: `CVE-2025-32463` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.58759 (percentile 0.99032) @ 2026-08-20
+
+**描述**: Sudo before 1.9.17p1 allows local users to obtain root access by using /etc/nsswitch.conf from a user-controlled directory with the --chroot (-R) option.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-32463
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-32463)
+- [参考资料](https://www.sudo.ws/security/advisories/chroot_bug/)
+- [参考资料](https://ubuntu.com/security/CVE-2025-32463)
+- [参考资料](https://www.wiz.io/vulnerability-database/cve/cve-2025-32463)
+- [参考资料](https://explore.alas.aws.amazon.com/CVE-2025-32463.html)
+
+---
+
+
+### Allegra - Authentication Bypass via Predictable Password Reset Token
+
+- **漏洞ID**: `CVE-2025-6216`
+- **CVE**: `CVE-2025-6216` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.34535 (percentile 0.9829) @ 2026-08-20
+
+**描述**: Allegra calculateTokenExpDate Password Recovery Authentication Bypass Vulnerability. This vulnerability allows remote attackers to bypass authentication on affected installations of Allegra. Authentication is not required to exploit this vulnerability. The specific flaw exists within the password recovery mechanism. The issue results from reliance upon a predictable value when generating a password reset token. An attacker can leverage this vulnerability to bypass authentication on the application.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-6216
+
+**参考链接**: 
+- [参考资料](https://www.zerodayinitiative.com/advisories/ZDI-25-410/)
+- [参考资料](https://alltena.com/en/resources/release-notes/release-notes-for-release-8-1-4-and-release-7-5-2)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-6216)
+
+---
+
+
+### User Profile Builder 3.16.4 - Unauthenticated Authentication Bypass
+
+- **漏洞ID**: `CVE-2026-15826`
+- **CVE**: `CVE-2026-15826` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.02483 (percentile 0.83331) @ 2026-08-20
+
+**描述**: The User Profile Builder plugin for WordPress version 3.16.4 is vulnerable to an authentication bypass via type confusion. Profile Builder&#x27;s automatic-login-after-registration handler passes the return value of wp_insert_user() through absint() before testing it with is_wp_error(), so the error check runs against the already-coerced integer. A registration submitted with a 61-70 character username passes the plugin&#x27;s own validation but is rejected by WordPress core, because the user_login column is VARCHAR(60), and wp_insert_user() returns a WP_Error object. absint() coerces that object to the integer 1, is_wp_error(1) is false, and the plugin binds a transient-backed autologin nonce to user ID 1. Consuming that nonce calls wp_set_auth_cookie(1) and logs the unauthenticated attacker in as the site&#x27;s Administrator.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-15826
+
+**参考链接**: 
+- [参考资料](https://www.wordfence.com/threat-intel/vulnerabilities/id/9f606fba-f779-42ea-a160-6c3b20dc5e79)
+- [参考资料](https://plugins.trac.wordpress.org/browser/profile-builder/tags/3.16.4/front-end/class-formbuilder.php#L262)
+- [参考资料](https://plugins.trac.wordpress.org/browser/profile-builder/tags/3.16.4/features/functions.php#L1481)
+- [参考资料](https://plugins.trac.wordpress.org/changeset/3609855/profile-builder)
+- [参考资料](https://github.com/HORKimhab/CVE-2026-15826-CVE-2026-15748)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-15826)
+
+---
+
+
+### Gitea Docker Image &lt;&#x3D; 1.26.2 - Reverse Proxy Header Authentication Bypass
+
+- **漏洞ID**: `CVE-2026-20896`
+- **CVE**: `CVE-2026-20896` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: Docker 容器
+- **预估影响**: 数千个
+- **EPSS**: 0.62381 (percentile 0.99118) @ 2026-08-20
+
+**描述**: The official Gitea Docker image through version 1.26.2 ships with REVERSE_PROXY_TRUSTED_PROXIES set to a wildcard, causing Gitea to trust reverse-proxy authentication headers (X-WEBAUTH-USER) from any source IP instead of restricting trust to the configured reverse proxy. When reverse-proxy authentication is enabled, an unauthenticated remote attacker can impersonate any existing user, including an administrator, by sending the target username in the X-WEBAUTH-USER header.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-20896
+
+**参考链接**: 
+- [参考资料](https://github.com/go-gitea/gitea/security/advisories/GHSA-f75j-4cw6-rmx4)
+- [参考资料](https://blog.gitea.com/release-of-1.26.3-and-1.26.4/)
+- [参考资料](https://github.com/go-gitea/gitea/pull/38151)
+- [参考资料](https://www.ionix.io/threat-center/cve-2026-20896/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-20896)
+
+---
+
+
+### FUXA &lt;&#x3D; 1.2.9 - Unauthenticated Path Traversal to Arbitrary File Write
+
+- **漏洞ID**: `CVE-2026-25895`
+- **CVE**: `CVE-2026-25895` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.10353 (percentile 0.9535) @ 2026-08-20
+
+**描述**: FUXA, an open-source Node.js SCADA/HMI web interface, through version 1.2.9 exposes an unauthenticated POST /api/upload endpoint that resolves the attacker-controlled `destination` field from the JSON request body against the application directory with only a leading underscore prefix and no containment check. Because path.resolve() honours &quot;../&quot; segments, an unauthenticated attacker can escape the application directory and write arbitrary files anywhere on the filesystem reachable by the service account - for example into the public web root (a/../../client/dist), into cron directories, or over SSH authorized_keys - leading to remote code execution. Version 1.2.10 rejects any destination containing a traversal segment and additionally requires an authenticated administrator.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-25895
+
+**参考链接**: 
+- [参考资料](https://github.com/frangoteam/FUXA/security/advisories/GHSA-88qh-cphv-996c)
+- [参考资料](https://github.com/frangoteam/FUXA/commit/22c2192f5d9beef8a787c45eff3a14c24dbb5f96)
+- [参考资料](https://github.com/frangoteam/FUXA/releases/tag/v1.2.10)
+- [参考资料](https://github.com/Hann1bl3L3ct3r/FUXAPWN)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-25895)
+
+---
+
+
+### MLflow Webhook SSRF - Unauthenticated Full-Read via Redirect Bypass
+
+- **漏洞ID**: `CVE-2026-64849`
+- **CVE**: `CVE-2026-64849` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.08154 (percentile 0.94398) @ 2026-08-20
+
+**描述**: MLflow &gt; 3.15.0 contains an information disclosure vulnerability caused by improper validation of webhook URLs allowing attackers to reach internal or cloud metadata services and obtain response details, exploit requires unauthenticated access to the webhook test endpoint.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-64849
+
+**参考链接**: 
+- [参考资料](https://github.com/mlflow/mlflow/security/advisories/GHSA-7gwp-5pfp-969j)
+- [参考资料](https://github.com/mlflow/mlflow/pull/24258)
+
+---
+
+
+### RabbitMQ Management - OAuth 2 Client Secret Disclosure
+
+- **漏洞ID**: `CVE-2026-57219`
+- **CVE**: `CVE-2026-57219` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00784 (percentile 0.53278) @ 2026-08-20
+
+**描述**: RabbitMQ &lt; 3.13.15, 4.0.20, 4.1.11, and 4.2.6 contains an information disclosure caused by the obsolete GET /api/auth endpoint exposing OAuth 2 client secrets when management.oauth_client_secret is configured, letting unauthenticated attackers access sensitive credentials, exploit requires management plugin and OAuth configuration enabled.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-57219
+
+**参考链接**: 
+- [参考资料](https://github.com/rabbitmq/rabbitmq-server/security/advisories/GHSA-pj24-8j6m-vq9q)
+- [参考资料](https://github.com/rabbitmq/rabbitmq-server/commit/98b1daf740237c85941e8addcbea6e74f4a2743c)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-57219)
+
+---
+
+
+### WPZOOM Portfolio &lt;&#x3D; 1.4.21 - Reflected Cross-Site Scripting
+
+- **漏洞ID**: `CVE-2026-49069`
+- **CVE**: `CVE-2026-49069` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.00476 (percentile 0.39337) @ 2026-08-20
+
+**描述**: WPZOOM Portfolio &lt;&#x3D; 1.4.21 contains a reflected XSS caused by improper neutralization of input during web page generation, letting attackers execute scripts in victim&#x27;s browser, exploit requires crafted request.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-49069
+
+**参考链接**: 
+- [参考资料](https://patchstack.com/database/wordpress/plugin/wpzoom-portfolio/vulnerability/wordpress-wpzoom-portfolio-plugin-1-4-21-cross-site-scripting-xss-vulnerability?_s_id=cve)
+- [参考资料](https://www.exploit-db.com/exploits/52611)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-49069)
+
+---
+
+
+### Ech0 &lt; 4.2.8 - Server-Side Request Forgery
+
+- **漏洞ID**: `CVE-2026-35037`
+- **CVE**: `CVE-2026-35037` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00289 (percentile 0.21474) @ 2026-08-20
+
+**描述**: Ech0 before 4.2.8 exposes an unauthenticated SSRF vulnerability in GET /api/website/title. The website_url query parameter is fetched server-side without validating the target host or IP address.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-35037
+
+**参考链接**: 
+- [参考资料](https://github.com/lin-snow/Ech0/security/advisories/GHSA-cqgf-f4x7-g6wc)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-35037)
+
+---
+
+
+### WPZOOM Portfolio &lt;&#x3D; 1.4.21 - Reflected Cross-Site Scripting
+
+- **漏洞ID**: `CVE-2026-49069`
+- **CVE**: `CVE-2026-49069` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.00476 (percentile 0.39337) @ 2026-08-20
+
+**描述**: WPZOOM Portfolio &lt;&#x3D; 1.4.21 contains a reflected XSS caused by improper neutralization of input during web page generation, letting attackers execute scripts in victim&#x27;s browser, exploit requires crafted request.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-49069
+
+**参考链接**: 
+- [参考资料](https://patchstack.com/database/wordpress/plugin/wpzoom-portfolio/vulnerability/wordpress-wpzoom-portfolio-plugin-1-4-21-cross-site-scripting-xss-vulnerability?_s_id=cve)
+- [参考资料](https://www.exploit-db.com/exploits/52611)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-49069)
+
+---
+
+
+### RabbitMQ Management - OAuth 2 Client Secret Disclosure
+
+- **漏洞ID**: `CVE-2026-57219`
+- **CVE**: `CVE-2026-57219` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00784 (percentile 0.53278) @ 2026-08-20
+
+**描述**: RabbitMQ &lt; 3.13.15, 4.0.20, 4.1.11, and 4.2.6 contains an information disclosure caused by the obsolete GET /api/auth endpoint exposing OAuth 2 client secrets when management.oauth_client_secret is configured, letting unauthenticated attackers access sensitive credentials, exploit requires management plugin and OAuth configuration enabled.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-57219
+
+**参考链接**: 
+- [参考资料](https://github.com/rabbitmq/rabbitmq-server/security/advisories/GHSA-pj24-8j6m-vq9q)
+- [参考资料](https://github.com/rabbitmq/rabbitmq-server/commit/98b1daf740237c85941e8addcbea6e74f4a2743c)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-57219)
+
+---
+
+
+### Ech0 &lt; 4.2.8 - Server-Side Request Forgery
+
+- **漏洞ID**: `CVE-2026-35037`
+- **CVE**: `CVE-2026-35037` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00289 (percentile 0.21474) @ 2026-08-20
+
+**描述**: Ech0 before 4.2.8 exposes an unauthenticated SSRF vulnerability in GET /api/website/title. The website_url query parameter is fetched server-side without validating the target host or IP address.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-35037
+
+**参考链接**: 
+- [参考资料](https://github.com/lin-snow/Ech0/security/advisories/GHSA-cqgf-f4x7-g6wc)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-35037)
+
+---
+
+
+### langchain-ai langchain - XML External Entity Injection
+
+- **漏洞ID**: `CVE-2025-6984`
+- **CVE**: `CVE-2025-6984` (2025)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.01661 (percentile 0.74807) @ 2026-08-20
+
+**描述**: langchain-ai/langchain 0.3.63 contains an XML External Entity (XXE) injection caused by insecure XML parsing in EverNoteLoader using etree.iterparse(), letting attackers disclose sensitive information, exploit requires crafted malicious XML payload.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-6984
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-6984)
+- [参考资料](https://huntr.com/bounties/a6b521cf-258c-41c0-9edb-d8ef976abb2a)
+- [参考资料](https://github.com/langchain-ai/langchain-community/commit/e842452)
+
+---
+
+
+### UpdraftPlus WP Backup & Migration Plugin - Authentication Bypass
+
+- **漏洞ID**: `CVE-2026-10795`
+- **CVE**: `CVE-2026-10795` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.03578 (percentile 0.88473) @ 2026-08-20
+
+**描述**: UpdraftPlus WP Backup & Migration Plugin for WordPress &lt;&#x3D; 1.26.4 contains an authentication bypass caused by insufficient validation in UpdraftPlus_Remote_Communications_V2::wp_loaded, letting unauthenticated attackers execute arbitrary RPC commands as admin, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-10795
+
+**参考链接**: 
+- [参考资料](https://patchstack.com/database/vulnerability/wordpress-updraftplus-wp-backup-migration-plugin-1-26-4-unauthenticated-authentication-bypass-via-updraftcentral-udrpc-vulnerability)
+- [参考资料](https://teamupdraft.com/blog/important-security-update-for-updraftplus-and-updraftcentral-users/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-10795)
+
+---
+
+
+### Flowise &lt;&#x3D; 3.0.13 - Unauthenticated OAuth Configuration Disclosure
+
+- **漏洞ID**: `CVE-2026-56270`
+- **CVE**: `CVE-2026-56270` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.01498 (percentile 0.72198) @ 2026-08-20
+
+**描述**: Flowise before 3.1.0 contains a missing authentication vulnerability in the /api/v1/loginmethod endpoint, allowing unauthenticated remote attackers to retrieve an organization&#x27;s complete SSO configuration including OAuth client secrets by providing an organizationId parameter.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-56270
+
+**参考链接**: 
+- [参考资料](https://github.com/FlowiseAI/Flowise/security/advisories/GHSA-6pcv-j4jx-m4vx)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-56270)
+
+---
+
+
+### MySQL - Empty Password
+
+- **漏洞ID**: `mysql-empty-password`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: Checks for MySQL servers with an empty password for root or anonymous.
+
+
+**攻击向量**: 网络扫描
+
+
+
+
+
+---
+
+
+### MySQL - Empty Password
+
+- **漏洞ID**: `mysql-empty-password`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: Checks for MySQL servers with an empty password for root or anonymous.
+
+
+**攻击向量**: 网络扫描
+
+
+
+
+
+---
+
+
+### MySQL - Empty Password
+
+- **漏洞ID**: `mysql-empty-password`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: Checks for MySQL servers with an empty password for root or anonymous.
+
+
+**攻击向量**: 网络扫描
+
+
+
+
+
+---
+
+
+## 📋 完整模板列表
+
+| 模板名称 | 严重程度 | 类别 | 影响资产 | EPSS | 风险评分 |
+|---------|---------|------|---------|------|---------|
+| LolLMS &lt;&#x3D; 2.2.0 - Unauthenticated File Upl | 🔴 critical | CVE漏洞 | 通用 | 0.0043 | 5/5 |
+| WordPress MemberGlut &lt; 1.1.5 - Unauthenticated  | 🔴 critical | CVE漏洞 | WordPress 站点 | 0.0028 | 5/5 |
+| WordPress MemberGlut &lt; 1.1.5 - Unauthenticated  | 🔴 critical | CVE漏洞 | WordPress 站点 | 0.0028 | 5/5 |
+| n8n - Remote Code Execution via Expression Injecti | 🔴 critical | CVE漏洞 | 通用 | 0.9795 | 5/5 |
+| n8n - Remote Code Execution via Expression Injecti | 🔴 critical | CVE漏洞 | 通用 | 0.9795 | 5/5 |
+| Keras Model.load_model - Arbitrary Code Execution | 🔴 critical | CVE漏洞 | 通用 | 0.0258 | 5/5 |
+| GitLab - SAML Authentication Bypass | 🔴 critical | CVE漏洞 | GitLab 平台 | 0.2026 | 5/5 |
+| Sudo - Local Privilege Escalation via chroot | 🔴 critical | CVE漏洞 | 通用 | 0.5876 | 5/5 |
+| Allegra - Authentication Bypass via Predictable Pa | 🔴 critical | CVE漏洞 | 通用 | 0.3453 | 5/5 |
+| User Profile Builder 3.16.4 - Unauthenticated Auth | 🔴 critical | CVE漏洞 | WordPress 站点 | 0.0248 | 5/5 |
+| Gitea Docker Image &lt;&#x3D; 1.26.2 - Reverse Pro | 🔴 critical | CVE漏洞 | Docker 容器 | 0.6238 | 5/5 |
+| FUXA &lt;&#x3D; 1.2.9 - Unauthenticated Path Trave | 🔴 critical | CVE漏洞 | 通用 | 0.1035 | 5/5 |
+| MLflow Webhook SSRF - Unauthenticated Full-Read vi | 🔴 critical | CVE漏洞 | 通用 | 0.0815 | 5/5 |
+| RabbitMQ Management - OAuth 2 Client Secret Disclo | 🟠 high | CVE漏洞 | 通用 | 0.0078 | 4.5/5 |
+| WPZOOM Portfolio &lt;&#x3D; 1.4.21 - Reflected Cro | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0048 | 4.5/5 |
+| Ech0 &lt; 4.2.8 - Server-Side Request Forgery | 🟠 high | CVE漏洞 | 通用 | 0.0029 | 4.5/5 |
+| WPZOOM Portfolio &lt;&#x3D; 1.4.21 - Reflected Cro | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0048 | 4.5/5 |
+| RabbitMQ Management - OAuth 2 Client Secret Disclo | 🟠 high | CVE漏洞 | 通用 | 0.0078 | 4.5/5 |
+| Ech0 &lt; 4.2.8 - Server-Side Request Forgery | 🟠 high | CVE漏洞 | 通用 | 0.0029 | 4.5/5 |
+| langchain-ai langchain - XML External Entity Injec | 🟠 high | CVE漏洞 | 通用 | 0.0166 | 4.5/5 |
+| UpdraftPlus WP Backup & Migration Plugin - Authent | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0358 | 4.5/5 |
+| Flowise &lt;&#x3D; 3.0.13 - Unauthenticated OAuth  | 🟠 high | CVE漏洞 | 通用 | 0.0150 | 4.5/5 |
+| MySQL - Empty Password | 🟠 high | 配置错误 | 通用 | - | 4/5 |
+| MySQL - Empty Password | 🟠 high | 配置错误 | 通用 | - | 4/5 |
+| MySQL - Empty Password | 🟠 high | 配置错误 | 通用 | - | 4/5 |
+| Essential Addons for Elementor &lt; 6.0.15 - Cross | 🟡 medium | CVE漏洞 | 通用 | 0.0120 | 3.5/5 |
+| Backdrop CMS - Cross-Site Scripting | 🟡 medium | CVE漏洞 | 通用 | 0.0169 | 3.5/5 |
+| Swagger UI &gt;&#x3D;3.14.1 &lt; 3.38.0 - DOM Base | 🟡 medium | CVE漏洞 | 通用 | 0.0168 | 3.5/5 |
+
+## 🛡️ 安全建议
+
+🚨 发现高风险漏洞，建议立即扫描相关资产
+🔍 关注新发布的 CVE 漏洞，及时更新补丁
+⚡ 检测到远程代码执行漏洞，优先处理
+
+## 🔧 扫描建议
+
+建议使用以下 Nuclei 命令进行扫描：
+
+```bash
+# 扫描高危漏洞
+nuclei -t http/cves/2026/CVE-2026-0558.yaml -t http/cves/2026/CVE-2026-12394.yaml -t http/cves/2026/CVE-2026-12394.yaml -t http/cves/2025/CVE-2025-68613.yaml -t http/cves/2025/CVE-2025-68613.yaml -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2025/CVE-2025-32463.yaml -t code/cves/2025/CVE-2025-6216.yaml -t http/cves/2026/CVE-2026-15826.yaml -t http/cves/2026/CVE-2026-20896.yaml -t http/cves/2026/CVE-2026-25895.yaml -t http/cves/2026/CVE-2026-64849.yaml -t http/cves/2026/CVE-2026-57219.yaml -t http/cves/2026/CVE-2026-49069.yaml -t http/cves/2026/CVE-2026-35037.yaml -t http/cves/2026/CVE-2026-49069.yaml -t http/cves/2026/CVE-2026-57219.yaml -t http/cves/2026/CVE-2026-35037.yaml -t code/cves/2025/CVE-2025-6984.yaml -t code/cves/2026/CVE-2026-10795.yaml -t http/cves/2026/CVE-2026-56270.yaml -t javascript/misconfiguration/mysql/mysql-empty-password.yaml -t javascript/misconfiguration/mysql/mysql-empty-password.yaml -t javascript/misconfiguration/mysql/mysql-empty-password.yaml -u target-url
+
+# 扫描所有今日新增模板  
+nuclei -t http/cves/2026/CVE-2026-0558.yaml -t http/cves/2026/CVE-2026-12394.yaml -t http/cves/2026/CVE-2026-12394.yaml -t http/cves/2025/CVE-2025-68613.yaml -t http/cves/2025/CVE-2025-68613.yaml -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2025/CVE-2025-32463.yaml -t code/cves/2025/CVE-2025-6216.yaml -t http/cves/2026/CVE-2026-15826.yaml -t http/cves/2026/CVE-2026-20896.yaml -t http/cves/2026/CVE-2026-25895.yaml -t http/cves/2026/CVE-2026-64849.yaml -t http/cves/2026/CVE-2026-57219.yaml -t http/cves/2026/CVE-2026-49069.yaml -t http/cves/2026/CVE-2026-35037.yaml -t http/cves/2026/CVE-2026-49069.yaml -t http/cves/2026/CVE-2026-57219.yaml -t http/cves/2026/CVE-2026-35037.yaml -t code/cves/2025/CVE-2025-6984.yaml -t code/cves/2026/CVE-2026-10795.yaml -t http/cves/2026/CVE-2026-56270.yaml -t javascript/misconfiguration/mysql/mysql-empty-password.yaml -t javascript/misconfiguration/mysql/mysql-empty-password.yaml -t javascript/misconfiguration/mysql/mysql-empty-password.yaml -t headless/cves/2025/CVE-2025-24752.yaml -t headless/cves/2025/CVE-2025-25062.yaml -t headless/cves/2025/CVE-2025-8191.yaml -u target-url
+```
+
+---
+
+*本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)*
+
+*扫描建议仅供参考，请在授权环境下进行安全测试*
