@@ -1,0 +1,693 @@
+---
+title: 'Nuclei POC 精选分析 - 2026-09-08'
+date: '2026-09-08'
+tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
+draft: false
+summary: '从 1203 个模板更新中精选分析 30 个高价值 POC，发现 24 个高风险漏洞'
+authors: ['default']
+category: 'security-intel'
+---
+
+# Nuclei POC 精选分析 - 2026-09-08
+
+## 📊 智能筛选概况
+
+- **发现变更**: 1203 个模板更新
+- **精选分析**: 30 个高价值 POC  
+- **智能跳过**: 1173 个低优先级模板
+- **高风险漏洞**: 24 个
+- **主要类别**: CVE漏洞(30)
+
+> 💡 **智能筛选说明**: 系统自动优先分析 CVE 漏洞、高危漏洞和新增模板，跳过低价值的技术识别类模板，确保高效利用 API 资源。
+
+### 严重程度分布
+
+- 🔴 **严重**: 19 个
+- 🟠 **高危**: 5 个
+- 🟡 **中危**: 6 个
+
+## 🔍 重点漏洞分析
+
+
+### WGDashboard &lt; 4.3.2 - Unauthenticated File Read
+
+- **漏洞ID**: `CVE-2026-44343`
+- **CVE**: `CVE-2026-44343` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00434 (percentile 0.3647) @ 2026-09-07
+
+**描述**: WGDashboard &lt; 4.3.2 contains a path traversal vulnerability caused by improper access control, letting unauthorized attackers access the host file system without authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-44343
+
+**参考链接**: 
+- [参考资料](https://github.com/WGDashboard/WGDashboard/security/advisories/GHSA-rrf5-q4fp-qvgm)
+- [参考资料](https://github.com/WGDashboard/WGDashboard/commit/b15bbce9bc5554ec379d558f032c730db47fcea2)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-44343)
+
+---
+
+
+### WeGIA &lt; 3.6.5 - Unauthenticated Authentication Bypass via extract()
+
+- **漏洞ID**: `CVE-2026-28411`
+- **CVE**: `CVE-2026-28411` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00593 (percentile 0.46219) @ 2026-09-07
+
+**描述**: WeGIA &lt; 3.6.5 contains an authentication bypass caused by unsafe use of extract() on $_REQUEST, letting unauthenticated attackers bypass authentication and access protected areas, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-28411
+
+**参考链接**: 
+- [参考资料](https://github.com/LabRedesCefetRJ/WeGIA/security/advisories/GHSA-jg7w-3wg7-4vhh)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-28411)
+
+---
+
+
+### ClipBucket v5 &lt;&#x3D; 5.5.2 - Unauthenticated Blind SQL Injection
+
+- **漏洞ID**: `CVE-2026-21875`
+- **CVE**: `CVE-2026-21875` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.0039 (percentile 0.32187) @ 2026-09-07
+
+**描述**: ClipBucket v5.5.2-#187 and below contain a blind SQL injection caused by unsanitized obj_id parameter in /actions/ajax.php used in user_exists function, letting attackers perform blind SQL injection remotely, exploit requires crafted POST request.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-21875
+
+**参考链接**: 
+- [参考资料](https://github.com/MacWarrior/clipbucket-v5/security/advisories/GHSA-crpv-fmc4-j392)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-21875)
+
+---
+
+
+### Keras Model.load_model - Arbitrary Code Execution
+
+- **漏洞ID**: `CVE-2025-1550`
+- **CVE**: `CVE-2025-1550` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.02581 (percentile 0.84207) @ 2026-09-07
+
+**描述**: The Keras Model.load_model function permits arbitrary code execution, even with safe_mode&#x3D;True, through a manually constructed, malicious .keras archive. By altering the config.json file within the archive, an attacker can specify arbitrary Python modules and functions, along with their arguments, to be loaded and executed during model loading
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-1550)
+- [参考资料](https://github.com/keras-team/keras/pull/20751)
+- [参考资料](https://towerofhanoi.it/writeups/cve-2025-1550/)
+
+---
+
+
+### Langflow &lt; 1.9.0 - Remote Code Execution
+
+- **漏洞ID**: `CVE-2026-33017`
+- **CVE**: `CVE-2026-33017` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.96177 (percentile 0.99874) @ 2026-09-07
+
+**描述**: Langflow versions prior to 1.9.0 are vulnerable to unauthenticated remote code execution (RCE) via the build_public_tmp endpoint. Attackers can submit a manipulated flow JSON containing Python code that is executed during the build process without proper sandboxing.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-33017
+
+**参考链接**: 
+- [参考资料](https://thehackernews.com/2026/03/critical-langflow-flaw-cve-2026-33017.html)
+- [参考资料](https://www.sysdig.com/blog/cve-2026-33017-how-attackers-compromised-langflow-ai-pipelines-in-20-hours)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-33017)
+
+---
+
+
+### Langflow &lt; 1.9.0 - Remote Code Execution
+
+- **漏洞ID**: `CVE-2026-33017`
+- **CVE**: `CVE-2026-33017` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.96177 (percentile 0.99874) @ 2026-09-07
+
+**描述**: Langflow versions prior to 1.9.0 are vulnerable to unauthenticated remote code execution (RCE) via the build_public_tmp endpoint. Attackers can submit a manipulated flow JSON containing Python code that is executed during the build process without proper sandboxing.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-33017
+
+**参考链接**: 
+- [参考资料](https://thehackernews.com/2026/03/critical-langflow-flaw-cve-2026-33017.html)
+- [参考资料](https://www.sysdig.com/blog/cve-2026-33017-how-attackers-compromised-langflow-ai-pipelines-in-20-hours)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-33017)
+
+---
+
+
+### Langflow &lt; 1.9.0 - Remote Code Execution
+
+- **漏洞ID**: `CVE-2026-33017`
+- **CVE**: `CVE-2026-33017` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.96177 (percentile 0.99874) @ 2026-09-07
+
+**描述**: Langflow versions prior to 1.9.0 are vulnerable to unauthenticated remote code execution (RCE) via the build_public_tmp endpoint. Attackers can submit a manipulated flow JSON containing Python code that is executed during the build process without proper sandboxing.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-33017
+
+**参考链接**: 
+- [参考资料](https://thehackernews.com/2026/03/critical-langflow-flaw-cve-2026-33017.html)
+- [参考资料](https://www.sysdig.com/blog/cve-2026-33017-how-attackers-compromised-langflow-ai-pipelines-in-20-hours)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-33017)
+
+---
+
+
+### Metabase - Unauthenticated SQL Injection
+
+- **漏洞ID**: `CVE-2026-72898`
+- **CVE**: `CVE-2026-72898` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.94217 (percentile 0.99842) @ 2026-09-07
+
+**描述**: Metabase contains a sql injection caused by improper sanitization of input in the &#x27;/reset_password&#x27; database endpoint, letting remote unauthenticated attackers gain administrator access, exploit requires no special privileges.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-72898
+
+**参考链接**: 
+- [参考资料](https://github.com/metabase/metabase/security/advisories/GHSA-vwf4-m7j8-wcjf)
+- [参考资料](https://securityonline.info/metabase-sql-injection-zero-day-exploited/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-72898)
+
+---
+
+
+### Metabase - Unauthenticated SQL Injection
+
+- **漏洞ID**: `CVE-2026-72898`
+- **CVE**: `CVE-2026-72898` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.94217 (percentile 0.99842) @ 2026-09-07
+
+**描述**: Metabase contains a sql injection caused by improper sanitization of input in the &#x27;/reset_password&#x27; database endpoint, letting remote unauthenticated attackers gain administrator access, exploit requires no special privileges.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-72898
+
+**参考链接**: 
+- [参考资料](https://github.com/metabase/metabase/security/advisories/GHSA-vwf4-m7j8-wcjf)
+- [参考资料](https://securityonline.info/metabase-sql-injection-zero-day-exploited/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-72898)
+
+---
+
+
+### Keras Model.load_model - Arbitrary Code Execution
+
+- **漏洞ID**: `CVE-2025-1550`
+- **CVE**: `CVE-2025-1550` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.02581 (percentile 0.84207) @ 2026-09-07
+
+**描述**: The Keras Model.load_model function permits arbitrary code execution, even with safe_mode&#x3D;True, through a manually constructed, malicious .keras archive. By altering the config.json file within the archive, an attacker can specify arbitrary Python modules and functions, along with their arguments, to be loaded and executed during model loading
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-1550)
+- [参考资料](https://github.com/keras-team/keras/pull/20751)
+- [参考资料](https://towerofhanoi.it/writeups/cve-2025-1550/)
+
+---
+
+
+### GitLab - SAML Authentication Bypass
+
+- **漏洞ID**: `CVE-2025-25291`
+- **CVE**: `CVE-2025-25291` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: GitLab 平台
+- **预估影响**: 数千个
+- **EPSS**: 0.2026 (percentile 0.97298) @ 2026-09-07
+
+**描述**: ruby-saml provides security assertion markup language (SAML) single sign-on (SSO) for Ruby. An authentication bypass vulnerability was found in ruby-saml prior to versions 1.12.4 and 1.18.0 due to a parser differential. ReXML and Nokogiri parse XML differently; the parsers can generate entirely different document structures from the same XML input. That allows an attacker to be able to execute a Signature Wrapping attack. This issue may lead to authentication bypass. Versions 1.12.4 and 1.18.0 fix the issue.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-25291
+
+**参考链接**: 
+- [参考资料](https://portswigger.net/research/saml-roulette-the-hacker-always-wins)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials/)
+- [参考资料](https://about.gitlab.com/releases/2025/03/12/patch-release-gitlab-17-9-2-released)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials)
+- [参考资料](https://github.com/SAML-Toolkits/ruby-saml/commit/e76c5b36bac40aedbf1ba7ffaaf495be63328cd9)
+
+---
+
+
+### Sudo - Local Privilege Escalation via chroot
+
+- **漏洞ID**: `CVE-2025-32463`
+- **CVE**: `CVE-2025-32463` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.59417 (percentile 0.99057) @ 2026-09-07
+
+**描述**: Sudo before 1.9.17p1 allows local users to obtain root access by using /etc/nsswitch.conf from a user-controlled directory with the --chroot (-R) option.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-32463
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-32463)
+- [参考资料](https://www.sudo.ws/security/advisories/chroot_bug/)
+- [参考资料](https://ubuntu.com/security/CVE-2025-32463)
+- [参考资料](https://www.wiz.io/vulnerability-database/cve/cve-2025-32463)
+- [参考资料](https://explore.alas.aws.amazon.com/CVE-2025-32463.html)
+
+---
+
+
+### Allegra - Authentication Bypass via Predictable Password Reset Token
+
+- **漏洞ID**: `CVE-2025-6216`
+- **CVE**: `CVE-2025-6216` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.34885 (percentile 0.98322) @ 2026-09-07
+
+**描述**: Allegra calculateTokenExpDate Password Recovery Authentication Bypass Vulnerability. This vulnerability allows remote attackers to bypass authentication on affected installations of Allegra. Authentication is not required to exploit this vulnerability. The specific flaw exists within the password recovery mechanism. The issue results from reliance upon a predictable value when generating a password reset token. An attacker can leverage this vulnerability to bypass authentication on the application.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-6216
+
+**参考链接**: 
+- [参考资料](https://www.zerodayinitiative.com/advisories/ZDI-25-410/)
+- [参考资料](https://alltena.com/en/resources/release-notes/release-notes-for-release-8-1-4-and-release-7-5-2)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-6216)
+
+---
+
+
+### WatchGuard IKEv2 Out-of-Bounds Write Vulnerability
+
+- **漏洞ID**: `CVE-2025-9242`
+- **CVE**: `CVE-2025-9242` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.913 (percentile 0.99802) @ 2026-09-07
+
+**描述**: WatchGuard Fireware OS 11.10.2 to 11.12.4_Update1, 12.0 to 12.11.3, and 2025.1 contains an out-of-bounds write caused by improper handling in Mobile User VPN and Branch Office VPN with IKEv2 dynamic gateway peer, letting remote unauthenticated attackers execute arbitrary code.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-9242
+
+**参考链接**: 
+- [参考资料](https://github.com/watchtowrlabs/watchTowr-vs-WatchGuard-CVE-2025-9242/)
+- [参考资料](https://labs.watchtowr.com/yikes-watchguard-fireware-os-ikev2-out-of-bounds-write-cve-2025-9242)
+
+---
+
+
+### Cisco Catalyst SD-WAN Controller - vHub Authentication Bypass
+
+- **漏洞ID**: `CVE-2026-20182`
+- **CVE**: `CVE-2026-20182` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.91522 (percentile 0.99805) @ 2026-09-07
+
+**描述**: Cisco Catalyst SD-WAN Controller and Manager contain an authentication bypass caused by improper peering authentication mechanism, letting unauthenticated remote attackers obtain administrative privileges, exploit requires sending crafted requests.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-20182
+
+**参考链接**: 
+- [参考资料](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-rpa2-v69WY2SW)
+- [参考资料](https://blog.talosintelligence.com/sd-wan-ongoing-exploitation/)
+- [参考资料](https://www.rapid7.com/blog/post/ve-cve-2026-20182-critical-authentication-bypass-cisco-catalyst-sd-wan-controller-fixed/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-20182)
+
+---
+
+
+### GNU Inetutils telnetd - Authentication Bypass
+
+- **漏洞ID**: `CVE-2026-24061`
+- **CVE**: `CVE-2026-24061` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.97878 (percentile 0.99903) @ 2026-09-07
+
+**描述**: GNU Inetutils telnetd through 2.7 contains an authentication bypass caused by setting the USER environment variable to \&quot;-f root\&quot;, letting remote attackers bypass authentication, exploit requires remote access to telnetd service.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-24061
+
+**参考链接**: 
+- [参考资料](https://github.com/vulhub/vulhub/tree/master/inetutils/CVE-2026-24061)
+
+---
+
+
+### Keras Model.load_model - Arbitrary Code Execution
+
+- **漏洞ID**: `CVE-2025-1550`
+- **CVE**: `CVE-2025-1550` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.02581 (percentile 0.84207) @ 2026-09-07
+
+**描述**: The Keras Model.load_model function permits arbitrary code execution, even with safe_mode&#x3D;True, through a manually constructed, malicious .keras archive. By altering the config.json file within the archive, an attacker can specify arbitrary Python modules and functions, along with their arguments, to be loaded and executed during model loading
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-1550)
+- [参考资料](https://github.com/keras-team/keras/pull/20751)
+- [参考资料](https://towerofhanoi.it/writeups/cve-2025-1550/)
+
+---
+
+
+### GitLab - SAML Authentication Bypass
+
+- **漏洞ID**: `CVE-2025-25291`
+- **CVE**: `CVE-2025-25291` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: GitLab 平台
+- **预估影响**: 数千个
+- **EPSS**: 0.2026 (percentile 0.97298) @ 2026-09-07
+
+**描述**: ruby-saml provides security assertion markup language (SAML) single sign-on (SSO) for Ruby. An authentication bypass vulnerability was found in ruby-saml prior to versions 1.12.4 and 1.18.0 due to a parser differential. ReXML and Nokogiri parse XML differently; the parsers can generate entirely different document structures from the same XML input. That allows an attacker to be able to execute a Signature Wrapping attack. This issue may lead to authentication bypass. Versions 1.12.4 and 1.18.0 fix the issue.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-25291
+
+**参考链接**: 
+- [参考资料](https://portswigger.net/research/saml-roulette-the-hacker-always-wins)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials/)
+- [参考资料](https://about.gitlab.com/releases/2025/03/12/patch-release-gitlab-17-9-2-released)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials)
+- [参考资料](https://github.com/SAML-Toolkits/ruby-saml/commit/e76c5b36bac40aedbf1ba7ffaaf495be63328cd9)
+
+---
+
+
+### Sudo - Local Privilege Escalation via chroot
+
+- **漏洞ID**: `CVE-2025-32463`
+- **CVE**: `CVE-2025-32463` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.59417 (percentile 0.99057) @ 2026-09-07
+
+**描述**: Sudo before 1.9.17p1 allows local users to obtain root access by using /etc/nsswitch.conf from a user-controlled directory with the --chroot (-R) option.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-32463
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-32463)
+- [参考资料](https://www.sudo.ws/security/advisories/chroot_bug/)
+- [参考资料](https://ubuntu.com/security/CVE-2025-32463)
+- [参考资料](https://www.wiz.io/vulnerability-database/cve/cve-2025-32463)
+- [参考资料](https://explore.alas.aws.amazon.com/CVE-2025-32463.html)
+
+---
+
+
+### Nginx UI &lt;&#x3D; 2.3.7 - Unauthenticated Installer Exposure
+
+- **漏洞ID**: `CVE-2026-42221`
+- **CVE**: `CVE-2026-42221` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00346 (percentile 0.27529) @ 2026-09-07
+
+**描述**: Nginx UI 2.0.0 to 2.3.8 contains an authentication bypass caused by unauthenticated access to /api/install during first-run setup, letting remote attackers claim the initial admin account, exploit requires attacker to access the service before legitimate operator.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-42221
+
+**参考链接**: 
+- [参考资料](https://github.com/0xJacky/nginx-ui/security/advisories/GHSA-h27v-ph7w-m9fp)
+- [参考资料](https://github.com/0xJacky/nginx-ui/releases/tag/v2.3.8)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-42221)
+
+---
+
+
+### langchain-ai langchain - XML External Entity Injection
+
+- **漏洞ID**: `CVE-2025-6984`
+- **CVE**: `CVE-2025-6984` (2025)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.01647 (percentile 0.74905) @ 2026-09-07
+
+**描述**: langchain-ai/langchain 0.3.63 contains an XML External Entity (XXE) injection caused by insecure XML parsing in EverNoteLoader using etree.iterparse(), letting attackers disclose sensitive information, exploit requires crafted malicious XML payload.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-6984
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-6984)
+- [参考资料](https://huntr.com/bounties/a6b521cf-258c-41c0-9edb-d8ef976abb2a)
+- [参考资料](https://github.com/langchain-ai/langchain-community/commit/e842452)
+
+---
+
+
+### UpdraftPlus WP Backup & Migration Plugin - Authentication Bypass
+
+- **漏洞ID**: `CVE-2026-10795`
+- **CVE**: `CVE-2026-10795` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.03578 (percentile 0.8863) @ 2026-09-07
+
+**描述**: UpdraftPlus WP Backup & Migration Plugin for WordPress &lt;&#x3D; 1.26.4 contains an authentication bypass caused by insufficient validation in UpdraftPlus_Remote_Communications_V2::wp_loaded, letting unauthenticated attackers execute arbitrary RPC commands as admin, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-10795
+
+**参考链接**: 
+- [参考资料](https://patchstack.com/database/vulnerability/wordpress-updraftplus-wp-backup-migration-plugin-1-26-4-unauthenticated-authentication-bypass-via-updraftcentral-udrpc-vulnerability)
+- [参考资料](https://teamupdraft.com/blog/important-security-update-for-updraftplus-and-updraftcentral-users/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-10795)
+
+---
+
+
+### langchain-ai langchain - XML External Entity Injection
+
+- **漏洞ID**: `CVE-2025-6984`
+- **CVE**: `CVE-2025-6984` (2025)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.01647 (percentile 0.74905) @ 2026-09-07
+
+**描述**: langchain-ai/langchain 0.3.63 contains an XML External Entity (XXE) injection caused by insecure XML parsing in EverNoteLoader using etree.iterparse(), letting attackers disclose sensitive information, exploit requires crafted malicious XML payload.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-6984
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-6984)
+- [参考资料](https://huntr.com/bounties/a6b521cf-258c-41c0-9edb-d8ef976abb2a)
+- [参考资料](https://github.com/langchain-ai/langchain-community/commit/e842452)
+
+---
+
+
+### UpdraftPlus WP Backup & Migration Plugin - Authentication Bypass
+
+- **漏洞ID**: `CVE-2026-10795`
+- **CVE**: `CVE-2026-10795` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.03578 (percentile 0.8863) @ 2026-09-07
+
+**描述**: UpdraftPlus WP Backup & Migration Plugin for WordPress &lt;&#x3D; 1.26.4 contains an authentication bypass caused by insufficient validation in UpdraftPlus_Remote_Communications_V2::wp_loaded, letting unauthenticated attackers execute arbitrary RPC commands as admin, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-10795
+
+**参考链接**: 
+- [参考资料](https://patchstack.com/database/vulnerability/wordpress-updraftplus-wp-backup-migration-plugin-1-26-4-unauthenticated-authentication-bypass-via-updraftcentral-udrpc-vulnerability)
+- [参考资料](https://teamupdraft.com/blog/important-security-update-for-updraftplus-and-updraftcentral-users/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-10795)
+
+---
+
+
+## 📋 完整模板列表
+
+| 模板名称 | 严重程度 | 类别 | 影响资产 | EPSS | 风险评分 |
+|---------|---------|------|---------|------|---------|
+| WGDashboard &lt; 4.3.2 - Unauthenticated File Read | 🔴 critical | CVE漏洞 | 通用 | 0.0043 | 5/5 |
+| WeGIA &lt; 3.6.5 - Unauthenticated Authentication  | 🔴 critical | CVE漏洞 | 通用 | 0.0059 | 5/5 |
+| ClipBucket v5 &lt;&#x3D; 5.5.2 - Unauthenticated B | 🔴 critical | CVE漏洞 | 通用 | 0.0039 | 5/5 |
+| Keras Model.load_model - Arbitrary Code Execution | 🔴 critical | CVE漏洞 | 通用 | 0.0258 | 5/5 |
+| Langflow &lt; 1.9.0 - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 0.9618 | 5/5 |
+| Langflow &lt; 1.9.0 - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 0.9618 | 5/5 |
+| Langflow &lt; 1.9.0 - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 0.9618 | 5/5 |
+| Metabase - Unauthenticated SQL Injection | 🔴 critical | CVE漏洞 | 通用 | 0.9422 | 5/5 |
+| Metabase - Unauthenticated SQL Injection | 🔴 critical | CVE漏洞 | 通用 | 0.9422 | 5/5 |
+| Keras Model.load_model - Arbitrary Code Execution | 🔴 critical | CVE漏洞 | 通用 | 0.0258 | 5/5 |
+| GitLab - SAML Authentication Bypass | 🔴 critical | CVE漏洞 | GitLab 平台 | 0.2026 | 5/5 |
+| Sudo - Local Privilege Escalation via chroot | 🔴 critical | CVE漏洞 | 通用 | 0.5942 | 5/5 |
+| Allegra - Authentication Bypass via Predictable Pa | 🔴 critical | CVE漏洞 | 通用 | 0.3488 | 5/5 |
+| WatchGuard IKEv2 Out-of-Bounds Write Vulnerability | 🔴 critical | CVE漏洞 | 通用 | 0.9130 | 5/5 |
+| Cisco Catalyst SD-WAN Controller - vHub Authentica | 🔴 critical | CVE漏洞 | 通用 | 0.9152 | 5/5 |
+| GNU Inetutils telnetd - Authentication Bypass | 🔴 critical | CVE漏洞 | 通用 | 0.9788 | 5/5 |
+| Keras Model.load_model - Arbitrary Code Execution | 🔴 critical | CVE漏洞 | 通用 | 0.0258 | 5/5 |
+| GitLab - SAML Authentication Bypass | 🔴 critical | CVE漏洞 | GitLab 平台 | 0.2026 | 5/5 |
+| Sudo - Local Privilege Escalation via chroot | 🔴 critical | CVE漏洞 | 通用 | 0.5942 | 5/5 |
+| Nginx UI &lt;&#x3D; 2.3.7 - Unauthenticated Instal | 🟠 high | CVE漏洞 | 通用 | 0.0035 | 4.5/5 |
+| langchain-ai langchain - XML External Entity Injec | 🟠 high | CVE漏洞 | 通用 | 0.0165 | 4.5/5 |
+| UpdraftPlus WP Backup & Migration Plugin - Authent | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0358 | 4.5/5 |
+| langchain-ai langchain - XML External Entity Injec | 🟠 high | CVE漏洞 | 通用 | 0.0165 | 4.5/5 |
+| UpdraftPlus WP Backup & Migration Plugin - Authent | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0358 | 4.5/5 |
+| Essential Addons for Elementor &lt; 6.0.15 - Cross | 🟡 medium | CVE漏洞 | 通用 | 0.0120 | 3.5/5 |
+| Backdrop CMS - Cross-Site Scripting | 🟡 medium | CVE漏洞 | 通用 | 0.0172 | 3.5/5 |
+| Swagger UI &gt;&#x3D;3.14.1 &lt; 3.38.0 - DOM Base | 🟡 medium | CVE漏洞 | 通用 | 0.0162 | 3.5/5 |
+| Essential Addons for Elementor &lt; 6.0.15 - Cross | 🟡 medium | CVE漏洞 | 通用 | 0.0120 | 3.5/5 |
+| Backdrop CMS - Cross-Site Scripting | 🟡 medium | CVE漏洞 | 通用 | 0.0172 | 3.5/5 |
+| Swagger UI &gt;&#x3D;3.14.1 &lt; 3.38.0 - DOM Base | 🟡 medium | CVE漏洞 | 通用 | 0.0162 | 3.5/5 |
+
+## 🛡️ 安全建议
+
+🚨 发现高风险漏洞，建议立即扫描相关资产
+🔍 关注新发布的 CVE 漏洞，及时更新补丁
+⚡ 检测到远程代码执行漏洞，优先处理
+
+## 🔧 扫描建议
+
+建议使用以下 Nuclei 命令进行扫描：
+
+```bash
+# 扫描高危漏洞
+nuclei -t http/cves/2026/CVE-2026-44343.yaml -t http/cves/2026/CVE-2026-28411.yaml -t http/cves/2026/CVE-2026-21875.yaml -t code/cves/2025/CVE-2025-1550.yaml -t http/cves/2026/CVE-2026-33017.yaml -t http/cves/2026/CVE-2026-33017.yaml -t http/cves/2026/CVE-2026-33017.yaml -t http/cves/2026/CVE-2026-72898.yaml -t http/cves/2026/CVE-2026-72898.yaml -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2025/CVE-2025-32463.yaml -t code/cves/2025/CVE-2025-6216.yaml -t code/cves/2025/CVE-2025-9242.yaml -t code/cves/2026/CVE-2026-20182.yaml -t code/cves/2026/CVE-2026-24061.yaml -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2025/CVE-2025-32463.yaml -t http/cves/2026/CVE-2026-42221.yaml -t code/cves/2025/CVE-2025-6984.yaml -t code/cves/2026/CVE-2026-10795.yaml -t code/cves/2025/CVE-2025-6984.yaml -t code/cves/2026/CVE-2026-10795.yaml -u target-url
+
+# 扫描所有今日新增模板  
+nuclei -t http/cves/2026/CVE-2026-44343.yaml -t http/cves/2026/CVE-2026-28411.yaml -t http/cves/2026/CVE-2026-21875.yaml -t code/cves/2025/CVE-2025-1550.yaml -t http/cves/2026/CVE-2026-33017.yaml -t http/cves/2026/CVE-2026-33017.yaml -t http/cves/2026/CVE-2026-33017.yaml -t http/cves/2026/CVE-2026-72898.yaml -t http/cves/2026/CVE-2026-72898.yaml -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2025/CVE-2025-32463.yaml -t code/cves/2025/CVE-2025-6216.yaml -t code/cves/2025/CVE-2025-9242.yaml -t code/cves/2026/CVE-2026-20182.yaml -t code/cves/2026/CVE-2026-24061.yaml -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2025/CVE-2025-32463.yaml -t http/cves/2026/CVE-2026-42221.yaml -t code/cves/2025/CVE-2025-6984.yaml -t code/cves/2026/CVE-2026-10795.yaml -t code/cves/2025/CVE-2025-6984.yaml -t code/cves/2026/CVE-2026-10795.yaml -t headless/cves/2025/CVE-2025-24752.yaml -t headless/cves/2025/CVE-2025-25062.yaml -t headless/cves/2025/CVE-2025-8191.yaml -t headless/cves/2025/CVE-2025-24752.yaml -t headless/cves/2025/CVE-2025-25062.yaml -t headless/cves/2025/CVE-2025-8191.yaml -u target-url
+```
+
+---
+
+*本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)*
+
+*扫描建议仅供参考，请在授权环境下进行安全测试*
