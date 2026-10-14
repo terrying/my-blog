@@ -1,0 +1,808 @@
+---
+title: 'Nuclei POC 精选分析 - 2026-10-14'
+date: '2026-10-14'
+tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
+draft: false
+summary: '从 928 个模板更新中精选分析 30 个高价值 POC，发现 29 个高风险漏洞'
+authors: ['default']
+category: 'security-intel'
+---
+
+# Nuclei POC 精选分析 - 2026-10-14
+
+## 📊 智能筛选概况
+
+- **发现变更**: 928 个模板更新
+- **精选分析**: 30 个高价值 POC  
+- **智能跳过**: 898 个低优先级模板
+- **高风险漏洞**: 29 个
+- **主要类别**: CVE漏洞(30)
+
+> 💡 **智能筛选说明**: 系统自动优先分析 CVE 漏洞、高危漏洞和新增模板，跳过低价值的技术识别类模板，确保高效利用 API 资源。
+
+### 严重程度分布
+
+- 🔴 **严重**: 13 个
+- 🟠 **高危**: 16 个
+- 🟡 **中危**: 1 个
+
+## 🔍 重点漏洞分析
+
+
+### Ivanti Connect Secure &lt;&#x3D; 22.8R2.4 - Authentication Bypass via X-DSCGI-PATH Header
+
+- **漏洞ID**: `CVE-2026-104935`
+- **CVE**: `CVE-2026-104935` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: Ivanti Connect Secure VPN appliances contain an authentication bypass vulnerability in how the appliance routes requests from front- and back-end processes to CGI script handlers. The URL path is used to determine whether a request is allowed (welcome.cgi is public), while the X-DSCGI-PATH header determines the actual destination of the request. An attacker can send a request to the unauthenticated welcome.cgi endpoint with an X-DSCGI-PATH header pointing to an authenticated CGI script such as wu.cgi, bypassing authentication entirely. This vulnerability is chained with a file write race condition in wu.cgi and a privilege escalation via dsinvoked DSCache trust to achieve unauthenticated root-level remote code execution.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-104935
+
+**参考链接**: 
+- [参考资料](https://www.volexity.com/blog/2026/10/13/a-series-of-unauthenticated-events-chained-exploitation-of-ivanti-connect-secure-zero-days/)
+- [参考资料](https://forums.ivanti.com)
+
+---
+
+
+### Ivanti Connect Secure &lt;&#x3D; 22.8R2.4 - Authentication Bypass via X-DSCGI-PATH Header
+
+- **漏洞ID**: `CVE-2026-104935`
+- **CVE**: `CVE-2026-104935` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: Ivanti Connect Secure VPN appliances contain an authentication bypass vulnerability in how the appliance routes requests from front- and back-end processes to CGI script handlers. The URL path is used to determine whether a request is allowed (welcome.cgi is public), while the X-DSCGI-PATH header determines the actual destination of the request. An attacker can send a request to the unauthenticated welcome.cgi endpoint with an X-DSCGI-PATH header pointing to an authenticated CGI script such as wu.cgi, bypassing authentication entirely. This vulnerability is chained with a file write race condition in wu.cgi and a privilege escalation via dsinvoked DSCache trust to achieve unauthenticated root-level remote code execution.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-104935
+
+**参考链接**: 
+- [参考资料](https://www.volexity.com/blog/2026/10/13/a-series-of-unauthenticated-events-chained-exploitation-of-ivanti-connect-secure-zero-days/)
+- [参考资料](https://forums.ivanti.com)
+
+---
+
+
+### Chef Automate API Gateway - Authentication Bypass
+
+- **漏洞ID**: `CVE-2026-80462`
+- **CVE**: `CVE-2026-80462` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00483 (percentile 0.39876) @ 2026-10-13
+
+**描述**: Chef Automate derives an internal service identity from an X.509 certificate supplied in a request header without verifying its issuer. The load balancer blanks X-Client-Cert but does not strip the Grpc-Metadata- prefixed variants, which grpc-gateway rewrites into the metadata key the gateway&#x27;s auth middleware reads. A remote unauthenticated attacker can present a self-signed certificate naming an internal service such as deployment-service and be authenticated as that service.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-80462
+
+**参考链接**: 
+- [参考资料](https://community.progress.com/s/article/Critical-Security-Bulletin---August-2026---Chef-Automate-Security-Vulnerability)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-80462)
+
+---
+
+
+### Quick Playground &lt;&#x3D; 1.3.1 - Missing Authorization to Unauthenticated Arbitrary File Upload
+
+- **漏洞ID**: `CVE-2026-1830`
+- **CVE**: `CVE-2026-1830` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.08095 (percentile 0.94712) @ 2026-10-13
+
+**描述**: The Quick Playground plugin for WordPress is vulnerable to remote code execution in all versions up to, and including, 1.3.1.
+The plugin exposes a blueprint REST API endpoint (permission_callback: __return_true) that leaks the sync code, and an upload_image endpoint that accepts file uploads with path traversal in the filename parameter without sufficient authorization checks, which can be chained into arbitrary PHP file upload and RCE.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-1830
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-1830)
+- [参考资料](https://www.wordfence.com/threat-intel/vulnerabilities/id/308cd28a-a477-4bc6-a392-ad5a9eca1cb5?source=cve)
+- [参考资料](https://plugins.trac.wordpress.org/browser/quick-playground/trunk/api.php#L39)
+- [参考资料](https://plugins.trac.wordpress.org/browser/quick-playground/trunk/expro-api.php#L419)
+- [参考资料](https://plugins.trac.wordpress.org/changeset?sfp_email=&sfph_mail=&reponame=&old=3500839%40quick-playground&new=3500839%40quick-playground&sfp_email=&sfph_mail=)
+
+---
+
+
+### WordPress Contact Form by Supsystic - Server-Side Template Injection
+
+- **漏洞ID**: `CVE-2026-4257`
+- **CVE**: `CVE-2026-4257` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.32782 (percentile 0.98322) @ 2026-10-13
+
+**描述**: Contact Form by Supsystic WordPress plugin &lt;&#x3D; 1.7.36 contains a server-side template injection caused by unsandboxed Twig_Loader_String and cfsPreFill functionality, letting unauthenticated attackers execute arbitrary code remotely via GET parameters.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-4257
+
+**参考链接**: 
+- [参考资料](https://patchstack.com/database/vulnerability/wordpress-contact-form-by-supsystic-plugin-1-7-36-unauthenticated-server-side-template-injection-via-prefill-functionality-vulnerability)
+- [参考资料](https://plugins.trac.wordpress.org/browser/contact-form-by-supsystic/tags/1.7.36/modules/forms/views/forms.php#L323)
+- [参考资料](https://plugins.trac.wordpress.org/changeset/3491826/contact-form-by-supsystic)
+
+---
+
+
+### Quick Playground &lt;&#x3D; 1.3.1 - Missing Authorization to Unauthenticated Arbitrary File Upload
+
+- **漏洞ID**: `CVE-2026-1830`
+- **CVE**: `CVE-2026-1830` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.08095 (percentile 0.94712) @ 2026-10-13
+
+**描述**: The Quick Playground plugin for WordPress is vulnerable to remote code execution in all versions up to, and including, 1.3.1.
+The plugin exposes a blueprint REST API endpoint (permission_callback: __return_true) that leaks the sync code, and an upload_image endpoint that accepts file uploads with path traversal in the filename parameter without sufficient authorization checks, which can be chained into arbitrary PHP file upload and RCE.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-1830
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-1830)
+- [参考资料](https://www.wordfence.com/threat-intel/vulnerabilities/id/308cd28a-a477-4bc6-a392-ad5a9eca1cb5?source=cve)
+- [参考资料](https://plugins.trac.wordpress.org/browser/quick-playground/trunk/api.php#L39)
+- [参考资料](https://plugins.trac.wordpress.org/browser/quick-playground/trunk/expro-api.php#L419)
+- [参考资料](https://plugins.trac.wordpress.org/changeset?sfp_email=&sfph_mail=&reponame=&old=3500839%40quick-playground&new=3500839%40quick-playground&sfp_email=&sfph_mail=)
+
+---
+
+
+### WordPress Contact Form by Supsystic - Server-Side Template Injection
+
+- **漏洞ID**: `CVE-2026-4257`
+- **CVE**: `CVE-2026-4257` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.32782 (percentile 0.98322) @ 2026-10-13
+
+**描述**: Contact Form by Supsystic WordPress plugin &lt;&#x3D; 1.7.36 contains a server-side template injection caused by unsandboxed Twig_Loader_String and cfsPreFill functionality, letting unauthenticated attackers execute arbitrary code remotely via GET parameters.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-4257
+
+**参考链接**: 
+- [参考资料](https://patchstack.com/database/vulnerability/wordpress-contact-form-by-supsystic-plugin-1-7-36-unauthenticated-server-side-template-injection-via-prefill-functionality-vulnerability)
+- [参考资料](https://plugins.trac.wordpress.org/browser/contact-form-by-supsystic/tags/1.7.36/modules/forms/views/forms.php#L323)
+- [参考资料](https://plugins.trac.wordpress.org/changeset/3491826/contact-form-by-supsystic)
+
+---
+
+
+### Keras Model.load_model - Arbitrary Code Execution
+
+- **漏洞ID**: `CVE-2025-1550`
+- **CVE**: `CVE-2025-1550` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.02626 (percentile 0.85111) @ 2026-10-13
+
+**描述**: The Keras Model.load_model function permits arbitrary code execution, even with safe_mode&#x3D;True, through a manually constructed, malicious .keras archive. By altering the config.json file within the archive, an attacker can specify arbitrary Python modules and functions, along with their arguments, to be loaded and executed during model loading
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-1550)
+- [参考资料](https://github.com/keras-team/keras/pull/20751)
+- [参考资料](https://towerofhanoi.it/writeups/cve-2025-1550/)
+
+---
+
+
+### GitLab - SAML Authentication Bypass
+
+- **漏洞ID**: `CVE-2025-25291`
+- **CVE**: `CVE-2025-25291` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: GitLab 平台
+- **预估影响**: 数千个
+- **EPSS**: 0.20965 (percentile 0.97519) @ 2026-10-13
+
+**描述**: ruby-saml provides security assertion markup language (SAML) single sign-on (SSO) for Ruby. An authentication bypass vulnerability was found in ruby-saml prior to versions 1.12.4 and 1.18.0 due to a parser differential. ReXML and Nokogiri parse XML differently; the parsers can generate entirely different document structures from the same XML input. That allows an attacker to be able to execute a Signature Wrapping attack. This issue may lead to authentication bypass. Versions 1.12.4 and 1.18.0 fix the issue.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-25291
+
+**参考链接**: 
+- [参考资料](https://portswigger.net/research/saml-roulette-the-hacker-always-wins)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials/)
+- [参考资料](https://about.gitlab.com/releases/2025/03/12/patch-release-gitlab-17-9-2-released)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials)
+- [参考资料](https://github.com/SAML-Toolkits/ruby-saml/commit/e76c5b36bac40aedbf1ba7ffaaf495be63328cd9)
+
+---
+
+
+### Sudo - Local Privilege Escalation via chroot
+
+- **漏洞ID**: `CVE-2025-32463`
+- **CVE**: `CVE-2025-32463` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.55498 (percentile 0.9902) @ 2026-10-13
+
+**描述**: Sudo before 1.9.17p1 allows local users to obtain root access by using /etc/nsswitch.conf from a user-controlled directory with the --chroot (-R) option.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-32463
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-32463)
+- [参考资料](https://www.sudo.ws/security/advisories/chroot_bug/)
+- [参考资料](https://ubuntu.com/security/CVE-2025-32463)
+- [参考资料](https://www.wiz.io/vulnerability-database/cve/cve-2025-32463)
+- [参考资料](https://explore.alas.aws.amazon.com/CVE-2025-32463.html)
+
+---
+
+
+### Allegra - Authentication Bypass via Predictable Password Reset Token
+
+- **漏洞ID**: `CVE-2025-6216`
+- **CVE**: `CVE-2025-6216` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.47775 (percentile 0.98829) @ 2026-10-13
+
+**描述**: Allegra calculateTokenExpDate Password Recovery Authentication Bypass Vulnerability. This vulnerability allows remote attackers to bypass authentication on affected installations of Allegra. Authentication is not required to exploit this vulnerability. The specific flaw exists within the password recovery mechanism. The issue results from reliance upon a predictable value when generating a password reset token. An attacker can leverage this vulnerability to bypass authentication on the application.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-6216
+
+**参考链接**: 
+- [参考资料](https://www.zerodayinitiative.com/advisories/ZDI-25-410/)
+- [参考资料](https://alltena.com/en/resources/release-notes/release-notes-for-release-8-1-4-and-release-7-5-2)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-6216)
+
+---
+
+
+### RustFS &lt; 1.0.0-alpha.77 - Hardcoded gRPC Authentication Token
+
+- **漏洞ID**: `CVE-2025-68926`
+- **CVE**: `CVE-2025-68926` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.3185 (percentile 0.98273) @ 2026-10-13
+
+**描述**: RustFS before 1.0.0-alpha.77 used a hardcoded gRPC authentication token &quot;rustfs rpc&quot; that could not be changed without recompiling and this allowed unauthenticated remote attackers to gain full administrative access to the gRPC API.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-68926
+
+**参考链接**: 
+- [参考资料](https://github.com/rustfs/rustfs/security/advisories/GHSA-h956-rh7x-ppgj)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-68926)
+
+---
+
+
+### Phoenix Storybook - Remote Code Execution
+
+- **漏洞ID**: `CVE-2026-8467`
+- **CVE**: `CVE-2026-8467` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.02059 (percentile 0.80817) @ 2026-10-13
+
+**描述**: Phenixdigital phoenix_storybook &gt;&#x3D;0.5.0 &lt;1.1.0 contains a code injection caused by unsanitized attribute value interpolation in HEEx template generation, letting unauthenticated remote attackers execute arbitrary code on the server, exploit requires sending crafted WebSocket event data.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-8467
+
+**参考链接**: 
+- [参考资料](https://github.com/plausible/analytics/security/advisories)
+- [参考资料](https://github.com/plausible/analytics)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-8467)
+
+---
+
+
+### WordPress weMail &lt; 2.1.3 - Cross-Site Scripting
+
+- **漏洞ID**: `CVE-2026-8089`
+- **CVE**: `CVE-2026-8089` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.00282 (percentile 0.19151) @ 2026-10-13
+
+**描述**: The weMail plugin for WordPress &lt; 2.1.3 is vulnerable to reflected cross-site scripting. The plugin does not properly escape a user-supplied parameter before reflecting it into an HTML attribute on a non-nonce-protected AJAX response.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-8089
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/f00c1853-a4b2-4e91-99b3-fed8acbe6da7/)
+- [参考资料](https://wordpress.org/plugins/wemail/)
+
+---
+
+
+### WooCommerce Designer Pro &lt;&#x3D; 1.9.28 - Arbitrary File Read
+
+- **漏洞ID**: `CVE-2025-10897`
+- **CVE**: `CVE-2025-10897` (2025)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.01947 (percentile 0.79683) @ 2026-10-13
+
+**描述**: WooCommerce Designer Pro theme for WordPress &lt;&#x3D; 1.9.28 contains an arbitrary file read vulnerability caused by improper input validation, letting unauthenticated attackers read arbitrary files including sensitive configuration files, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-10897
+
+**参考链接**: 
+- [参考资料](https://www.wordfence.com/threat-intel/vulnerabilities/wordpress-plugins/wc-designer-pro/woocommerce-designer-pro-1928-unauthenticated-arbitrary-file-read)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-10897)
+
+---
+
+
+### WPForms Pro &lt;&#x3D; 1.10.1.1 - Unauthenticated Arbitrary File Upload
+
+- **漏洞ID**: `CVE-2026-10818`
+- **CVE**: `CVE-2026-10818` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.02482 (percentile 0.84181) @ 2026-10-13
+
+**描述**: WPForms Pro for WordPress up to and including 1.10.1.1 allows unauthenticated arbitrary file upload. The wpforms_upload_chunk_init, wpforms_upload_chunk and wpforms_file_chunks_uploaded AJAX actions are registered for unauthenticated visitors without a nonce check, and raw chunk bytes are written under wp-content/uploads/wpforms/tmp/ before file extension and MIME type validation happens, so a rejected upload never removes the already written file. An unauthenticated attacker can plant arbitrary files and, depending on server configuration, achieve remote code execution.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-10818
+
+**参考链接**: 
+- [参考资料](https://github.com/Nxploited/CVE-2026-10818)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-10818)
+
+---
+
+
+### Ally – Web Accessibility & Usability &lt;&#x3D; 4.0.3 - SQL Injection
+
+- **漏洞ID**: `CVE-2026-2413`
+- **CVE**: `CVE-2026-2413` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.02331 (percentile 0.83112) @ 2026-10-13
+
+**描述**: The Ally – Web Accessibility & Usability plugin for WordPress is vulnerable to SQL Injection via the URL path in all versions up to, and including, 4.0.3. This is due to insufficient escaping on the user-supplied URL parameter in the `get_global_remediations()` method, where it is directly concatenated into an SQL JOIN clause without proper sanitization for SQL context. While `esc_url_raw()` is applied for URL safety, it does not prevent SQL metacharacters (single quotes, parentheses) from being injected. This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database via time-based blind SQL injection techniques. The Remediation module must be active, which requires the plugin to be connected to an Elementor account.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-2413
+
+**参考链接**: 
+- [参考资料](https://www.wordfence.com/threat-intel/vulnerabilities/wordpress-plugins/pojo-accessibility/ally-web-accessibility-usability-403-unauthenticated-sql-injection-via-url-path)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-2413)
+
+---
+
+
+### XStore Theme &lt; 9.7.3 - SQL Injection
+
+- **漏洞ID**: `CVE-2026-3326`
+- **CVE**: `CVE-2026-3326` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.01562 (percentile 0.74625) @ 2026-10-13
+
+**描述**: The Xstore WordPress theme before 9.7.3 does not properly sanitise and escape a parameter before using it in a SQL statement via an AJAX action available to unauthenticated users, leading to a SQL injection
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-3326
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/2c5bdb17-8b12-45b5-878b-627056dc8956/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-3326)
+
+---
+
+
+### HT Mega &lt; 3.0.7 - Sensitive Information Disclosure
+
+- **漏洞ID**: `CVE-2026-4106`
+- **CVE**: `CVE-2026-4106` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.0073 (percentile 0.53036) @ 2026-10-13
+
+**描述**: The HT Mega plugin for WordPress is vulnerable to Sensitive Information Exposure via AJAX actions. This template dynamically extracts the security nonce before exploitation.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-4106
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/9477ead2-3990-4aae-8e66-09ee2f4daa3e/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-4106)
+
+---
+
+
+### WP User Manager – User Profile Builder & Membership - Local File Inclusion
+
+- **漏洞ID**: `CVE-2026-9290`
+- **CVE**: `CVE-2026-9290` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.02734 (percentile 0.85747) @ 2026-10-13
+
+**描述**: WP User Manager – User Profile Builder & Membership plugin for WordPress &lt;&#x3D; 2.9.17 contains a local file inclusion caused by improper handling in the profile template scope function, letting unauthenticated attackers execute arbitrary PHP code, exploit requires ability to upload or control PHP files.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-9290
+
+**参考链接**: 
+- [参考资料](https://patchstack.com/database/vulnerability/wordpress-wp-user-manager-user-profile-builder-membership-plugin-2-9-17-unauthenticated-path-traversal-to-local-file-inclusion-vulnerability)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-9290)
+
+---
+
+
+### WooCommerce Designer Pro &lt;&#x3D; 1.9.28 - Arbitrary File Read
+
+- **漏洞ID**: `CVE-2025-10897`
+- **CVE**: `CVE-2025-10897` (2025)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.01947 (percentile 0.79683) @ 2026-10-13
+
+**描述**: WooCommerce Designer Pro theme for WordPress &lt;&#x3D; 1.9.28 contains an arbitrary file read vulnerability caused by improper input validation, letting unauthenticated attackers read arbitrary files including sensitive configuration files, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-10897
+
+**参考链接**: 
+- [参考资料](https://www.wordfence.com/threat-intel/vulnerabilities/wordpress-plugins/wc-designer-pro/woocommerce-designer-pro-1928-unauthenticated-arbitrary-file-read)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-10897)
+
+---
+
+
+### WPForms Pro &lt;&#x3D; 1.10.1.1 - Unauthenticated Arbitrary File Upload
+
+- **漏洞ID**: `CVE-2026-10818`
+- **CVE**: `CVE-2026-10818` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.02482 (percentile 0.84181) @ 2026-10-13
+
+**描述**: WPForms Pro for WordPress up to and including 1.10.1.1 allows unauthenticated arbitrary file upload. The wpforms_upload_chunk_init, wpforms_upload_chunk and wpforms_file_chunks_uploaded AJAX actions are registered for unauthenticated visitors without a nonce check, and raw chunk bytes are written under wp-content/uploads/wpforms/tmp/ before file extension and MIME type validation happens, so a rejected upload never removes the already written file. An unauthenticated attacker can plant arbitrary files and, depending on server configuration, achieve remote code execution.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-10818
+
+**参考链接**: 
+- [参考资料](https://github.com/Nxploited/CVE-2026-10818)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-10818)
+
+---
+
+
+### Ally – Web Accessibility & Usability &lt;&#x3D; 4.0.3 - SQL Injection
+
+- **漏洞ID**: `CVE-2026-2413`
+- **CVE**: `CVE-2026-2413` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.02331 (percentile 0.83112) @ 2026-10-13
+
+**描述**: The Ally – Web Accessibility & Usability plugin for WordPress is vulnerable to SQL Injection via the URL path in all versions up to, and including, 4.0.3. This is due to insufficient escaping on the user-supplied URL parameter in the `get_global_remediations()` method, where it is directly concatenated into an SQL JOIN clause without proper sanitization for SQL context. While `esc_url_raw()` is applied for URL safety, it does not prevent SQL metacharacters (single quotes, parentheses) from being injected. This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database via time-based blind SQL injection techniques. The Remediation module must be active, which requires the plugin to be connected to an Elementor account.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-2413
+
+**参考链接**: 
+- [参考资料](https://www.wordfence.com/threat-intel/vulnerabilities/wordpress-plugins/pojo-accessibility/ally-web-accessibility-usability-403-unauthenticated-sql-injection-via-url-path)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-2413)
+
+---
+
+
+### XStore Theme &lt; 9.7.3 - SQL Injection
+
+- **漏洞ID**: `CVE-2026-3326`
+- **CVE**: `CVE-2026-3326` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.01562 (percentile 0.74625) @ 2026-10-13
+
+**描述**: The Xstore WordPress theme before 9.7.3 does not properly sanitise and escape a parameter before using it in a SQL statement via an AJAX action available to unauthenticated users, leading to a SQL injection
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-3326
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/2c5bdb17-8b12-45b5-878b-627056dc8956/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-3326)
+
+---
+
+
+### HT Mega &lt; 3.0.7 - Sensitive Information Disclosure
+
+- **漏洞ID**: `CVE-2026-4106`
+- **CVE**: `CVE-2026-4106` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.0073 (percentile 0.53036) @ 2026-10-13
+
+**描述**: The HT Mega plugin for WordPress is vulnerable to Sensitive Information Exposure via AJAX actions. This template dynamically extracts the security nonce before exploitation.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-4106
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/9477ead2-3990-4aae-8e66-09ee2f4daa3e/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-4106)
+
+---
+
+
+### WP User Manager – User Profile Builder & Membership - Local File Inclusion
+
+- **漏洞ID**: `CVE-2026-9290`
+- **CVE**: `CVE-2026-9290` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.02734 (percentile 0.85747) @ 2026-10-13
+
+**描述**: WP User Manager – User Profile Builder & Membership plugin for WordPress &lt;&#x3D; 2.9.17 contains a local file inclusion caused by improper handling in the profile template scope function, letting unauthenticated attackers execute arbitrary PHP code, exploit requires ability to upload or control PHP files.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-9290
+
+**参考链接**: 
+- [参考资料](https://patchstack.com/database/vulnerability/wordpress-wp-user-manager-user-profile-builder-membership-plugin-2-9-17-unauthenticated-path-traversal-to-local-file-inclusion-vulnerability)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-9290)
+
+---
+
+
+### langchain-ai langchain - XML External Entity Injection
+
+- **漏洞ID**: `CVE-2025-6984`
+- **CVE**: `CVE-2025-6984` (2025)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.01647 (percentile 0.75862) @ 2026-10-13
+
+**描述**: langchain-ai/langchain 0.3.63 contains an XML External Entity (XXE) injection caused by insecure XML parsing in EverNoteLoader using etree.iterparse(), letting attackers disclose sensitive information, exploit requires crafted malicious XML payload.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-6984
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-6984)
+- [参考资料](https://huntr.com/bounties/a6b521cf-258c-41c0-9edb-d8ef976abb2a)
+- [参考资料](https://github.com/langchain-ai/langchain-community/commit/e842452)
+
+---
+
+
+### UpdraftPlus WP Backup & Migration Plugin - Authentication Bypass
+
+- **漏洞ID**: `CVE-2026-10795`
+- **CVE**: `CVE-2026-10795` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.03635 (percentile 0.89303) @ 2026-10-13
+
+**描述**: UpdraftPlus WP Backup & Migration Plugin for WordPress &lt;&#x3D; 1.26.4 contains an authentication bypass caused by insufficient validation in UpdraftPlus_Remote_Communications_V2::wp_loaded, letting unauthenticated attackers execute arbitrary RPC commands as admin, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-10795
+
+**参考链接**: 
+- [参考资料](https://patchstack.com/database/vulnerability/wordpress-updraftplus-wp-backup-migration-plugin-1-26-4-unauthenticated-authentication-bypass-via-updraftcentral-udrpc-vulnerability)
+- [参考资料](https://teamupdraft.com/blog/important-security-update-for-updraftplus-and-updraftcentral-users/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-10795)
+
+---
+
+
+### Copy Fail - Linux Kernel Local Privilege Escalation via AF_ALG
+
+- **漏洞ID**: `CVE-2026-31431`
+- **CVE**: `CVE-2026-31431` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.03437 (percentile 0.88691) @ 2026-10-13
+
+**描述**: In the Linux kernel, the following vulnerability has been resolved: crypto: algif_aead - Revert to operating out-of-place This mostly reverts commit 72548b093ee3 except for the copying of the associated data. There is no benefit in operating in-place in algif_aead since the source and destination come from different mappings. Get rid of all the complexity added for in-place operation and just copy the AD directly.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-31431
+
+**参考链接**: 
+- [参考资料](https://discourse.ubuntu.com/t/fixes-available-for-cve-2026-31431-copy-fail-linux-kernel-local-privilege-escalation-vulnerability/81498)
+- [参考资料](https://cert.europa.eu/publications/security-advisories/2026-005)
+- [参考资料](https://xint.io/blog/copy-fail-linux-distributions)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-31431)
+
+---
+
+
+## 📋 完整模板列表
+
+| 模板名称 | 严重程度 | 类别 | 影响资产 | EPSS | 风险评分 |
+|---------|---------|------|---------|------|---------|
+| Ivanti Connect Secure &lt;&#x3D; 22.8R2.4 - Authen | 🔴 critical | CVE漏洞 | 通用 | - | 5/5 |
+| Ivanti Connect Secure &lt;&#x3D; 22.8R2.4 - Authen | 🔴 critical | CVE漏洞 | 通用 | - | 5/5 |
+| Chef Automate API Gateway - Authentication Bypass | 🔴 critical | CVE漏洞 | 通用 | 0.0048 | 5/5 |
+| Quick Playground &lt;&#x3D; 1.3.1 - Missing Author | 🔴 critical | CVE漏洞 | WordPress 站点 | 0.0809 | 5/5 |
+| WordPress Contact Form by Supsystic - Server-Side  | 🔴 critical | CVE漏洞 | WordPress 站点 | 0.3278 | 5/5 |
+| Quick Playground &lt;&#x3D; 1.3.1 - Missing Author | 🔴 critical | CVE漏洞 | WordPress 站点 | 0.0809 | 5/5 |
+| WordPress Contact Form by Supsystic - Server-Side  | 🔴 critical | CVE漏洞 | WordPress 站点 | 0.3278 | 5/5 |
+| Keras Model.load_model - Arbitrary Code Execution | 🔴 critical | CVE漏洞 | 通用 | 0.0263 | 5/5 |
+| GitLab - SAML Authentication Bypass | 🔴 critical | CVE漏洞 | GitLab 平台 | 0.2097 | 5/5 |
+| Sudo - Local Privilege Escalation via chroot | 🔴 critical | CVE漏洞 | 通用 | 0.5550 | 5/5 |
+| Allegra - Authentication Bypass via Predictable Pa | 🔴 critical | CVE漏洞 | 通用 | 0.4778 | 5/5 |
+| RustFS &lt; 1.0.0-alpha.77 - Hardcoded gRPC Authen | 🔴 critical | CVE漏洞 | 通用 | 0.3185 | 5/5 |
+| Phoenix Storybook - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 0.0206 | 5/5 |
+| WordPress weMail &lt; 2.1.3 - Cross-Site Scripting | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0028 | 4.5/5 |
+| WooCommerce Designer Pro &lt;&#x3D; 1.9.28 - Arbit | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0195 | 4.5/5 |
+| WPForms Pro &lt;&#x3D; 1.10.1.1 - Unauthenticated  | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0248 | 4.5/5 |
+| Ally – Web Accessibility & Usability &lt;&#x3D; 4. | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0233 | 4.5/5 |
+| XStore Theme &lt; 9.7.3 - SQL Injection | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0156 | 4.5/5 |
+| HT Mega &lt; 3.0.7 - Sensitive Information Disclos | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0073 | 4.5/5 |
+| WP User Manager – User Profile Builder & Membershi | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0273 | 4.5/5 |
+| WooCommerce Designer Pro &lt;&#x3D; 1.9.28 - Arbit | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0195 | 4.5/5 |
+| WPForms Pro &lt;&#x3D; 1.10.1.1 - Unauthenticated  | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0248 | 4.5/5 |
+| Ally – Web Accessibility & Usability &lt;&#x3D; 4. | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0233 | 4.5/5 |
+| XStore Theme &lt; 9.7.3 - SQL Injection | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0156 | 4.5/5 |
+| HT Mega &lt; 3.0.7 - Sensitive Information Disclos | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0073 | 4.5/5 |
+| WP User Manager – User Profile Builder & Membershi | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0273 | 4.5/5 |
+| langchain-ai langchain - XML External Entity Injec | 🟠 high | CVE漏洞 | 通用 | 0.0165 | 4.5/5 |
+| UpdraftPlus WP Backup & Migration Plugin - Authent | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0364 | 4.5/5 |
+| Copy Fail - Linux Kernel Local Privilege Escalatio | 🟠 high | CVE漏洞 | 通用 | 0.0344 | 4.5/5 |
+| Essential Addons for Elementor &lt; 6.0.15 - Cross | 🟡 medium | CVE漏洞 | 通用 | 0.0121 | 3.5/5 |
+
+## 🛡️ 安全建议
+
+🚨 发现高风险漏洞，建议立即扫描相关资产
+🔍 关注新发布的 CVE 漏洞，及时更新补丁
+⚡ 检测到远程代码执行漏洞，优先处理
+
+## 🔧 扫描建议
+
+建议使用以下 Nuclei 命令进行扫描：
+
+```bash
+# 扫描高危漏洞
+nuclei -t http/cves/2026/CVE-2026-104935.yaml -t http/cves/2026/CVE-2026-104935.yaml -t http/cves/2026/CVE-2026-80462.yaml -t http/cves/2026/CVE-2026-1830.yaml -t http/cves/2026/CVE-2026-4257.yaml -t http/cves/2026/CVE-2026-1830.yaml -t http/cves/2026/CVE-2026-4257.yaml -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2025/CVE-2025-32463.yaml -t code/cves/2025/CVE-2025-6216.yaml -t code/cves/2025/CVE-2025-68926.yaml -t code/cves/2026/CVE-2026-8467.yaml -t http/cves/2026/CVE-2026-8089.yaml -t http/cves/2025/CVE-2025-10897.yaml -t http/cves/2026/CVE-2026-10818.yaml -t http/cves/2026/CVE-2026-2413.yaml -t http/cves/2026/CVE-2026-3326.yaml -t http/cves/2026/CVE-2026-4106.yaml -t http/cves/2026/CVE-2026-9290.yaml -t http/cves/2025/CVE-2025-10897.yaml -t http/cves/2026/CVE-2026-10818.yaml -t http/cves/2026/CVE-2026-2413.yaml -t http/cves/2026/CVE-2026-3326.yaml -t http/cves/2026/CVE-2026-4106.yaml -t http/cves/2026/CVE-2026-9290.yaml -t code/cves/2025/CVE-2025-6984.yaml -t code/cves/2026/CVE-2026-10795.yaml -t code/cves/2026/CVE-2026-31431.yaml -u target-url
+
+# 扫描所有今日新增模板  
+nuclei -t http/cves/2026/CVE-2026-104935.yaml -t http/cves/2026/CVE-2026-104935.yaml -t http/cves/2026/CVE-2026-80462.yaml -t http/cves/2026/CVE-2026-1830.yaml -t http/cves/2026/CVE-2026-4257.yaml -t http/cves/2026/CVE-2026-1830.yaml -t http/cves/2026/CVE-2026-4257.yaml -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2025/CVE-2025-32463.yaml -t code/cves/2025/CVE-2025-6216.yaml -t code/cves/2025/CVE-2025-68926.yaml -t code/cves/2026/CVE-2026-8467.yaml -t http/cves/2026/CVE-2026-8089.yaml -t http/cves/2025/CVE-2025-10897.yaml -t http/cves/2026/CVE-2026-10818.yaml -t http/cves/2026/CVE-2026-2413.yaml -t http/cves/2026/CVE-2026-3326.yaml -t http/cves/2026/CVE-2026-4106.yaml -t http/cves/2026/CVE-2026-9290.yaml -t http/cves/2025/CVE-2025-10897.yaml -t http/cves/2026/CVE-2026-10818.yaml -t http/cves/2026/CVE-2026-2413.yaml -t http/cves/2026/CVE-2026-3326.yaml -t http/cves/2026/CVE-2026-4106.yaml -t http/cves/2026/CVE-2026-9290.yaml -t code/cves/2025/CVE-2025-6984.yaml -t code/cves/2026/CVE-2026-10795.yaml -t code/cves/2026/CVE-2026-31431.yaml -t headless/cves/2025/CVE-2025-24752.yaml -u target-url
+```
+
+---
+
+*本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)*
+
+*扫描建议仅供参考，请在授权环境下进行安全测试*
