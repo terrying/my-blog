@@ -1,0 +1,783 @@
+---
+title: 'Nuclei POC 精选分析 - 2026-10-27'
+date: '2026-10-27'
+tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
+draft: false
+summary: '从 633 个模板更新中精选分析 30 个高价值 POC，发现 27 个高风险漏洞'
+authors: ['default']
+category: 'security-intel'
+---
+
+# Nuclei POC 精选分析 - 2026-10-27
+
+## 📊 智能筛选概况
+
+- **发现变更**: 633 个模板更新
+- **精选分析**: 30 个高价值 POC  
+- **智能跳过**: 603 个低优先级模板
+- **高风险漏洞**: 27 个
+- **主要类别**: CVE漏洞(30)
+
+> 💡 **智能筛选说明**: 系统自动优先分析 CVE 漏洞、高危漏洞和新增模板，跳过低价值的技术识别类模板，确保高效利用 API 资源。
+
+### 严重程度分布
+
+- 🔴 **严重**: 15 个
+- 🟠 **高危**: 12 个
+- 🟡 **中危**: 3 个
+
+## 🔍 重点漏洞分析
+
+
+### Ruoyi-Vue-Pro - Unauthenticated Admin Takeover via Predictable SMS Code
+
+- **漏洞ID**: `CVE-2026-116006`
+- **CVE**: `CVE-2026-116006` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00384 (percentile 0.3219) @ 2026-10-26
+
+**描述**: ruoyi-vue-pro (Yudao) ships base configuration yudao.sms-code.begin-code&#x3D;end-code&#x3D;9999, so every generated SMS verification code is the constant &quot;9999&quot; in all profiles. The anonymous SMS-login flow therefore grants an access token to any account whose mobile number is known: send-sms-code followed by sms-login with code 9999 issues a full token, including for the seeded super administrator account (mobile 18818260272 in the shipped SQL). No CAPTCHA hook exists for scene&#x3D;21 in any profile.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-116006
+
+**参考链接**: 
+- [参考资料](https://gist.github.com/Fulucky0-yuri/1ad8a1f166af7cb85c498473753a8636)
+- [参考资料](https://github.com/YunaiV/ruoyi-vue-pro)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-116006)
+
+---
+
+
+### PHP2Shell (CVE-2026-109618/CVE-2026-109619) - Active Crash Detection
+
+- **漏洞ID**: `CVE-2026-109618`
+- **CVE**: `CVE-2026-109618` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.99981 (percentile 0.99981) @ 2026-10-26
+
+**描述**: PHP uses longjmp() for out-of-memory (OOM) errors to exit the current context and abort handling of the request. Some contexts may not properly account for this scenario and leave request memory in an uninitialized state before performing an allocation. The subsequent request cleanup procedure may read or branch on this memory. Multiple OOM strategies can consistently trigger this condition and lead to remote code execution (RCE).
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-109618
+
+**参考链接**: 
+- [参考资料](https://www.php.net/index.php#2026-10-21-5)
+- [参考资料](https://www.php.net/archive/2026.php)
+- [参考资料](https://cert.europa.eu/publications/security-advisories/2026-018)
+- [参考资料](https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w)
+- [参考资料](https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp)
+- [参考资料](https://www.wiz.io/blog/php2shell-php-rce)
+- [参考资料](https://github.com/assetnote/php2shell-scanner)
+
+---
+
+
+### Rejetto HTTP File Server 2.4.x - Template Injection
+
+- **漏洞ID**: `CVE-2026-97359`
+- **CVE**: `CVE-2026-97359` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.01411 (percentile 0.72481) @ 2026-10-26
+
+**描述**: Rejetto HTTP File Server (HFS) 2.4.x inserts the multipart upload filename into the server-side template symbol map as %item-resource% without escaping. A filename containing the literal %item-resource% is substituted a second time by the sequential global replacement in xtpl(), allowing a :&#x7D; sequence to terminate the quoting region so a following &#x7B;.exec|...&#x7D; macro is executed as an operating-system command. An unauthenticated attacker achieves remote code execution with a single request.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-97359
+
+**参考链接**: 
+- [参考资料](https://github.com/wgetnz/hfs2/blob/master/advisories/hfs2-upload-filename-template-injection/README.md)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-97359)
+
+---
+
+
+### Node.js Brotli Request-Body Integer Overflow (node2shell) - Remote Code Execution
+
+- **漏洞ID**: `CVE-2026-111497`
+- **CVE**: `CVE-2026-111497` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.36027 (percentile 0.98463) @ 2026-10-26
+
+**描述**: A buffer overflow vulnerability in the Brotli decoder (c/dec/decode.c) in Google Brotli versions 1.0.3 through 1.2.0 on all platforms allows a remote unauthenticated attacker to corrupt adjacent decoder state memory, disclose sensitive memory contents, cause a denial of service, or potentially execute arbitrary code using a crafted Brotli-compressed stream. Users need to update any Brotli libraries or binaries between 1.0.3 through 1.2.0 to the latest available version: 1.0.10 or 1.1.1 or 1.2.1.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-111497
+
+**参考链接**: 
+- [参考资料](https://github.com/assetnote/node2shell-scanner)
+- [参考资料](https://www.slcyber.io/exposure)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-111497)
+
+---
+
+
+### PHP2Shell (CVE-2026-109618/CVE-2026-109619) - Active Crash Detection
+
+- **漏洞ID**: `CVE-2026-109618`
+- **CVE**: `CVE-2026-109618` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.99981 (percentile 0.99981) @ 2026-10-26
+
+**描述**: PHP uses longjmp() for out-of-memory (OOM) errors to exit the current context and abort handling of the request. Some contexts may not properly account for this scenario and leave request memory in an uninitialized state before performing an allocation. The subsequent request cleanup procedure may read or branch on this memory. Multiple OOM strategies can consistently trigger this condition and lead to remote code execution (RCE).
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-109618
+
+**参考链接**: 
+- [参考资料](https://www.php.net/index.php#2026-10-21-5)
+- [参考资料](https://www.php.net/archive/2026.php)
+- [参考资料](https://cert.europa.eu/publications/security-advisories/2026-018)
+- [参考资料](https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w)
+- [参考资料](https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp)
+- [参考资料](https://www.wiz.io/blog/php2shell-php-rce)
+- [参考资料](https://github.com/assetnote/php2shell-scanner)
+
+---
+
+
+### Rejetto HTTP File Server 2.4.x - Template Injection
+
+- **漏洞ID**: `CVE-2026-97359`
+- **CVE**: `CVE-2026-97359` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.01411 (percentile 0.72481) @ 2026-10-26
+
+**描述**: Rejetto HTTP File Server (HFS) 2.4.x inserts the multipart upload filename into the server-side template symbol map as %item-resource% without escaping. A filename containing the literal %item-resource% is substituted a second time by the sequential global replacement in xtpl(), allowing a :&#x7D; sequence to terminate the quoting region so a following &#x7B;.exec|...&#x7D; macro is executed as an operating-system command. An unauthenticated attacker achieves remote code execution with a single request.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-97359
+
+**参考链接**: 
+- [参考资料](https://github.com/wgetnz/hfs2/blob/master/advisories/hfs2-upload-filename-template-injection/README.md)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-97359)
+
+---
+
+
+### Node.js Brotli Request-Body Integer Overflow (node2shell) - Remote Code Execution
+
+- **漏洞ID**: `CVE-2026-111497`
+- **CVE**: `CVE-2026-111497` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.36027 (percentile 0.98463) @ 2026-10-26
+
+**描述**: A buffer overflow vulnerability in the Brotli decoder (c/dec/decode.c) in Google Brotli versions 1.0.3 through 1.2.0 on all platforms allows a remote unauthenticated attacker to corrupt adjacent decoder state memory, disclose sensitive memory contents, cause a denial of service, or potentially execute arbitrary code using a crafted Brotli-compressed stream. Users need to update any Brotli libraries or binaries between 1.0.3 through 1.2.0 to the latest available version: 1.0.10 or 1.1.1 or 1.2.1.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-111497
+
+**参考链接**: 
+- [参考资料](https://github.com/assetnote/node2shell-scanner)
+- [参考资料](https://www.slcyber.io/exposure)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-111497)
+
+---
+
+
+### PHP2Shell (CVE-2026-109618/CVE-2026-109619) - Active Crash Detection
+
+- **漏洞ID**: `CVE-2026-109618`
+- **CVE**: `CVE-2026-109618` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.99981 (percentile 0.99981) @ 2026-10-26
+
+**描述**: PHP uses longjmp() for out-of-memory (OOM) errors to exit the current context and abort handling of the request. Some contexts may not properly account for this scenario and leave request memory in an uninitialized state before performing an allocation. The subsequent request cleanup procedure may read or branch on this memory. Multiple OOM strategies can consistently trigger this condition and lead to remote code execution (RCE).
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-109618
+
+**参考链接**: 
+- [参考资料](https://www.php.net/index.php#2026-10-21-5)
+- [参考资料](https://www.php.net/archive/2026.php)
+- [参考资料](https://cert.europa.eu/publications/security-advisories/2026-018)
+- [参考资料](https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w)
+- [参考资料](https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp)
+- [参考资料](https://www.wiz.io/blog/php2shell-php-rce)
+- [参考资料](https://github.com/assetnote/php2shell-scanner)
+
+---
+
+
+### PHP2Shell (CVE-2026-109618/CVE-2026-109619) - Active Crash Detection
+
+- **漏洞ID**: `CVE-2026-109618`
+- **CVE**: `CVE-2026-109618` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.99981 (percentile 0.99981) @ 2026-10-26
+
+**描述**: PHP uses longjmp() for out-of-memory (OOM) errors to exit the current context and abort handling of the request. Some contexts may not properly account for this scenario and leave request memory in an uninitialized state before performing an allocation. The subsequent request cleanup procedure may read or branch on this memory. Multiple OOM strategies can consistently trigger this condition and lead to remote code execution (RCE).
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-109618
+
+**参考链接**: 
+- [参考资料](https://www.php.net/index.php#2026-10-21-5)
+- [参考资料](https://www.php.net/archive/2026.php)
+- [参考资料](https://cert.europa.eu/publications/security-advisories/2026-018)
+- [参考资料](https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w)
+- [参考资料](https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp)
+- [参考资料](https://www.wiz.io/blog/php2shell-php-rce)
+- [参考资料](https://github.com/assetnote/php2shell-scanner)
+
+---
+
+
+### Keras Model.load_model - Arbitrary Code Execution
+
+- **漏洞ID**: `CVE-2025-1550`
+- **CVE**: `CVE-2025-1550` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.02626 (percentile 0.85384) @ 2026-10-26
+
+**描述**: The Keras Model.load_model function permits arbitrary code execution, even with safe_mode&#x3D;True, through a manually constructed, malicious .keras archive. By altering the config.json file within the archive, an attacker can specify arbitrary Python modules and functions, along with their arguments, to be loaded and executed during model loading
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-1550)
+- [参考资料](https://github.com/keras-team/keras/pull/20751)
+- [参考资料](https://towerofhanoi.it/writeups/cve-2025-1550/)
+
+---
+
+
+### GitLab - SAML Authentication Bypass
+
+- **漏洞ID**: `CVE-2025-25291`
+- **CVE**: `CVE-2025-25291` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: GitLab 平台
+- **预估影响**: 数千个
+- **EPSS**: 0.20965 (percentile 0.97545) @ 2026-10-26
+
+**描述**: ruby-saml provides security assertion markup language (SAML) single sign-on (SSO) for Ruby. An authentication bypass vulnerability was found in ruby-saml prior to versions 1.12.4 and 1.18.0 due to a parser differential. ReXML and Nokogiri parse XML differently; the parsers can generate entirely different document structures from the same XML input. That allows an attacker to be able to execute a Signature Wrapping attack. This issue may lead to authentication bypass. Versions 1.12.4 and 1.18.0 fix the issue.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-25291
+
+**参考链接**: 
+- [参考资料](https://portswigger.net/research/saml-roulette-the-hacker-always-wins)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials/)
+- [参考资料](https://about.gitlab.com/releases/2025/03/12/patch-release-gitlab-17-9-2-released)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials)
+- [参考资料](https://github.com/SAML-Toolkits/ruby-saml/commit/e76c5b36bac40aedbf1ba7ffaaf495be63328cd9)
+
+---
+
+
+### WatchGuard IKEv2 Out-of-Bounds Write Vulnerability
+
+- **漏洞ID**: `CVE-2025-9242`
+- **CVE**: `CVE-2025-9242` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.92219 (percentile 0.99821) @ 2026-10-26
+
+**描述**: WatchGuard Fireware OS 11.10.2 to 11.12.4_Update1, 12.0 to 12.11.3, and 2025.1 contains an out-of-bounds write caused by improper handling in Mobile User VPN and Branch Office VPN with IKEv2 dynamic gateway peer, letting remote unauthenticated attackers execute arbitrary code.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-9242
+
+**参考链接**: 
+- [参考资料](https://github.com/watchtowrlabs/watchTowr-vs-WatchGuard-CVE-2025-9242/)
+- [参考资料](https://labs.watchtowr.com/yikes-watchguard-fireware-os-ikev2-out-of-bounds-write-cve-2025-9242)
+
+---
+
+
+### Next.js Middleware Authorization Bypass
+
+- **漏洞ID**: `CVE-2025-29927-HEADLESS`
+- **CVE**: `CVE-2025-29927` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.99225 (percentile 0.99936) @ 2026-10-26
+
+**描述**: A critical vulnerability in Next.js middleware allows attackers to bypass authorization checks by manipulating the x-middleware-subrequest header. This flaw affects Next.js versions prior to 14.2.25 and 15.2.3, potentially granting unauthorized access to sensitive resources.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-29927
+
+**参考链接**: 
+- [参考资料](https://github.com/advisories/GHSA-f82v-jwr5-mffw)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-29927)
+- [参考资料](https://www.tenable.com/cve/CVE-2025-29927)
+
+---
+
+
+### Keras Model.load_model - Arbitrary Code Execution
+
+- **漏洞ID**: `CVE-2025-1550`
+- **CVE**: `CVE-2025-1550` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.02626 (percentile 0.85384) @ 2026-10-26
+
+**描述**: The Keras Model.load_model function permits arbitrary code execution, even with safe_mode&#x3D;True, through a manually constructed, malicious .keras archive. By altering the config.json file within the archive, an attacker can specify arbitrary Python modules and functions, along with their arguments, to be loaded and executed during model loading
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-1550)
+- [参考资料](https://github.com/keras-team/keras/pull/20751)
+- [参考资料](https://towerofhanoi.it/writeups/cve-2025-1550/)
+
+---
+
+
+### GitLab - SAML Authentication Bypass
+
+- **漏洞ID**: `CVE-2025-25291`
+- **CVE**: `CVE-2025-25291` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: GitLab 平台
+- **预估影响**: 数千个
+- **EPSS**: 0.20965 (percentile 0.97545) @ 2026-10-26
+
+**描述**: ruby-saml provides security assertion markup language (SAML) single sign-on (SSO) for Ruby. An authentication bypass vulnerability was found in ruby-saml prior to versions 1.12.4 and 1.18.0 due to a parser differential. ReXML and Nokogiri parse XML differently; the parsers can generate entirely different document structures from the same XML input. That allows an attacker to be able to execute a Signature Wrapping attack. This issue may lead to authentication bypass. Versions 1.12.4 and 1.18.0 fix the issue.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-25291
+
+**参考链接**: 
+- [参考资料](https://portswigger.net/research/saml-roulette-the-hacker-always-wins)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials/)
+- [参考资料](https://about.gitlab.com/releases/2025/03/12/patch-release-gitlab-17-9-2-released)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials)
+- [参考资料](https://github.com/SAML-Toolkits/ruby-saml/commit/e76c5b36bac40aedbf1ba7ffaaf495be63328cd9)
+
+---
+
+
+### NEX-Forms Express WP Form Builder &lt; 9.2.3 - Unauthenticated Stored XSS
+
+- **漏洞ID**: `CVE-2026-10525`
+- **CVE**: `CVE-2026-10525` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.00275 (percentile 0.19769) @ 2026-10-26
+
+**描述**: NEX-Forms Express WP Form Builder plugin for WordPress before 9.2.3 is vulnerable to unauthenticated stored Cross-Site Scripting. The plugin registers a wp_ajax_nopriv_submit_nex_form handler for form submissions. Array-type field values are processed through rest_sanitize_array(), which only reindexes the array and performs no HTML sanitization, so markup is stored verbatim. When an administrator views the submitted entries, the stored payload renders without esc_html() escaping and executes arbitrary JavaScript in the admin&#x27;s browser. Scalar fields are not affected (they are passed through strip_tags()).
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-10525
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-10525)
+- [参考资料](https://wpscan.com/vulnerability/d1e191e6-ff5b-4cb8-9b12-8ae73cf0d2f0/)
+- [参考资料](https://wordpress.org/plugins/nex-forms-express-wp-form-builder/)
+
+---
+
+
+### Asgaros Forum &lt; 3.2.0 - SQL Injection
+
+- **漏洞ID**: `CVE-2025-11452`
+- **CVE**: `CVE-2025-11452` (2025)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.01602 (percentile 0.75647) @ 2026-10-26
+
+**描述**: Asgaros Forum for WordPress versions prior to 3.2.0 is vulnerable to unauthenticated SQL injection through the asgarosforum_unread_exclude cookie. The cookie is JSON-decoded and its object keys are imploded into a NOT IN() clause without sanitisation. The vulnerable query only runs while rendering the forum page, so the payload must be sent there rather than to the site root.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-11452
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/e89f1f31-dc70-4ea5-b389-81c8be5b10c6/)
+- [参考资料](https://plugins.trac.wordpress.org/browser/asgaros-forum/trunk/includes/forum-unread.php)
+- [参考资料](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-11452)
+
+---
+
+
+### Site Reviews &lt; 7.2.5 - Unauthenticated Stored XSS
+
+- **漏洞ID**: `CVE-2025-1232`
+- **CVE**: `CVE-2025-1232` (2025)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.01931 (percentile 0.79875) @ 2026-10-26
+
+**描述**: Site Reviews WordPress plugin before 7.2.5 contains a stored cross-site scripting caused by improper sanitization and escaping of review fields, letting unauthenticated users execute malicious scripts, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-1232
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/c4ea8357-ddd7-48ac-80c9-15b924715b14/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-1232)
+- [参考资料](https://research.cleantalk.org/cve-2025-1232/)
+
+---
+
+
+### WordPress Advanced File Manager &lt; 5.4.13 - Arbitrary File Read
+
+- **漏洞ID**: `CVE-2026-11565`
+- **CVE**: `CVE-2026-11565` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.00323 (percentile 0.25064) @ 2026-10-26
+
+**描述**: The Advanced File Manager WordPress plugin before 5.4.13 does not perform capability checks in several of its file management AJAX actions, allowing users with any role to which an administrator has granted file-manager access (as low as Subscriber) to read arbitrary files on the server.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-11565
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/5e03858d-db0b-4b65-99cc-eb01ad4195e9/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-11565)
+- [参考资料](https://wordpress.org/plugins/file-manager-advanced/)
+
+---
+
+
+### WordPress Core &lt; 7.1.1 - Unauthenticated Stored XSS via Comment (Comment2Shell)
+
+- **漏洞ID**: `CVE-2026-93485`
+- **CVE**: `CVE-2026-93485` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.00354 (percentile 0.28798) @ 2026-10-26
+
+**描述**: WordPress core before 7.1.1 is vulnerable to unauthenticated stored XSS via crafted blockquote comments. wp_kses_post accepts a &lt;blockquote&gt; with a literal newline in the cite attribute, wpautop&#x27;s non-quote-aware regex injects a &lt;p&gt; inside the cite value, and wptexturize leaves the attribute open so onfocus/autofocus land on &lt;code&gt; as real HTML attributes, giving zero-click stored XSS. Only triggers when comments are open and auto-approved.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-93485
+
+**参考链接**: 
+- [参考资料](https://wordpress.org/news/2026/09/wordpress-7-1-1-maintenance-and-security-release/)
+- [参考资料](https://github.com/686f6c61/POC-WP-CORE-CVE-2026-93485)
+- [参考资料](https://github.com/DeathShotXD/Comment2Shell)
+- [参考资料](https://www.cve.org/CVERecord?id=CVE-2026-93485)
+
+---
+
+
+### Asgaros Forum &lt; 3.2.0 - SQL Injection
+
+- **漏洞ID**: `CVE-2025-11452`
+- **CVE**: `CVE-2025-11452` (2025)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.01602 (percentile 0.75647) @ 2026-10-26
+
+**描述**: Asgaros Forum for WordPress versions prior to 3.2.0 is vulnerable to unauthenticated SQL injection through the asgarosforum_unread_exclude cookie. The cookie is JSON-decoded and its object keys are imploded into a NOT IN() clause without sanitisation. The vulnerable query only runs while rendering the forum page, so the payload must be sent there rather than to the site root.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-11452
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/e89f1f31-dc70-4ea5-b389-81c8be5b10c6/)
+- [参考资料](https://plugins.trac.wordpress.org/browser/asgaros-forum/trunk/includes/forum-unread.php)
+- [参考资料](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-11452)
+
+---
+
+
+### Site Reviews &lt; 7.2.5 - Unauthenticated Stored XSS
+
+- **漏洞ID**: `CVE-2025-1232`
+- **CVE**: `CVE-2025-1232` (2025)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.01931 (percentile 0.79875) @ 2026-10-26
+
+**描述**: Site Reviews WordPress plugin before 7.2.5 contains a stored cross-site scripting caused by improper sanitization and escaping of review fields, letting unauthenticated users execute malicious scripts, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-1232
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/c4ea8357-ddd7-48ac-80c9-15b924715b14/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-1232)
+- [参考资料](https://research.cleantalk.org/cve-2025-1232/)
+
+---
+
+
+### WordPress Advanced File Manager &lt; 5.4.13 - Arbitrary File Read
+
+- **漏洞ID**: `CVE-2026-11565`
+- **CVE**: `CVE-2026-11565` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.00323 (percentile 0.25064) @ 2026-10-26
+
+**描述**: The Advanced File Manager WordPress plugin before 5.4.13 does not perform capability checks in several of its file management AJAX actions, allowing users with any role to which an administrator has granted file-manager access (as low as Subscriber) to read arbitrary files on the server.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-11565
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/5e03858d-db0b-4b65-99cc-eb01ad4195e9/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-11565)
+- [参考资料](https://wordpress.org/plugins/file-manager-advanced/)
+
+---
+
+
+### WordPress Core &lt; 7.1.1 - Unauthenticated Stored XSS via Comment (Comment2Shell)
+
+- **漏洞ID**: `CVE-2026-93485`
+- **CVE**: `CVE-2026-93485` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.00354 (percentile 0.28798) @ 2026-10-26
+
+**描述**: WordPress core before 7.1.1 is vulnerable to unauthenticated stored XSS via crafted blockquote comments. wp_kses_post accepts a &lt;blockquote&gt; with a literal newline in the cite attribute, wpautop&#x27;s non-quote-aware regex injects a &lt;p&gt; inside the cite value, and wptexturize leaves the attribute open so onfocus/autofocus land on &lt;code&gt; as real HTML attributes, giving zero-click stored XSS. Only triggers when comments are open and auto-approved.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-93485
+
+**参考链接**: 
+- [参考资料](https://wordpress.org/news/2026/09/wordpress-7-1-1-maintenance-and-security-release/)
+- [参考资料](https://github.com/686f6c61/POC-WP-CORE-CVE-2026-93485)
+- [参考资料](https://github.com/DeathShotXD/Comment2Shell)
+- [参考资料](https://www.cve.org/CVERecord?id=CVE-2026-93485)
+
+---
+
+
+### langchain-ai langchain - XML External Entity Injection
+
+- **漏洞ID**: `CVE-2025-6984`
+- **CVE**: `CVE-2025-6984` (2025)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.01647 (percentile 0.76303) @ 2026-10-26
+
+**描述**: langchain-ai/langchain 0.3.63 contains an XML External Entity (XXE) injection caused by insecure XML parsing in EverNoteLoader using etree.iterparse(), letting attackers disclose sensitive information, exploit requires crafted malicious XML payload.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-6984
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-6984)
+- [参考资料](https://huntr.com/bounties/a6b521cf-258c-41c0-9edb-d8ef976abb2a)
+- [参考资料](https://github.com/langchain-ai/langchain-community/commit/e842452)
+
+---
+
+
+### UpdraftPlus WP Backup & Migration Plugin - Authentication Bypass
+
+- **漏洞ID**: `CVE-2026-10795`
+- **CVE**: `CVE-2026-10795` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.04308 (percentile 0.91087) @ 2026-10-26
+
+**描述**: UpdraftPlus WP Backup & Migration Plugin for WordPress &lt;&#x3D; 1.26.4 contains an authentication bypass caused by insufficient validation in UpdraftPlus_Remote_Communications_V2::wp_loaded, letting unauthenticated attackers execute arbitrary RPC commands as admin, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-10795
+
+**参考链接**: 
+- [参考资料](https://patchstack.com/database/vulnerability/wordpress-updraftplus-wp-backup-migration-plugin-1-26-4-unauthenticated-authentication-bypass-via-updraftcentral-udrpc-vulnerability)
+- [参考资料](https://teamupdraft.com/blog/important-security-update-for-updraftplus-and-updraftcentral-users/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-10795)
+
+---
+
+
+### langchain-ai langchain - XML External Entity Injection
+
+- **漏洞ID**: `CVE-2025-6984`
+- **CVE**: `CVE-2025-6984` (2025)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.01647 (percentile 0.76303) @ 2026-10-26
+
+**描述**: langchain-ai/langchain 0.3.63 contains an XML External Entity (XXE) injection caused by insecure XML parsing in EverNoteLoader using etree.iterparse(), letting attackers disclose sensitive information, exploit requires crafted malicious XML payload.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-6984
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-6984)
+- [参考资料](https://huntr.com/bounties/a6b521cf-258c-41c0-9edb-d8ef976abb2a)
+- [参考资料](https://github.com/langchain-ai/langchain-community/commit/e842452)
+
+---
+
+
+## 📋 完整模板列表
+
+| 模板名称 | 严重程度 | 类别 | 影响资产 | EPSS | 风险评分 |
+|---------|---------|------|---------|------|---------|
+| Ruoyi-Vue-Pro - Unauthenticated Admin Takeover via | 🔴 critical | CVE漏洞 | 通用 | 0.0038 | 5/5 |
+| PHP2Shell (CVE-2026-109618/CVE-2026-109619) - Acti | 🔴 critical | CVE漏洞 | 通用 | 0.9998 | 5/5 |
+| Rejetto HTTP File Server 2.4.x - Template Injectio | 🔴 critical | CVE漏洞 | 通用 | 0.0141 | 5/5 |
+| Node.js Brotli Request-Body Integer Overflow (node | 🔴 critical | CVE漏洞 | 通用 | 0.3603 | 5/5 |
+| PHP2Shell (CVE-2026-109618/CVE-2026-109619) - Acti | 🔴 critical | CVE漏洞 | 通用 | 0.9998 | 5/5 |
+| Rejetto HTTP File Server 2.4.x - Template Injectio | 🔴 critical | CVE漏洞 | 通用 | 0.0141 | 5/5 |
+| Node.js Brotli Request-Body Integer Overflow (node | 🔴 critical | CVE漏洞 | 通用 | 0.3603 | 5/5 |
+| PHP2Shell (CVE-2026-109618/CVE-2026-109619) - Acti | 🔴 critical | CVE漏洞 | 通用 | 0.9998 | 5/5 |
+| PHP2Shell (CVE-2026-109618/CVE-2026-109619) - Acti | 🔴 critical | CVE漏洞 | 通用 | 0.9998 | 5/5 |
+| Keras Model.load_model - Arbitrary Code Execution | 🔴 critical | CVE漏洞 | 通用 | 0.0263 | 5/5 |
+| GitLab - SAML Authentication Bypass | 🔴 critical | CVE漏洞 | GitLab 平台 | 0.2097 | 5/5 |
+| WatchGuard IKEv2 Out-of-Bounds Write Vulnerability | 🔴 critical | CVE漏洞 | 通用 | 0.9222 | 5/5 |
+| Next.js Middleware Authorization Bypass | 🔴 critical | CVE漏洞 | 通用 | 0.9922 | 5/5 |
+| Keras Model.load_model - Arbitrary Code Execution | 🔴 critical | CVE漏洞 | 通用 | 0.0263 | 5/5 |
+| GitLab - SAML Authentication Bypass | 🔴 critical | CVE漏洞 | GitLab 平台 | 0.2097 | 5/5 |
+| NEX-Forms Express WP Form Builder &lt; 9.2.3 - Una | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0027 | 4.5/5 |
+| Asgaros Forum &lt; 3.2.0 - SQL Injection | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0160 | 4.5/5 |
+| Site Reviews &lt; 7.2.5 - Unauthenticated Stored X | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0193 | 4.5/5 |
+| WordPress Advanced File Manager &lt; 5.4.13 - Arbi | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0032 | 4.5/5 |
+| WordPress Core &lt; 7.1.1 - Unauthenticated Stored | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0035 | 4.5/5 |
+| Asgaros Forum &lt; 3.2.0 - SQL Injection | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0160 | 4.5/5 |
+| Site Reviews &lt; 7.2.5 - Unauthenticated Stored X | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0193 | 4.5/5 |
+| WordPress Advanced File Manager &lt; 5.4.13 - Arbi | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0032 | 4.5/5 |
+| WordPress Core &lt; 7.1.1 - Unauthenticated Stored | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0035 | 4.5/5 |
+| langchain-ai langchain - XML External Entity Injec | 🟠 high | CVE漏洞 | 通用 | 0.0165 | 4.5/5 |
+| UpdraftPlus WP Backup & Migration Plugin - Authent | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0431 | 4.5/5 |
+| langchain-ai langchain - XML External Entity Injec | 🟠 high | CVE漏洞 | 通用 | 0.0165 | 4.5/5 |
+| Essential Addons for Elementor &lt; 6.0.15 - Cross | 🟡 medium | CVE漏洞 | 通用 | 0.0123 | 3.5/5 |
+| Backdrop CMS - Cross-Site Scripting | 🟡 medium | CVE漏洞 | 通用 | 0.0172 | 3.5/5 |
+| Swagger UI &gt;&#x3D;3.14.1 &lt; 3.38.0 - DOM Base | 🟡 medium | CVE漏洞 | 通用 | 0.0179 | 3.5/5 |
+
+## 🛡️ 安全建议
+
+🚨 发现高风险漏洞，建议立即扫描相关资产
+🔍 关注新发布的 CVE 漏洞，及时更新补丁
+⚡ 检测到远程代码执行漏洞，优先处理
+
+## 🔧 扫描建议
+
+建议使用以下 Nuclei 命令进行扫描：
+
+```bash
+# 扫描高危漏洞
+nuclei -t http/cves/2026/CVE-2026-116006.yaml -t http/cves/2026/CVE-2026-109618.yaml -t http/cves/2026/CVE-2026-97359.yaml -t http/javascript/cves/2026/CVE-2026-111497.yaml -t http/cves/2026/CVE-2026-109618.yaml -t http/cves/2026/CVE-2026-97359.yaml -t http/javascript/cves/2026/CVE-2026-111497.yaml -t http/cves/2026/CVE-2026-109618.yaml -t http/cves/2026/CVE-2026-109618.yaml -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2025/CVE-2025-9242.yaml -t headless/cves/2025/CVE-2025-29927-HEADLESS.yaml -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-25291.yaml -t http/cves/2026/CVE-2026-10525.yaml -t http/cves/2025/CVE-2025-11452.yaml -t http/cves/2025/CVE-2025-1232.yaml -t http/cves/2026/CVE-2026-11565.yaml -t http/cves/2026/CVE-2026-93485.yaml -t http/cves/2025/CVE-2025-11452.yaml -t http/cves/2025/CVE-2025-1232.yaml -t http/cves/2026/CVE-2026-11565.yaml -t http/cves/2026/CVE-2026-93485.yaml -t code/cves/2025/CVE-2025-6984.yaml -t code/cves/2026/CVE-2026-10795.yaml -t code/cves/2025/CVE-2025-6984.yaml -u target-url
+
+# 扫描所有今日新增模板  
+nuclei -t http/cves/2026/CVE-2026-116006.yaml -t http/cves/2026/CVE-2026-109618.yaml -t http/cves/2026/CVE-2026-97359.yaml -t http/javascript/cves/2026/CVE-2026-111497.yaml -t http/cves/2026/CVE-2026-109618.yaml -t http/cves/2026/CVE-2026-97359.yaml -t http/javascript/cves/2026/CVE-2026-111497.yaml -t http/cves/2026/CVE-2026-109618.yaml -t http/cves/2026/CVE-2026-109618.yaml -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2025/CVE-2025-9242.yaml -t headless/cves/2025/CVE-2025-29927-HEADLESS.yaml -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-25291.yaml -t http/cves/2026/CVE-2026-10525.yaml -t http/cves/2025/CVE-2025-11452.yaml -t http/cves/2025/CVE-2025-1232.yaml -t http/cves/2026/CVE-2026-11565.yaml -t http/cves/2026/CVE-2026-93485.yaml -t http/cves/2025/CVE-2025-11452.yaml -t http/cves/2025/CVE-2025-1232.yaml -t http/cves/2026/CVE-2026-11565.yaml -t http/cves/2026/CVE-2026-93485.yaml -t code/cves/2025/CVE-2025-6984.yaml -t code/cves/2026/CVE-2026-10795.yaml -t code/cves/2025/CVE-2025-6984.yaml -t headless/cves/2025/CVE-2025-24752.yaml -t headless/cves/2025/CVE-2025-25062.yaml -t headless/cves/2025/CVE-2025-8191.yaml -u target-url
+```
+
+---
+
+*本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)*
+
+*扫描建议仅供参考，请在授权环境下进行安全测试*
