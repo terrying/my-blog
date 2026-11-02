@@ -1,0 +1,199 @@
+---
+title: 'Nuclei POC 精选分析 - 2026-11-02'
+date: '2026-11-02'
+tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
+draft: false
+summary: '从 611 个模板更新中精选分析 13 个高价值 POC，发现 5 个高风险漏洞'
+authors: ['default']
+category: 'security-intel'
+---
+
+# Nuclei POC 精选分析 - 2026-11-02
+
+## 📊 智能筛选概况
+
+- **发现变更**: 611 个模板更新
+- **精选分析**: 13 个高价值 POC  
+- **智能跳过**: 598 个低优先级模板
+- **高风险漏洞**: 5 个
+- **主要类别**: CVE漏洞(9), 其他(4)
+
+> 💡 **智能筛选说明**: 系统自动优先分析 CVE 漏洞、高危漏洞和新增模板，跳过低价值的技术识别类模板，确保高效利用 API 资源。
+
+### 严重程度分布
+
+- 🔴 **严重**: 5 个
+- 🟡 **中危**: 4 个
+- ⚪ **信息**: 4 个
+
+## 🔍 重点漏洞分析
+
+
+### Langchain-Chatchat &lt;&#x3D; 0.3.1.3 - Unauthenticated RCE
+
+- **漏洞ID**: `CVE-2026-75128`
+- **CVE**: `CVE-2026-75128` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00632 (percentile 0.5028) @ 2026-11-01
+
+**描述**: Langchain-Chatchat &lt;&#x3D; 0.3.1.3 contains a command injection caused by unauthenticated access to the /tools/call API endpoint invoking the shell tool, letting remote attackers execute arbitrary OS commands as root, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-75128
+
+**参考链接**: 
+- [参考资料](https://www.lasso.security/vulnerability-database/cve-2026-75128)
+- [参考资料](https://www.vulncheck.com/advisories/langchain-chatchat-through-0.3.1.3-unauthenticated-rce-via-tools-call-endpoint)
+- [参考资料](https://github.com/chatchat-space/Langchain-Chatchat)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-75128)
+
+---
+
+
+### ClickHouse Server - Brotli v1.2.0 Decoder DoS/OOB-Write
+
+- **漏洞ID**: `CVE-2026-116366`
+- **CVE**: `CVE-2026-116366` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00395 (percentile 0.33773) @ 2026-11-01
+
+**描述**: ClickHouse Server contains a remote code execution vulnerability caused by improper access control, letting unauthenticated users with network access execute arbitrary code remotely, exploit requires network access.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-116366
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-116366)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-111497)
+- [参考资料](https://github.com/google/brotli/compare/v1.2.0...v1.2.1)
+
+---
+
+
+### ClickHouse Server - Brotli v1.2.0 Decoder DoS/OOB-Write
+
+- **漏洞ID**: `CVE-2026-116366`
+- **CVE**: `CVE-2026-116366` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00395 (percentile 0.33773) @ 2026-11-01
+
+**描述**: ClickHouse Server contains a remote code execution vulnerability caused by improper access control, letting unauthenticated users with network access execute arbitrary code remotely, exploit requires network access.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-116366
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-116366)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-111497)
+- [参考资料](https://github.com/google/brotli/compare/v1.2.0...v1.2.1)
+
+---
+
+
+### Langchain-Chatchat &lt;&#x3D; 0.3.1.3 - Unauthenticated RCE
+
+- **漏洞ID**: `CVE-2026-75128`
+- **CVE**: `CVE-2026-75128` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00632 (percentile 0.5028) @ 2026-11-01
+
+**描述**: Langchain-Chatchat &lt;&#x3D; 0.3.1.3 contains a command injection caused by unauthenticated access to the /tools/call API endpoint invoking the shell tool, letting remote attackers execute arbitrary OS commands as root, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-75128
+
+**参考链接**: 
+- [参考资料](https://www.lasso.security/vulnerability-database/cve-2026-75128)
+- [参考资料](https://www.vulncheck.com/advisories/langchain-chatchat-through-0.3.1.3-unauthenticated-rce-via-tools-call-endpoint)
+- [参考资料](https://github.com/chatchat-space/Langchain-Chatchat)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-75128)
+
+---
+
+
+### ClickHouse Server - Brotli v1.2.0 Decoder DoS/OOB-Write
+
+- **漏洞ID**: `CVE-2026-116366`
+- **CVE**: `CVE-2026-116366` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00395 (percentile 0.33773) @ 2026-11-01
+
+**描述**: ClickHouse Server contains a remote code execution vulnerability caused by improper access control, letting unauthenticated users with network access execute arbitrary code remotely, exploit requires network access.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-116366
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-116366)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-111497)
+- [参考资料](https://github.com/google/brotli/compare/v1.2.0...v1.2.1)
+
+---
+
+
+## 📋 完整模板列表
+
+| 模板名称 | 严重程度 | 类别 | 影响资产 | EPSS | 风险评分 |
+|---------|---------|------|---------|------|---------|
+| Langchain-Chatchat &lt;&#x3D; 0.3.1.3 - Unauthenti | 🔴 critical | CVE漏洞 | 通用 | 0.0063 | 5/5 |
+| ClickHouse Server - Brotli v1.2.0 Decoder DoS/OOB- | 🔴 critical | CVE漏洞 | 通用 | 0.0040 | 5/5 |
+| ClickHouse Server - Brotli v1.2.0 Decoder DoS/OOB- | 🔴 critical | CVE漏洞 | 通用 | 0.0040 | 5/5 |
+| Langchain-Chatchat &lt;&#x3D; 0.3.1.3 - Unauthenti | 🔴 critical | CVE漏洞 | 通用 | 0.0063 | 5/5 |
+| ClickHouse Server - Brotli v1.2.0 Decoder DoS/OOB- | 🔴 critical | CVE漏洞 | 通用 | 0.0040 | 5/5 |
+| Plex Media Server &lt; 1.43.3.10861 - Unauthentica | 🟡 medium | CVE漏洞 | 通用 | 0.0182 | 3.5/5 |
+| Plex Media Server &lt; 1.43.3.10861 - Unauthentica | 🟡 medium | CVE漏洞 | 通用 | 0.0182 | 3.5/5 |
+| Essential Addons for Elementor &lt; 6.0.15 - Cross | 🟡 medium | CVE漏洞 | 通用 | 0.0123 | 3.5/5 |
+| Essential Addons for Elementor &lt; 6.0.15 - Cross | 🟡 medium | CVE漏洞 | 通用 | 0.0123 | 3.5/5 |
+| Pocket ID Login Panel - Detect | ⚪ info | 其他 | 管理面板 | - | 1.5/5 |
+| Pocket ID Login Panel - Detect | ⚪ info | 其他 | 管理面板 | - | 1.5/5 |
+| Infisical Login Panel - Detect | ⚪ info | 其他 | 管理面板 | - | 1/5 |
+| Infisical Login Panel - Detect | ⚪ info | 其他 | 管理面板 | - | 1/5 |
+
+## 🛡️ 安全建议
+
+🚨 发现高风险漏洞，建议立即扫描相关资产
+🔍 关注新发布的 CVE 漏洞，及时更新补丁
+⚡ 检测到远程代码执行漏洞，优先处理
+
+## 🔧 扫描建议
+
+建议使用以下 Nuclei 命令进行扫描：
+
+```bash
+# 扫描高危漏洞
+nuclei -t http/cves/2026/CVE-2026-75128.yaml -t http/cves/2026/CVE-2026-116366.yaml -t http/cves/2026/CVE-2026-116366.yaml -t http/cves/2026/CVE-2026-75128.yaml -t http/cves/2026/CVE-2026-116366.yaml -u target-url
+
+# 扫描所有今日新增模板  
+nuclei -t http/cves/2026/CVE-2026-75128.yaml -t http/cves/2026/CVE-2026-116366.yaml -t http/cves/2026/CVE-2026-116366.yaml -t http/cves/2026/CVE-2026-75128.yaml -t http/cves/2026/CVE-2026-116366.yaml -t http/cves/2026/CVE-2026-96652.yaml -t http/cves/2026/CVE-2026-96652.yaml -t headless/cves/2025/CVE-2025-24752.yaml -t headless/cves/2025/CVE-2025-24752.yaml -t http/exposed-panels/pocket-id-panel.yaml -t http/exposed-panels/pocket-id-panel.yaml -t http/exposed-panels/infisical-panel.yaml -t http/exposed-panels/infisical-panel.yaml -u target-url
+```
+
+---
+
+*本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)*
+
+*扫描建议仅供参考，请在授权环境下进行安全测试*
