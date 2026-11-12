@@ -1,0 +1,757 @@
+---
+title: 'Nuclei POC 精选分析 - 2026-11-12'
+date: '2026-11-12'
+tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
+draft: false
+summary: '从 78 个模板更新中精选分析 30 个高价值 POC，发现 26 个高风险漏洞'
+authors: ['default']
+category: 'security-intel'
+---
+
+# Nuclei POC 精选分析 - 2026-11-12
+
+## 📊 智能筛选概况
+
+- **发现变更**: 78 个模板更新
+- **精选分析**: 30 个高价值 POC  
+- **智能跳过**: 48 个低优先级模板
+- **高风险漏洞**: 26 个
+- **主要类别**: CVE漏洞(30)
+
+> 💡 **智能筛选说明**: 系统自动优先分析 CVE 漏洞、高危漏洞和新增模板，跳过低价值的技术识别类模板，确保高效利用 API 资源。
+
+### 严重程度分布
+
+- 🔴 **严重**: 17 个
+- 🟠 **高危**: 9 个
+- 🟡 **中危**: 4 个
+
+## 🔍 重点漏洞分析
+
+
+### MLflow Tracking Server - Unauthenticated Model Source Path Traversal RCE
+
+- **漏洞ID**: `CVE-2025-11201`
+- **CVE**: `CVE-2025-11201` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.26282 (percentile 0.98016) @ 2026-11-10
+
+**描述**: MLflow Tracking Server is vulnerable to an unauthenticated path traversal in the model-version creation API. The server validates the `source` parameter and rejects relative/local paths, but skips that validation entirely when the request carries the `mlflow.prompt.is_prompt` tag (the request is then treated as a prompt). An unauthenticated attacker can supply an arbitrary traversal path as the model version `source`, writing attacker-controlled files to arbitrary locations on the server filesystem and achieving remote code execution under the service account. The fix adds an opt-in MLFLOW_CREATE_MODEL_VERSION_SOURCE_VALIDATION_REGEX allowlist; with the default (unset) configuration the bypass remains exploitable even on 2.22.4.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-11201
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-11201)
+- [参考资料](https://www.zerodayinitiative.com/advisories/ZDI-25-931/)
+- [参考资料](https://mallory.ai/vulnerabilities/CVE-2025-11201)
+
+---
+
+
+### MLflow Tracking Server - Unauthenticated Model Source Path Traversal RCE
+
+- **漏洞ID**: `CVE-2025-11201`
+- **CVE**: `CVE-2025-11201` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.26282 (percentile 0.98016) @ 2026-11-10
+
+**描述**: MLflow Tracking Server is vulnerable to an unauthenticated path traversal in the model-version creation API. The server validates the `source` parameter and rejects relative/local paths, but skips that validation entirely when the request carries the `mlflow.prompt.is_prompt` tag (the request is then treated as a prompt). An unauthenticated attacker can supply an arbitrary traversal path as the model version `source`, writing attacker-controlled files to arbitrary locations on the server filesystem and achieving remote code execution under the service account. The fix adds an opt-in MLFLOW_CREATE_MODEL_VERSION_SOURCE_VALIDATION_REGEX allowlist; with the default (unset) configuration the bypass remains exploitable even on 2.22.4.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-11201
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-11201)
+- [参考资料](https://www.zerodayinitiative.com/advisories/ZDI-25-931/)
+- [参考资料](https://mallory.ai/vulnerabilities/CVE-2025-11201)
+
+---
+
+
+### HT Contact Form Widget for Elementor &lt;&#x3D; 2.2.1 - Unauthenticated Arbitrary File Upload
+
+- **漏洞ID**: `CVE-2025-7340`
+- **CVE**: `CVE-2025-7340` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.01751 (percentile 0.7806) @ 2026-11-10
+
+**描述**: The HT Contact Form Widget For Elementor Page Builder & Gutenberg Blocks & Form Builder plugin for WordPress is vulnerable to arbitrary file upload in all versions up to and including 2.2.1 due to missing file type validation in the temp_file_upload() function. The handler is registered on the wp_ajax_nopriv_ht_form_temp_file_upload action, so an unauthenticated attacker holding a form nonce (exposed on any page rendering the &#x5B;ht_form&#x5D; widget) can upload a PHP file to wp-content/uploads/ht_form/temp/ and execute it, achieving remote code execution.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-7340
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-7340)
+- [参考资料](https://github.com/advisories/GHSA-85f4-4cwm-5xmr)
+- [参考资料](https://wpscan.com/vulnerability/91f39d58-1379-4908-bdeb-9c9bce39fb2c/)
+- [参考资料](https://plugins.trac.wordpress.org/changeset?old_path=/ht-contactform/tags/2.2.1&new_path=/ht-contactform/tags/2.2.2)
+
+---
+
+
+### Craft CMS &lt; 4.18.9, &lt; 5.11.2 - Unauthenticated SQL Injection
+
+- **漏洞ID**: `CVE-2026-123488`
+- **CVE**: `CVE-2026-123488` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00476 (percentile 0.41429) @ 2026-11-10
+
+**描述**: Craft CMS &lt; 4.18.9, &lt; 5.11.2 contain an unauthenticated SQL injection caused by unsanitized concatenation of the attribute parameter in the element search endpoint, letting remote attackers read and write the database to gain administrator access, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-123488
+
+**参考链接**: 
+- [参考资料](https://github.com/craftcms/cms/security/advisories/GHSA-qcvp-ggx3-97r6)
+- [参考资料](https://github.com/craftcms/cms/compare/4.18.8...4.18.9)
+- [参考资料](https://github.com/dinosn/CVE-2026-123488-CraftCMS-Lab)
+- [参考资料](https://www.vulncheck.com/advisories/craft-cms-4.0.0-before-4.18.9-sql-injection-via-element-search-endpoint)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-123488)
+
+---
+
+
+### MLflow Tracking Server - Unauthenticated Model Source Path Traversal RCE
+
+- **漏洞ID**: `CVE-2025-11201`
+- **CVE**: `CVE-2025-11201` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.26282 (percentile 0.98016) @ 2026-11-10
+
+**描述**: MLflow Tracking Server is vulnerable to an unauthenticated path traversal in the model-version creation API. The server validates the `source` parameter and rejects relative/local paths, but skips that validation entirely when the request carries the `mlflow.prompt.is_prompt` tag (the request is then treated as a prompt). An unauthenticated attacker can supply an arbitrary traversal path as the model version `source`, writing attacker-controlled files to arbitrary locations on the server filesystem and achieving remote code execution under the service account. The fix adds an opt-in MLFLOW_CREATE_MODEL_VERSION_SOURCE_VALIDATION_REGEX allowlist; with the default (unset) configuration the bypass remains exploitable even on 2.22.4.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-11201
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-11201)
+- [参考资料](https://www.zerodayinitiative.com/advisories/ZDI-25-931/)
+- [参考资料](https://mallory.ai/vulnerabilities/CVE-2025-11201)
+
+---
+
+
+### HT Contact Form Widget for Elementor &lt;&#x3D; 2.2.1 - Unauthenticated Arbitrary File Upload
+
+- **漏洞ID**: `CVE-2025-7340`
+- **CVE**: `CVE-2025-7340` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.01751 (percentile 0.7806) @ 2026-11-10
+
+**描述**: The HT Contact Form Widget For Elementor Page Builder & Gutenberg Blocks & Form Builder plugin for WordPress is vulnerable to arbitrary file upload in all versions up to and including 2.2.1 due to missing file type validation in the temp_file_upload() function. The handler is registered on the wp_ajax_nopriv_ht_form_temp_file_upload action, so an unauthenticated attacker holding a form nonce (exposed on any page rendering the &#x5B;ht_form&#x5D; widget) can upload a PHP file to wp-content/uploads/ht_form/temp/ and execute it, achieving remote code execution.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-7340
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-7340)
+- [参考资料](https://github.com/advisories/GHSA-85f4-4cwm-5xmr)
+- [参考资料](https://wpscan.com/vulnerability/91f39d58-1379-4908-bdeb-9c9bce39fb2c/)
+- [参考资料](https://plugins.trac.wordpress.org/changeset?old_path=/ht-contactform/tags/2.2.1&new_path=/ht-contactform/tags/2.2.2)
+
+---
+
+
+### Craft CMS &lt; 4.18.9, &lt; 5.11.2 - Unauthenticated SQL Injection
+
+- **漏洞ID**: `CVE-2026-123488`
+- **CVE**: `CVE-2026-123488` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00476 (percentile 0.41429) @ 2026-11-10
+
+**描述**: Craft CMS &lt; 4.18.9, &lt; 5.11.2 contain an unauthenticated SQL injection caused by unsanitized concatenation of the attribute parameter in the element search endpoint, letting remote attackers read and write the database to gain administrator access, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-123488
+
+**参考链接**: 
+- [参考资料](https://github.com/craftcms/cms/security/advisories/GHSA-qcvp-ggx3-97r6)
+- [参考资料](https://github.com/craftcms/cms/compare/4.18.8...4.18.9)
+- [参考资料](https://github.com/dinosn/CVE-2026-123488-CraftCMS-Lab)
+- [参考资料](https://www.vulncheck.com/advisories/craft-cms-4.0.0-before-4.18.9-sql-injection-via-element-search-endpoint)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-123488)
+
+---
+
+
+### MLflow Tracking Server - Unauthenticated Model Source Path Traversal RCE
+
+- **漏洞ID**: `CVE-2025-11201`
+- **CVE**: `CVE-2025-11201` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.26282 (percentile 0.98016) @ 2026-11-10
+
+**描述**: MLflow Tracking Server is vulnerable to an unauthenticated path traversal in the model-version creation API. The server validates the `source` parameter and rejects relative/local paths, but skips that validation entirely when the request carries the `mlflow.prompt.is_prompt` tag (the request is then treated as a prompt). An unauthenticated attacker can supply an arbitrary traversal path as the model version `source`, writing attacker-controlled files to arbitrary locations on the server filesystem and achieving remote code execution under the service account. The fix adds an opt-in MLFLOW_CREATE_MODEL_VERSION_SOURCE_VALIDATION_REGEX allowlist; with the default (unset) configuration the bypass remains exploitable even on 2.22.4.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-11201
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-11201)
+- [参考资料](https://www.zerodayinitiative.com/advisories/ZDI-25-931/)
+- [参考资料](https://mallory.ai/vulnerabilities/CVE-2025-11201)
+
+---
+
+
+### HT Contact Form Widget for Elementor &lt;&#x3D; 2.2.1 - Unauthenticated Arbitrary File Upload
+
+- **漏洞ID**: `CVE-2025-7340`
+- **CVE**: `CVE-2025-7340` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.01751 (percentile 0.7806) @ 2026-11-10
+
+**描述**: The HT Contact Form Widget For Elementor Page Builder & Gutenberg Blocks & Form Builder plugin for WordPress is vulnerable to arbitrary file upload in all versions up to and including 2.2.1 due to missing file type validation in the temp_file_upload() function. The handler is registered on the wp_ajax_nopriv_ht_form_temp_file_upload action, so an unauthenticated attacker holding a form nonce (exposed on any page rendering the &#x5B;ht_form&#x5D; widget) can upload a PHP file to wp-content/uploads/ht_form/temp/ and execute it, achieving remote code execution.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-7340
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-7340)
+- [参考资料](https://github.com/advisories/GHSA-85f4-4cwm-5xmr)
+- [参考资料](https://wpscan.com/vulnerability/91f39d58-1379-4908-bdeb-9c9bce39fb2c/)
+- [参考资料](https://plugins.trac.wordpress.org/changeset?old_path=/ht-contactform/tags/2.2.1&new_path=/ht-contactform/tags/2.2.2)
+
+---
+
+
+### Kener - Authentication Bypass
+
+- **漏洞ID**: `CVE-2026-116747`
+- **CVE**: `CVE-2026-116747` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00623 (percentile 0.50207) @ 2026-11-10
+
+**描述**: Kener 3.0.0 before 4.1.10 falls back to the hardcoded JWT secret &quot;DUMMY_SECRET&quot; when the KENER_SECRET_KEY environment variable is unset or empty. An unauthenticated attacker can forge session cookies and password-reset tokens signed with that key. A forged password-reset token accepted by POST /account/forgot/api/password-reset produces a distinct response: the request passes token verification and fails only later at user lookup (&quot;User does not exist&quot;), whereas patched versions reject the token signature immediately with &quot;Invalid or expired token&quot;.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-116747
+
+**参考链接**: 
+- [参考资料](https://github.com/rajnandan1/kener/commit/ff636483544c926eab5b5e3e26b811c0f52bcaf8)
+- [参考资料](https://github.com/rajnandan1/kener/issues/871)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-116747)
+
+---
+
+
+### Redpanda Connect Streams API - Unauthenticated Remote Code Execution
+
+- **漏洞ID**: `CVE-2026-123270`
+- **CVE**: `CVE-2026-123270` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00644 (percentile 0.51241) @ 2026-11-10
+
+**描述**: Redpanda Connect 4.39.0 through 4.110.0 exposes an unauthenticated streams management API by default; an attacker can register and trigger a stream containing a command processor.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-123270
+
+**参考链接**: 
+- [参考资料](https://www.cve.org/CVERecord?id=CVE-2026-123270)
+- [参考资料](https://docs.redpanda.com/connect/guides/streams_mode/about/)
+- [参考资料](https://docs.redpanda.com/connect/components/processors/command/)
+- [参考资料](https://github.com/pagvac/redpanda-connect-unauth-rce)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-123270)
+
+---
+
+
+### Craft CMS &lt; 4.18.9, &lt; 5.11.2 - Unauthenticated SQL Injection
+
+- **漏洞ID**: `CVE-2026-123488`
+- **CVE**: `CVE-2026-123488` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00476 (percentile 0.41429) @ 2026-11-10
+
+**描述**: Craft CMS &lt; 4.18.9, &lt; 5.11.2 contain an unauthenticated SQL injection caused by unsanitized concatenation of the attribute parameter in the element search endpoint, letting remote attackers read and write the database to gain administrator access, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-123488
+
+**参考链接**: 
+- [参考资料](https://github.com/craftcms/cms/security/advisories/GHSA-qcvp-ggx3-97r6)
+- [参考资料](https://github.com/craftcms/cms/compare/4.18.8...4.18.9)
+- [参考资料](https://github.com/dinosn/CVE-2026-123488-CraftCMS-Lab)
+- [参考资料](https://www.vulncheck.com/advisories/craft-cms-4.0.0-before-4.18.9-sql-injection-via-element-search-endpoint)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-123488)
+
+---
+
+
+### FUXA - Authorization Bypass
+
+- **漏洞ID**: `CVE-2026-25939`
+- **CVE**: `CVE-2026-25939` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.12536 (percentile 0.96266) @ 2026-11-10
+
+**描述**: FUXA 1.2.8 through 1.2.10 contains an authorization bypass caused by improper access control in scheduler management, letting unauthenticated remote attackers create and modify schedulers, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-25939
+
+**参考链接**: 
+- [参考资料](https://github.com/frangoteam/FUXA/security/advisories/GHSA-c869-jx4c-q5fc)
+- [参考资料](https://github.com/frangoteam/FUXA/commit/5782b35117a9bd14ffcb881f8dfb8c6680157d9b)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-25939)
+
+---
+
+
+### Ollama &lt; 0.17.1 - Information Disclosure
+
+- **漏洞ID**: `CVE-2026-7482`
+- **CVE**: `CVE-2026-7482` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.02241 (percentile 0.82982) @ 2026-11-10
+
+**描述**: Ollama &lt; 0.17.1 contains a heap out-of-bounds read caused by improper validation of tensor offset and size in GGUF model loader, letting remote attackers leak sensitive memory data via /api/create and /api/push endpoints, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-7482
+
+**参考链接**: 
+- [参考资料](https://github.com/advisories/GHSA-x8qc-fggm-mpqg)
+- [参考资料](https://github.com/ollama/ollama/commit/88d57d0483cca907e0b23a968c83627a20b21047)
+- [参考资料](https://github.com/szybnev/CVE-2026-7482)
+
+---
+
+
+### MLflow Tracking Server - Unauthenticated Model Source Path Traversal RCE
+
+- **漏洞ID**: `CVE-2025-11201`
+- **CVE**: `CVE-2025-11201` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.26282 (percentile 0.98016) @ 2026-11-10
+
+**描述**: MLflow Tracking Server is vulnerable to an unauthenticated path traversal in the model-version creation API. The server validates the `source` parameter and rejects relative/local paths, but skips that validation entirely when the request carries the `mlflow.prompt.is_prompt` tag (the request is then treated as a prompt). An unauthenticated attacker can supply an arbitrary traversal path as the model version `source`, writing attacker-controlled files to arbitrary locations on the server filesystem and achieving remote code execution under the service account. The fix adds an opt-in MLFLOW_CREATE_MODEL_VERSION_SOURCE_VALIDATION_REGEX allowlist; with the default (unset) configuration the bypass remains exploitable even on 2.22.4.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-11201
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-11201)
+- [参考资料](https://www.zerodayinitiative.com/advisories/ZDI-25-931/)
+- [参考资料](https://mallory.ai/vulnerabilities/CVE-2025-11201)
+
+---
+
+
+### HT Contact Form Widget for Elementor &lt;&#x3D; 2.2.1 - Unauthenticated Arbitrary File Upload
+
+- **漏洞ID**: `CVE-2025-7340`
+- **CVE**: `CVE-2025-7340` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.01751 (percentile 0.7806) @ 2026-11-10
+
+**描述**: The HT Contact Form Widget For Elementor Page Builder & Gutenberg Blocks & Form Builder plugin for WordPress is vulnerable to arbitrary file upload in all versions up to and including 2.2.1 due to missing file type validation in the temp_file_upload() function. The handler is registered on the wp_ajax_nopriv_ht_form_temp_file_upload action, so an unauthenticated attacker holding a form nonce (exposed on any page rendering the &#x5B;ht_form&#x5D; widget) can upload a PHP file to wp-content/uploads/ht_form/temp/ and execute it, achieving remote code execution.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-7340
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-7340)
+- [参考资料](https://github.com/advisories/GHSA-85f4-4cwm-5xmr)
+- [参考资料](https://wpscan.com/vulnerability/91f39d58-1379-4908-bdeb-9c9bce39fb2c/)
+- [参考资料](https://plugins.trac.wordpress.org/changeset?old_path=/ht-contactform/tags/2.2.1&new_path=/ht-contactform/tags/2.2.2)
+
+---
+
+
+### Kener - Authentication Bypass
+
+- **漏洞ID**: `CVE-2026-116747`
+- **CVE**: `CVE-2026-116747` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00623 (percentile 0.50207) @ 2026-11-10
+
+**描述**: Kener 3.0.0 before 4.1.10 falls back to the hardcoded JWT secret &quot;DUMMY_SECRET&quot; when the KENER_SECRET_KEY environment variable is unset or empty. An unauthenticated attacker can forge session cookies and password-reset tokens signed with that key. A forged password-reset token accepted by POST /account/forgot/api/password-reset produces a distinct response: the request passes token verification and fails only later at user lookup (&quot;User does not exist&quot;), whereas patched versions reject the token signature immediately with &quot;Invalid or expired token&quot;.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-116747
+
+**参考链接**: 
+- [参考资料](https://github.com/rajnandan1/kener/commit/ff636483544c926eab5b5e3e26b811c0f52bcaf8)
+- [参考资料](https://github.com/rajnandan1/kener/issues/871)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-116747)
+
+---
+
+
+### Redpanda Connect Streams API - Unauthenticated Remote Code Execution
+
+- **漏洞ID**: `CVE-2026-123270`
+- **CVE**: `CVE-2026-123270` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00644 (percentile 0.51241) @ 2026-11-10
+
+**描述**: Redpanda Connect 4.39.0 through 4.110.0 exposes an unauthenticated streams management API by default; an attacker can register and trigger a stream containing a command processor.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-123270
+
+**参考链接**: 
+- [参考资料](https://www.cve.org/CVERecord?id=CVE-2026-123270)
+- [参考资料](https://docs.redpanda.com/connect/guides/streams_mode/about/)
+- [参考资料](https://docs.redpanda.com/connect/components/processors/command/)
+- [参考资料](https://github.com/pagvac/redpanda-connect-unauth-rce)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-123270)
+
+---
+
+
+### JFrog Artifactory - Unauthenticated Admin Token Minting via Token Scope Bypass
+
+- **漏洞ID**: `CVE-2026-42016`
+- **CVE**: `CVE-2026-42016` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.08643 (percentile 0.95153) @ 2026-11-10
+
+**描述**: JFrog Artifactory Self-Hosted can disclose an anonymous token through the trailing-slash AWS token endpoint (CVE-2026-42018), and affected releases can use that token to issue an administrator-scoped token without enforcing its scope (CVE-2026-42016).
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-42016
+
+**参考链接**: 
+- [参考资料](https://docs.jfrog.com/releases/docs/jfrog-security-advisories)
+- [参考资料](https://www.wiz.io/blog/artifactory-under-attack-in-the-wild-exploitation-of-cve-2026-42016-cve-2026-4201)
+- [参考资料](https://docs.jfrog.com/administration/reference/createToken)
+- [参考资料](https://docs.jfrog.com/administration/reference/getUserList)
+
+---
+
+
+### WordPress OrderConvo &lt; 14 - Path Traversal
+
+- **漏洞ID**: `CVE-2025-10162`
+- **CVE**: `CVE-2025-10162` (2025)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.044 (percentile 0.91401) @ 2026-11-10
+
+**描述**: WooCommerce OrderConvo WordPress plugin \u003C 14 contains a path traversal vulnerability caused by improper validation of file download paths, letting unauthenticated attackers read or download arbitrary files remotely
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-10162
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/f878615d-955d-4365-87e0-6c928f548986/)
+- [参考资料](https://wordpress.org/plugins/admin-and-client-message-after-order-for-woocommerce/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-10162)
+
+---
+
+
+### JFrog Artifactory - Unauthenticated Admin Token Minting via Token Scope Bypass
+
+- **漏洞ID**: `CVE-2026-42016`
+- **CVE**: `CVE-2026-42016` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.08643 (percentile 0.95153) @ 2026-11-10
+
+**描述**: JFrog Artifactory Self-Hosted can disclose an anonymous token through the trailing-slash AWS token endpoint (CVE-2026-42018), and affected releases can use that token to issue an administrator-scoped token without enforcing its scope (CVE-2026-42016).
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-42016
+
+**参考链接**: 
+- [参考资料](https://docs.jfrog.com/releases/docs/jfrog-security-advisories)
+- [参考资料](https://www.wiz.io/blog/artifactory-under-attack-in-the-wild-exploitation-of-cve-2026-42016-cve-2026-4201)
+- [参考资料](https://docs.jfrog.com/administration/reference/createToken)
+- [参考资料](https://docs.jfrog.com/administration/reference/getUserList)
+
+---
+
+
+### WordPress OrderConvo &lt; 14 - Path Traversal
+
+- **漏洞ID**: `CVE-2025-10162`
+- **CVE**: `CVE-2025-10162` (2025)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.044 (percentile 0.91401) @ 2026-11-10
+
+**描述**: WooCommerce OrderConvo WordPress plugin \u003C 14 contains a path traversal vulnerability caused by improper validation of file download paths, letting unauthenticated attackers read or download arbitrary files remotely
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-10162
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/f878615d-955d-4365-87e0-6c928f548986/)
+- [参考资料](https://wordpress.org/plugins/admin-and-client-message-after-order-for-woocommerce/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-10162)
+
+---
+
+
+### JFrog Artifactory - Unauthenticated Admin Token Minting via Token Scope Bypass
+
+- **漏洞ID**: `CVE-2026-42016`
+- **CVE**: `CVE-2026-42016` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.08643 (percentile 0.95153) @ 2026-11-10
+
+**描述**: JFrog Artifactory Self-Hosted can disclose an anonymous token through the trailing-slash AWS token endpoint (CVE-2026-42018), and affected releases can use that token to issue an administrator-scoped token without enforcing its scope (CVE-2026-42016).
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-42016
+
+**参考链接**: 
+- [参考资料](https://docs.jfrog.com/releases/docs/jfrog-security-advisories)
+- [参考资料](https://www.wiz.io/blog/artifactory-under-attack-in-the-wild-exploitation-of-cve-2026-42016-cve-2026-4201)
+- [参考资料](https://docs.jfrog.com/administration/reference/createToken)
+- [参考资料](https://docs.jfrog.com/administration/reference/getUserList)
+
+---
+
+
+### Postiz &lt; 2.21.3 - Unauthenticated Server-Side Request Forgery
+
+- **漏洞ID**: `CVE-2026-34577`
+- **CVE**: `CVE-2026-34577` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00482 (percentile 0.41892) @ 2026-11-10
+
+**描述**: Postiz before 2.21.3 exposes an unauthenticated GET /public/stream endpoint that fetches a user-supplied URL and returns its response; a weak mp4 suffix check allows requests to internal HTTP services.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-34577
+
+**参考链接**: 
+- [参考资料](https://github.com/gitroomhq/postiz-app/security/advisories/GHSA-mv6h-v3jg-g539)
+- [参考资料](https://github.com/gitroomhq/postiz-app/releases/tag/v2.21.3)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-34577)
+
+---
+
+
+### JFrog Artifactory - Unauthenticated Admin Token Minting via Token Scope Bypass
+
+- **漏洞ID**: `CVE-2026-42016`
+- **CVE**: `CVE-2026-42016` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.08643 (percentile 0.95153) @ 2026-11-10
+
+**描述**: JFrog Artifactory Self-Hosted can disclose an anonymous token through the trailing-slash AWS token endpoint (CVE-2026-42018), and affected releases can use that token to issue an administrator-scoped token without enforcing its scope (CVE-2026-42016).
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-42016
+
+**参考链接**: 
+- [参考资料](https://docs.jfrog.com/releases/docs/jfrog-security-advisories)
+- [参考资料](https://www.wiz.io/blog/artifactory-under-attack-in-the-wild-exploitation-of-cve-2026-42016-cve-2026-4201)
+- [参考资料](https://docs.jfrog.com/administration/reference/createToken)
+- [参考资料](https://docs.jfrog.com/administration/reference/getUserList)
+
+---
+
+
+### Click n Chat &lt; 1.1.3 - Unauthenticated SQL Injection
+
+- **漏洞ID**: `CVE-2026-92998`
+- **CVE**: `CVE-2026-92998` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.00359 (percentile 0.29919) @ 2026-11-10
+
+**描述**: The Click n Chat (Chat Widget Integration) WordPress plugin before 1.1.3 does not sanitise sort parameters before using them in a SQL ORDER BY clause, allowing unauthenticated attackers to perform SQL injection attacks.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-92998
+
+**参考链接**: 
+- [参考资料](https://www.cve.org/CVERecord?id=CVE-2026-92998)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-92998)
+- [参考资料](https://wordpress.org/plugins/click-n-chat/)
+
+---
+
+
+## 📋 完整模板列表
+
+| 模板名称 | 严重程度 | 类别 | 影响资产 | EPSS | 风险评分 |
+|---------|---------|------|---------|------|---------|
+| MLflow Tracking Server - Unauthenticated Model Sou | 🔴 critical | CVE漏洞 | 通用 | 0.2628 | 5/5 |
+| MLflow Tracking Server - Unauthenticated Model Sou | 🔴 critical | CVE漏洞 | 通用 | 0.2628 | 5/5 |
+| HT Contact Form Widget for Elementor &lt;&#x3D; 2. | 🔴 critical | CVE漏洞 | WordPress 站点 | 0.0175 | 5/5 |
+| Craft CMS &lt; 4.18.9, &lt; 5.11.2 - Unauthenticat | 🔴 critical | CVE漏洞 | 通用 | 0.0048 | 5/5 |
+| MLflow Tracking Server - Unauthenticated Model Sou | 🔴 critical | CVE漏洞 | 通用 | 0.2628 | 5/5 |
+| HT Contact Form Widget for Elementor &lt;&#x3D; 2. | 🔴 critical | CVE漏洞 | WordPress 站点 | 0.0175 | 5/5 |
+| Craft CMS &lt; 4.18.9, &lt; 5.11.2 - Unauthenticat | 🔴 critical | CVE漏洞 | 通用 | 0.0048 | 5/5 |
+| MLflow Tracking Server - Unauthenticated Model Sou | 🔴 critical | CVE漏洞 | 通用 | 0.2628 | 5/5 |
+| HT Contact Form Widget for Elementor &lt;&#x3D; 2. | 🔴 critical | CVE漏洞 | WordPress 站点 | 0.0175 | 5/5 |
+| Kener - Authentication Bypass | 🔴 critical | CVE漏洞 | 通用 | 0.0062 | 5/5 |
+| Redpanda Connect Streams API - Unauthenticated Rem | 🔴 critical | CVE漏洞 | 通用 | 0.0064 | 5/5 |
+| Craft CMS &lt; 4.18.9, &lt; 5.11.2 - Unauthenticat | 🔴 critical | CVE漏洞 | 通用 | 0.0048 | 5/5 |
+| FUXA - Authorization Bypass | 🔴 critical | CVE漏洞 | 通用 | 0.1254 | 5/5 |
+| Ollama &lt; 0.17.1 - Information Disclosure | 🟠 high | CVE漏洞 | 通用 | 0.0224 | 5/5 |
+| MLflow Tracking Server - Unauthenticated Model Sou | 🔴 critical | CVE漏洞 | 通用 | 0.2628 | 5/5 |
+| HT Contact Form Widget for Elementor &lt;&#x3D; 2. | 🔴 critical | CVE漏洞 | WordPress 站点 | 0.0175 | 5/5 |
+| Kener - Authentication Bypass | 🔴 critical | CVE漏洞 | 通用 | 0.0062 | 5/5 |
+| Redpanda Connect Streams API - Unauthenticated Rem | 🔴 critical | CVE漏洞 | 通用 | 0.0064 | 5/5 |
+| JFrog Artifactory - Unauthenticated Admin Token Mi | 🟠 high | CVE漏洞 | 通用 | 0.0864 | 4.5/5 |
+| WordPress OrderConvo &lt; 14 - Path Traversal | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0440 | 4.5/5 |
+| JFrog Artifactory - Unauthenticated Admin Token Mi | 🟠 high | CVE漏洞 | 通用 | 0.0864 | 4.5/5 |
+| WordPress OrderConvo &lt; 14 - Path Traversal | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0440 | 4.5/5 |
+| JFrog Artifactory - Unauthenticated Admin Token Mi | 🟠 high | CVE漏洞 | 通用 | 0.0864 | 4.5/5 |
+| Postiz &lt; 2.21.3 - Unauthenticated Server-Side R | 🟠 high | CVE漏洞 | 通用 | 0.0048 | 4.5/5 |
+| JFrog Artifactory - Unauthenticated Admin Token Mi | 🟠 high | CVE漏洞 | 通用 | 0.0864 | 4.5/5 |
+| Click n Chat &lt; 1.1.3 - Unauthenticated SQL Inje | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0036 | 4.5/5 |
+| Munin munin-httpd 2.99.1-2.999.18 - Unauthenticate | 🟡 medium | CVE漏洞 | 通用 | 0.0035 | 3.5/5 |
+| Munin munin-httpd 2.99.1-2.999.18 - Unauthenticate | 🟡 medium | CVE漏洞 | 通用 | 0.0035 | 3.5/5 |
+| GutenKit Blocks Addon &lt; 2.5.0 - Stored Cross-Si | 🟡 medium | CVE漏洞 | WordPress 站点 | 0.0043 | 3.5/5 |
+| FreeScout &lt; 1.8.225 - Unauthenticated Maintenan | 🟡 medium | CVE漏洞 | 通用 | 0.0027 | 3.5/5 |
+
+## 🛡️ 安全建议
+
+🚨 发现高风险漏洞，建议立即扫描相关资产
+🔍 关注新发布的 CVE 漏洞，及时更新补丁
+⚡ 检测到远程代码执行漏洞，优先处理
+
+## 🔧 扫描建议
+
+建议使用以下 Nuclei 命令进行扫描：
+
+```bash
+# 扫描高危漏洞
+nuclei -t http/cves/2025/CVE-2025-11201.yaml -t http/cves/2025/CVE-2025-11201.yaml -t http/cves/2025/CVE-2025-7340.yaml -t http/cves/2026/CVE-2026-123488.yaml -t http/cves/2025/CVE-2025-11201.yaml -t http/cves/2025/CVE-2025-7340.yaml -t http/cves/2026/CVE-2026-123488.yaml -t http/cves/2025/CVE-2025-11201.yaml -t http/cves/2025/CVE-2025-7340.yaml -t http/cves/2026/CVE-2026-116747.yaml -t http/cves/2026/CVE-2026-123270.yaml -t http/cves/2026/CVE-2026-123488.yaml -t http/cves/2026/CVE-2026-25939.yaml -t http/cves/2026/CVE-2026-7482.yaml -t http/cves/2025/CVE-2025-11201.yaml -t http/cves/2025/CVE-2025-7340.yaml -t http/cves/2026/CVE-2026-116747.yaml -t http/cves/2026/CVE-2026-123270.yaml -t http/cves/2026/CVE-2026-42016.yaml -t http/cves/2025/CVE-2025-10162.yaml -t http/cves/2026/CVE-2026-42016.yaml -t http/cves/2025/CVE-2025-10162.yaml -t http/cves/2026/CVE-2026-42016.yaml -t http/cves/2026/CVE-2026-34577.yaml -t http/cves/2026/CVE-2026-42016.yaml -t http/cves/2026/CVE-2026-92998.yaml -u target-url
+
+# 扫描所有今日新增模板  
+nuclei -t http/cves/2025/CVE-2025-11201.yaml -t http/cves/2025/CVE-2025-11201.yaml -t http/cves/2025/CVE-2025-7340.yaml -t http/cves/2026/CVE-2026-123488.yaml -t http/cves/2025/CVE-2025-11201.yaml -t http/cves/2025/CVE-2025-7340.yaml -t http/cves/2026/CVE-2026-123488.yaml -t http/cves/2025/CVE-2025-11201.yaml -t http/cves/2025/CVE-2025-7340.yaml -t http/cves/2026/CVE-2026-116747.yaml -t http/cves/2026/CVE-2026-123270.yaml -t http/cves/2026/CVE-2026-123488.yaml -t http/cves/2026/CVE-2026-25939.yaml -t http/cves/2026/CVE-2026-7482.yaml -t http/cves/2025/CVE-2025-11201.yaml -t http/cves/2025/CVE-2025-7340.yaml -t http/cves/2026/CVE-2026-116747.yaml -t http/cves/2026/CVE-2026-123270.yaml -t http/cves/2026/CVE-2026-42016.yaml -t http/cves/2025/CVE-2025-10162.yaml -t http/cves/2026/CVE-2026-42016.yaml -t http/cves/2025/CVE-2025-10162.yaml -t http/cves/2026/CVE-2026-42016.yaml -t http/cves/2026/CVE-2026-34577.yaml -t http/cves/2026/CVE-2026-42016.yaml -t http/cves/2026/CVE-2026-92998.yaml -t http/cves/2026/CVE-2026-125357.yaml -t http/cves/2026/CVE-2026-125357.yaml -t http/cves/2026/CVE-2026-19697.yaml -t http/cves/2026/CVE-2026-62850.yaml -u target-url
+```
+
+---
+
+*本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)*
+
+*扫描建议仅供参考，请在授权环境下进行安全测试*
