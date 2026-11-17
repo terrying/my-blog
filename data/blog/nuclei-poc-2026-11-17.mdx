@@ -1,0 +1,625 @@
+---
+title: 'Nuclei POC 精选分析 - 2026-11-17'
+date: '2026-11-17'
+tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
+draft: false
+summary: '从 45 个模板更新中精选分析 30 个高价值 POC，发现 22 个高风险漏洞'
+authors: ['default']
+category: 'security-intel'
+---
+
+# Nuclei POC 精选分析 - 2026-11-17
+
+## 📊 智能筛选概况
+
+- **发现变更**: 45 个模板更新
+- **精选分析**: 30 个高价值 POC  
+- **智能跳过**: 15 个低优先级模板
+- **高风险漏洞**: 22 个
+- **主要类别**: CVE漏洞(12), 其他(16), 技术识别(2)
+
+> 💡 **智能筛选说明**: 系统自动优先分析 CVE 漏洞、高危漏洞和新增模板，跳过低价值的技术识别类模板，确保高效利用 API 资源。
+
+### 严重程度分布
+
+- 🔴 **严重**: 1 个
+- 🟠 **高危**: 21 个
+- 🟡 **中危**: 6 个
+- ⚪ **信息**: 2 个
+
+## 🔍 重点漏洞分析
+
+
+### DirectoryPress &lt;&#x3D; 3.6.27 - Unauthenticated Local File Inclusion
+
+- **漏洞ID**: `CVE-2026-62032`
+- **CVE**: `CVE-2026-62032` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.00404 (percentile 0.35229) @ 2026-11-16
+
+**描述**: The DirectoryPress plugin for WordPress is vulnerable to Local File Inclusion in all versions up to, and including, 3.6.27. The directorypress_listings_handler class merges user-supplied GET parameters into shortcode attributes when include_get_params is enabled (default). The template parameter is passed unsanitized through directorypress_display_template() into directorypress_has_template(), which checks is_file() on the raw user input and includes it directly via PHP include(). This makes it possible for unauthenticated attackers to include and execute arbitrary files on the server, allowing the execution of any PHP code in those files. Exploitation requires a page with a DirectoryPress shortcode to exist.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-62032
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-62032)
+- [参考资料](https://patchstack.com/database/wordpress/plugin/directorypress/vulnerability/wordpress-directorypress-plugin-3-6-27-local-file-inclusion-vulnerability)
+- [参考资料](https://wordpress.org/plugins/directorypress/)
+
+---
+
+
+### Grav CMS &lt; 1.7.53.4 - Unauthenticated Path Traversal via FormFlash
+
+- **漏洞ID**: `CVE-2026-42608`
+- **CVE**: `CVE-2026-42608` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00603 (percentile 0.49446) @ 2026-11-16
+
+**描述**: Grav &lt; 1.7.53.4 contains a path traversal caused by manipulation of session_id (__form-flash-id) in FormFlash core component, letting unauthenticated attackers create directories and write files, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-42608
+
+**参考链接**: 
+- [参考资料](https://github.com/getgrav/grav/security/advisories/GHSA-hmcx-ch82-3fv2)
+- [参考资料](https://github.com/getgrav/grav/commit/d904efc33)
+- [参考资料](https://github.com/getgrav/grav/blob/2.0/system/src/Grav/Framework/Form/FormFlash.php)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-42608)
+
+---
+
+
+### knowns &lt;&#x3D; 0.29.1 - Unauthenticated Arbitrary File Read via Template Preview Path Traversal
+
+- **漏洞ID**: `CVE-2026-86538`
+- **CVE**: `CVE-2026-86538` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00984 (percentile 0.62892) @ 2026-11-16
+
+**描述**: Knowns versions through 0.29.1 allow unauthenticated file reads through the template preview endpoint when no server password is configured. The templateFile parameter is joined to a template directory without a path containment check, allowing traversal outside that directory; version 0.30.0 rejects such paths.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-86538
+
+**参考链接**: 
+- [参考资料](https://github.com/knowns-dev/knowns/security/advisories/GHSA-fpxv-c555-rhm3)
+- [参考资料](https://github.com/knowns-dev/knowns/commit/09c5a96fd5817b941dc86669278c1a17db10ed4e)
+- [参考资料](https://github.com/knowns-dev/knowns/releases/tag/v0.30.0)
+- [参考资料](https://www.vulncheck.com/advisories/knowns-before-0.30.0-path-traversal-via-templatefile-parameter)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-86538)
+
+---
+
+
+### SuiteCRM &lt;&#x3D; 7.15.1, &lt;&#x3D; 8.10.1 - Authenticated SSRF
+
+- **漏洞ID**: `CVE-2026-69137`
+- **CVE**: `CVE-2026-69137` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.03759 (percentile 0.90078) @ 2026-11-16
+
+**描述**: SuiteCRM CalendarAccount testConnection accepts an attacker-controlled server_url and passes it to cURL without destination validation. An authenticated user can cause a server-side request to loopback or internal network services.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-69137
+
+**参考链接**: 
+- [参考资料](https://github.com/SuiteCRM/SuiteCRM/security/advisories/GHSA-72r3-24x4-j46c)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-69137)
+
+---
+
+
+### SuiteCRM &lt;&#x3D; 7.15.1, &lt;&#x3D; 8.10.1 - Authenticated SSRF
+
+- **漏洞ID**: `CVE-2026-69137`
+- **CVE**: `CVE-2026-69137` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.03759 (percentile 0.90078) @ 2026-11-16
+
+**描述**: SuiteCRM CalendarAccount testConnection accepts an attacker-controlled server_url and passes it to cURL without destination validation. An authenticated user can cause a server-side request to loopback or internal network services.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-69137
+
+**参考链接**: 
+- [参考资料](https://github.com/SuiteCRM/SuiteCRM/security/advisories/GHSA-72r3-24x4-j46c)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-69137)
+
+---
+
+
+### Grav CMS &lt; 1.7.53.4 - Unauthenticated Path Traversal via FormFlash
+
+- **漏洞ID**: `CVE-2026-42608`
+- **CVE**: `CVE-2026-42608` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00603 (percentile 0.49446) @ 2026-11-16
+
+**描述**: Grav &lt; 1.7.53.4 contains a path traversal caused by manipulation of session_id (__form-flash-id) in FormFlash core component, letting unauthenticated attackers create directories and write files, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-42608
+
+**参考链接**: 
+- [参考资料](https://github.com/getgrav/grav/security/advisories/GHSA-hmcx-ch82-3fv2)
+- [参考资料](https://github.com/getgrav/grav/commit/d904efc33)
+- [参考资料](https://github.com/getgrav/grav/blob/2.0/system/src/Grav/Framework/Form/FormFlash.php)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-42608)
+
+---
+
+
+### knowns &lt;&#x3D; 0.29.1 - Unauthenticated Arbitrary File Read via Template Preview Path Traversal
+
+- **漏洞ID**: `CVE-2026-86538`
+- **CVE**: `CVE-2026-86538` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00984 (percentile 0.62892) @ 2026-11-16
+
+**描述**: Knowns versions through 0.29.1 allow unauthenticated file reads through the template preview endpoint when no server password is configured. The templateFile parameter is joined to a template directory without a path containment check, allowing traversal outside that directory; version 0.30.0 rejects such paths.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-86538
+
+**参考链接**: 
+- [参考资料](https://github.com/knowns-dev/knowns/security/advisories/GHSA-fpxv-c555-rhm3)
+- [参考资料](https://github.com/knowns-dev/knowns/commit/09c5a96fd5817b941dc86669278c1a17db10ed4e)
+- [参考资料](https://github.com/knowns-dev/knowns/releases/tag/v0.30.0)
+- [参考资料](https://www.vulncheck.com/advisories/knowns-before-0.30.0-path-traversal-via-templatefile-parameter)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-86538)
+
+---
+
+
+### esm.sh web handler &lt; v137_7 - Path Traversal
+
+- **漏洞ID**: `CVE-2026-102657`
+- **CVE**: `CVE-2026-102657` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00716 (percentile 0.5434) @ 2026-11-16
+
+**描述**: esm.sh server &lt; 137_7 contains a path traversal caused by improper validation of URL-decoded r.URL.Path in web.NewHandler, letting unauthenticated remote attackers read files outside Config.AppDir, exploit requires Dev mode disabled.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-102657
+
+**参考链接**: 
+- [参考资料](https://github.com/esm-dev/esm.sh/security/advisories/GHSA-g3c2-rjq2-c763)
+- [参考资料](https://github.com/esm-dev/esm.sh/pull/1376)
+- [参考资料](https://github.com/esm-dev/esm.sh/commit/468b6b2a4b4dfec334cf6b33b01fcd4e5cd93bed)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-102657)
+
+---
+
+
+### FunnelKit Payment Gateway for Stripe WooCommerce &lt; 1.16.0 - Unauthenticated Data Exposure
+
+- **漏洞ID**: `CVE-2026-109991`
+- **CVE**: `CVE-2026-109991` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.00483 (percentile 0.42191) @ 2026-11-16
+
+**描述**: FunnelKit Payment Gateway for Stripe WooCommerce plugin for WordPress \u003C&#x3D; 1.15.0.2 contains an insecure direct object reference caused by missing validation on &#x27;order-pay&#x27; parameter, letting unauthenticated attackers read full billing PII by enumerating order IDs.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://www.wordfence.com/threat-intel/vulnerabilities/id/b8d77b41-f535-4e60-a850-881be8dee458)
+- [参考资料](https://www.cve.org/CVERecord?id=CVE-2026-109991)
+
+---
+
+
+### FunnelKit Payment Gateway for Stripe WooCommerce &lt; 1.16.0 - Unauthenticated Data Exposure
+
+- **漏洞ID**: `CVE-2026-109991`
+- **CVE**: `CVE-2026-109991` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.00483 (percentile 0.42191) @ 2026-11-16
+
+**描述**: FunnelKit Payment Gateway for Stripe WooCommerce plugin for WordPress \u003C&#x3D; 1.15.0.2 contains an insecure direct object reference caused by missing validation on &#x27;order-pay&#x27; parameter, letting unauthenticated attackers read full billing PII by enumerating order IDs.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://www.wordfence.com/threat-intel/vulnerabilities/id/b8d77b41-f535-4e60-a850-881be8dee458)
+- [参考资料](https://www.cve.org/CVERecord?id=CVE-2026-109991)
+
+---
+
+
+### ACTi Web Configurator - Default Login
+
+- **漏洞ID**: `acti-web-configurator-default-login`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 摄像头设备
+- **预估影响**: 数千个
+
+
+**描述**: ACTi camera Web Configurator accepts default administrator credentials when the factory password has not been changed. This template checks the admin and Admin accounts with the default password 123456.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://download.acti.com/?id=20834)
+- [参考资料](https://download.acti.com/?id=23774)
+
+---
+
+
+### AnyLogic Team License Server - Default Login
+
+- **漏洞ID**: `anylogic-server-default-login`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: AnyLogic Team License Server accepts the default admin/admin credentials when its administrator account has not been secured.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://www.anylogic.com/upload/activation-guides/activation_of_anylogic_university_server_license.pdf)
+
+---
+
+
+### Schneider Electric - Default Login
+
+- **漏洞ID**: `schneider-electric-default-login`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: Schneider Electric APC UPS Network Management Cards may retain default or weak account credentials. This template checks known credential pairs against the card&#x27;s web login interface.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://iportal.se.com/Contents/docs/UPS-PMAR-9LLJMN_R0_EN.PDF)
+
+---
+
+
+### EnGenius Wireless Access Point - Default Login
+
+- **漏洞ID**: `engenius-default-login`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: EnGenius wireless access points accept the default admin/admin credentials when the administrator password has not been changed.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://doctorengenius.engeniustech.com/en/articles/6708892-what-is-the-default-ip-username-and-password-for-engenius-devices)
+
+---
+
+
+### GW Security IP Camera - Default Login
+
+- **漏洞ID**: `gw-security-camera-default-login`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 摄像头设备
+- **预估影响**: 数千个
+
+
+**描述**: GW Security IP cameras with unchanged default credentials allow authenticated access to their user configuration endpoint. This template checks encoded administrator credentials and looks for a user configuration response.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://gwsecurityusa.com/wp-content/Firmware/Cameras/50-54-60-80%20Series%20IP%20Cameras/GW50-54-80%20Series%20Quick%20Guide%2020170619.pdf)
+
+---
+
+
+### Polycom Web Configuration Utility - Default Login
+
+- **漏洞ID**: `polycom-default-login`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: Polycom phone Web Configuration Utility accepts default credentials for administrator or user accounts when the factory passwords have not been changed. This template checks the authentication form for the login success response.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://support.ringcentral.com/article-v2/Default-Username-Password-Polycom-Phones.html)
+- [参考资料](https://h30434.www3.hp.com/t5/Poly-Phones-Knowledge-Base/FAQ-What-is-the-warning-indication-triangle-exclamation-mark/ta-p/9510744)
+
+---
+
+
+### Powerhouse Dynamics SiteSage Gateway - Default Login
+
+- **漏洞ID**: `sitesage-default-login`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: SiteSage gateways may retain default credentials for their local configuration interface.
+This template checks known administrator credential pairs for a successful sign-in response.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://www.powerwisesystems.com/blog/sitesage-gateway-and-wireless-networks/)
+- [参考资料](https://powerhousedynamics.com/wiki/18712-2/customer-support-knowledge-base-directory/powerhouse-dynamics-equipment/gateways-and-secure-access-points-sap/gateway-wi-fi-setup/)
+
+---
+
+
+### Symetrix VoIP Interface - Default Login
+
+- **漏洞ID**: `symetrix-default-login`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: Symetrix VoIP Interface devices may retain default credentials for their web administration interface.
+This template checks access using the Admin account and the default password Password.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://aveosystems.com/wp-content/uploads/product_pdfs/Symetrix_Radius_Mira_Connect.pdf)
+
+---
+
+
+### Zebra Print Server - Default Login
+
+- **漏洞ID**: `zebra-web-default-login`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: Zebra printer web interfaces may retain the default password 1234 for access to protected printer functions. This template submits the password to the authorization endpoint and checks for an access-granted response.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://supportcommunity.zebra.com/s/article/Changing-the-Print-Server-s-Password?language=en_US)
+- [参考资料](https://docs.zebra.com/us/en/printers/desktop/bm-zd620-and-zd420-desktop-printers-user-guide-ditamap/c-zd620-420-setup/t-zd620-zd420-ug-connecting-your-printer-to-a-computer/r-zd620-420-ethernet-lan-rj-45/r-zd200t-ug-print-server-user-id-and-password-defaults.html)
+
+---
+
+
+### ACTi Web Configurator - Default Login
+
+- **漏洞ID**: `acti-web-configurator-default-login`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 摄像头设备
+- **预估影响**: 数千个
+
+
+**描述**: ACTi camera Web Configurator accepts default administrator credentials when the factory password has not been changed. This template checks the admin and Admin accounts with the default password 123456.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://download.acti.com/?id=20834)
+- [参考资料](https://download.acti.com/?id=23774)
+
+---
+
+
+### AnyLogic Team License Server - Default Login
+
+- **漏洞ID**: `anylogic-server-default-login`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: AnyLogic Team License Server accepts the default admin/admin credentials when its administrator account has not been secured.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://www.anylogic.com/upload/activation-guides/activation_of_anylogic_university_server_license.pdf)
+
+---
+
+
+### Schneider Electric - Default Login
+
+- **漏洞ID**: `schneider-electric-default-login`
+- **CVE**: -
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 高风险 (4/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: Schneider Electric APC UPS Network Management Cards may retain default or weak account credentials. This template checks known credential pairs against the card&#x27;s web login interface.
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://iportal.se.com/Contents/docs/UPS-PMAR-9LLJMN_R0_EN.PDF)
+
+---
+
+
+## 📋 完整模板列表
+
+| 模板名称 | 严重程度 | 类别 | 影响资产 | EPSS | 风险评分 |
+|---------|---------|------|---------|------|---------|
+| DirectoryPress &lt;&#x3D; 3.6.27 - Unauthenticated | 🔴 critical | CVE漏洞 | WordPress 站点 | 0.0040 | 5/5 |
+| Grav CMS &lt; 1.7.53.4 - Unauthenticated Path Trav | 🟠 high | CVE漏洞 | 通用 | 0.0060 | 4.5/5 |
+| knowns &lt;&#x3D; 0.29.1 - Unauthenticated Arbitra | 🟠 high | CVE漏洞 | 通用 | 0.0098 | 4.5/5 |
+| SuiteCRM &lt;&#x3D; 7.15.1, &lt;&#x3D; 8.10.1 - Au | 🟠 high | CVE漏洞 | 通用 | 0.0376 | 4.5/5 |
+| SuiteCRM &lt;&#x3D; 7.15.1, &lt;&#x3D; 8.10.1 - Au | 🟠 high | CVE漏洞 | 通用 | 0.0376 | 4.5/5 |
+| Grav CMS &lt; 1.7.53.4 - Unauthenticated Path Trav | 🟠 high | CVE漏洞 | 通用 | 0.0060 | 4.5/5 |
+| knowns &lt;&#x3D; 0.29.1 - Unauthenticated Arbitra | 🟠 high | CVE漏洞 | 通用 | 0.0098 | 4.5/5 |
+| esm.sh web handler &lt; v137_7 - Path Traversal | 🟠 high | CVE漏洞 | 通用 | 0.0072 | 4.5/5 |
+| FunnelKit Payment Gateway for Stripe WooCommerce & | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0048 | 4/5 |
+| FunnelKit Payment Gateway for Stripe WooCommerce & | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0048 | 4/5 |
+| ACTi Web Configurator - Default Login | 🟠 high | 其他 | 摄像头设备 | - | 4/5 |
+| AnyLogic Team License Server - Default Login | 🟠 high | 其他 | 通用 | - | 4/5 |
+| Schneider Electric - Default Login | 🟠 high | 其他 | 通用 | - | 4/5 |
+| EnGenius Wireless Access Point - Default Login | 🟠 high | 其他 | 通用 | - | 4/5 |
+| GW Security IP Camera - Default Login | 🟠 high | 其他 | 摄像头设备 | - | 4/5 |
+| Polycom Web Configuration Utility - Default Login | 🟠 high | 其他 | 通用 | - | 4/5 |
+| Powerhouse Dynamics SiteSage Gateway - Default Log | 🟠 high | 其他 | 通用 | - | 4/5 |
+| Symetrix VoIP Interface - Default Login | 🟠 high | 其他 | 通用 | - | 4/5 |
+| Zebra Print Server - Default Login | 🟠 high | 其他 | 通用 | - | 4/5 |
+| ACTi Web Configurator - Default Login | 🟠 high | 其他 | 摄像头设备 | - | 4/5 |
+| AnyLogic Team License Server - Default Login | 🟠 high | 其他 | 通用 | - | 4/5 |
+| Schneider Electric - Default Login | 🟠 high | 其他 | 通用 | - | 4/5 |
+| All-in-One Video Gallery &lt; 5.1.1 - Unauthentica | 🟡 medium | CVE漏洞 | WordPress 站点 | 0.0020 | 3.5/5 |
+| All-in-One Video Gallery &lt; 5.1.1 - Unauthentica | 🟡 medium | CVE漏洞 | WordPress 站点 | 0.0020 | 3.5/5 |
+| CyberPower UPS Remote Management - Default Login | 🟡 medium | 其他 | 通用 | - | 3/5 |
+| Star Micronics TSP100III Printer - Default Login | 🟡 medium | 其他 | 通用 | - | 3/5 |
+| Xerox AltaLink Printer - Default Login | 🟡 medium | 其他 | 通用 | - | 3/5 |
+| CyberPower UPS Remote Management - Default Login | 🟡 medium | 其他 | 通用 | - | 3/5 |
+| Wibu-Systems CodeMeter WebAdmin - Version Detectio | ⚪ info | 技术识别 | 通用 | - | 1/5 |
+| Wibu-Systems CodeMeter WebAdmin - Version Detectio | ⚪ info | 技术识别 | 通用 | - | 1/5 |
+
+## 🛡️ 安全建议
+
+🚨 发现高风险漏洞，建议立即扫描相关资产
+🔍 关注新发布的 CVE 漏洞，及时更新补丁
+
+## 🔧 扫描建议
+
+建议使用以下 Nuclei 命令进行扫描：
+
+```bash
+# 扫描高危漏洞
+nuclei -t http/cves/2026/CVE-2026-62032.yaml -t http/cves/2026/CVE-2026-42608.yaml -t http/cves/2026/CVE-2026-86538.yaml -t http/cves/2026/CVE-2026-69137.yaml -t http/cves/2026/CVE-2026-69137.yaml -t http/cves/2026/CVE-2026-42608.yaml -t http/cves/2026/CVE-2026-86538.yaml -t http/cves/2026/CVE-2026-102657.yaml -t http/cves/2026/CVE-2026-109991.yaml -t http/cves/2026/CVE-2026-109991.yaml -t http/default-logins/acti/acti-web-configurator-default-login.yaml -t http/default-logins/anylogic/anylogic-server-default-login.yaml -t http/default-logins/apc-nmc/schneider-electric-default-login.yaml -t http/default-logins/engenius/engenius-default-login.yaml -t http/default-logins/gw-security/gw-security-camera-default-login.yaml -t http/default-logins/polycom/polycom-default-login.yaml -t http/default-logins/sitesage/sitesage-default-login.yaml -t http/default-logins/symetrix/symetrix-default-login.yaml -t http/default-logins/zebra/zebra-web-default-login.yaml -t http/default-logins/acti/acti-web-configurator-default-login.yaml -t http/default-logins/anylogic/anylogic-server-default-login.yaml -t http/default-logins/apc-nmc/schneider-electric-default-login.yaml -u target-url
+
+# 扫描所有今日新增模板  
+nuclei -t http/cves/2026/CVE-2026-62032.yaml -t http/cves/2026/CVE-2026-42608.yaml -t http/cves/2026/CVE-2026-86538.yaml -t http/cves/2026/CVE-2026-69137.yaml -t http/cves/2026/CVE-2026-69137.yaml -t http/cves/2026/CVE-2026-42608.yaml -t http/cves/2026/CVE-2026-86538.yaml -t http/cves/2026/CVE-2026-102657.yaml -t http/cves/2026/CVE-2026-109991.yaml -t http/cves/2026/CVE-2026-109991.yaml -t http/default-logins/acti/acti-web-configurator-default-login.yaml -t http/default-logins/anylogic/anylogic-server-default-login.yaml -t http/default-logins/apc-nmc/schneider-electric-default-login.yaml -t http/default-logins/engenius/engenius-default-login.yaml -t http/default-logins/gw-security/gw-security-camera-default-login.yaml -t http/default-logins/polycom/polycom-default-login.yaml -t http/default-logins/sitesage/sitesage-default-login.yaml -t http/default-logins/symetrix/symetrix-default-login.yaml -t http/default-logins/zebra/zebra-web-default-login.yaml -t http/default-logins/acti/acti-web-configurator-default-login.yaml -t http/default-logins/anylogic/anylogic-server-default-login.yaml -t http/default-logins/apc-nmc/schneider-electric-default-login.yaml -t http/cves/2026/CVE-2026-120409.yaml -t http/cves/2026/CVE-2026-120409.yaml -t http/default-logins/cyberpower/cyber-power-ups-default-login.yaml -t http/default-logins/starmicronics/star-printer-default-login.yaml -t http/default-logins/xerox/xerox-altalink-default-login.yaml -t http/default-logins/cyberpower/cyber-power-ups-default-login.yaml -t http/technologies/codemeter-detect.yaml -t http/technologies/codemeter-detect.yaml -u target-url
+```
+
+---
+
+*本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)*
+
+*扫描建议仅供参考，请在授权环境下进行安全测试*
