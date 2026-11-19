@@ -1,0 +1,674 @@
+---
+title: 'Nuclei POC 精选分析 - 2026-11-19'
+date: '2026-11-19'
+tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
+draft: false
+summary: '从 949 个模板更新中精选分析 30 个高价值 POC，发现 23 个高风险漏洞'
+authors: ['default']
+category: 'security-intel'
+---
+
+# Nuclei POC 精选分析 - 2026-11-19
+
+## 📊 智能筛选概况
+
+- **发现变更**: 949 个模板更新
+- **精选分析**: 30 个高价值 POC  
+- **智能跳过**: 919 个低优先级模板
+- **高风险漏洞**: 23 个
+- **主要类别**: CVE漏洞(30)
+
+> 💡 **智能筛选说明**: 系统自动优先分析 CVE 漏洞、高危漏洞和新增模板，跳过低价值的技术识别类模板，确保高效利用 API 资源。
+
+### 严重程度分布
+
+- 🔴 **严重**: 18 个
+- 🟠 **高危**: 5 个
+- 🟡 **中危**: 7 个
+
+## 🔍 重点漏洞分析
+
+
+### AnsibleForms &lt;&#x3D; 6.2.0 - Authentication Bypass via Hard-coded Default JWT Signing Secret
+
+- **漏洞ID**: `CVE-2026-73969`
+- **CVE**: `CVE-2026-73969` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: AnsibleForms &lt; 6.2.1 contains an authentication bypass caused by use of a hard-coded fallback JWT signing secret and improper token verification, letting unauthenticated attackers gain administrator privileges, exploit requires ACCESS_TOKEN_SECRET unset.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-73969
+
+**参考链接**: 
+- [参考资料](https://github.com/ansibleforms/ansibleforms/security/advisories/GHSA-g27f-cjvv-42rf)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-73969)
+
+---
+
+
+### Copeland/Dixell XWEB EVO - Pre-Auth OS Command Injection via Username
+
+- **漏洞ID**: `CVE-2026-124002`
+- **CVE**: `CVE-2026-124002` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.03224 (percentile 0.8849) @ 2026-11-18
+
+**描述**: XWEB EVO versions 5.2.3 through before 5.7.0 contain a pre-authentication OS command injection vulnerability. The login.lua CGI splices the submitted username directly into an io.popen() shell command (via find) before any password check occurs. Injecting shell metacharacters closes the find argument and executes arbitrary OS commands as www-data, escalatable to root via the setuid-root wlua interpreter (CVE-2026-124003). The product is End-of-Software-Support (EOL March 2026) and will not receive patches.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-124002
+
+**参考链接**: 
+- [参考资料](https://www.vulncheck.com/blog/copeland-xweb-evo-unauthenticated-root)
+- [参考资料](https://www.vulncheck.com/advisories/dixell-copeland-xweb-evo-pre-authentication-os-command-injection-via-username)
+- [参考资料](https://github.com/fixedbyreboot/CVE-2026-124002-POC)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-124002)
+
+---
+
+
+### AnsibleForms &lt;&#x3D; 6.2.0 - Authentication Bypass via Hard-coded Default JWT Signing Secret
+
+- **漏洞ID**: `CVE-2026-73969`
+- **CVE**: `CVE-2026-73969` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: AnsibleForms &lt; 6.2.1 contains an authentication bypass caused by use of a hard-coded fallback JWT signing secret and improper token verification, letting unauthenticated attackers gain administrator privileges, exploit requires ACCESS_TOKEN_SECRET unset.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-73969
+
+**参考链接**: 
+- [参考资料](https://github.com/ansibleforms/ansibleforms/security/advisories/GHSA-g27f-cjvv-42rf)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-73969)
+
+---
+
+
+### Copeland/Dixell XWEB EVO - Pre-Auth OS Command Injection via Username
+
+- **漏洞ID**: `CVE-2026-124002`
+- **CVE**: `CVE-2026-124002` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.03224 (percentile 0.8849) @ 2026-11-18
+
+**描述**: XWEB EVO versions 5.2.3 through before 5.7.0 contain a pre-authentication OS command injection vulnerability. The login.lua CGI splices the submitted username directly into an io.popen() shell command (via find) before any password check occurs. Injecting shell metacharacters closes the find argument and executes arbitrary OS commands as www-data, escalatable to root via the setuid-root wlua interpreter (CVE-2026-124003). The product is End-of-Software-Support (EOL March 2026) and will not receive patches.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-124002
+
+**参考链接**: 
+- [参考资料](https://www.vulncheck.com/blog/copeland-xweb-evo-unauthenticated-root)
+- [参考资料](https://www.vulncheck.com/advisories/dixell-copeland-xweb-evo-pre-authentication-os-command-injection-via-username)
+- [参考资料](https://github.com/fixedbyreboot/CVE-2026-124002-POC)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-124002)
+
+---
+
+
+### AnsibleForms &lt;&#x3D; 6.2.0 - Authentication Bypass via Hard-coded Default JWT Signing Secret
+
+- **漏洞ID**: `CVE-2026-73969`
+- **CVE**: `CVE-2026-73969` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+
+
+**描述**: AnsibleForms &lt; 6.2.1 contains an authentication bypass caused by use of a hard-coded fallback JWT signing secret and improper token verification, letting unauthenticated attackers gain administrator privileges, exploit requires ACCESS_TOKEN_SECRET unset.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-73969
+
+**参考链接**: 
+- [参考资料](https://github.com/ansibleforms/ansibleforms/security/advisories/GHSA-g27f-cjvv-42rf)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-73969)
+
+---
+
+
+### Copeland/Dixell XWEB EVO - Pre-Auth OS Command Injection via Username
+
+- **漏洞ID**: `CVE-2026-124002`
+- **CVE**: `CVE-2026-124002` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.03224 (percentile 0.8849) @ 2026-11-18
+
+**描述**: XWEB EVO versions 5.2.3 through before 5.7.0 contain a pre-authentication OS command injection vulnerability. The login.lua CGI splices the submitted username directly into an io.popen() shell command (via find) before any password check occurs. Injecting shell metacharacters closes the find argument and executes arbitrary OS commands as www-data, escalatable to root via the setuid-root wlua interpreter (CVE-2026-124003). The product is End-of-Software-Support (EOL March 2026) and will not receive patches.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-124002
+
+**参考链接**: 
+- [参考资料](https://www.vulncheck.com/blog/copeland-xweb-evo-unauthenticated-root)
+- [参考资料](https://www.vulncheck.com/advisories/dixell-copeland-xweb-evo-pre-authentication-os-command-injection-via-username)
+- [参考资料](https://github.com/fixedbyreboot/CVE-2026-124002-POC)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-124002)
+
+---
+
+
+### Copeland/Dixell XWEB EVO - Pre-Auth OS Command Injection via Username
+
+- **漏洞ID**: `CVE-2026-124002`
+- **CVE**: `CVE-2026-124002` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.03224 (percentile 0.8849) @ 2026-11-18
+
+**描述**: XWEB EVO versions 5.2.3 through before 5.7.0 contain a pre-authentication OS command injection vulnerability. The login.lua CGI splices the submitted username directly into an io.popen() shell command (via find) before any password check occurs. Injecting shell metacharacters closes the find argument and executes arbitrary OS commands as www-data, escalatable to root via the setuid-root wlua interpreter (CVE-2026-124003). The product is End-of-Software-Support (EOL March 2026) and will not receive patches.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-124002
+
+**参考链接**: 
+- [参考资料](https://www.vulncheck.com/blog/copeland-xweb-evo-unauthenticated-root)
+- [参考资料](https://www.vulncheck.com/advisories/dixell-copeland-xweb-evo-pre-authentication-os-command-injection-via-username)
+- [参考资料](https://github.com/fixedbyreboot/CVE-2026-124002-POC)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-124002)
+
+---
+
+
+### Keras Model.load_model - Arbitrary Code Execution
+
+- **漏洞ID**: `CVE-2025-1550`
+- **CVE**: `CVE-2025-1550` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.02604 (percentile 0.85685) @ 2026-11-18
+
+**描述**: The Keras Model.load_model function permits arbitrary code execution, even with safe_mode&#x3D;True, through a manually constructed, malicious .keras archive. By altering the config.json file within the archive, an attacker can specify arbitrary Python modules and functions, along with their arguments, to be loaded and executed during model loading
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-1550)
+- [参考资料](https://github.com/keras-team/keras/pull/20751)
+- [参考资料](https://towerofhanoi.it/writeups/cve-2025-1550/)
+
+---
+
+
+### GitLab - SAML Authentication Bypass
+
+- **漏洞ID**: `CVE-2025-25291`
+- **CVE**: `CVE-2025-25291` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: GitLab 平台
+- **预估影响**: 数千个
+- **EPSS**: 0.20965 (percentile 0.97613) @ 2026-11-18
+
+**描述**: ruby-saml provides security assertion markup language (SAML) single sign-on (SSO) for Ruby. An authentication bypass vulnerability was found in ruby-saml prior to versions 1.12.4 and 1.18.0 due to a parser differential. ReXML and Nokogiri parse XML differently; the parsers can generate entirely different document structures from the same XML input. That allows an attacker to be able to execute a Signature Wrapping attack. This issue may lead to authentication bypass. Versions 1.12.4 and 1.18.0 fix the issue.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-25291
+
+**参考链接**: 
+- [参考资料](https://portswigger.net/research/saml-roulette-the-hacker-always-wins)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials/)
+- [参考资料](https://about.gitlab.com/releases/2025/03/12/patch-release-gitlab-17-9-2-released)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials)
+- [参考资料](https://github.com/SAML-Toolkits/ruby-saml/commit/e76c5b36bac40aedbf1ba7ffaaf495be63328cd9)
+
+---
+
+
+### Erlang/OTP SSH - Remote Code Execution
+
+- **漏洞ID**: `CVE-2025-32433`
+- **CVE**: `CVE-2025-32433` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.98924 (percentile 0.99929) @ 2026-11-18
+
+**描述**: Erlang/OTP is a set of libraries for the Erlang programming language. Prior to versions OTP-27.3.3, OTP-26.2.5.11, and OTP-25.3.2.20, a SSH server may allow an attacker to perform unauthenticated remote code execution (RCE). By exploiting a flaw in SSH protocol message handling, a malicious actor could gain unauthorized access to affected systems and execute arbitrary commands without valid credentials.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-32433
+
+**参考链接**: 
+- [参考资料](https://platformsecurity.com/blog/CVE-2025-32433-poc)
+- [参考资料](https://github.com/erlang/otp/commit/0fcd9c56524b28615e8ece65fc0c3f66ef6e4c12)
+- [参考资料](https://github.com/erlang/otp/commit/6eef04130afc8b0ccb63c9a0d8650209cf54892f)
+- [参考资料](https://github.com/erlang/otp/commit/b1924d37fd83c070055beb115d5d6a6a9490b891)
+- [参考资料](https://github.com/erlang/otp/security/advisories/GHSA-37cp-fgq5-7wc2)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-32433)
+
+---
+
+
+### Sudo - Local Privilege Escalation via chroot
+
+- **漏洞ID**: `CVE-2025-32463`
+- **CVE**: `CVE-2025-32463` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.563 (percentile 0.99071) @ 2026-11-18
+
+**描述**: Sudo before 1.9.17p1 allows local users to obtain root access by using /etc/nsswitch.conf from a user-controlled directory with the --chroot (-R) option.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-32463
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-32463)
+- [参考资料](https://www.sudo.ws/security/advisories/chroot_bug/)
+- [参考资料](https://ubuntu.com/security/CVE-2025-32463)
+- [参考资料](https://www.wiz.io/vulnerability-database/cve/cve-2025-32463)
+- [参考资料](https://explore.alas.aws.amazon.com/CVE-2025-32463.html)
+
+---
+
+
+### CrushFTP - Authentication Bypass Race Condition
+
+- **漏洞ID**: `CVE-2025-54309`
+- **CVE**: `CVE-2025-54309` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.93473 (percentile 0.99843) @ 2026-11-18
+
+**描述**: CrushFTP 10 before 10.8.5 and 11 before 11.3.4_23, when the DMZ proxy feature is not used, mishandles AS2 validation and consequently allows remote attackers to obtain admin access via HTTPS, as exploited in the wild in July 2025.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-54309
+
+**参考链接**: 
+- [参考资料](https://github.com/watchtowrlabs/watchTowr-vs-CrushFTP-Authentication-Bypass-CVE-2025-54309/blob/main/watchTowr-vs-CrushFTP-CVE-2025-54309.py)
+- [参考资料](https://labs.watchtowr.com/the-one-where-we-just-steal-the-vulnerabilities-crushftp-cve-2025-54309/)
+
+---
+
+
+### Allegra - Authentication Bypass via Predictable Password Reset Token
+
+- **漏洞ID**: `CVE-2025-6216`
+- **CVE**: `CVE-2025-6216` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.47424 (percentile 0.98866) @ 2026-11-18
+
+**描述**: Allegra calculateTokenExpDate Password Recovery Authentication Bypass Vulnerability. This vulnerability allows remote attackers to bypass authentication on affected installations of Allegra. Authentication is not required to exploit this vulnerability. The specific flaw exists within the password recovery mechanism. The issue results from reliance upon a predictable value when generating a password reset token. An attacker can leverage this vulnerability to bypass authentication on the application.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-6216
+
+**参考链接**: 
+- [参考资料](https://www.zerodayinitiative.com/advisories/ZDI-25-410/)
+- [参考资料](https://alltena.com/en/resources/release-notes/release-notes-for-release-8-1-4-and-release-7-5-2)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-6216)
+
+---
+
+
+### RustFS &lt; 1.0.0-alpha.77 - Hardcoded gRPC Authentication Token
+
+- **漏洞ID**: `CVE-2025-68926`
+- **CVE**: `CVE-2025-68926` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.32078 (percentile 0.98345) @ 2026-11-18
+
+**描述**: RustFS before 1.0.0-alpha.77 used a hardcoded gRPC authentication token &quot;rustfs rpc&quot; that could not be changed without recompiling and this allowed unauthenticated remote attackers to gain full administrative access to the gRPC API.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-68926
+
+**参考链接**: 
+- [参考资料](https://github.com/rustfs/rustfs/security/advisories/GHSA-h956-rh7x-ppgj)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-68926)
+
+---
+
+
+### Phoenix Storybook - Remote Code Execution
+
+- **漏洞ID**: `CVE-2026-8467`
+- **CVE**: `CVE-2026-8467` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.02111 (percentile 0.82169) @ 2026-11-18
+
+**描述**: Phenixdigital phoenix_storybook &gt;&#x3D;0.5.0 &lt;1.1.0 contains a code injection caused by unsanitized attribute value interpolation in HEEx template generation, letting unauthenticated remote attackers execute arbitrary code on the server, exploit requires sending crafted WebSocket event data.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-8467
+
+**参考链接**: 
+- [参考资料](https://github.com/plausible/analytics/security/advisories)
+- [参考资料](https://github.com/plausible/analytics)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-8467)
+
+---
+
+
+### MLflow &lt; 3.17.0 - Third-Party Scorer Deserialization Remote Code Execution
+
+- **漏洞ID**: `CVE-2026-116692`
+- **CVE**: `CVE-2026-116692` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00704 (percentile 0.54022) @ 2026-11-18
+
+**描述**: MLflow 3.12.0rc0 to &lt; 3.17.0 contains a remote code execution caused by insecure third-party scorer deserialization in mlflow/genai/scorers/base.py, letting attackers execute arbitrary code via writable allowed packages, exploit requires writable allowed scorer package and appropriate privileges.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-116692
+
+**参考链接**: 
+- [参考资料](https://github.com/mlflow/mlflow/security/advisories/GHSA-26p8-2jq9-3vq9)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-116692)
+- [参考资料](https://github.com/mlflow/mlflow/commit/a732443e695c3c677680c54320efc394c81654ab)
+
+---
+
+
+### WP Duplicate &lt;&#x3D; 1.1.11 - Unauthenticated File Upload to RCE
+
+- **漏洞ID**: `CVE-2026-123751`
+- **CVE**: `CVE-2026-123751` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.00611 (percentile 0.50004) @ 2026-11-18
+
+**描述**: WP Duplicate (local-sync) through 1.1.11 accepts a JSON boolean in place of its stored request key because of a loose comparison, then permits an unauthenticated request to upload a PHP file into the executable local_sync backups directory when the plugin is configured.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-123751
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/3a3556f0-fc36-4f68-b826-406a7b4c3f9e/)
+- [参考资料](https://github.com/tempiltin/Duplicate2Shell-CVE-2026-123751)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-123751)
+- [参考资料](https://wordpress.org/plugins/local-sync/)
+
+---
+
+
+### openDCIM - Unauthenticated SQL Injection to Remote Code Execution
+
+- **漏洞ID**: `CVE-2026-28516`
+- **CVE**: `CVE-2026-28516` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.0107 (percentile 0.6551) @ 2026-11-18
+
+**描述**: openDCIM through commit 4467e9c4 (tested on v23.04) exposes install.php without a post-installation lock or authorization check. The unauthenticated LDAP configuration handler passes request values directly into a SQL UPDATE via Config::UpdateParameter() without prepared statements, allowing a stacked-query injection that overwrites the &#x27;dot&#x27; configuration parameter (the Graphviz binary path) with an attacker-controlled command. report_network_map.php then passes that value to exec(), resulting in remote code execution as the web server user on Docker deployments that run with REMOTE_USER set to dcim.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-28516
+
+**参考链接**: 
+- [参考资料](https://chocapikk.com/posts/2026/opendcim-sqli-to-rce/)
+- [参考资料](https://github.com/Chocapikk/opendcim-exploit)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-28516)
+
+---
+
+
+### OpenEMR FaxSMS Module - Authenticated Arbitrary File Read via disposeDocument
+
+- **漏洞ID**: `CVE-2026-124450`
+- **CVE**: `CVE-2026-124450` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00488 (percentile 0.42719) @ 2026-11-18
+
+**描述**: OpenEMR before 8.3.0 contains a broken access control and path traversal vulnerability in the fax/sms module disposeDocument action via an unvalidated file_path parameter. Authenticated low-privilege users can read sqlconf.php to recover database credentials and write arbitrary files as the web user, enabling remote code execution.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-124450
+
+**参考链接**: 
+- [参考资料](https://github.com/Nxploited/CVE-2026-124450)
+- [参考资料](https://github.com/advisories/GHSA-x2vr-jgg8-c57c)
+- [参考资料](https://github.com/advisories/GHSA-wf4w-mx2w-j4vv)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-124450)
+
+---
+
+
+### OpenEMR FaxSMS Module - Authenticated Arbitrary File Read via disposeDocument
+
+- **漏洞ID**: `CVE-2026-124450`
+- **CVE**: `CVE-2026-124450` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00488 (percentile 0.42719) @ 2026-11-18
+
+**描述**: OpenEMR before 8.3.0 contains a broken access control and path traversal vulnerability in the fax/sms module disposeDocument action via an unvalidated file_path parameter. Authenticated low-privilege users can read sqlconf.php to recover database credentials and write arbitrary files as the web user, enabling remote code execution.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-124450
+
+**参考链接**: 
+- [参考资料](https://github.com/Nxploited/CVE-2026-124450)
+- [参考资料](https://github.com/advisories/GHSA-x2vr-jgg8-c57c)
+- [参考资料](https://github.com/advisories/GHSA-wf4w-mx2w-j4vv)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-124450)
+
+---
+
+
+### langchain-ai langchain - XML External Entity Injection
+
+- **漏洞ID**: `CVE-2025-6984`
+- **CVE**: `CVE-2025-6984` (2025)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.01647 (percentile 0.76965) @ 2026-11-18
+
+**描述**: langchain-ai/langchain 0.3.63 contains an XML External Entity (XXE) injection caused by insecure XML parsing in EverNoteLoader using etree.iterparse(), letting attackers disclose sensitive information, exploit requires crafted malicious XML payload.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-6984
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-6984)
+- [参考资料](https://huntr.com/bounties/a6b521cf-258c-41c0-9edb-d8ef976abb2a)
+- [参考资料](https://github.com/langchain-ai/langchain-community/commit/e842452)
+
+---
+
+
+### UpdraftPlus WP Backup & Migration Plugin - Authentication Bypass
+
+- **漏洞ID**: `CVE-2026-10795`
+- **CVE**: `CVE-2026-10795` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.04308 (percentile 0.91341) @ 2026-11-18
+
+**描述**: UpdraftPlus WP Backup & Migration Plugin for WordPress &lt;&#x3D; 1.26.4 contains an authentication bypass caused by insufficient validation in UpdraftPlus_Remote_Communications_V2::wp_loaded, letting unauthenticated attackers execute arbitrary RPC commands as admin, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-10795
+
+**参考链接**: 
+- [参考资料](https://patchstack.com/database/vulnerability/wordpress-updraftplus-wp-backup-migration-plugin-1-26-4-unauthenticated-authentication-bypass-via-updraftcentral-udrpc-vulnerability)
+- [参考资料](https://teamupdraft.com/blog/important-security-update-for-updraftplus-and-updraftcentral-users/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-10795)
+
+---
+
+
+### OpenEMR FaxSMS Module - Authenticated Arbitrary File Read via disposeDocument
+
+- **漏洞ID**: `CVE-2026-124450`
+- **CVE**: `CVE-2026-124450` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00488 (percentile 0.42719) @ 2026-11-18
+
+**描述**: OpenEMR before 8.3.0 contains a broken access control and path traversal vulnerability in the fax/sms module disposeDocument action via an unvalidated file_path parameter. Authenticated low-privilege users can read sqlconf.php to recover database credentials and write arbitrary files as the web user, enabling remote code execution.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-124450
+
+**参考链接**: 
+- [参考资料](https://github.com/Nxploited/CVE-2026-124450)
+- [参考资料](https://github.com/advisories/GHSA-x2vr-jgg8-c57c)
+- [参考资料](https://github.com/advisories/GHSA-wf4w-mx2w-j4vv)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-124450)
+
+---
+
+
+## 📋 完整模板列表
+
+| 模板名称 | 严重程度 | 类别 | 影响资产 | EPSS | 风险评分 |
+|---------|---------|------|---------|------|---------|
+| AnsibleForms &lt;&#x3D; 6.2.0 - Authentication Byp | 🔴 critical | CVE漏洞 | 通用 | - | 5/5 |
+| Copeland/Dixell XWEB EVO - Pre-Auth OS Command Inj | 🔴 critical | CVE漏洞 | 通用 | 0.0322 | 5/5 |
+| AnsibleForms &lt;&#x3D; 6.2.0 - Authentication Byp | 🔴 critical | CVE漏洞 | 通用 | - | 5/5 |
+| Copeland/Dixell XWEB EVO - Pre-Auth OS Command Inj | 🔴 critical | CVE漏洞 | 通用 | 0.0322 | 5/5 |
+| AnsibleForms &lt;&#x3D; 6.2.0 - Authentication Byp | 🔴 critical | CVE漏洞 | 通用 | - | 5/5 |
+| Copeland/Dixell XWEB EVO - Pre-Auth OS Command Inj | 🔴 critical | CVE漏洞 | 通用 | 0.0322 | 5/5 |
+| Copeland/Dixell XWEB EVO - Pre-Auth OS Command Inj | 🔴 critical | CVE漏洞 | 通用 | 0.0322 | 5/5 |
+| Keras Model.load_model - Arbitrary Code Execution | 🔴 critical | CVE漏洞 | 通用 | 0.0260 | 5/5 |
+| GitLab - SAML Authentication Bypass | 🔴 critical | CVE漏洞 | GitLab 平台 | 0.2097 | 5/5 |
+| Erlang/OTP SSH - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 0.9892 | 5/5 |
+| Sudo - Local Privilege Escalation via chroot | 🔴 critical | CVE漏洞 | 通用 | 0.5630 | 5/5 |
+| CrushFTP - Authentication Bypass Race Condition | 🔴 critical | CVE漏洞 | 通用 | 0.9347 | 5/5 |
+| Allegra - Authentication Bypass via Predictable Pa | 🔴 critical | CVE漏洞 | 通用 | 0.4742 | 5/5 |
+| RustFS &lt; 1.0.0-alpha.77 - Hardcoded gRPC Authen | 🔴 critical | CVE漏洞 | 通用 | 0.3208 | 5/5 |
+| Phoenix Storybook - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 0.0211 | 5/5 |
+| MLflow &lt; 3.17.0 - Third-Party Scorer Deserializ | 🔴 critical | CVE漏洞 | 通用 | 0.0070 | 5/5 |
+| WP Duplicate &lt;&#x3D; 1.1.11 - Unauthenticated F | 🔴 critical | CVE漏洞 | WordPress 站点 | 0.0061 | 5/5 |
+| openDCIM - Unauthenticated SQL Injection to Remote | 🔴 critical | CVE漏洞 | 通用 | 0.0107 | 5/5 |
+| OpenEMR FaxSMS Module - Authenticated Arbitrary Fi | 🟠 high | CVE漏洞 | 通用 | 0.0049 | 4.5/5 |
+| OpenEMR FaxSMS Module - Authenticated Arbitrary Fi | 🟠 high | CVE漏洞 | 通用 | 0.0049 | 4.5/5 |
+| langchain-ai langchain - XML External Entity Injec | 🟠 high | CVE漏洞 | 通用 | 0.0165 | 4.5/5 |
+| UpdraftPlus WP Backup & Migration Plugin - Authent | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0431 | 4.5/5 |
+| OpenEMR FaxSMS Module - Authenticated Arbitrary Fi | 🟠 high | CVE漏洞 | 通用 | 0.0049 | 4.5/5 |
+| phpMyFAQ &lt; 4.1.12 - Unauthenticated Private Edi | 🟡 medium | CVE漏洞 | 通用 | 0.0026 | 3.5/5 |
+| Admidio &lt;&#x3D; 5.0.8 - Cross-Site Scripting | 🟡 medium | CVE漏洞 | 通用 | 0.0018 | 3.5/5 |
+| phpMyFAQ &lt; 4.1.12 - Unauthenticated Private Edi | 🟡 medium | CVE漏洞 | 通用 | 0.0026 | 3.5/5 |
+| Admidio &lt;&#x3D; 5.0.8 - Cross-Site Scripting | 🟡 medium | CVE漏洞 | 通用 | 0.0018 | 3.5/5 |
+| Essential Addons for Elementor &lt; 6.0.15 - Cross | 🟡 medium | CVE漏洞 | 通用 | 0.0126 | 3.5/5 |
+| Backdrop CMS - Cross-Site Scripting | 🟡 medium | CVE漏洞 | 通用 | 0.0174 | 3.5/5 |
+| Swagger UI &gt;&#x3D;3.14.1 &lt; 3.38.0 - DOM Base | 🟡 medium | CVE漏洞 | 通用 | 0.0182 | 3.5/5 |
+
+## 🛡️ 安全建议
+
+🚨 发现高风险漏洞，建议立即扫描相关资产
+🔍 关注新发布的 CVE 漏洞，及时更新补丁
+⚡ 检测到远程代码执行漏洞，优先处理
+
+## 🔧 扫描建议
+
+建议使用以下 Nuclei 命令进行扫描：
+
+```bash
+# 扫描高危漏洞
+nuclei -t http/cves/2026/CVE-2026-73969.yaml -t http/cves/2026/CVE-2026-124002.yaml -t http/cves/2026/CVE-2026-73969.yaml -t http/cves/2026/CVE-2026-124002.yaml -t http/cves/2026/CVE-2026-73969.yaml -t http/cves/2026/CVE-2026-124002.yaml -t http/cves/2026/CVE-2026-124002.yaml -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2025/CVE-2025-32433.yaml -t code/cves/2025/CVE-2025-32463.yaml -t code/cves/2025/CVE-2025-54309.yaml -t code/cves/2025/CVE-2025-6216.yaml -t code/cves/2025/CVE-2025-68926.yaml -t code/cves/2026/CVE-2026-8467.yaml -t http/cves/2026/CVE-2026-116692.yaml -t http/cves/2026/CVE-2026-123751.yaml -t http/cves/2026/CVE-2026-28516.yaml -t http/cves/2026/CVE-2026-124450.yaml -t http/cves/2026/CVE-2026-124450.yaml -t code/cves/2025/CVE-2025-6984.yaml -t code/cves/2026/CVE-2026-10795.yaml -t http/cves/2026/CVE-2026-124450.yaml -u target-url
+
+# 扫描所有今日新增模板  
+nuclei -t http/cves/2026/CVE-2026-73969.yaml -t http/cves/2026/CVE-2026-124002.yaml -t http/cves/2026/CVE-2026-73969.yaml -t http/cves/2026/CVE-2026-124002.yaml -t http/cves/2026/CVE-2026-73969.yaml -t http/cves/2026/CVE-2026-124002.yaml -t http/cves/2026/CVE-2026-124002.yaml -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2025/CVE-2025-32433.yaml -t code/cves/2025/CVE-2025-32463.yaml -t code/cves/2025/CVE-2025-54309.yaml -t code/cves/2025/CVE-2025-6216.yaml -t code/cves/2025/CVE-2025-68926.yaml -t code/cves/2026/CVE-2026-8467.yaml -t http/cves/2026/CVE-2026-116692.yaml -t http/cves/2026/CVE-2026-123751.yaml -t http/cves/2026/CVE-2026-28516.yaml -t http/cves/2026/CVE-2026-124450.yaml -t http/cves/2026/CVE-2026-124450.yaml -t code/cves/2025/CVE-2025-6984.yaml -t code/cves/2026/CVE-2026-10795.yaml -t http/cves/2026/CVE-2026-124450.yaml -t http/cves/2026/CVE-2026-130352.yaml -t http/cves/2026/CVE-2026-41661.yaml -t http/cves/2026/CVE-2026-130352.yaml -t http/cves/2026/CVE-2026-41661.yaml -t headless/cves/2025/CVE-2025-24752.yaml -t headless/cves/2025/CVE-2025-25062.yaml -t headless/cves/2025/CVE-2025-8191.yaml -u target-url
+```
+
+---
+
+*本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)*
+
+*扫描建议仅供参考，请在授权环境下进行安全测试*
