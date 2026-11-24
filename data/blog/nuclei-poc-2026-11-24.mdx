@@ -1,0 +1,644 @@
+---
+title: 'Nuclei POC 精选分析 - 2026-11-24'
+date: '2026-11-24'
+tags: ['Nuclei', 'POC分析', '漏洞扫描', '威胁情报']
+draft: false
+summary: '从 627 个模板更新中精选分析 30 个高价值 POC，发现 22 个高风险漏洞'
+authors: ['default']
+category: 'security-intel'
+---
+
+# Nuclei POC 精选分析 - 2026-11-24
+
+## 📊 智能筛选概况
+
+- **发现变更**: 627 个模板更新
+- **精选分析**: 30 个高价值 POC  
+- **智能跳过**: 597 个低优先级模板
+- **高风险漏洞**: 22 个
+- **主要类别**: CVE漏洞(30)
+
+> 💡 **智能筛选说明**: 系统自动优先分析 CVE 漏洞、高危漏洞和新增模板，跳过低价值的技术识别类模板，确保高效利用 API 资源。
+
+### 严重程度分布
+
+- 🔴 **严重**: 16 个
+- 🟠 **高危**: 6 个
+- 🟡 **中危**: 8 个
+
+## 🔍 重点漏洞分析
+
+
+### Apache Roller - XML-RPC Pre-Auth Deserialization RCE
+
+- **漏洞ID**: `CVE-2026-129448`
+- **CVE**: `CVE-2026-129448` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: Apache 服务器
+- **预估影响**: 数百万台
+- **EPSS**: 0.05459 (percentile 0.9294) @ 2026-11-23
+
+**描述**: Deserialization of Untrusted Data in Apache Roller versions 4.0.0 through 6.1.4 allows an unauthenticated remote attacker to execute arbitrary code. The XML-RPC endpoint accepts vendor extension types and deserializes them before authenticating the requester. This is the same vulnerability as CVE-2026-82384, which listed only Apache Roller 6.1.5 as affected. This issue is being actively exploited. Users are recommended to upgrade to Apache Roller 6.1.6 or later, which disables the extension types and rejects XML-RPC requests when the XML-RPC feature is disabled. Users who cannot upgrade right away should set &quot;enabledForExtensions&quot; to &quot;false&quot; in WEB-INF/web.xml, or remove the &quot;/roller-services/xmlrpc&quot; servlet mapping, and restart Roller. Disabling XML-RPC in the administration UI is not enough, because older versions deserialize the request before checking that setting.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-129448
+
+**参考链接**: 
+- [参考资料](https://roller.apache.org/security.html)
+- [参考资料](https://github.com/apache/roller/pull/171)
+
+---
+
+
+### VMware vCenter Server - Authentication Bypass
+
+- **漏洞ID**: `CVE-2026-59309`
+- **CVE**: `CVE-2026-59309` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.30867 (percentile 0.98295) @ 2026-11-23
+
+**描述**: VMware vCenter contains an authentication bypass vulnerability in the VMware Directory Service. A malicious actor with network access to vCenter may exploit this issue to bypass authentication and gain unauthorized access to the system. The same fixed builds also remediate CVE-2026-59310, a directory traversal in the vCenter Syslog server leading to code execution. This template identifies vulnerable builds from the unauthenticated vSphere SOAP API version information. All 7.0 builds are reported because no public fixed 7.0 build exists, so hosts with a private extended-support patch may still match.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-59309
+
+**参考链接**: 
+- [参考资料](https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/security-advisories/0/38017)
+- [参考资料](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/vcenter-server-update-and-patch-release-notes/vsphere-vcenter-server-80u3k-release-notes.html)
+- [参考资料](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-9-0-and-later/9-0/release-notes/patch-releases-9-0-0-x/vsphere/vcenter/vcenter-9-0-2-0100-release-notes.html)
+- [参考资料](https://knowledge.broadcom.com/external/article/326316)
+
+---
+
+
+### WP Libre Form - Unrestricted File Upload RCE
+
+- **漏洞ID**: `CVE-2026-118423`
+- **CVE**: `CVE-2026-118423` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.00866 (percentile 0.59609) @ 2026-11-23
+
+**描述**: WP Libre Form WordPress plugin 1.5.0.1 contains an unrestricted file upload vulnerability caused by lack of file type validation in form submissions, letting unauthenticated attackers upload and execute PHP files remotely.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-118423
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/35149a79-aee1-4f13-ba29-583c2224c5da/)
+- [参考资料](https://patchstack.com/database/wordpress/plugin/wp-libre-form/vulnerability/wordpress-wp-libre-form-plugin-1-5-0-1-unauthenticated-rce-vulnerability)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-118423)
+
+---
+
+
+### Apache Roller - XML-RPC Pre-Auth Deserialization RCE
+
+- **漏洞ID**: `CVE-2026-129448`
+- **CVE**: `CVE-2026-129448` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: Apache 服务器
+- **预估影响**: 数百万台
+- **EPSS**: 0.05459 (percentile 0.9294) @ 2026-11-23
+
+**描述**: Deserialization of Untrusted Data in Apache Roller versions 4.0.0 through 6.1.4 allows an unauthenticated remote attacker to execute arbitrary code. The XML-RPC endpoint accepts vendor extension types and deserializes them before authenticating the requester. This is the same vulnerability as CVE-2026-82384, which listed only Apache Roller 6.1.5 as affected. This issue is being actively exploited. Users are recommended to upgrade to Apache Roller 6.1.6 or later, which disables the extension types and rejects XML-RPC requests when the XML-RPC feature is disabled. Users who cannot upgrade right away should set &quot;enabledForExtensions&quot; to &quot;false&quot; in WEB-INF/web.xml, or remove the &quot;/roller-services/xmlrpc&quot; servlet mapping, and restart Roller. Disabling XML-RPC in the administration UI is not enough, because older versions deserialize the request before checking that setting.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-129448
+
+**参考链接**: 
+- [参考资料](https://roller.apache.org/security.html)
+- [参考资料](https://github.com/apache/roller/pull/171)
+
+---
+
+
+### Microsoft SharePoint Server - Remote Code Execution
+
+- **漏洞ID**: `CVE-2026-50522`
+- **CVE**: `CVE-2026-50522` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.8187 (percentile 0.99657) @ 2026-11-23
+
+**描述**: Microsoft SharePoint Server 2016, 2019 and Subscription Edition contain a deserialization of untrusted data vulnerability that allows an unauthenticated attacker to execute code over a network.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-50522
+
+**参考链接**: 
+- [参考资料](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50522)
+- [参考资料](https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-50522)
+- [参考资料](https://learn.microsoft.com/en-us/officeupdates/sharepoint-updates)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-50522)
+
+---
+
+
+### VMware vCenter Server - Authentication Bypass
+
+- **漏洞ID**: `CVE-2026-59309`
+- **CVE**: `CVE-2026-59309` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.30867 (percentile 0.98295) @ 2026-11-23
+
+**描述**: VMware vCenter contains an authentication bypass vulnerability in the VMware Directory Service. A malicious actor with network access to vCenter may exploit this issue to bypass authentication and gain unauthorized access to the system. The same fixed builds also remediate CVE-2026-59310, a directory traversal in the vCenter Syslog server leading to code execution. This template identifies vulnerable builds from the unauthenticated vSphere SOAP API version information. All 7.0 builds are reported because no public fixed 7.0 build exists, so hosts with a private extended-support patch may still match.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-59309
+
+**参考链接**: 
+- [参考资料](https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/security-advisories/0/38017)
+- [参考资料](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/vcenter-server-update-and-patch-release-notes/vsphere-vcenter-server-80u3k-release-notes.html)
+- [参考资料](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-9-0-and-later/9-0/release-notes/patch-releases-9-0-0-x/vsphere/vcenter/vcenter-9-0-2-0100-release-notes.html)
+- [参考资料](https://knowledge.broadcom.com/external/article/326316)
+
+---
+
+
+### WP Libre Form - Unrestricted File Upload RCE
+
+- **漏洞ID**: `CVE-2026-118423`
+- **CVE**: `CVE-2026-118423` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.00866 (percentile 0.59609) @ 2026-11-23
+
+**描述**: WP Libre Form WordPress plugin 1.5.0.1 contains an unrestricted file upload vulnerability caused by lack of file type validation in form submissions, letting unauthenticated attackers upload and execute PHP files remotely.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-118423
+
+**参考链接**: 
+- [参考资料](https://wpscan.com/vulnerability/35149a79-aee1-4f13-ba29-583c2224c5da/)
+- [参考资料](https://patchstack.com/database/wordpress/plugin/wp-libre-form/vulnerability/wordpress-wp-libre-form-plugin-1-5-0-1-unauthenticated-rce-vulnerability)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-118423)
+
+---
+
+
+### Apache Roller - XML-RPC Pre-Auth Deserialization RCE
+
+- **漏洞ID**: `CVE-2026-129448`
+- **CVE**: `CVE-2026-129448` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: Apache 服务器
+- **预估影响**: 数百万台
+- **EPSS**: 0.05459 (percentile 0.9294) @ 2026-11-23
+
+**描述**: Deserialization of Untrusted Data in Apache Roller versions 4.0.0 through 6.1.4 allows an unauthenticated remote attacker to execute arbitrary code. The XML-RPC endpoint accepts vendor extension types and deserializes them before authenticating the requester. This is the same vulnerability as CVE-2026-82384, which listed only Apache Roller 6.1.5 as affected. This issue is being actively exploited. Users are recommended to upgrade to Apache Roller 6.1.6 or later, which disables the extension types and rejects XML-RPC requests when the XML-RPC feature is disabled. Users who cannot upgrade right away should set &quot;enabledForExtensions&quot; to &quot;false&quot; in WEB-INF/web.xml, or remove the &quot;/roller-services/xmlrpc&quot; servlet mapping, and restart Roller. Disabling XML-RPC in the administration UI is not enough, because older versions deserialize the request before checking that setting.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-129448
+
+**参考链接**: 
+- [参考资料](https://roller.apache.org/security.html)
+- [参考资料](https://github.com/apache/roller/pull/171)
+
+---
+
+
+### Microsoft SharePoint Server - Remote Code Execution
+
+- **漏洞ID**: `CVE-2026-50522`
+- **CVE**: `CVE-2026-50522` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.8187 (percentile 0.99657) @ 2026-11-23
+
+**描述**: Microsoft SharePoint Server 2016, 2019 and Subscription Edition contain a deserialization of untrusted data vulnerability that allows an unauthenticated attacker to execute code over a network.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-50522
+
+**参考链接**: 
+- [参考资料](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50522)
+- [参考资料](https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-50522)
+- [参考资料](https://learn.microsoft.com/en-us/officeupdates/sharepoint-updates)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-50522)
+
+---
+
+
+### VMware vCenter Server - Authentication Bypass
+
+- **漏洞ID**: `CVE-2026-59309`
+- **CVE**: `CVE-2026-59309` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.30867 (percentile 0.98295) @ 2026-11-23
+
+**描述**: VMware vCenter contains an authentication bypass vulnerability in the VMware Directory Service. A malicious actor with network access to vCenter may exploit this issue to bypass authentication and gain unauthorized access to the system. The same fixed builds also remediate CVE-2026-59310, a directory traversal in the vCenter Syslog server leading to code execution. This template identifies vulnerable builds from the unauthenticated vSphere SOAP API version information. All 7.0 builds are reported because no public fixed 7.0 build exists, so hosts with a private extended-support patch may still match.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-59309
+
+**参考链接**: 
+- [参考资料](https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/security-advisories/0/38017)
+- [参考资料](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/vcenter-server-update-and-patch-release-notes/vsphere-vcenter-server-80u3k-release-notes.html)
+- [参考资料](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-9-0-and-later/9-0/release-notes/patch-releases-9-0-0-x/vsphere/vcenter/vcenter-9-0-2-0100-release-notes.html)
+- [参考资料](https://knowledge.broadcom.com/external/article/326316)
+
+---
+
+
+### Keras Model.load_model - Arbitrary Code Execution
+
+- **漏洞ID**: `CVE-2025-1550`
+- **CVE**: `CVE-2025-1550` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.02604 (percentile 0.85765) @ 2026-11-23
+
+**描述**: The Keras Model.load_model function permits arbitrary code execution, even with safe_mode&#x3D;True, through a manually constructed, malicious .keras archive. By altering the config.json file within the archive, an attacker can specify arbitrary Python modules and functions, along with their arguments, to be loaded and executed during model loading
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-1550)
+- [参考资料](https://github.com/keras-team/keras/pull/20751)
+- [参考资料](https://towerofhanoi.it/writeups/cve-2025-1550/)
+
+---
+
+
+### GitLab - SAML Authentication Bypass
+
+- **漏洞ID**: `CVE-2025-25291`
+- **CVE**: `CVE-2025-25291` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: GitLab 平台
+- **预估影响**: 数千个
+- **EPSS**: 0.3359 (percentile 0.98423) @ 2026-11-23
+
+**描述**: ruby-saml provides security assertion markup language (SAML) single sign-on (SSO) for Ruby. An authentication bypass vulnerability was found in ruby-saml prior to versions 1.12.4 and 1.18.0 due to a parser differential. ReXML and Nokogiri parse XML differently; the parsers can generate entirely different document structures from the same XML input. That allows an attacker to be able to execute a Signature Wrapping attack. This issue may lead to authentication bypass. Versions 1.12.4 and 1.18.0 fix the issue.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-25291
+
+**参考链接**: 
+- [参考资料](https://portswigger.net/research/saml-roulette-the-hacker-always-wins)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials/)
+- [参考资料](https://about.gitlab.com/releases/2025/03/12/patch-release-gitlab-17-9-2-released)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials)
+- [参考资料](https://github.com/SAML-Toolkits/ruby-saml/commit/e76c5b36bac40aedbf1ba7ffaaf495be63328cd9)
+
+---
+
+
+### Phoenix Storybook - Remote Code Execution
+
+- **漏洞ID**: `CVE-2026-8467`
+- **CVE**: `CVE-2026-8467` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.02912 (percentile 0.87342) @ 2026-11-23
+
+**描述**: Phenixdigital phoenix_storybook &gt;&#x3D;0.5.0 &lt;1.1.0 contains a code injection caused by unsanitized attribute value interpolation in HEEx template generation, letting unauthenticated remote attackers execute arbitrary code on the server, exploit requires sending crafted WebSocket event data.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-8467
+
+**参考链接**: 
+- [参考资料](https://github.com/plausible/analytics/security/advisories)
+- [参考资料](https://github.com/plausible/analytics)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-8467)
+
+---
+
+
+### Keras Model.load_model - Arbitrary Code Execution
+
+- **漏洞ID**: `CVE-2025-1550`
+- **CVE**: `CVE-2025-1550` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.02604 (percentile 0.85765) @ 2026-11-23
+
+**描述**: The Keras Model.load_model function permits arbitrary code execution, even with safe_mode&#x3D;True, through a manually constructed, malicious .keras archive. By altering the config.json file within the archive, an attacker can specify arbitrary Python modules and functions, along with their arguments, to be loaded and executed during model loading
+
+
+**攻击向量**: 网络扫描
+
+
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-1550)
+- [参考资料](https://github.com/keras-team/keras/pull/20751)
+- [参考资料](https://towerofhanoi.it/writeups/cve-2025-1550/)
+
+---
+
+
+### GitLab - SAML Authentication Bypass
+
+- **漏洞ID**: `CVE-2025-25291`
+- **CVE**: `CVE-2025-25291` (2025)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: GitLab 平台
+- **预估影响**: 数千个
+- **EPSS**: 0.3359 (percentile 0.98423) @ 2026-11-23
+
+**描述**: ruby-saml provides security assertion markup language (SAML) single sign-on (SSO) for Ruby. An authentication bypass vulnerability was found in ruby-saml prior to versions 1.12.4 and 1.18.0 due to a parser differential. ReXML and Nokogiri parse XML differently; the parsers can generate entirely different document structures from the same XML input. That allows an attacker to be able to execute a Signature Wrapping attack. This issue may lead to authentication bypass. Versions 1.12.4 and 1.18.0 fix the issue.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-25291
+
+**参考链接**: 
+- [参考资料](https://portswigger.net/research/saml-roulette-the-hacker-always-wins)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials/)
+- [参考资料](https://about.gitlab.com/releases/2025/03/12/patch-release-gitlab-17-9-2-released)
+- [参考资料](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials)
+- [参考资料](https://github.com/SAML-Toolkits/ruby-saml/commit/e76c5b36bac40aedbf1ba7ffaaf495be63328cd9)
+
+---
+
+
+### Phoenix Storybook - Remote Code Execution
+
+- **漏洞ID**: `CVE-2026-8467`
+- **CVE**: `CVE-2026-8467` (2026)
+- **严重程度**: 🔴 CRITICAL
+- **风险等级**: 极高风险 (5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.02912 (percentile 0.87342) @ 2026-11-23
+
+**描述**: Phenixdigital phoenix_storybook &gt;&#x3D;0.5.0 &lt;1.1.0 contains a code injection caused by unsanitized attribute value interpolation in HEEx template generation, letting unauthenticated remote attackers execute arbitrary code on the server, exploit requires sending crafted WebSocket event data.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-8467
+
+**参考链接**: 
+- [参考资料](https://github.com/plausible/analytics/security/advisories)
+- [参考资料](https://github.com/plausible/analytics)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-8467)
+
+---
+
+
+### BookIt &lt;&#x3D; 2.6.0.8 - Unauthenticated Payment Settings (incl. Stripe Secret Key) Disclosure via Calendar Vue Prop
+
+- **漏洞ID**: `CVE-2026-131720`
+- **CVE**: `CVE-2026-131720` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.00386 (percentile 0.33432) @ 2026-11-23
+
+**描述**: BookIt plugin &lt;&#x3D; 2.6.0.8 contains a sensitive information disclosure caused by the full bookit_settings option being printed into the public booking calendar, letting unauthenticated attackers retrieve stored payment credentials such as the Stripe secret key and PayPal client secret.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-131720
+
+**参考链接**: 
+- [参考资料](https://patchstack.com/database/wordpress/plugin/bookit/vulnerability/wordpress-bookit-plugin-2-6-0-8-sensitive-data-exposure-vulnerability?_s_id=cve)
+
+---
+
+
+### Jupyter MCP Server &lt;&#x3D; 1.0.2 - Unauthenticated Management Routes
+
+- **漏洞ID**: `CVE-2026-77318`
+- **CVE**: `CVE-2026-77318` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.00505 (percentile 0.44028) @ 2026-11-23
+
+**描述**: The standalone `streamable-http` mode of datalayer/jupyter-mcp-server requires `MCP_TOKEN` for the `/mcp` endpoint, but the custom management routes mounted on the same application (`/api/connect`, `/api/stop`, `/api/healthz`) do not enforce that token. An unauthenticated network caller can invoke `PUT /api/connect` to point the MCP server at an attacker-controlled Jupyter backend and reset the server context, or `DELETE /api/stop` to disrupt it, without any credentials.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-77318
+
+**参考链接**: 
+- [参考资料](https://github.com/datalayer/jupyter-mcp-server/security/advisories/GHSA-24pw-rf5p-mgp7)
+- [参考资料](https://github.com/datalayer/jupyter-mcp-server/commit/c2e98fca2df1bbd608451ec416aaa38a4d246fc5)
+- [参考资料](https://github.com/datalayer/jupyter-mcp-server/pull/262)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-77318)
+
+---
+
+
+### langchain-ai langchain - XML External Entity Injection
+
+- **漏洞ID**: `CVE-2025-6984`
+- **CVE**: `CVE-2025-6984` (2025)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.01647 (percentile 0.77106) @ 2026-11-23
+
+**描述**: langchain-ai/langchain 0.3.63 contains an XML External Entity (XXE) injection caused by insecure XML parsing in EverNoteLoader using etree.iterparse(), letting attackers disclose sensitive information, exploit requires crafted malicious XML payload.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-6984
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-6984)
+- [参考资料](https://huntr.com/bounties/a6b521cf-258c-41c0-9edb-d8ef976abb2a)
+- [参考资料](https://github.com/langchain-ai/langchain-community/commit/e842452)
+
+---
+
+
+### UpdraftPlus WP Backup & Migration Plugin - Authentication Bypass
+
+- **漏洞ID**: `CVE-2026-10795`
+- **CVE**: `CVE-2026-10795` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.04308 (percentile 0.91394) @ 2026-11-23
+
+**描述**: UpdraftPlus WP Backup & Migration Plugin for WordPress &lt;&#x3D; 1.26.4 contains an authentication bypass caused by insufficient validation in UpdraftPlus_Remote_Communications_V2::wp_loaded, letting unauthenticated attackers execute arbitrary RPC commands as admin, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-10795
+
+**参考链接**: 
+- [参考资料](https://patchstack.com/database/vulnerability/wordpress-updraftplus-wp-backup-migration-plugin-1-26-4-unauthenticated-authentication-bypass-via-updraftcentral-udrpc-vulnerability)
+- [参考资料](https://teamupdraft.com/blog/important-security-update-for-updraftplus-and-updraftcentral-users/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-10795)
+
+---
+
+
+### langchain-ai langchain - XML External Entity Injection
+
+- **漏洞ID**: `CVE-2025-6984`
+- **CVE**: `CVE-2025-6984` (2025)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: 未知
+- **预估影响**: 数千个
+- **EPSS**: 0.01647 (percentile 0.77106) @ 2026-11-23
+
+**描述**: langchain-ai/langchain 0.3.63 contains an XML External Entity (XXE) injection caused by insecure XML parsing in EverNoteLoader using etree.iterparse(), letting attackers disclose sensitive information, exploit requires crafted malicious XML payload.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2025-6984
+
+**参考链接**: 
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2025-6984)
+- [参考资料](https://huntr.com/bounties/a6b521cf-258c-41c0-9edb-d8ef976abb2a)
+- [参考资料](https://github.com/langchain-ai/langchain-community/commit/e842452)
+
+---
+
+
+### UpdraftPlus WP Backup & Migration Plugin - Authentication Bypass
+
+- **漏洞ID**: `CVE-2026-10795`
+- **CVE**: `CVE-2026-10795` (2026)
+- **严重程度**: 🟠 HIGH
+- **风险等级**: 极高风险 (4.5/5)
+- **影响资产**: WordPress 站点
+- **预估影响**: 数千万个
+- **EPSS**: 0.04308 (percentile 0.91394) @ 2026-11-23
+
+**描述**: UpdraftPlus WP Backup & Migration Plugin for WordPress &lt;&#x3D; 1.26.4 contains an authentication bypass caused by insufficient validation in UpdraftPlus_Remote_Communications_V2::wp_loaded, letting unauthenticated attackers execute arbitrary RPC commands as admin, exploit requires no authentication.
+
+
+**攻击向量**: 网络扫描
+
+**CVE编号**: CVE-2026-10795
+
+**参考链接**: 
+- [参考资料](https://patchstack.com/database/vulnerability/wordpress-updraftplus-wp-backup-migration-plugin-1-26-4-unauthenticated-authentication-bypass-via-updraftcentral-udrpc-vulnerability)
+- [参考资料](https://teamupdraft.com/blog/important-security-update-for-updraftplus-and-updraftcentral-users/)
+- [参考资料](https://nvd.nist.gov/vuln/detail/CVE-2026-10795)
+
+---
+
+
+## 📋 完整模板列表
+
+| 模板名称 | 严重程度 | 类别 | 影响资产 | EPSS | 风险评分 |
+|---------|---------|------|---------|------|---------|
+| Apache Roller - XML-RPC Pre-Auth Deserialization R | 🔴 critical | CVE漏洞 | Apache 服务器 | 0.0546 | 5/5 |
+| VMware vCenter Server - Authentication Bypass | 🔴 critical | CVE漏洞 | 通用 | 0.3087 | 5/5 |
+| WP Libre Form - Unrestricted File Upload RCE | 🔴 critical | CVE漏洞 | WordPress 站点 | 0.0087 | 5/5 |
+| Apache Roller - XML-RPC Pre-Auth Deserialization R | 🔴 critical | CVE漏洞 | Apache 服务器 | 0.0546 | 5/5 |
+| Microsoft SharePoint Server - Remote Code Executio | 🔴 critical | CVE漏洞 | 通用 | 0.8187 | 5/5 |
+| VMware vCenter Server - Authentication Bypass | 🔴 critical | CVE漏洞 | 通用 | 0.3087 | 5/5 |
+| WP Libre Form - Unrestricted File Upload RCE | 🔴 critical | CVE漏洞 | WordPress 站点 | 0.0087 | 5/5 |
+| Apache Roller - XML-RPC Pre-Auth Deserialization R | 🔴 critical | CVE漏洞 | Apache 服务器 | 0.0546 | 5/5 |
+| Microsoft SharePoint Server - Remote Code Executio | 🔴 critical | CVE漏洞 | 通用 | 0.8187 | 5/5 |
+| VMware vCenter Server - Authentication Bypass | 🔴 critical | CVE漏洞 | 通用 | 0.3087 | 5/5 |
+| Keras Model.load_model - Arbitrary Code Execution | 🔴 critical | CVE漏洞 | 通用 | 0.0260 | 5/5 |
+| GitLab - SAML Authentication Bypass | 🔴 critical | CVE漏洞 | GitLab 平台 | 0.3359 | 5/5 |
+| Phoenix Storybook - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 0.0291 | 5/5 |
+| Keras Model.load_model - Arbitrary Code Execution | 🔴 critical | CVE漏洞 | 通用 | 0.0260 | 5/5 |
+| GitLab - SAML Authentication Bypass | 🔴 critical | CVE漏洞 | GitLab 平台 | 0.3359 | 5/5 |
+| Phoenix Storybook - Remote Code Execution | 🔴 critical | CVE漏洞 | 通用 | 0.0291 | 5/5 |
+| BookIt &lt;&#x3D; 2.6.0.8 - Unauthenticated Paymen | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0039 | 4.5/5 |
+| Jupyter MCP Server &lt;&#x3D; 1.0.2 - Unauthentica | 🟠 high | CVE漏洞 | 通用 | 0.0050 | 4.5/5 |
+| langchain-ai langchain - XML External Entity Injec | 🟠 high | CVE漏洞 | 通用 | 0.0165 | 4.5/5 |
+| UpdraftPlus WP Backup & Migration Plugin - Authent | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0431 | 4.5/5 |
+| langchain-ai langchain - XML External Entity Injec | 🟠 high | CVE漏洞 | 通用 | 0.0165 | 4.5/5 |
+| UpdraftPlus WP Backup & Migration Plugin - Authent | 🟠 high | CVE漏洞 | WordPress 站点 | 0.0431 | 4.5/5 |
+| Roundcube Webmail &lt; 1.5.12 / 1.6.x &lt; 1.6.12  | 🟡 medium | CVE漏洞 | 通用 | 0.2831 | 3.7/5 |
+| Roundcube Webmail &lt; 1.5.12 / 1.6.x &lt; 1.6.12  | 🟡 medium | CVE漏洞 | 通用 | 0.2831 | 3.7/5 |
+| Essential Addons for Elementor &lt; 6.0.15 - Cross | 🟡 medium | CVE漏洞 | 通用 | 0.0126 | 3.5/5 |
+| Backdrop CMS - Cross-Site Scripting | 🟡 medium | CVE漏洞 | 通用 | 0.0174 | 3.5/5 |
+| Swagger UI &gt;&#x3D;3.14.1 &lt; 3.38.0 - DOM Base | 🟡 medium | CVE漏洞 | 通用 | 0.0182 | 3.5/5 |
+| Essential Addons for Elementor &lt; 6.0.15 - Cross | 🟡 medium | CVE漏洞 | 通用 | 0.0126 | 3.5/5 |
+| Backdrop CMS - Cross-Site Scripting | 🟡 medium | CVE漏洞 | 通用 | 0.0174 | 3.5/5 |
+| Swagger UI &gt;&#x3D;3.14.1 &lt; 3.38.0 - DOM Base | 🟡 medium | CVE漏洞 | 通用 | 0.0182 | 3.5/5 |
+
+## 🛡️ 安全建议
+
+🚨 发现高风险漏洞，建议立即扫描相关资产
+🔍 关注新发布的 CVE 漏洞，及时更新补丁
+⚡ 检测到远程代码执行漏洞，优先处理
+
+## 🔧 扫描建议
+
+建议使用以下 Nuclei 命令进行扫描：
+
+```bash
+# 扫描高危漏洞
+nuclei -t http/cves/2026/CVE-2026-129448.yaml -t http/cves/2026/CVE-2026-59309.yaml -t http/cves/2026/CVE-2026-118423.yaml -t http/cves/2026/CVE-2026-129448.yaml -t http/cves/2026/CVE-2026-50522.yaml -t http/cves/2026/CVE-2026-59309.yaml -t http/cves/2026/CVE-2026-118423.yaml -t http/cves/2026/CVE-2026-129448.yaml -t http/cves/2026/CVE-2026-50522.yaml -t http/cves/2026/CVE-2026-59309.yaml -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2026/CVE-2026-8467.yaml -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2026/CVE-2026-8467.yaml -t http/cves/2026/CVE-2026-131720.yaml -t http/cves/2026/CVE-2026-77318.yaml -t code/cves/2025/CVE-2025-6984.yaml -t code/cves/2026/CVE-2026-10795.yaml -t code/cves/2025/CVE-2025-6984.yaml -t code/cves/2026/CVE-2026-10795.yaml -u target-url
+
+# 扫描所有今日新增模板  
+nuclei -t http/cves/2026/CVE-2026-129448.yaml -t http/cves/2026/CVE-2026-59309.yaml -t http/cves/2026/CVE-2026-118423.yaml -t http/cves/2026/CVE-2026-129448.yaml -t http/cves/2026/CVE-2026-50522.yaml -t http/cves/2026/CVE-2026-59309.yaml -t http/cves/2026/CVE-2026-118423.yaml -t http/cves/2026/CVE-2026-129448.yaml -t http/cves/2026/CVE-2026-50522.yaml -t http/cves/2026/CVE-2026-59309.yaml -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2026/CVE-2026-8467.yaml -t code/cves/2025/CVE-2025-1550.yaml -t code/cves/2025/CVE-2025-25291.yaml -t code/cves/2026/CVE-2026-8467.yaml -t http/cves/2026/CVE-2026-131720.yaml -t http/cves/2026/CVE-2026-77318.yaml -t code/cves/2025/CVE-2025-6984.yaml -t code/cves/2026/CVE-2026-10795.yaml -t code/cves/2025/CVE-2025-6984.yaml -t code/cves/2026/CVE-2026-10795.yaml -t http/cves/2025/CVE-2025-68461.yaml -t http/cves/2025/CVE-2025-68461.yaml -t headless/cves/2025/CVE-2025-24752.yaml -t headless/cves/2025/CVE-2025-25062.yaml -t headless/cves/2025/CVE-2025-8191.yaml -t headless/cves/2025/CVE-2025-24752.yaml -t headless/cves/2025/CVE-2025-25062.yaml -t headless/cves/2025/CVE-2025-8191.yaml -u target-url
+```
+
+---
+
+*本报告基于 Nuclei 模板库自动生成，数据来源：[ProjectDiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)*
+
+*扫描建议仅供参考，请在授权环境下进行安全测试*
